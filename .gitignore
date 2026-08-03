@@ -1,0 +1,75 @@
+# ─── Environment & Secrets ───
+.env
+*.env.local
+
+# ─── Python ───
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# ─── Virtual environments ───
+venv/
+.venv/
+env/
+
+# ─── IDE ───
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# ─── Datasets (large files) ───
+datasets/raw_videos/
+datasets/faiss/*.index
+datasets/faiss/*.pkl
+*.mp4
+*.mkv
+*.webm
+*.wav
+*.mp3
+
+# ─── Model weights (too large for git) ───
+models/
+*.bin
+*.safetensors
+*.gguf
+
+# ─── Logs ───
+logs/
+*.log
+wandb/
+
+# ─── Docker ───
+docker/.env
+
+# ─── Node/Frontend ───
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+
+# ─── Notebooks ───
+.ipynb_checkpoints/
+
+# ─── OS ───
+Thumbs.db
+.DS_Store
+
+# Secrets
+cookies.txt
+*_cookies.txt
+
+# Generated datasets
+datasets/categorized/
+datasets/download_log.json
+
+# Research / local docs
+*.pdf
+*.xlsx

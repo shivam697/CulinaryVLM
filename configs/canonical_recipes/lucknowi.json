@@ -1,0 +1,201 @@
+{
+  "category": "Lucknowi",
+  "full_name": "Lucknowi (Awadhi) Chicken Biryani",
+  "region": "Uttar Pradesh (Lucknow / Awadh)",
+  "distinguishing_features": [
+    "Pakki (cooked) method — meat is fully cooked before layering",
+    "Very aromatic: heavy use of ittar, rose water, kewra water",
+    "Subtle spicing — less heat, more fragrance than Hyderabadi",
+    "Rice is cooked separately in spiced yakhni (stock)",
+    "Potli masala (spice bundle) technique"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "action": "Prepare yakhni",
+      "description": "Simmer chicken bones/pieces with whole spices, onion, ginger to make aromatic stock.",
+      "duration_minutes": 30,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "chicken",
+        "onion",
+        "ginger-garlic paste",
+        "bay leaf",
+        "cardamom",
+        "cinnamon"
+      ]
+    },
+    {
+      "step_number": 2,
+      "action": "Marinate chicken",
+      "description": "Marinate chicken in yogurt, mild spices, salt for 1 hour.",
+      "duration_minutes": 60,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "chicken",
+        "yogurt"
+      ]
+    },
+    {
+      "step_number": 3,
+      "action": "Cook chicken fully (pakki)",
+      "description": "Cook marinated chicken in ghee with fried onions until completely tender.",
+      "duration_minutes": 25,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "chicken",
+        "ghee",
+        "onion"
+      ]
+    },
+    {
+      "step_number": 4,
+      "action": "Cook rice in yakhni",
+      "description": "Cook basmati rice in the prepared yakhni stock until 75% done.",
+      "duration_minutes": 15,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "basmati rice"
+      ]
+    },
+    {
+      "step_number": 5,
+      "action": "Prepare potli masala",
+      "description": "Tie whole spices in muslin cloth to form a spice bundle. Place in pot.",
+      "duration_minutes": 5,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "cardamom",
+        "cloves",
+        "cinnamon",
+        "star anise"
+      ]
+    },
+    {
+      "step_number": 6,
+      "action": "Layer chicken and rice",
+      "description": "Alternate layers of cooked chicken and yakhni rice.",
+      "duration_minutes": 10,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "chicken",
+        "basmati rice"
+      ]
+    },
+    {
+      "step_number": 7,
+      "action": "Add aromatics",
+      "description": "Drizzle saffron milk, rose water, kewra water, and ghee.",
+      "duration_minutes": 5,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "saffron",
+        "rose water",
+        "kewra water",
+        "ghee"
+      ]
+    },
+    {
+      "step_number": 8,
+      "action": "Dum cooking",
+      "description": "Seal and cook on very low heat for 20 minutes.",
+      "duration_minutes": 20,
+      "is_defining_step": false,
+      "ingredients_used": []
+    },
+    {
+      "step_number": 9,
+      "action": "Rest and serve",
+      "description": "Rest 10 min, remove potli masala, gently mix. Serve with korma or raita.",
+      "duration_minutes": 10,
+      "is_defining_step": false,
+      "ingredients_used": []
+    }
+  ],
+  "ingredient_aliases": {
+    "chicken": {
+      "hi": "मुर्गा/चिकन",
+      "te": "కోడి",
+      "ml": "കോഴി",
+      "bn": "মুরগি",
+      "ur": "مرغ"
+    },
+    "basmati rice": {
+      "hi": "बासमती चावल",
+      "te": "బాస్మతి బియ్యం",
+      "ml": "ബസ്മതി അരി",
+      "bn": "বাসমতী চাল",
+      "ur": "باسمتی چاول"
+    },
+    "yogurt": {
+      "hi": "दही",
+      "te": "పెరుగు",
+      "ml": "തൈര്",
+      "bn": "দই",
+      "ur": "دہی"
+    },
+    "onion": {
+      "hi": "प्याज",
+      "te": "ఉల్లిపాయ",
+      "ml": "ഉള്ളി",
+      "bn": "পেঁয়াজ",
+      "ur": "پیاز"
+    },
+    "ghee": {
+      "hi": "घी",
+      "te": "నెయ్యి",
+      "ml": "നെയ്യ്",
+      "bn": "ঘি",
+      "ur": "گھی"
+    },
+    "saffron": {
+      "hi": "केसर",
+      "te": "కుంకుమపువ్వు",
+      "ml": "കുങ്കുമപ്പൂവ്",
+      "bn": "জাফরান",
+      "ur": "زعفران"
+    },
+    "rose water": {
+      "hi": "गुलाब जल",
+      "te": "గులాబీ నీరు",
+      "ml": "പനിനീർ",
+      "bn": "গোলাপ জল",
+      "ur": "عرق گلاب"
+    },
+    "kewra water": {
+      "hi": "केवड़ा जल",
+      "te": "కేవ్రా నీరు",
+      "ml": null,
+      "bn": "কেওড়া জল",
+      "ur": "کیوڑا"
+    },
+    "cardamom": {
+      "hi": "इलायची",
+      "te": "ఏలకులు",
+      "ml": "ഏലക്ക",
+      "bn": "এলাচ",
+      "ur": "الائچی"
+    },
+    "cinnamon": {
+      "hi": "दालचीनी",
+      "te": "దాల్చిన చెక్క",
+      "ml": "കറുവാപ്പട്ട",
+      "bn": "দারুচিনি",
+      "ur": "دار چینی"
+    }
+  },
+  "key_spices": [
+    "saffron",
+    "cardamom",
+    "mace",
+    "nutmeg",
+    "kewra",
+    "rose water",
+    "bay leaf"
+  ],
+  "rice_type": "Long-grain Basmati",
+  "cooking_vessel": "Heavy degchi with sealed lid",
+  "dum_method": "Sealed dum (gentle, low heat)",
+  "typical_duration_minutes": 110,
+  "notes": "Nawabi cuisine — emphasis on fragrance over heat. Potli masala is removed before serving."
+}

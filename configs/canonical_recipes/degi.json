@@ -1,0 +1,177 @@
+{
+  "category": "Degi",
+  "full_name": "Degi Chicken Biryani",
+  "region": "North India (wedding/celebration style)",
+  "distinguishing_features": [
+    "Cooked in a large deg (cauldron) — designed for feeding crowds",
+    "Extra ghee and oil for rich, moist texture at scale",
+    "Yakhni-based: rice cooked in meat stock",
+    "Multiple layers in the large deg",
+    "Wedding/dawat staple — quantity-focused recipe"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "action": "Prepare yakhni in deg",
+      "description": "Cook large quantity of chicken with bones in a deg with whole spices to make yakhni.",
+      "duration_minutes": 40,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "chicken",
+        "bay leaf",
+        "cardamom",
+        "cinnamon",
+        "onion"
+      ]
+    },
+    {
+      "step_number": 2,
+      "action": "Cook chicken in masala",
+      "description": "In the deg, cook chicken with onions, yogurt, and spices until semi-tender.",
+      "duration_minutes": 25,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "chicken",
+        "onion",
+        "yogurt",
+        "ghee"
+      ]
+    },
+    {
+      "step_number": 3,
+      "action": "Parboil rice in yakhni",
+      "description": "Cook soaked rice in the yakhni stock until 60-70% done.",
+      "duration_minutes": 12,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "basmati rice"
+      ]
+    },
+    {
+      "step_number": 4,
+      "action": "Layer in the deg",
+      "description": "Arrange multiple layers of chicken and rice in the large deg.",
+      "duration_minutes": 15,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "chicken",
+        "basmati rice"
+      ]
+    },
+    {
+      "step_number": 5,
+      "action": "Add generous ghee",
+      "description": "Pour melted ghee, saffron milk, fried onions, and mint between layers.",
+      "duration_minutes": 10,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "ghee",
+        "saffron",
+        "onion",
+        "mint"
+      ]
+    },
+    {
+      "step_number": 6,
+      "action": "Seal and dum",
+      "description": "Seal deg with heavy lid and dough, cook on charcoal dum for 40 minutes.",
+      "duration_minutes": 40,
+      "is_defining_step": true,
+      "ingredients_used": []
+    },
+    {
+      "step_number": 7,
+      "action": "Serve",
+      "description": "Open deg, serve in portions with raita and salad.",
+      "duration_minutes": 10,
+      "is_defining_step": false,
+      "ingredients_used": []
+    }
+  ],
+  "ingredient_aliases": {
+    "chicken": {
+      "hi": "मुर्गा/चिकन",
+      "te": "కోడి",
+      "ml": "കോഴി",
+      "bn": "মুরগি",
+      "ur": "مرغ"
+    },
+    "basmati rice": {
+      "hi": "बासमती चावल",
+      "te": "బాస్మతి బియ్యం",
+      "ml": "ബസ്മതി അരി",
+      "bn": "বাসমতী চাল",
+      "ur": "باسمتی چاول"
+    },
+    "yogurt": {
+      "hi": "दही",
+      "te": "పెరుగు",
+      "ml": "തൈര്",
+      "bn": "দই",
+      "ur": "دہی"
+    },
+    "onion": {
+      "hi": "प्याज",
+      "te": "ఉల్లిపాయ",
+      "ml": "ഉള്ളി",
+      "bn": "পেঁয়াজ",
+      "ur": "پیاز"
+    },
+    "ghee": {
+      "hi": "घी",
+      "te": "నెయ్యి",
+      "ml": "നെയ്യ്",
+      "bn": "ঘি",
+      "ur": "گھی"
+    },
+    "saffron": {
+      "hi": "केसर",
+      "te": "కుంకుమపువ్వు",
+      "ml": "കുങ്കുമപ്പൂവ്",
+      "bn": "জাফরান",
+      "ur": "زعفران"
+    },
+    "mint": {
+      "hi": "पुदीना",
+      "te": "పుదీనా",
+      "ml": "പുതിന",
+      "bn": "পুদিনা",
+      "ur": "پودینہ"
+    },
+    "coriander": {
+      "hi": "धनिया",
+      "te": "కొత్తిమీర",
+      "ml": "മല്ലി",
+      "bn": "ধনে",
+      "ur": "دھنیا"
+    },
+    "bay leaf": {
+      "hi": "तेज पत्ता",
+      "te": "బిర్యానీ ఆకు",
+      "ml": "കറിവേപ്പില",
+      "bn": "তেজপাতা",
+      "ur": "تیز پتہ"
+    },
+    "cardamom": {
+      "hi": "इलायची",
+      "te": "ఏలకులు",
+      "ml": "ഏലക്ക",
+      "bn": "এলাচ",
+      "ur": "الائچی"
+    }
+  },
+  "key_spices": [
+    "cardamom",
+    "cinnamon",
+    "cloves",
+    "bay leaf",
+    "mace",
+    "nutmeg",
+    "saffron"
+  ],
+  "rice_type": "Long-grain Basmati",
+  "cooking_vessel": "Large deg (cauldron)",
+  "dum_method": "Sealed dum with charcoal on top",
+  "typical_duration_minutes": 150,
+  "notes": "Degi biryani is the Indian wedding biryani — cooked in massive quantities in large copper degs."
+}

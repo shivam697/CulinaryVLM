@@ -1,0 +1,189 @@
+{
+  "category": "Bombay",
+  "full_name": "Bombay/Mumbai Chicken Biryani",
+  "region": "Maharashtra (Mumbai)",
+  "distinguishing_features": [
+    "Blend of North and South Indian influences",
+    "Uses fried potatoes (like Kolkata) and fried onions (like Hyderabadi)",
+    "Coconut and khus khus (poppy seeds) in the masala paste",
+    "Often includes crispy fried chicken pieces",
+    "Served with burhani raita (spiced yogurt drink)"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "action": "Marinate chicken",
+      "description": "Marinate with yogurt, ginger-garlic paste, spice mix, lemon juice for 1-2 hours.",
+      "duration_minutes": 90,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "chicken",
+        "yogurt",
+        "ginger-garlic paste",
+        "lemon"
+      ]
+    },
+    {
+      "step_number": 2,
+      "action": "Cook chicken masala",
+      "description": "Cook chicken with onions, coconut paste, tomatoes in oil until thick gravy forms.",
+      "duration_minutes": 25,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "chicken",
+        "onion",
+        "oil"
+      ]
+    },
+    {
+      "step_number": 3,
+      "action": "Fry potatoes",
+      "description": "Fry potato halves in oil until golden.",
+      "duration_minutes": 10,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "potato",
+        "oil"
+      ]
+    },
+    {
+      "step_number": 4,
+      "action": "Parboil rice",
+      "description": "Cook basmati with whole spices until 70% done.",
+      "duration_minutes": 10,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "basmati rice",
+        "bay leaf",
+        "cardamom",
+        "cinnamon"
+      ]
+    },
+    {
+      "step_number": 5,
+      "action": "Layer everything",
+      "description": "Layer chicken masala, fried potatoes, rice. Repeat.",
+      "duration_minutes": 10,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "chicken",
+        "potato",
+        "basmati rice"
+      ]
+    },
+    {
+      "step_number": 6,
+      "action": "Add saffron and ghee",
+      "description": "Drizzle saffron milk, ghee, fried onions, mint on top layer.",
+      "duration_minutes": 5,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "saffron",
+        "ghee",
+        "onion",
+        "mint"
+      ]
+    },
+    {
+      "step_number": 7,
+      "action": "Dum cooking",
+      "description": "Seal and cook on low heat 25 minutes.",
+      "duration_minutes": 25,
+      "is_defining_step": false,
+      "ingredients_used": []
+    },
+    {
+      "step_number": 8,
+      "action": "Serve",
+      "description": "Serve with burhani raita.",
+      "duration_minutes": 5,
+      "is_defining_step": true,
+      "ingredients_used": []
+    }
+  ],
+  "ingredient_aliases": {
+    "chicken": {
+      "hi": "मुर्गा/चिकन",
+      "te": "కోడి",
+      "ml": "കോഴി",
+      "bn": "মুরগি",
+      "ur": "مرغ"
+    },
+    "basmati rice": {
+      "hi": "बासमती चावल",
+      "te": "బాస్మతి బియ్యం",
+      "ml": "ബസ്മതി അരി",
+      "bn": "বাসমতী চাল",
+      "ur": "باسمتی چاول"
+    },
+    "yogurt": {
+      "hi": "दही",
+      "te": "పెరుగు",
+      "ml": "തൈര്",
+      "bn": "দই",
+      "ur": "دہی"
+    },
+    "onion": {
+      "hi": "प्याज",
+      "te": "ఉల్లిపాయ",
+      "ml": "ഉള്ളി",
+      "bn": "পেঁয়াজ",
+      "ur": "پیاز"
+    },
+    "potato": {
+      "hi": "आलू",
+      "te": "బంగాళాదుంప",
+      "ml": "ഉരുളക്കിഴങ്ങ്",
+      "bn": "আলু",
+      "ur": "آلو"
+    },
+    "ghee": {
+      "hi": "घी",
+      "te": "నెయ్యి",
+      "ml": "നെയ്യ്",
+      "bn": "ঘি",
+      "ur": "گھی"
+    },
+    "saffron": {
+      "hi": "केसर",
+      "te": "కుంకుమపువ్వు",
+      "ml": "കുങ്കുമപ്പൂവ്",
+      "bn": "জাফরান",
+      "ur": "زعفران"
+    },
+    "mint": {
+      "hi": "पुदीना",
+      "te": "పుదీనా",
+      "ml": "പുതിന",
+      "bn": "পুদিনা",
+      "ur": "پودینہ"
+    },
+    "ginger-garlic paste": {
+      "hi": "अदरक-लहसुन पेस्ट",
+      "te": "అల్లం-వెల్లుల్లి పేస్ట్",
+      "ml": "ഇഞ്ചി-വെളുത്തുള്ളി പേസ്റ്റ്",
+      "bn": "আদা-রসুন বাটা",
+      "ur": "ادرک لہسن پیسٹ"
+    },
+    "lemon": {
+      "hi": "नींबू",
+      "te": "నిమ్మకాయ",
+      "ml": "ചെറുനാരങ്ങ",
+      "bn": "লেবু",
+      "ur": "لیموں"
+    }
+  },
+  "key_spices": [
+    "cardamom",
+    "cinnamon",
+    "cloves",
+    "bay leaf",
+    "mace",
+    "star anise"
+  ],
+  "rice_type": "Long-grain Basmati",
+  "cooking_vessel": "Heavy-bottomed pot",
+  "dum_method": "Sealed dum",
+  "typical_duration_minutes": 110,
+  "notes": "Mumbai biryani blends influences from multiple Indian biryani traditions. Burhani raita is the signature accompaniment."
+}

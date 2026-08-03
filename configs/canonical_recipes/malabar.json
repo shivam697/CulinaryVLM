@@ -1,0 +1,210 @@
+{
+  "category": "Malabar",
+  "full_name": "Malabar/Thalassery Chicken Biryani",
+  "region": "Kerala (Malabar coast / Thalassery)",
+  "distinguishing_features": [
+    "Uses Kaima/Jeerakasala rice instead of Basmati",
+    "Coconut milk in gravy and sometimes in rice",
+    "Distinct Kerala spice profile: fennel, star anise, Malabar pepper",
+    "Meat cooked in thick masala gravy before layering",
+    "Fried cashews and raisins as garnish"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "action": "Prepare masala paste",
+      "description": "Grind coconut, ginger, garlic, green chilies, fennel, poppy seeds into thick paste.",
+      "duration_minutes": 10,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "ginger-garlic paste",
+        "green chili",
+        "fennel seeds",
+        "coconut milk"
+      ]
+    },
+    {
+      "step_number": 2,
+      "action": "Cook chicken in masala",
+      "description": "Cook chicken pieces in the masala paste with onions, tomatoes, curry leaves, coconut milk until tender.",
+      "duration_minutes": 25,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "chicken",
+        "onion",
+        "curry leaves",
+        "coconut milk"
+      ]
+    },
+    {
+      "step_number": 3,
+      "action": "Wash and soak Kaima rice",
+      "description": "Wash Kaima/Jeerakasala rice and soak for 20 minutes.",
+      "duration_minutes": 20,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "basmati rice"
+      ]
+    },
+    {
+      "step_number": 4,
+      "action": "Cook rice",
+      "description": "Cook rice with whole spices until 80% done. Drain.",
+      "duration_minutes": 12,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "basmati rice",
+        "cardamom",
+        "cloves",
+        "cinnamon"
+      ]
+    },
+    {
+      "step_number": 5,
+      "action": "Fry onions",
+      "description": "Fry thinly sliced onions in coconut oil until crispy golden.",
+      "duration_minutes": 12,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "onion",
+        "oil"
+      ]
+    },
+    {
+      "step_number": 6,
+      "action": "Fry cashews and raisins",
+      "description": "Fry cashew nuts and raisins in ghee until golden.",
+      "duration_minutes": 5,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "ghee"
+      ]
+    },
+    {
+      "step_number": 7,
+      "action": "Layer chicken and rice",
+      "description": "Alternate layers of chicken masala and partially cooked rice.",
+      "duration_minutes": 10,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "chicken",
+        "basmati rice"
+      ]
+    },
+    {
+      "step_number": 8,
+      "action": "Add garnish and aromatics",
+      "description": "Top with fried onions, cashews, raisins, ghee, saffron milk, and mint.",
+      "duration_minutes": 5,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "ghee",
+        "saffron",
+        "mint",
+        "onion"
+      ]
+    },
+    {
+      "step_number": 9,
+      "action": "Dum cooking",
+      "description": "Seal and cook on low heat for 20-25 minutes.",
+      "duration_minutes": 25,
+      "is_defining_step": false,
+      "ingredients_used": []
+    },
+    {
+      "step_number": 10,
+      "action": "Serve",
+      "description": "Gently fluff, serve with raita and pickle.",
+      "duration_minutes": 5,
+      "is_defining_step": false,
+      "ingredients_used": []
+    }
+  ],
+  "ingredient_aliases": {
+    "chicken": {
+      "hi": "मुर्गा/चिकन",
+      "te": "కోడి",
+      "ml": "കോഴി",
+      "bn": "মুরগি",
+      "ur": "مرغ"
+    },
+    "basmati rice": {
+      "hi": "बासमती चावल",
+      "te": "బాస్మతి బియ్యం",
+      "ml": "ബസ്മതി അരി",
+      "bn": "বাসমতী চাল",
+      "ur": "باسمتی چاول"
+    },
+    "coconut milk": {
+      "hi": "नारियल का दूध",
+      "te": "కొబ్బరి పాలు",
+      "ml": "തേങ്ങാപ്പാൽ",
+      "bn": "নারকেলের দুধ",
+      "ur": "ناریل کا دودھ"
+    },
+    "onion": {
+      "hi": "प्याज",
+      "te": "ఉల్లిపాయ",
+      "ml": "ഉള്ളി",
+      "bn": "পেঁয়াজ",
+      "ur": "پیاز"
+    },
+    "ghee": {
+      "hi": "घी",
+      "te": "నెయ్యి",
+      "ml": "നെയ്യ്",
+      "bn": "ঘি",
+      "ur": "گھی"
+    },
+    "curry leaves": {
+      "hi": "कढ़ी पत्ता",
+      "te": "కరివేపాకు",
+      "ml": "കറിവേപ്പില",
+      "bn": "কারি পাতা",
+      "ur": "کری پتہ"
+    },
+    "fennel seeds": {
+      "hi": "सौंफ",
+      "te": "సోంపు",
+      "ml": "പെരുംജീരകം",
+      "bn": "মৌরি",
+      "ur": "سونف"
+    },
+    "green chili": {
+      "hi": "हरी मिर्च",
+      "te": "పచ్చి మిర్చి",
+      "ml": "പച്ചമുളക്",
+      "bn": "কাঁচা লঙ্কা",
+      "ur": "ہری مرچ"
+    },
+    "ginger-garlic paste": {
+      "hi": "अदरक-लहसुन पेस्ट",
+      "te": "అల్లం-వెల్లుల్లి పేస్ట్",
+      "ml": "ഇഞ്ചി-വെളുത്തുള്ളി പേസ്റ്റ്",
+      "bn": "আদা-রসুন বাটা",
+      "ur": "ادرک لہسن پیسٹ"
+    },
+    "mint": {
+      "hi": "पुदीना",
+      "te": "పుదీనా",
+      "ml": "പുതിന",
+      "bn": "পুদিনা",
+      "ur": "پودینہ"
+    }
+  },
+  "key_spices": [
+    "fennel",
+    "star anise",
+    "Malabar pepper",
+    "cardamom",
+    "cinnamon",
+    "cloves",
+    "curry leaves"
+  ],
+  "rice_type": "Kaima / Jeerakasala (short-grain)",
+  "cooking_vessel": "Heavy uruli or cheena chatti",
+  "dum_method": "Sealed dum with banana leaf or lid",
+  "typical_duration_minutes": 100,
+  "notes": "Thalassery biryani is distinct from other Indian biryanis due to Kaima rice and Mappila Muslim culinary traditions."
+}

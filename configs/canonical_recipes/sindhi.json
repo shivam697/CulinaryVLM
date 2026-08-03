@@ -1,0 +1,199 @@
+{
+  "category": "Sindhi",
+  "full_name": "Sindhi/Karachi Chicken Biryani",
+  "region": "Sindh / Karachi (Pakistani origin, Indian Sindhi diaspora)",
+  "distinguishing_features": [
+    "Heavy use of dried plums (aloo bukhara) and potatoes",
+    "Yogurt-based marinade with generous red chili and cumin",
+    "Fried potatoes layered with rice",
+    "More heavily spiced than Lucknowi, less sweet than Kolkata",
+    "Often uses tomatoes in the chicken masala"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "action": "Marinate chicken",
+      "description": "Marinate chicken in yogurt, ginger-garlic paste, red chili, turmeric, cumin, salt for 1-2 hours.",
+      "duration_minutes": 90,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "chicken",
+        "yogurt",
+        "ginger-garlic paste",
+        "red chili powder",
+        "cumin",
+        "turmeric"
+      ]
+    },
+    {
+      "step_number": 2,
+      "action": "Cook chicken",
+      "description": "Cook marinated chicken with onions, tomatoes, green chilies until tender.",
+      "duration_minutes": 25,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "chicken",
+        "onion",
+        "green chili"
+      ]
+    },
+    {
+      "step_number": 3,
+      "action": "Prepare dried plums",
+      "description": "Soak dried plums (aloo bukhara) in warm water.",
+      "duration_minutes": 15,
+      "is_defining_step": true,
+      "ingredients_used": []
+    },
+    {
+      "step_number": 4,
+      "action": "Fry potatoes",
+      "description": "Peel and halve potatoes, fry in oil until golden on all sides.",
+      "duration_minutes": 15,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "potato",
+        "oil"
+      ]
+    },
+    {
+      "step_number": 5,
+      "action": "Parboil rice",
+      "description": "Cook basmati rice with whole spices until 70% done.",
+      "duration_minutes": 10,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "basmati rice",
+        "bay leaf",
+        "cardamom",
+        "cumin"
+      ]
+    },
+    {
+      "step_number": 6,
+      "action": "Layer chicken",
+      "description": "Place cooked chicken at the bottom, add fried potatoes and soaked plums.",
+      "duration_minutes": 5,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "chicken",
+        "potato"
+      ]
+    },
+    {
+      "step_number": 7,
+      "action": "Layer rice",
+      "description": "Add rice layer with saffron milk, fried onions, mint, coriander.",
+      "duration_minutes": 5,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "basmati rice",
+        "saffron",
+        "onion",
+        "mint",
+        "coriander"
+      ]
+    },
+    {
+      "step_number": 8,
+      "action": "Dum cooking",
+      "description": "Seal pot with dough or foil, cook low heat 25-30 min.",
+      "duration_minutes": 30,
+      "is_defining_step": false,
+      "ingredients_used": []
+    },
+    {
+      "step_number": 9,
+      "action": "Serve",
+      "description": "Mix gently, serve with raita and salad.",
+      "duration_minutes": 5,
+      "is_defining_step": false,
+      "ingredients_used": []
+    }
+  ],
+  "ingredient_aliases": {
+    "chicken": {
+      "hi": "मुर्गा/चिकन",
+      "te": "కోడి",
+      "ml": "കോഴി",
+      "bn": "মুরগি",
+      "ur": "مرغ"
+    },
+    "basmati rice": {
+      "hi": "बासमती चावल",
+      "te": "బాస్మతి బియ్యం",
+      "ml": "ബസ്മതി അരി",
+      "bn": "বাসমতী চাল",
+      "ur": "باسمتی چاول"
+    },
+    "yogurt": {
+      "hi": "दही",
+      "te": "పెరుగు",
+      "ml": "തൈര്",
+      "bn": "দই",
+      "ur": "دہی"
+    },
+    "onion": {
+      "hi": "प्याज",
+      "te": "ఉల్లిపాయ",
+      "ml": "ഉള്ളി",
+      "bn": "পেঁয়াজ",
+      "ur": "پیاز"
+    },
+    "potato": {
+      "hi": "आलू",
+      "te": "బంగాళాదుంప",
+      "ml": "ഉരുളക്കിഴങ്ങ്",
+      "bn": "আলু",
+      "ur": "آلو"
+    },
+    "cumin": {
+      "hi": "जीरा",
+      "te": "జీలకర్ర",
+      "ml": "ജീരകം",
+      "bn": "জিরা",
+      "ur": "زیرہ"
+    },
+    "red chili powder": {
+      "hi": "लाल मिर्च पाउडर",
+      "te": "ఎర్ర మిర్చి పొడి",
+      "ml": "മുളകുപൊടി",
+      "bn": "লাল লঙ্কার গুঁড়ো",
+      "ur": "لال مرچ پاؤڈر"
+    },
+    "green chili": {
+      "hi": "हरी मिर्च",
+      "te": "పచ్చి మిర్చి",
+      "ml": "പച്ചമുളക്",
+      "bn": "কাঁচা লঙ্কা",
+      "ur": "ہری مرچ"
+    },
+    "mint": {
+      "hi": "पुदीना",
+      "te": "పుదీనా",
+      "ml": "പുതിന",
+      "bn": "পুদিনা",
+      "ur": "پودینہ"
+    },
+    "saffron": {
+      "hi": "केसर",
+      "te": "కుంకుమపువ్వు",
+      "ml": "കുങ്കുമപ്പൂവ്",
+      "bn": "জাফরান",
+      "ur": "زعفران"
+    }
+  },
+  "key_spices": [
+    "cumin",
+    "red chili",
+    "turmeric",
+    "cardamom",
+    "bay leaf",
+    "black pepper"
+  ],
+  "rice_type": "Long-grain Basmati",
+  "cooking_vessel": "Heavy-bottomed pot (deg)",
+  "dum_method": "Sealed dum",
+  "typical_duration_minutes": 110,
+  "notes": "Karachi-style biryani is known for its spice intensity. Dried plums add a unique tangy-sweet note."
+}

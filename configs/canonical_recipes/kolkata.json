@@ -1,0 +1,209 @@
+{
+  "category": "Kolkata",
+  "full_name": "Kolkata Chicken Biryani",
+  "region": "West Bengal (Kolkata)",
+  "distinguishing_features": [
+    "Light, subtly flavored biryani with less spice than Hyderabadi",
+    "Signature use of whole boiled potatoes and eggs alongside chicken",
+    "Meat is pre-cooked (pakki method), not raw layered",
+    "Rose water and kewra water as aromatic finishers",
+    "Nutmeg and mace dominant over chili heat"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "action": "Marinate chicken",
+      "description": "Marinate chicken with yogurt, ginger-garlic paste, mild spices (nutmeg, mace, cardamom), salt for 1-2 hours.",
+      "duration_minutes": 90,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "chicken",
+        "yogurt",
+        "ginger-garlic paste"
+      ]
+    },
+    {
+      "step_number": 2,
+      "action": "Cook chicken (pakki method)",
+      "description": "Cook marinated chicken in ghee with onions until 80% done. Reserve gravy.",
+      "duration_minutes": 20,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "chicken",
+        "ghee",
+        "onion"
+      ]
+    },
+    {
+      "step_number": 3,
+      "action": "Boil potatoes and eggs",
+      "description": "Boil whole potatoes and eggs separately. Lightly fry potatoes until golden.",
+      "duration_minutes": 20,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "potato",
+        "egg",
+        "oil"
+      ]
+    },
+    {
+      "step_number": 4,
+      "action": "Soak and parboil rice",
+      "description": "Soak basmati 30 min, parboil with whole spices until 70% done.",
+      "duration_minutes": 40,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "basmati rice",
+        "bay leaf",
+        "cardamom",
+        "cinnamon"
+      ]
+    },
+    {
+      "step_number": 5,
+      "action": "Layer chicken",
+      "description": "Place cooked chicken with gravy at bottom of pot.",
+      "duration_minutes": 5,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "chicken"
+      ]
+    },
+    {
+      "step_number": 6,
+      "action": "Add potatoes and eggs",
+      "description": "Place fried potatoes and halved boiled eggs around the chicken.",
+      "duration_minutes": 5,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "potato",
+        "egg"
+      ]
+    },
+    {
+      "step_number": 7,
+      "action": "Layer rice",
+      "description": "Spread parboiled rice over the chicken and potato layer.",
+      "duration_minutes": 5,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "basmati rice"
+      ]
+    },
+    {
+      "step_number": 8,
+      "action": "Add aromatics",
+      "description": "Drizzle saffron milk, rose water, kewra water, ghee, and fried onions over rice.",
+      "duration_minutes": 5,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "saffron",
+        "rose water",
+        "kewra water",
+        "ghee",
+        "onion"
+      ]
+    },
+    {
+      "step_number": 9,
+      "action": "Dum cooking",
+      "description": "Seal pot, cook on low heat for 20-25 minutes.",
+      "duration_minutes": 25,
+      "is_defining_step": false,
+      "ingredients_used": []
+    },
+    {
+      "step_number": 10,
+      "action": "Rest and serve",
+      "description": "Rest 10 min, gently mix. Serve with change'r dal and raita.",
+      "duration_minutes": 10,
+      "is_defining_step": false,
+      "ingredients_used": []
+    }
+  ],
+  "ingredient_aliases": {
+    "chicken": {
+      "hi": "मुर्गा/चिकन",
+      "te": "కోడి",
+      "ml": "കോഴി",
+      "bn": "মুরগি",
+      "ur": "مرغ"
+    },
+    "basmati rice": {
+      "hi": "बासमती चावल",
+      "te": "బాస్మతి బియ్యం",
+      "ml": "ബസ്മതി അരി",
+      "bn": "বাসমতী চাল",
+      "ur": "باسمتی چاول"
+    },
+    "yogurt": {
+      "hi": "दही",
+      "te": "పెరుగు",
+      "ml": "തൈര്",
+      "bn": "দই",
+      "ur": "دہی"
+    },
+    "onion": {
+      "hi": "प्याज",
+      "te": "ఉల్లిపాయ",
+      "ml": "ഉള്ളി",
+      "bn": "পেঁয়াজ",
+      "ur": "پیاز"
+    },
+    "ghee": {
+      "hi": "घी",
+      "te": "నెయ్యి",
+      "ml": "നെയ്യ്",
+      "bn": "ঘি",
+      "ur": "گھی"
+    },
+    "saffron": {
+      "hi": "केसर",
+      "te": "కుంకుమపువ్వు",
+      "ml": "കുങ്കുമപ്പൂവ്",
+      "bn": "জাফরান",
+      "ur": "زعفران"
+    },
+    "potato": {
+      "hi": "आलू",
+      "te": "బంగాళాదుంప",
+      "ml": "ഉരുളക്കിഴങ്ങ്",
+      "bn": "আলু",
+      "ur": "آلو"
+    },
+    "egg": {
+      "hi": "अंडा",
+      "te": "గుడ్డు",
+      "ml": "മുട്ട",
+      "bn": "ডিম",
+      "ur": "انڈا"
+    },
+    "rose water": {
+      "hi": "गुलाब जल",
+      "te": "గులాబీ నీరు",
+      "ml": "പനിനീർ",
+      "bn": "গোলাপ জল",
+      "ur": "عرق گلاب"
+    },
+    "kewra water": {
+      "hi": "केवड़ा जल",
+      "te": "కేవ్రా నీరు",
+      "ml": null,
+      "bn": "কেওড়া জল",
+      "ur": "کیوڑا"
+    }
+  },
+  "key_spices": [
+    "nutmeg",
+    "mace",
+    "cardamom",
+    "cinnamon",
+    "bay leaf",
+    "saffron"
+  ],
+  "rice_type": "Long-grain Basmati (Gobindobhog for some variants)",
+  "cooking_vessel": "Heavy-bottomed degchi",
+  "dum_method": "Sealed dum (cloth or dough)",
+  "typical_duration_minutes": 100,
+  "notes": "Adapted from Awadhi/Lucknowi style by Wajid Ali Shah's cooks after exile to Kolkata. Potatoes were added as a cost-saving measure."
+}

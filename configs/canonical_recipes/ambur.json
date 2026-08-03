@@ -1,0 +1,168 @@
+{
+  "category": "Ambur",
+  "full_name": "Ambur Chicken Biryani",
+  "region": "Tamil Nadu (Ambur, Vellore district)",
+  "distinguishing_features": [
+    "Uses Seeraga Samba rice (jeera rice) — short-grain, very aromatic",
+    "Dahi-based (curd-based) marination, no tomato",
+    "Relatively less spiced — lets rice and meat flavor dominate",
+    "Mint and coriander used sparingly",
+    "Traditionally served with dalcha (lentil-vegetable curry) and brinjal gravy"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "action": "Marinate chicken",
+      "description": "Marinate chicken with yogurt, ginger-garlic paste, chili powder, turmeric, mint for 1 hour.",
+      "duration_minutes": 60,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "chicken",
+        "yogurt",
+        "ginger-garlic paste",
+        "red chili powder",
+        "mint"
+      ]
+    },
+    {
+      "step_number": 2,
+      "action": "Cook chicken",
+      "description": "Cook marinated chicken in oil with onions until tender.",
+      "duration_minutes": 20,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "chicken",
+        "onion",
+        "oil"
+      ]
+    },
+    {
+      "step_number": 3,
+      "action": "Wash Seeraga Samba rice",
+      "description": "Wash the short-grain Seeraga Samba rice thoroughly.",
+      "duration_minutes": 10,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "basmati rice"
+      ]
+    },
+    {
+      "step_number": 4,
+      "action": "Cook rice in meat stock",
+      "description": "Cook rice in the chicken cooking liquid (stock) with whole spices.",
+      "duration_minutes": 15,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "basmati rice",
+        "bay leaf",
+        "cardamom",
+        "cinnamon"
+      ]
+    },
+    {
+      "step_number": 5,
+      "action": "Layer and dum",
+      "description": "Layer chicken and rice, add ghee, fried onions. Seal and dum for 15 min.",
+      "duration_minutes": 15,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "chicken",
+        "basmati rice",
+        "ghee",
+        "onion"
+      ]
+    },
+    {
+      "step_number": 6,
+      "action": "Serve",
+      "description": "Serve with dalcha and brinjal gravy (traditional sides).",
+      "duration_minutes": 5,
+      "is_defining_step": true,
+      "ingredients_used": []
+    }
+  ],
+  "ingredient_aliases": {
+    "chicken": {
+      "hi": "मुर्गा/चिकन",
+      "te": "కోడి",
+      "ml": "കോഴി",
+      "bn": "মুরগি",
+      "ur": "مرغ"
+    },
+    "basmati rice": {
+      "hi": "बासमती चावल",
+      "te": "బాస్మతి బియ్యం",
+      "ml": "ബസ്മതി അരി",
+      "bn": "বাসমতী চাল",
+      "ur": "باسمتی چاول"
+    },
+    "yogurt": {
+      "hi": "दही",
+      "te": "పెరుగు",
+      "ml": "തൈര്",
+      "bn": "দই",
+      "ur": "دہی"
+    },
+    "onion": {
+      "hi": "प्याज",
+      "te": "ఉల్లిపాయ",
+      "ml": "ഉള്ളി",
+      "bn": "পেঁয়াজ",
+      "ur": "پیاز"
+    },
+    "ghee": {
+      "hi": "घी",
+      "te": "నెయ్యి",
+      "ml": "നെയ്യ്",
+      "bn": "ঘি",
+      "ur": "گھی"
+    },
+    "mint": {
+      "hi": "पुदीना",
+      "te": "పుదీనా",
+      "ml": "പുതിന",
+      "bn": "পুদিনা",
+      "ur": "پودینہ"
+    },
+    "ginger-garlic paste": {
+      "hi": "अदरक-लहसुन पेस्ट",
+      "te": "అల్లం-వెల్లుల్లి పేస్ట్",
+      "ml": "ഇഞ്ചി-വെളുത്തുള്ളി പേസ്റ്റ്",
+      "bn": "আদা-রসুন বাটা",
+      "ur": "ادرک لہسن پیسٹ"
+    },
+    "red chili powder": {
+      "hi": "लाल मिर्च पाउडर",
+      "te": "ఎర్ర మిర్చి పొడి",
+      "ml": "മുളകുപൊടി",
+      "bn": "লাল লঙ্কার গুঁড়ো",
+      "ur": "لال مرچ پاؤڈر"
+    },
+    "bay leaf": {
+      "hi": "तेज पत्ता",
+      "te": "బిర్యానీ ఆకు",
+      "ml": "കറിവേപ്പില",
+      "bn": "তেজপাতা",
+      "ur": "تیز پتہ"
+    },
+    "cardamom": {
+      "hi": "इलायची",
+      "te": "ఏలకులు",
+      "ml": "ഏലക്ക",
+      "bn": "এলাচ",
+      "ur": "الائچی"
+    }
+  },
+  "key_spices": [
+    "cardamom",
+    "cinnamon",
+    "bay leaf",
+    "cumin",
+    "fennel"
+  ],
+  "rice_type": "Seeraga Samba (short-grain jeera rice)",
+  "cooking_vessel": "Earthen pot or heavy pan",
+  "dum_method": "Short dum (15 min)",
+  "typical_duration_minutes": 80,
+  "notes": "One of Tamil Nadu's most famous biryanis. Seeraga Samba rice absorbs flavors beautifully. Always served with dalcha."
+}

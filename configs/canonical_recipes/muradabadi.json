@@ -1,0 +1,184 @@
+{
+  "category": "Muradabadi",
+  "full_name": "Muradabadi Chicken Biryani",
+  "region": "Uttar Pradesh (Moradabad)",
+  "distinguishing_features": [
+    "Uses mustard oil for a pungent, distinctive flavor",
+    "Yakhni-based — rice cooked in meat stock",
+    "Less oil/ghee than Hyderabadi or Lucknowi",
+    "Minimal use of fried onions compared to other styles",
+    "Simple spicing — cumin, black pepper, bay leaf dominate"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "action": "Prepare yakhni",
+      "description": "Boil chicken pieces with onions, whole spices, salt to make yakhni stock. Remove chicken, strain stock.",
+      "duration_minutes": 30,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "chicken",
+        "onion",
+        "bay leaf",
+        "cardamom",
+        "black pepper"
+      ]
+    },
+    {
+      "step_number": 2,
+      "action": "Soak rice",
+      "description": "Wash and soak basmati rice for 30 minutes.",
+      "duration_minutes": 30,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "basmati rice"
+      ]
+    },
+    {
+      "step_number": 3,
+      "action": "Cook chicken in mustard oil",
+      "description": "Fry boiled chicken pieces in mustard oil with cumin, green chilies until browned.",
+      "duration_minutes": 15,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "chicken",
+        "mustard oil",
+        "cumin",
+        "green chili"
+      ]
+    },
+    {
+      "step_number": 4,
+      "action": "Cook rice in yakhni",
+      "description": "Cook soaked rice in the yakhni stock until 80% done.",
+      "duration_minutes": 12,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "basmati rice"
+      ]
+    },
+    {
+      "step_number": 5,
+      "action": "Layer chicken and rice",
+      "description": "Place fried chicken at bottom, layer yakhni rice on top.",
+      "duration_minutes": 5,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "chicken",
+        "basmati rice"
+      ]
+    },
+    {
+      "step_number": 6,
+      "action": "Add saffron and mint",
+      "description": "Drizzle saffron-infused mustard oil and fresh mint leaves.",
+      "duration_minutes": 5,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "saffron",
+        "mustard oil",
+        "mint"
+      ]
+    },
+    {
+      "step_number": 7,
+      "action": "Dum cooking",
+      "description": "Seal and cook on very low heat for 20 minutes.",
+      "duration_minutes": 20,
+      "is_defining_step": false,
+      "ingredients_used": []
+    },
+    {
+      "step_number": 8,
+      "action": "Serve",
+      "description": "Fluff gently, serve with green chutney and raita.",
+      "duration_minutes": 5,
+      "is_defining_step": false,
+      "ingredients_used": []
+    }
+  ],
+  "ingredient_aliases": {
+    "chicken": {
+      "hi": "मुर्गा/चिकन",
+      "te": "కోడి",
+      "ml": "കോഴി",
+      "bn": "মুরগি",
+      "ur": "مرغ"
+    },
+    "basmati rice": {
+      "hi": "बासमती चावल",
+      "te": "బాస్మతి బియ్యం",
+      "ml": "ബസ്മതി അരി",
+      "bn": "বাসমতী চাল",
+      "ur": "باسمتی چاول"
+    },
+    "mustard oil": {
+      "hi": "सरसों का तेल",
+      "te": "ఆవ నూనె",
+      "ml": "കടുക് എണ്ണ",
+      "bn": "সরষের তেল",
+      "ur": "سرسوں کا تیل"
+    },
+    "onion": {
+      "hi": "प्याज",
+      "te": "ఉల్లిపాయ",
+      "ml": "ഉള്ളി",
+      "bn": "পেঁয়াজ",
+      "ur": "پیاز"
+    },
+    "cumin": {
+      "hi": "जीरा",
+      "te": "జీలకర్ర",
+      "ml": "ജീരകം",
+      "bn": "জিরা",
+      "ur": "زیرہ"
+    },
+    "black pepper": {
+      "hi": "काली मिर्च",
+      "te": "మిరియాలు",
+      "ml": "കുരുമുളക്",
+      "bn": "গোল মরিচ",
+      "ur": "کالی مرچ"
+    },
+    "bay leaf": {
+      "hi": "तेज पत्ता",
+      "te": "బిర్యానీ ఆకు",
+      "ml": "കറിവേപ്പില",
+      "bn": "তেজপাতা",
+      "ur": "تیز پتہ"
+    },
+    "saffron": {
+      "hi": "केसर",
+      "te": "కుంకుమపువ్వు",
+      "ml": "കുങ്കുമപ്പൂവ്",
+      "bn": "জাফরান",
+      "ur": "زعفران"
+    },
+    "mint": {
+      "hi": "पुदीना",
+      "te": "పుదీనా",
+      "ml": "പുതിന",
+      "bn": "পুদিনা",
+      "ur": "پودینہ"
+    },
+    "green chili": {
+      "hi": "हरी मिर्च",
+      "te": "పచ్చి మిర్చి",
+      "ml": "പച്ചമുളക്",
+      "bn": "কাঁচা লঙ্কা",
+      "ur": "ہری مرچ"
+    }
+  },
+  "key_spices": [
+    "cumin",
+    "black pepper",
+    "bay leaf",
+    "cardamom",
+    "cinnamon"
+  ],
+  "rice_type": "Long-grain Basmati",
+  "cooking_vessel": "Heavy degchi",
+  "dum_method": "Sealed dum (low heat)",
+  "typical_duration_minutes": 90,
+  "notes": "Known for mustard oil usage and yakhni-based cooking. Less elaborate than Lucknowi but deeply flavored."
+}

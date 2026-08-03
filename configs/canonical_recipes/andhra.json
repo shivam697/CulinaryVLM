@@ -1,0 +1,193 @@
+{
+  "category": "Andhra",
+  "full_name": "Andhra Chicken Biryani",
+  "region": "Andhra Pradesh / Telangana (various sub-regions)",
+  "distinguishing_features": [
+    "Spiciest biryani style — heavy use of green and red chilies",
+    "Uses Seeraga Samba or regular Basmati rice",
+    "Coconut and curry leaves in the masala",
+    "Generous use of ginger and garlic",
+    "Each sub-region has variants: Vizag, Nellore, Guntur, Rayalaseema"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "action": "Marinate chicken",
+      "description": "Marinate with yogurt, red chili powder, turmeric, ginger-garlic paste, green chilies, salt for 1 hour.",
+      "duration_minutes": 60,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "chicken",
+        "yogurt",
+        "red chili powder",
+        "turmeric",
+        "ginger-garlic paste",
+        "green chili"
+      ]
+    },
+    {
+      "step_number": 2,
+      "action": "Cook chicken masala",
+      "description": "Cook chicken in oil with onions, tomatoes, curry leaves, coconut paste until gravy thickens.",
+      "duration_minutes": 25,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "chicken",
+        "onion",
+        "oil",
+        "curry leaves"
+      ]
+    },
+    {
+      "step_number": 3,
+      "action": "Parboil rice",
+      "description": "Cook basmati with bay leaf, cardamom, cloves until 70% done.",
+      "duration_minutes": 10,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "basmati rice",
+        "bay leaf",
+        "cardamom",
+        "cloves"
+      ]
+    },
+    {
+      "step_number": 4,
+      "action": "Prepare green chili paste",
+      "description": "Grind green chilies with mint and coriander for the spicy layer.",
+      "duration_minutes": 5,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "green chili",
+        "mint",
+        "coriander"
+      ]
+    },
+    {
+      "step_number": 5,
+      "action": "Layer chicken and rice",
+      "description": "Layer chicken masala, green chili paste, and rice alternately.",
+      "duration_minutes": 10,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "chicken",
+        "basmati rice"
+      ]
+    },
+    {
+      "step_number": 6,
+      "action": "Add aromatics",
+      "description": "Add saffron milk, ghee, fried onions, curry leaves on top.",
+      "duration_minutes": 5,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "saffron",
+        "ghee",
+        "onion",
+        "curry leaves"
+      ]
+    },
+    {
+      "step_number": 7,
+      "action": "Dum cooking",
+      "description": "Seal and cook on low heat for 25 minutes.",
+      "duration_minutes": 25,
+      "is_defining_step": false,
+      "ingredients_used": []
+    },
+    {
+      "step_number": 8,
+      "action": "Serve",
+      "description": "Mix gently, serve with mirchi ka salan or onion raita.",
+      "duration_minutes": 5,
+      "is_defining_step": false,
+      "ingredients_used": []
+    }
+  ],
+  "ingredient_aliases": {
+    "chicken": {
+      "hi": "मुर्गा/चिकन",
+      "te": "కోడి",
+      "ml": "കോഴി",
+      "bn": "মুরগি",
+      "ur": "مرغ"
+    },
+    "basmati rice": {
+      "hi": "बासमती चावल",
+      "te": "బాస్మతి బియ్యం",
+      "ml": "ബസ്മതി അരി",
+      "bn": "বাসমতী চাল",
+      "ur": "باسمتی چاول"
+    },
+    "yogurt": {
+      "hi": "दही",
+      "te": "పెరుగు",
+      "ml": "തൈര്",
+      "bn": "দই",
+      "ur": "دہی"
+    },
+    "onion": {
+      "hi": "प्याज",
+      "te": "ఉల్లిపాయ",
+      "ml": "ഉള്ളി",
+      "bn": "পেঁয়াজ",
+      "ur": "پیاز"
+    },
+    "ghee": {
+      "hi": "घी",
+      "te": "నెయ్యి",
+      "ml": "നെയ്യ്",
+      "bn": "ঘি",
+      "ur": "گھی"
+    },
+    "curry leaves": {
+      "hi": "कढ़ी पत्ता",
+      "te": "కరివేపాకు",
+      "ml": "കറിവേപ്പില",
+      "bn": "কারি পাতা",
+      "ur": "کری پتہ"
+    },
+    "green chili": {
+      "hi": "हरी मिर्च",
+      "te": "పచ్చి మిర్చి",
+      "ml": "പച്ചമുളക്",
+      "bn": "কাঁচা লঙ্কা",
+      "ur": "ہری مرچ"
+    },
+    "red chili powder": {
+      "hi": "लाल मिर्च पाउडर",
+      "te": "ఎర్ర మిర్చి పొడి",
+      "ml": "മുളകുപൊടി",
+      "bn": "লাল লঙ্কার গুঁড়ো",
+      "ur": "لال مرچ پاؤڈر"
+    },
+    "turmeric": {
+      "hi": "हल्दी",
+      "te": "పసుపు",
+      "ml": "മഞ്ഞൾ",
+      "bn": "হলুদ",
+      "ur": "ہلدی"
+    },
+    "ginger-garlic paste": {
+      "hi": "अदरक-लहसुन पेस्ट",
+      "te": "అల్లం-వెల్లుల్లి పేస్ట్",
+      "ml": "ഇഞ്ചി-വെളുത്തുള്ളി പേസ്റ്റ്",
+      "bn": "আদা-রসুন বাটা",
+      "ur": "ادرک لہسن پیسٹ"
+    }
+  },
+  "key_spices": [
+    "red chili",
+    "green chili",
+    "turmeric",
+    "cumin",
+    "curry leaves",
+    "cardamom",
+    "cinnamon"
+  ],
+  "rice_type": "Basmati or Seeraga Samba",
+  "cooking_vessel": "Heavy-bottomed pot",
+  "dum_method": "Sealed dum",
+  "typical_duration_minutes": 100,
+  "notes": "Known as the spiciest Indian biryani. Sub-regional variants: Vizag (seafood-influenced), Guntur (extra chili), Rayalaseema (rustic)."
+}

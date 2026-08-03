@@ -1,0 +1,182 @@
+{
+  "category": "Bihari",
+  "full_name": "Bihari/Champaran Chicken Biryani",
+  "region": "Bihar (Champaran / Patna)",
+  "distinguishing_features": [
+    "Cooked in a sealed matka (earthen pot) or handi",
+    "Mustard oil is the primary cooking fat",
+    "Simple, rustic spicing — onion, ginger-garlic, whole spices",
+    "No elaborate layering — chicken and rice cooked together",
+    "Smoky flavor from mustard oil and sealed cooking"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "action": "Marinate chicken",
+      "description": "Marinate with yogurt, mustard oil, ginger-garlic paste, red chili, salt for 1 hour.",
+      "duration_minutes": 60,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "chicken",
+        "yogurt",
+        "mustard oil",
+        "ginger-garlic paste"
+      ]
+    },
+    {
+      "step_number": 2,
+      "action": "Heat mustard oil",
+      "description": "Heat mustard oil to smoking point in a handi, let it cool slightly.",
+      "duration_minutes": 5,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "mustard oil"
+      ]
+    },
+    {
+      "step_number": 3,
+      "action": "Cook onions and whole spices",
+      "description": "Fry sliced onions with bay leaf, cardamom, cloves in mustard oil.",
+      "duration_minutes": 10,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "onion",
+        "mustard oil",
+        "bay leaf",
+        "cardamom",
+        "cloves"
+      ]
+    },
+    {
+      "step_number": 4,
+      "action": "Add chicken",
+      "description": "Add marinated chicken, cook on high heat until browned.",
+      "duration_minutes": 15,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "chicken"
+      ]
+    },
+    {
+      "step_number": 5,
+      "action": "Add soaked rice",
+      "description": "Add soaked basmati rice directly on top of the chicken with water.",
+      "duration_minutes": 5,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "basmati rice"
+      ]
+    },
+    {
+      "step_number": 6,
+      "action": "Add mint and seal",
+      "description": "Add mint leaves, green chilies. Seal pot with dough.",
+      "duration_minutes": 5,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "mint",
+        "green chili"
+      ]
+    },
+    {
+      "step_number": 7,
+      "action": "Dum in matka",
+      "description": "Cook on low heat for 30 minutes. Do not open.",
+      "duration_minutes": 30,
+      "is_defining_step": true,
+      "ingredients_used": []
+    },
+    {
+      "step_number": 8,
+      "action": "Serve",
+      "description": "Break seal, serve directly from the handi.",
+      "duration_minutes": 5,
+      "is_defining_step": false,
+      "ingredients_used": []
+    }
+  ],
+  "ingredient_aliases": {
+    "chicken": {
+      "hi": "मुर्गा/चिकन",
+      "te": "కోడి",
+      "ml": "കോഴി",
+      "bn": "মুরগি",
+      "ur": "مرغ"
+    },
+    "basmati rice": {
+      "hi": "बासमती चावल",
+      "te": "బాస్మతి బియ్యం",
+      "ml": "ബസ്മതി അരി",
+      "bn": "বাসমতী চাল",
+      "ur": "باسمتی چاول"
+    },
+    "yogurt": {
+      "hi": "दही",
+      "te": "పెరుగు",
+      "ml": "തൈര്",
+      "bn": "দই",
+      "ur": "دہی"
+    },
+    "onion": {
+      "hi": "प्याज",
+      "te": "ఉల్లిపాయ",
+      "ml": "ഉള്ളി",
+      "bn": "পেঁয়াজ",
+      "ur": "پیاز"
+    },
+    "mustard oil": {
+      "hi": "सरसों का तेल",
+      "te": "ఆవ నూనె",
+      "ml": "കടുക് എണ്ണ",
+      "bn": "সরষের তেল",
+      "ur": "سرسوں کا تیل"
+    },
+    "mint": {
+      "hi": "पुदीना",
+      "te": "పుదీనా",
+      "ml": "പുതിന",
+      "bn": "পুদিনা",
+      "ur": "پودینہ"
+    },
+    "green chili": {
+      "hi": "हरी मिर्च",
+      "te": "పచ్చి మిర్చి",
+      "ml": "പച്ചമുളക്",
+      "bn": "কাঁচা লঙ্কা",
+      "ur": "ہری مرچ"
+    },
+    "ginger-garlic paste": {
+      "hi": "अदरक-लहसुन पेस्ट",
+      "te": "అల్లం-వెల్లుల్లి పేస్ట్",
+      "ml": "ഇഞ്ചി-വെളുത്തുള്ളി പേസ്റ്റ്",
+      "bn": "আদা-রসুন বাটা",
+      "ur": "ادرک لہسن پیسٹ"
+    },
+    "bay leaf": {
+      "hi": "तेज पत्ता",
+      "te": "బిర్యానీ ఆకు",
+      "ml": "കറിവേപ്പില",
+      "bn": "তেজপাতা",
+      "ur": "تیز پتہ"
+    },
+    "cardamom": {
+      "hi": "इलायची",
+      "te": "ఏలకులు",
+      "ml": "ഏലക്ക",
+      "bn": "এলাচ",
+      "ur": "الائچی"
+    }
+  },
+  "key_spices": [
+    "bay leaf",
+    "cardamom",
+    "cloves",
+    "black pepper",
+    "cumin"
+  ],
+  "rice_type": "Long-grain Basmati",
+  "cooking_vessel": "Matka (earthen pot) or handi",
+  "dum_method": "Sealed dum in matka/handi",
+  "typical_duration_minutes": 90,
+  "notes": "Champaran meat biryani (originally mutton) is Bihar's most famous biryani. Rustic, one-pot style."
+}

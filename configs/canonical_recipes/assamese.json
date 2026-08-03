@@ -1,0 +1,158 @@
+{
+  "category": "Assamese",
+  "full_name": "Assamese Chicken Biryani",
+  "region": "Assam (Northeast India)",
+  "distinguishing_features": [
+    "Uses local Joha rice (aromatic short-grain) instead of Basmati",
+    "Mustard oil as primary cooking fat",
+    "Less spice than North Indian styles — subtle, clean flavors",
+    "Bhut jolokia (ghost pepper) for heat in some variants",
+    "Influence of Mughal cuisine adapted with local ingredients"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "action": "Marinate chicken",
+      "description": "Marinate with yogurt, ginger-garlic paste, turmeric, mustard oil, salt for 1 hour.",
+      "duration_minutes": 60,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "chicken",
+        "yogurt",
+        "ginger-garlic paste",
+        "turmeric",
+        "mustard oil"
+      ]
+    },
+    {
+      "step_number": 2,
+      "action": "Cook chicken",
+      "description": "Cook marinated chicken in mustard oil with onions until tender.",
+      "duration_minutes": 20,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "chicken",
+        "mustard oil",
+        "onion"
+      ]
+    },
+    {
+      "step_number": 3,
+      "action": "Cook Joha rice",
+      "description": "Cook local aromatic rice with whole spices until 80% done.",
+      "duration_minutes": 15,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "basmati rice",
+        "bay leaf",
+        "cardamom",
+        "cinnamon"
+      ]
+    },
+    {
+      "step_number": 4,
+      "action": "Layer and dum",
+      "description": "Layer chicken and rice, add ghee, mint. Seal and cook 20 min.",
+      "duration_minutes": 20,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "chicken",
+        "basmati rice",
+        "ghee",
+        "mint"
+      ]
+    },
+    {
+      "step_number": 5,
+      "action": "Serve",
+      "description": "Serve with pickled onion and raita.",
+      "duration_minutes": 5,
+      "is_defining_step": false,
+      "ingredients_used": []
+    }
+  ],
+  "ingredient_aliases": {
+    "chicken": {
+      "hi": "मुर्गा/चिकन",
+      "te": "కోడి",
+      "ml": "കോഴി",
+      "bn": "মুরগি",
+      "ur": "مرغ"
+    },
+    "basmati rice": {
+      "hi": "बासमती चावल",
+      "te": "బాస్మతి బియ్యం",
+      "ml": "ബസ്മതി അരി",
+      "bn": "বাসমতী চাল",
+      "ur": "باسمتی چاول"
+    },
+    "yogurt": {
+      "hi": "दही",
+      "te": "పెరుగు",
+      "ml": "തൈര്",
+      "bn": "দই",
+      "ur": "دہی"
+    },
+    "onion": {
+      "hi": "प्याज",
+      "te": "ఉల్లిపాయ",
+      "ml": "ഉള്ളി",
+      "bn": "পেঁয়াজ",
+      "ur": "پیاز"
+    },
+    "mustard oil": {
+      "hi": "सरसों का तेल",
+      "te": "ఆవ నూనె",
+      "ml": "കടുക് എണ്ണ",
+      "bn": "সরষের তেল",
+      "ur": "سرسوں کا تیل"
+    },
+    "turmeric": {
+      "hi": "हल्दी",
+      "te": "పసుపు",
+      "ml": "മഞ്ഞൾ",
+      "bn": "হলুদ",
+      "ur": "ہلدی"
+    },
+    "ginger-garlic paste": {
+      "hi": "अदरक-लहसुन पेस्ट",
+      "te": "అల్లం-వెల్లుల్లి పేస్ట్",
+      "ml": "ഇഞ്ചി-വെളുത്തുള്ളി പേസ്റ്റ്",
+      "bn": "আদা-রসুন বাটা",
+      "ur": "ادرک لہسن پیسٹ"
+    },
+    "ghee": {
+      "hi": "घी",
+      "te": "నెయ్యి",
+      "ml": "നെയ്യ്",
+      "bn": "ঘি",
+      "ur": "گھی"
+    },
+    "bay leaf": {
+      "hi": "तेज पत्ता",
+      "te": "బిర్యానీ ఆకు",
+      "ml": "കറിവേപ്പില",
+      "bn": "তেজপাতা",
+      "ur": "تیز پتہ"
+    },
+    "mint": {
+      "hi": "पुदीना",
+      "te": "పుదీనా",
+      "ml": "പുതിന",
+      "bn": "পুদিনা",
+      "ur": "پودینہ"
+    }
+  },
+  "key_spices": [
+    "bay leaf",
+    "cardamom",
+    "cinnamon",
+    "cumin",
+    "turmeric"
+  ],
+  "rice_type": "Joha rice (local aromatic) or Basmati",
+  "cooking_vessel": "Heavy-bottomed pot",
+  "dum_method": "Sealed dum",
+  "typical_duration_minutes": 80,
+  "notes": "Assamese biryani reflects Northeast Indian adaptation of Mughal cuisine. Joha rice gives a distinctive fragrance."
+}

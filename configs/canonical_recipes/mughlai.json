@@ -1,0 +1,189 @@
+{
+  "category": "Mughlai",
+  "full_name": "Mughlai Chicken Biryani",
+  "region": "North India (Mughal court cuisine)",
+  "distinguishing_features": [
+    "Rich, elaborate preparation — the 'royal' biryani style",
+    "Cream, cashew paste, and ghee create a rich gravy",
+    "Multiple marination steps (yogurt then cream)",
+    "Liberal use of saffron, rose water, kewra water",
+    "Whole spices dominate — minimal ground masala"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "action": "First marination",
+      "description": "Marinate chicken in yogurt, ginger-garlic paste, salt for 1 hour.",
+      "duration_minutes": 60,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "chicken",
+        "yogurt",
+        "ginger-garlic paste"
+      ]
+    },
+    {
+      "step_number": 2,
+      "action": "Second marination",
+      "description": "Add cream, cashew paste, saffron milk to chicken. Rest 30 min.",
+      "duration_minutes": 30,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "chicken",
+        "saffron"
+      ]
+    },
+    {
+      "step_number": 3,
+      "action": "Cook chicken in ghee",
+      "description": "Cook double-marinated chicken in generous ghee with whole spices.",
+      "duration_minutes": 25,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "chicken",
+        "ghee",
+        "cardamom",
+        "cinnamon",
+        "cloves"
+      ]
+    },
+    {
+      "step_number": 4,
+      "action": "Parboil rice",
+      "description": "Cook basmati with whole spices, saffron until 70% done.",
+      "duration_minutes": 10,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "basmati rice",
+        "saffron",
+        "bay leaf"
+      ]
+    },
+    {
+      "step_number": 5,
+      "action": "Layer chicken and rice",
+      "description": "Alternate rich chicken gravy and saffron rice layers.",
+      "duration_minutes": 10,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "chicken",
+        "basmati rice"
+      ]
+    },
+    {
+      "step_number": 6,
+      "action": "Add royal aromatics",
+      "description": "Drizzle rose water, kewra water, saffron milk, melted ghee.",
+      "duration_minutes": 5,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "rose water",
+        "kewra water",
+        "saffron",
+        "ghee"
+      ]
+    },
+    {
+      "step_number": 7,
+      "action": "Dum cooking",
+      "description": "Seal with dough, dum on low heat 25 minutes.",
+      "duration_minutes": 25,
+      "is_defining_step": false,
+      "ingredients_used": []
+    },
+    {
+      "step_number": 8,
+      "action": "Serve",
+      "description": "Serve with shahi korma and raita.",
+      "duration_minutes": 5,
+      "is_defining_step": false,
+      "ingredients_used": []
+    }
+  ],
+  "ingredient_aliases": {
+    "chicken": {
+      "hi": "मुर्गा/चिकन",
+      "te": "కోడి",
+      "ml": "കോഴി",
+      "bn": "মুরগি",
+      "ur": "مرغ"
+    },
+    "basmati rice": {
+      "hi": "बासमती चावल",
+      "te": "బాస్మతి బియ్యం",
+      "ml": "ബസ്മതി അരി",
+      "bn": "বাসমতী চাল",
+      "ur": "باسمتی چاول"
+    },
+    "yogurt": {
+      "hi": "दही",
+      "te": "పెరుగు",
+      "ml": "തൈര്",
+      "bn": "দই",
+      "ur": "دہی"
+    },
+    "ghee": {
+      "hi": "घी",
+      "te": "నెయ్యి",
+      "ml": "നെയ്യ്",
+      "bn": "ঘি",
+      "ur": "گھی"
+    },
+    "saffron": {
+      "hi": "केसर",
+      "te": "కుంకుమపువ్వు",
+      "ml": "കുങ്കുമപ്പൂവ്",
+      "bn": "জাফরান",
+      "ur": "زعفران"
+    },
+    "rose water": {
+      "hi": "गुलाब जल",
+      "te": "గులాబీ నీరు",
+      "ml": "പനിനീർ",
+      "bn": "গোলাপ জল",
+      "ur": "عرق گلاب"
+    },
+    "kewra water": {
+      "hi": "केवड़ा जल",
+      "te": "కేవ్రా నీరు",
+      "ml": null,
+      "bn": "কেওড়া জল",
+      "ur": "کیوڑا"
+    },
+    "cardamom": {
+      "hi": "इलायची",
+      "te": "ఏలకులు",
+      "ml": "ഏലക്ക",
+      "bn": "এলাচ",
+      "ur": "الائچی"
+    },
+    "cinnamon": {
+      "hi": "दालचीनी",
+      "te": "దాల్చిన చెక్క",
+      "ml": "കറുവാപ്പട്ട",
+      "bn": "দারুচিনি",
+      "ur": "دار چینی"
+    },
+    "cloves": {
+      "hi": "लौंग",
+      "te": "లవంగాలు",
+      "ml": "കരയാമ്പൂ",
+      "bn": "লবঙ্গ",
+      "ur": "لونگ"
+    }
+  },
+  "key_spices": [
+    "saffron",
+    "cardamom",
+    "mace",
+    "nutmeg",
+    "cinnamon",
+    "cloves",
+    "bay leaf"
+  ],
+  "rice_type": "Long-grain Basmati",
+  "cooking_vessel": "Silver-lined degchi (traditionally)",
+  "dum_method": "Sealed dum with dough",
+  "typical_duration_minutes": 120,
+  "notes": "The original court biryani of the Mughal emperors. Richest and most elaborate style."
+}

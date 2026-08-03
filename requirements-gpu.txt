@@ -1,0 +1,30 @@
+# ═══════════════════════════════════════════════════════
+# CulinaryVLM — GPU Requirements (cluster only)
+# Install: pip install -r requirements-gpu.txt
+# Only on IIIT Delhi GPU cluster, NOT on MacBook
+# ═══════════════════════════════════════════════════════
+
+# ── PyTorch (CUDA 12.1) ──
+torch>=2.1.0
+torchvision>=0.16.0
+torchaudio>=2.1.0
+
+# ── ASR ──
+whisperx>=3.1.1
+faster-whisper>=0.10.0
+
+# ── VLM / Segmentation ──
+transformers>=4.36.0
+accelerate>=0.25.0
+bitsandbytes>=0.41.0
+
+# ── Fine-tuning ──
+unsloth>=2024.1
+peft>=0.7.0
+trl>=0.7.0
+
+# ── CLIP ──
+open_clip_torch>=2.23.0
+
+# ── Flash Attention ──
+flash-attn>=2.3.0

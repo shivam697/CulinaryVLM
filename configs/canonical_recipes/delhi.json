@@ -1,0 +1,190 @@
+{
+  "category": "Delhi",
+  "full_name": "Delhi/Old Delhi Chicken Biryani",
+  "region": "Delhi (Old Delhi / Purani Dilli)",
+  "distinguishing_features": [
+    "Mughal-influenced, heavily spiced with robust flavors",
+    "Generous use of ghee and fried onions (birista)",
+    "Meat cooked in thick, rich gravy before layering",
+    "Often includes yogurt, tomatoes, and fried cashews",
+    "Street food heritage — served in large degs at weddings"
+  ],
+  "steps": [
+    {
+      "step_number": 1,
+      "action": "Marinate chicken",
+      "description": "Marinate in yogurt, ginger-garlic paste, red chili, garam masala, salt for 2 hours.",
+      "duration_minutes": 120,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "chicken",
+        "yogurt",
+        "ginger-garlic paste",
+        "red chili powder"
+      ]
+    },
+    {
+      "step_number": 2,
+      "action": "Fry onions",
+      "description": "Fry large quantity of sliced onions in ghee until dark golden for birista.",
+      "duration_minutes": 20,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "onion",
+        "ghee"
+      ]
+    },
+    {
+      "step_number": 3,
+      "action": "Cook chicken in masala",
+      "description": "Cook marinated chicken with fried onions, tomatoes in ghee until rich and thick.",
+      "duration_minutes": 25,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "chicken",
+        "onion",
+        "ghee"
+      ]
+    },
+    {
+      "step_number": 4,
+      "action": "Parboil rice",
+      "description": "Cook basmati with whole spices until 70% done.",
+      "duration_minutes": 10,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "basmati rice",
+        "bay leaf",
+        "cardamom",
+        "cinnamon",
+        "cloves"
+      ]
+    },
+    {
+      "step_number": 5,
+      "action": "Layer chicken and rice",
+      "description": "Alternate layers of chicken masala and rice in a large deg.",
+      "duration_minutes": 10,
+      "is_defining_step": false,
+      "ingredients_used": [
+        "chicken",
+        "basmati rice"
+      ]
+    },
+    {
+      "step_number": 6,
+      "action": "Add saffron and ghee",
+      "description": "Drizzle saffron milk, melted ghee, fried onions, mint on top.",
+      "duration_minutes": 5,
+      "is_defining_step": true,
+      "ingredients_used": [
+        "saffron",
+        "ghee",
+        "onion",
+        "mint"
+      ]
+    },
+    {
+      "step_number": 7,
+      "action": "Dum cooking",
+      "description": "Seal with dough or heavy lid, cook on low heat 30 minutes.",
+      "duration_minutes": 30,
+      "is_defining_step": false,
+      "ingredients_used": []
+    },
+    {
+      "step_number": 8,
+      "action": "Serve",
+      "description": "Mix gently, serve with raita, salad, and shorba.",
+      "duration_minutes": 5,
+      "is_defining_step": false,
+      "ingredients_used": []
+    }
+  ],
+  "ingredient_aliases": {
+    "chicken": {
+      "hi": "मुर्गा/चिकन",
+      "te": "కోడి",
+      "ml": "കോഴി",
+      "bn": "মুরগি",
+      "ur": "مرغ"
+    },
+    "basmati rice": {
+      "hi": "बासमती चावल",
+      "te": "బాస్మతి బియ్యం",
+      "ml": "ബസ്മതി അരി",
+      "bn": "বাসমতী চাল",
+      "ur": "باسمتی چاول"
+    },
+    "yogurt": {
+      "hi": "दही",
+      "te": "పెరుగు",
+      "ml": "തൈര്",
+      "bn": "দই",
+      "ur": "دہی"
+    },
+    "onion": {
+      "hi": "प्याज",
+      "te": "ఉల్లిపాయ",
+      "ml": "ഉള്ളി",
+      "bn": "পেঁয়াজ",
+      "ur": "پیاز"
+    },
+    "ghee": {
+      "hi": "घी",
+      "te": "నెయ్యి",
+      "ml": "നെയ്യ്",
+      "bn": "ঘি",
+      "ur": "گھی"
+    },
+    "saffron": {
+      "hi": "केसर",
+      "te": "కుంకుమపువ్వు",
+      "ml": "കുങ്കുമപ്പൂവ്",
+      "bn": "জাফরান",
+      "ur": "زعفران"
+    },
+    "mint": {
+      "hi": "पुदीना",
+      "te": "పుదీనా",
+      "ml": "പുതിന",
+      "bn": "পুদিনা",
+      "ur": "پودینہ"
+    },
+    "ginger-garlic paste": {
+      "hi": "अदरक-लहसुन पेस्ट",
+      "te": "అల్లం-వెల్లుల్లి పేస్ట్",
+      "ml": "ഇഞ്ചി-വെളുത്തുള്ളി പേസ്റ്റ്",
+      "bn": "আদা-রসুন বাটা",
+      "ur": "ادرک لہسن پیسٹ"
+    },
+    "red chili powder": {
+      "hi": "लाल मिर्च पाउडर",
+      "te": "ఎర్ర మిర్చి పొడి",
+      "ml": "മുളകുപൊടി",
+      "bn": "লাল লঙ্কার গুঁড়ো",
+      "ur": "لال مرچ پاؤڈر"
+    },
+    "coriander": {
+      "hi": "धनिया",
+      "te": "కొత్తిమీర",
+      "ml": "മല്ലി",
+      "bn": "ধনে",
+      "ur": "دھنیا"
+    }
+  },
+  "key_spices": [
+    "garam masala",
+    "cardamom",
+    "cinnamon",
+    "cloves",
+    "bay leaf",
+    "mace",
+    "saffron"
+  ],
+  "rice_type": "Long-grain Basmati",
+  "cooking_vessel": "Large deg (cauldron)",
+  "dum_method": "Sealed dum with dough",
+  "typical_duration_minutes": 120,
+  "notes": "Old Delhi biryani has Mughal roots, popularized at Jama Masjid area restaurants."
+}

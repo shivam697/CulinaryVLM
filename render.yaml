@@ -1,0 +1,31 @@
+# ═══════════════════════════════════════════════════════
+# CulinaryVLM — Render Deployment Configuration
+# Deploy: Connect this repo to Render → Auto-deploy
+# ═══════════════════════════════════════════════════════
+
+services:
+  - type: web
+    name: culinary-vlm-api
+    runtime: python
+    region: oregon
+    plan: free
+    branch: main
+    buildCommand: |
+      pip install -r requirements.txt
+      pip install -r requirements-agent.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: HF_TOKEN
+        sync: false
+      - key: USE_AGENT_LAYER
+        value: "true"
+      - key: DATABASE_URL
+        value: "sqlite:///datasets/culinary_vlm.db"
+      - key: PYTHON_VERSION
+        value: "3.10.13"
+    healthCheckPath: /health
+    autoDeploy: true
