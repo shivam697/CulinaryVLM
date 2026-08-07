@@ -1,7 +1,17 @@
 {
+  "schema_version": "2.0",
   "category": "Degi",
   "full_name": "Degi Chicken Biryani",
   "region": "North India (wedding/celebration style)",
+  "protein": "chicken",
+  "utensil_hierarchy": [
+    "large deg (cauldron)",
+    "stock pot (for yakhni)",
+    "kadhai (for onions)",
+    "strainer"
+  ],
+  "marination_strategy": "yakhni-based, yogurt marinade, heavy ghee, designed for bulk cooking",
+  "spice_intensity": "medium",
   "distinguishing_features": [
     "Cooked in a large deg (cauldron) — designed for feeding crowds",
     "Extra ghee and oil for rich, moist texture at scale",
@@ -22,6 +32,29 @@
         "cardamom",
         "cinnamon",
         "onion"
+      ],
+      "visible_objects": [
+        "stock pot",
+        "chicken pieces/bones",
+        "whole spices",
+        "onion"
+      ],
+      "ingredient_state": {
+        "stock": "simmering, extracting flavors",
+        "chicken": "cooking in spiced stock"
+      },
+      "expected_visual_features": [
+        "clear to slightly cloudy broth",
+        "whole spices and onion floating"
+      ],
+      "expected_audio": "gentle simmering, soft bubbling",
+      "common_mistakes": [
+        "boiling too vigorously (cloudy stock)",
+        "too few spices"
+      ],
+      "recovery_actions": [
+        "reduce to gentle simmer",
+        "strain carefully"
       ]
     },
     {
@@ -35,6 +68,30 @@
         "onion",
         "yogurt",
         "ghee"
+      ],
+      "visible_objects": [
+        "cooking pot/pan",
+        "chicken pieces",
+        "ghee",
+        "onions",
+        "spices"
+      ],
+      "ingredient_state": {
+        "chicken": "cooking in masala, browning and releasing juices"
+      },
+      "expected_visual_features": [
+        "chicken browning",
+        "gravy thickening",
+        "oil separating from masala"
+      ],
+      "expected_audio": "sizzling, bubbling masala",
+      "common_mistakes": [
+        "heat too high (masala burns)",
+        "not cooking until oil separates"
+      ],
+      "recovery_actions": [
+        "reduce heat",
+        "cook until oil separates from masala (sign of doneness)"
       ]
     },
     {
@@ -45,6 +102,31 @@
       "is_defining_step": true,
       "ingredients_used": [
         "basmati rice"
+      ],
+      "visible_objects": [
+        "large pot",
+        "boiling water",
+        "rice",
+        "whole spices",
+        "strainer"
+      ],
+      "ingredient_state": {
+        "rice": "70% cooked — grains elongated but firm in center",
+        "water": "starchy, rolling boil"
+      },
+      "expected_visual_features": [
+        "elongated rice grains",
+        "rolling boil",
+        "whole spices floating"
+      ],
+      "expected_audio": "vigorous bubbling, boiling water",
+      "common_mistakes": [
+        "overcooking rice past 70%",
+        "not draining immediately"
+      ],
+      "recovery_actions": [
+        "spread rice on tray to stop cooking",
+        "rinse with cold water"
       ]
     },
     {
@@ -56,6 +138,27 @@
       "ingredients_used": [
         "chicken",
         "basmati rice"
+      ],
+      "visible_objects": [
+        "cooking pot",
+        "chicken",
+        "basmati rice"
+      ],
+      "ingredient_state": {
+        "chicken": "being layered in pot",
+        "basmati rice": "being layered in pot"
+      },
+      "expected_visual_features": [
+        "distinct layers visible in pot"
+      ],
+      "expected_audio": "placing/spreading sounds",
+      "common_mistakes": [
+        "uneven distribution",
+        "pressing down (compacts, blocks steam)"
+      ],
+      "recovery_actions": [
+        "redistribute evenly",
+        "keep layers loose and fluffy"
       ]
     },
     {
@@ -69,6 +172,30 @@
         "saffron",
         "onion",
         "mint"
+      ],
+      "visible_objects": [
+        "saffron milk",
+        "ghee",
+        "fried onions",
+        "herbs"
+      ],
+      "ingredient_state": {
+        "saffron": "dissolved in warm milk, golden",
+        "ghee": "melted"
+      },
+      "expected_visual_features": [
+        "golden saffron streaks",
+        "green herb specks",
+        "aromatic steam"
+      ],
+      "expected_audio": "drizzling liquid, sprinkling",
+      "common_mistakes": [
+        "too little saffron/ghee",
+        "not steeping saffron first"
+      ],
+      "recovery_actions": [
+        "steep saffron in warm milk 10 min",
+        "be generous with ghee"
       ]
     },
     {
@@ -77,7 +204,26 @@
       "description": "Seal deg with heavy lid and dough, cook on charcoal dum for 40 minutes.",
       "duration_minutes": 40,
       "is_defining_step": true,
-      "ingredients_used": []
+      "ingredients_used": [],
+      "visible_objects": [
+        "cooking pot",
+        "dough/foil/cloth",
+        "lid"
+      ],
+      "ingredient_state": {
+        "seal": "airtight closure around pot rim"
+      },
+      "expected_visual_features": [
+        "sealed pot with no visible gaps",
+        "dough/cloth around rim"
+      ],
+      "expected_audio": "pressing/sealing sounds",
+      "common_mistakes": [
+        "gaps in seal (steam escapes, rice dries out)"
+      ],
+      "recovery_actions": [
+        "press firmly and patch any gaps"
+      ]
     },
     {
       "step_number": 7,
@@ -85,7 +231,30 @@
       "description": "Open deg, serve in portions with raita and salad.",
       "duration_minutes": 10,
       "is_defining_step": false,
-      "ingredients_used": []
+      "ingredients_used": [],
+      "visible_objects": [
+        "cooking pot",
+        "serving dish",
+        "accompaniments"
+      ],
+      "ingredient_state": {
+        "rice": "fully cooked, fluffy",
+        "chicken": "fully cooked, tender"
+      },
+      "expected_visual_features": [
+        "fluffy rice with visible layers",
+        "tender chicken",
+        "steam rising"
+      ],
+      "expected_audio": "gentle mixing, steam release",
+      "common_mistakes": [
+        "mixing too vigorously (breaks rice grains)",
+        "not resting before serving"
+      ],
+      "recovery_actions": [
+        "fold gently from edges",
+        "rest 5-10 min minimum"
+      ]
     }
   ],
   "ingredient_aliases": {

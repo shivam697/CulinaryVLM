@@ -1,0 +1,1182 @@
+{
+  "schema_version": "2.0",
+  "total_segments": 286,
+  "total_clusters": 50,
+  "reduction_pct": 82.5,
+  "clusters": [
+    {
+      "cluster_id": 0,
+      "size": 48,
+      "representative_action": "Frying onions",
+      "representative_description": "The video shows onions being fried in a pan until they turn golden brown.",
+      "action_distribution": {
+        "Frying onions": 28,
+        "Frying meat": 5,
+        "Adding fried onions": 2,
+        "Frying onions and adding spices": 1,
+        "Cooking onions": 1
+      },
+      "categories": {
+        "Kolkata": 32,
+        "Hyderabadi": 10,
+        "Muradabadi": 6
+      },
+      "video_ids": [
+        "pBvVoFFWe5s",
+        "Gm5gj4vW-QA",
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "frying": 45,
+        "layering": 2,
+        "boiling": 1
+      },
+      "cooking_stage_distribution": {
+        "prep": 42,
+        "cooking": 3,
+        "meat_cooking": 3
+      }
+    },
+    {
+      "cluster_id": 1,
+      "size": 3,
+      "representative_action": "Adding screwpine essence",
+      "representative_description": "Screwpine essence is being added to the rice in the black cooking vessel.",
+      "action_distribution": {
+        "Adding rose water": 2,
+        "Adding screwpine essence": 1
+      },
+      "categories": {
+        "Kolkata": 3
+      },
+      "video_ids": [
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "layering": 2,
+        "mixing": 1
+      },
+      "cooking_stage_distribution": {
+        "prep": 3
+      }
+    },
+    {
+      "cluster_id": 2,
+      "size": 2,
+      "representative_action": "Pouring liquid",
+      "representative_description": "The chef is pouring a liquid from a green packet into a pot on the stove.",
+      "action_distribution": {
+        "Pouring water": 1,
+        "Pouring liquid": 1
+      },
+      "categories": {
+        "Kolkata": 2
+      },
+      "video_ids": [
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "boiling": 1,
+        "pouring": 1
+      },
+      "cooking_stage_distribution": {
+        "prep": 2
+      }
+    },
+    {
+      "cluster_id": 3,
+      "size": 3,
+      "representative_action": "Adding spices",
+      "representative_description": "The chef is adding coriander powder and red chili powder to the pan.",
+      "action_distribution": {
+        "Adding spices": 1,
+        "Adding coriander powder": 1,
+        "Adding red chili powder": 1
+      },
+      "categories": {
+        "Kolkata": 3
+      },
+      "video_ids": [
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "frying": 3
+      },
+      "cooking_stage_distribution": {
+        "prep": 3
+      }
+    },
+    {
+      "cluster_id": 4,
+      "size": 17,
+      "representative_action": "Frying chicken",
+      "representative_description": "The chef is frying pieces of chicken in a black wok with oil.",
+      "action_distribution": {
+        "Cooking meat": 4,
+        "Frying meat": 3,
+        "Frying chicken": 2,
+        "Frying chicken in oil": 1,
+        "Cooking meat in a pan": 1
+      },
+      "categories": {
+        "Kolkata": 12,
+        "Muradabadi": 4,
+        "Hyderabadi": 1
+      },
+      "video_ids": [
+        "pBvVoFFWe5s",
+        "Gm5gj4vW-QA",
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "frying": 17
+      },
+      "cooking_stage_distribution": {
+        "prep": 8,
+        "meat_cooking": 7,
+        "cooking": 2
+      }
+    },
+    {
+      "cluster_id": 5,
+      "size": 2,
+      "representative_action": "Cooking with lid on",
+      "representative_description": "The chef is cooking the layered ingredients with the lid on, allowing the flavors to meld together.",
+      "action_distribution": {
+        "Cooking with lid on": 1,
+        "Cooking with dum": 1
+      },
+      "categories": {
+        "Hyderabadi": 2
+      },
+      "video_ids": [
+        "Gm5gj4vW-QA"
+      ],
+      "technique_distribution": {
+        "dum": 2
+      },
+      "cooking_stage_distribution": {
+        "dum": 2
+      }
+    },
+    {
+      "cluster_id": 6,
+      "size": 10,
+      "representative_action": "Cooking the biryani",
+      "representative_description": "The man is cooking the biryani by covering the pot with a lid and placing it on the stove.",
+      "action_distribution": {
+        "Cooking the biryani": 3,
+        "Cooking biryani": 2,
+        "Serving": 1,
+        "Serving food": 1,
+        "Eating biryani": 1
+      },
+      "categories": {
+        "Muradabadi": 7,
+        "Kolkata": 3
+      },
+      "video_ids": [
+        "pBvVoFFWe5s",
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "boiling": 4,
+        "dum": 2,
+        "serving": 2,
+        "not applicable": 1,
+        "cooking": 1
+      },
+      "cooking_stage_distribution": {
+        "cooking": 4,
+        "serving": 4,
+        "dum": 1,
+        "boiling": 1
+      }
+    },
+    {
+      "cluster_id": 7,
+      "size": 31,
+      "representative_action": "Layering ingredients",
+      "representative_description": "The marinated chicken is being layered with rice and other ingredients.",
+      "action_distribution": {
+        "Marinating chicken": 20,
+        "Adding spices to chicken": 5,
+        "Adding more spices to chicken": 1,
+        "Layering ingredients": 1,
+        "Adding herbs": 1
+      },
+      "categories": {
+        "Hyderabadi": 16,
+        "Kolkata": 15
+      },
+      "video_ids": [
+        "Gm5gj4vW-QA",
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "marinating": 24,
+        "mixing": 6,
+        "layering": 1
+      },
+      "cooking_stage_distribution": {
+        "prep": 31
+      }
+    },
+    {
+      "cluster_id": 8,
+      "size": 3,
+      "representative_action": "Preparing ingredients",
+      "representative_description": "The man is arranging various ingredients on a table, including a large bowl, jars of spices, and other cooking essentials.",
+      "action_distribution": {
+        "Preparing ingredients": 3
+      },
+      "categories": {
+        "Muradabadi": 2,
+        "Kolkata": 1
+      },
+      "video_ids": [
+        "pBvVoFFWe5s",
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "prep": 2,
+        "preparation": 1
+      },
+      "cooking_stage_distribution": {
+        "prep": 3
+      }
+    },
+    {
+      "cluster_id": 9,
+      "size": 4,
+      "representative_action": "Frying bay leaves",
+      "representative_description": "The person is frying bay leaves in the same pan with ghee.",
+      "action_distribution": {
+        "Frying bay leaves": 2,
+        "Adding bay leaves": 2
+      },
+      "categories": {
+        "Kolkata": 4
+      },
+      "video_ids": [
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "frying": 3,
+        "boiling": 1
+      },
+      "cooking_stage_distribution": {
+        "prep": 4
+      }
+    },
+    {
+      "cluster_id": 10,
+      "size": 4,
+      "representative_action": "Frying cardamoms",
+      "representative_description": "The chef is frying black cardamoms in a pot on the stove.",
+      "action_distribution": {
+        "Adding green cardamoms": 2,
+        "Frying cardamoms": 1,
+        "Adding black cardamoms": 1
+      },
+      "categories": {
+        "Kolkata": 4
+      },
+      "video_ids": [
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "frying": 2,
+        "boiling": 2
+      },
+      "cooking_stage_distribution": {
+        "prep": 4
+      }
+    },
+    {
+      "cluster_id": 11,
+      "size": 4,
+      "representative_action": "Cutting potatoes",
+      "representative_description": "The person is cutting potatoes into small pieces on a cutting board.",
+      "action_distribution": {
+        "Cutting potatoes": 3,
+        "Adding potatoes to pan": 1
+      },
+      "categories": {
+        "Kolkata": 4
+      },
+      "video_ids": [
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "cutting": 3,
+        "frying": 1
+      },
+      "cooking_stage_distribution": {
+        "prep": 4
+      }
+    },
+    {
+      "cluster_id": 12,
+      "size": 3,
+      "representative_action": "Marinating chicken",
+      "representative_description": "The chef is adding turmeric powder to a bowl of chicken pieces and mixing them together.",
+      "action_distribution": {
+        "Adding turmeric powder to chicken": 1,
+        "Marinating chicken": 1,
+        "Adding spices": 1
+      },
+      "categories": {
+        "Kolkata": 3
+      },
+      "video_ids": [
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "marinating": 2,
+        "frying": 1
+      },
+      "cooking_stage_distribution": {
+        "prep": 3
+      }
+    },
+    {
+      "cluster_id": 13,
+      "size": 32,
+      "representative_action": "Layering ingredients",
+      "representative_description": "The video shows a step-by-step process of layering ingredients in a biryani dish. Ingredients are being arranged in a specific order, likely to ensure even cooking and flavor distribution.",
+      "action_distribution": {
+        "Layering ingredients": 20,
+        "Layering rice": 4,
+        "Layering rice and meat": 3,
+        "Layering meat": 1,
+        "Layering rice and vegetables": 1
+      },
+      "categories": {
+        "Hyderabadi": 18,
+        "Kolkata": 8,
+        "Muradabadi": 6
+      },
+      "video_ids": [
+        "pBvVoFFWe5s",
+        "Gm5gj4vW-QA",
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "layering": 32
+      },
+      "cooking_stage_distribution": {
+        "layering": 28,
+        "prep": 4
+      }
+    },
+    {
+      "cluster_id": 14,
+      "size": 2,
+      "representative_action": "Cooking with the utensil",
+      "representative_description": "The man is cooking something in the utensil while speaking to the camera.",
+      "action_distribution": {
+        "Showing the cooking utensil": 1,
+        "Cooking with the utensil": 1
+      },
+      "categories": {
+        "Muradabadi": 2
+      },
+      "video_ids": [
+        "pBvVoFFWe5s"
+      ],
+      "technique_distribution": {
+        "not applicable": 2
+      },
+      "cooking_stage_distribution": {
+        "prep": 2
+      }
+    },
+    {
+      "cluster_id": 15,
+      "size": 3,
+      "representative_action": "Adding spices to water",
+      "representative_description": "A person is adding spices to a pot of boiling water.",
+      "action_distribution": {
+        "Adding water and spices": 1,
+        "Adding spices to water": 1,
+        "Adding water": 1
+      },
+      "categories": {
+        "Kolkata": 2,
+        "Hyderabadi": 1
+      },
+      "video_ids": [
+        "Gm5gj4vW-QA",
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "boiling": 3
+      },
+      "cooking_stage_distribution": {
+        "dum": 1,
+        "prep": 1,
+        "boiling": 1
+      }
+    },
+    {
+      "cluster_id": 16,
+      "size": 6,
+      "representative_action": "Cutting onions",
+      "representative_description": "The chef is cutting onions into thin slices on a wooden cutting board.",
+      "action_distribution": {
+        "Cutting onions": 3,
+        "Preparing vegetables": 2,
+        "Cutting onion": 1
+      },
+      "categories": {
+        "Kolkata": 5,
+        "Muradabadi": 1
+      },
+      "video_ids": [
+        "pBvVoFFWe5s",
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "cutting": 4,
+        "chopping": 2
+      },
+      "cooking_stage_distribution": {
+        "prep": 6
+      }
+    },
+    {
+      "cluster_id": 17,
+      "size": 2,
+      "representative_action": "Adding spices",
+      "representative_description": "The chef is adding spices to the pot after layering the ingredients.",
+      "action_distribution": {
+        "Adding spices": 2
+      },
+      "categories": {
+        "Hyderabadi": 1,
+        "Kolkata": 1
+      },
+      "video_ids": [
+        "Gm5gj4vW-QA",
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "layering": 1,
+        "frying": 1
+      },
+      "cooking_stage_distribution": {
+        "layering": 1,
+        "prep": 1
+      }
+    },
+    {
+      "cluster_id": 18,
+      "size": 3,
+      "representative_action": "Adding oil to a pan",
+      "representative_description": "The man is adding oil from the bowl to a pan on the stove.",
+      "action_distribution": {
+        "Adding oil to pan": 1,
+        "Adding oil to a pan": 1,
+        "Adding oil to the pot": 1
+      },
+      "categories": {
+        "Hyderabadi": 1,
+        "Muradabadi": 1,
+        "Kolkata": 1
+      },
+      "video_ids": [
+        "pBvVoFFWe5s",
+        "Gm5gj4vW-QA",
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "frying": 1,
+        "pouring": 1,
+        "boiling": 1
+      },
+      "cooking_stage_distribution": {
+        "prep": 3
+      }
+    },
+    {
+      "cluster_id": 19,
+      "size": 2,
+      "representative_action": "Serving",
+      "representative_description": "A man is serving food from a pot into a plate.",
+      "action_distribution": {
+        "Cooking": 1,
+        "Serving": 1
+      },
+      "categories": {
+        "Muradabadi": 2
+      },
+      "video_ids": [
+        "pBvVoFFWe5s"
+      ],
+      "technique_distribution": {
+        "boiling": 2
+      },
+      "cooking_stage_distribution": {
+        "cooking": 2
+      }
+    },
+    {
+      "cluster_id": 20,
+      "size": 3,
+      "representative_action": "Adding spices to oil",
+      "representative_description": "The chef is adding cardamoms, bay leaves, and cinnamon sticks to the frying pan.",
+      "action_distribution": {
+        "Adding spices to oil": 1,
+        "Adding bay leaves and cinnamon sticks": 1,
+        "Removing bay leaves and cinnamon sticks": 1
+      },
+      "categories": {
+        "Kolkata": 3
+      },
+      "video_ids": [
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "frying": 3
+      },
+      "cooking_stage_distribution": {
+        "prep": 3
+      }
+    },
+    {
+      "cluster_id": 21,
+      "size": 12,
+      "representative_action": "Pouring rice",
+      "representative_description": "Pouring raw rice from a green plastic bag into a pot.",
+      "action_distribution": {
+        "Cooking rice": 8,
+        "Pouring water": 2,
+        "Pouring rice": 1,
+        "Pouring rice into a pot": 1
+      },
+      "categories": {
+        "Kolkata": 8,
+        "Muradabadi": 4
+      },
+      "video_ids": [
+        "pBvVoFFWe5s",
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "boiling": 12
+      },
+      "cooking_stage_distribution": {
+        "rice_cooking": 8,
+        "prep": 4
+      }
+    },
+    {
+      "cluster_id": 22,
+      "size": 6,
+      "representative_action": "Adding onions to the bowl",
+      "representative_description": "The man is adding chopped onions to the bowl of rice.",
+      "action_distribution": {
+        "Adding spices to the bowl": 2,
+        "Adding oil to the bowl": 1,
+        "Adding onions to the bowl": 1,
+        "Adding meat to the bowl": 1,
+        "Adding water to the bowl": 1
+      },
+      "categories": {
+        "Muradabadi": 6
+      },
+      "video_ids": [
+        "pBvVoFFWe5s"
+      ],
+      "technique_distribution": {
+        "mixing": 6
+      },
+      "cooking_stage_distribution": {
+        "prep": 6
+      }
+    },
+    {
+      "cluster_id": 23,
+      "size": 1,
+      "representative_action": "Turning off the hair dryer",
+      "representative_description": "The man is holding a hair dryer and turning it off.",
+      "action_distribution": {
+        "Turning off the hair dryer": 1
+      },
+      "categories": {
+        "Muradabadi": 1
+      },
+      "video_ids": [
+        "pBvVoFFWe5s"
+      ],
+      "technique_distribution": {
+        "not applicable": 1
+      },
+      "cooking_stage_distribution": {
+        "not applicable": 1
+      }
+    },
+    {
+      "cluster_id": 24,
+      "size": 2,
+      "representative_action": "Combining fried ingredients",
+      "representative_description": "The man is combining the fried onions and tomatoes in a bowl.",
+      "action_distribution": {
+        "Adding chopped tomatoes to the bowl": 1,
+        "Combining fried ingredients": 1
+      },
+      "categories": {
+        "Muradabadi": 2
+      },
+      "video_ids": [
+        "pBvVoFFWe5s"
+      ],
+      "technique_distribution": {
+        "mixing": 2
+      },
+      "cooking_stage_distribution": {
+        "prep": 2
+      }
+    },
+    {
+      "cluster_id": 25,
+      "size": 1,
+      "representative_action": "Finely chopping ginger",
+      "representative_description": "The chef is chopping a piece of ginger into small pieces.",
+      "action_distribution": {
+        "Finely chopping ginger": 1
+      },
+      "categories": {
+        "Kolkata": 1
+      },
+      "video_ids": [
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "chopping": 1
+      },
+      "cooking_stage_distribution": {
+        "prep": 1
+      }
+    },
+    {
+      "cluster_id": 26,
+      "size": 3,
+      "representative_action": "Adding ghee",
+      "representative_description": "Adding ghee to a pot of rice.",
+      "action_distribution": {
+        "Adding ghee": 3
+      },
+      "categories": {
+        "Kolkata": 3
+      },
+      "video_ids": [
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "boiling": 2,
+        "frying": 1
+      },
+      "cooking_stage_distribution": {
+        "prep": 3
+      }
+    },
+    {
+      "cluster_id": 27,
+      "size": 1,
+      "representative_action": "Squeezing lemon",
+      "representative_description": "Squeezing lemon juice into a bowl of yogurt.",
+      "action_distribution": {
+        "Squeezing lemon": 1
+      },
+      "categories": {
+        "Kolkata": 1
+      },
+      "video_ids": [
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "mixing": 1
+      },
+      "cooking_stage_distribution": {
+        "prep": 1
+      }
+    },
+    {
+      "cluster_id": 28,
+      "size": 4,
+      "representative_action": "Cooking the chicken in the wok",
+      "representative_description": "The chef is cooking the chicken in the wok with the added liquid and spices.",
+      "action_distribution": {
+        "Adding spices to the wok": 1,
+        "Stirring the wok": 1,
+        "Pouring liquid into the wok": 1,
+        "Cooking the chicken in the wok": 1
+      },
+      "categories": {
+        "Kolkata": 4
+      },
+      "video_ids": [
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "frying": 4
+      },
+      "cooking_stage_distribution": {
+        "meat_cooking": 4
+      }
+    },
+    {
+      "cluster_id": 29,
+      "size": 1,
+      "representative_action": "Adding kewra",
+      "representative_description": "Adding kewra to the pot of rice.",
+      "action_distribution": {
+        "Adding kewra": 1
+      },
+      "categories": {
+        "Kolkata": 1
+      },
+      "video_ids": [
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "boiling": 1
+      },
+      "cooking_stage_distribution": {
+        "prep": 1
+      }
+    },
+    {
+      "cluster_id": 30,
+      "size": 1,
+      "representative_action": "Dicing tomatoes",
+      "representative_description": "Tomatoes are being diced on a cutting board.",
+      "action_distribution": {
+        "Dicing tomatoes": 1
+      },
+      "categories": {
+        "Kolkata": 1
+      },
+      "video_ids": [
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "dicing": 1
+      },
+      "cooking_stage_distribution": {
+        "prep": 1
+      }
+    },
+    {
+      "cluster_id": 31,
+      "size": 1,
+      "representative_action": "Cooking on stove",
+      "representative_description": "The man is cooking the layered ingredients on a stove with a large silver pot.",
+      "action_distribution": {
+        "Cooking on stove": 1
+      },
+      "categories": {
+        "Muradabadi": 1
+      },
+      "video_ids": [
+        "pBvVoFFWe5s"
+      ],
+      "technique_distribution": {
+        "boiling": 1
+      },
+      "cooking_stage_distribution": {
+        "cooking": 1
+      }
+    },
+    {
+      "cluster_id": 32,
+      "size": 1,
+      "representative_action": "End of video",
+      "representative_description": "The video ends with a graphic of a girl holding a 'Thank You' sign.",
+      "action_distribution": {
+        "End of video": 1
+      },
+      "categories": {
+        "Muradabadi": 1
+      },
+      "video_ids": [
+        "pBvVoFFWe5s"
+      ],
+      "technique_distribution": {
+        "not applicable": 1
+      },
+      "cooking_stage_distribution": {
+        "not applicable": 1
+      }
+    },
+    {
+      "cluster_id": 33,
+      "size": 4,
+      "representative_action": "Preparing ingredients",
+      "representative_description": "The man is standing in a kitchen, holding a bowl of mixed vegetables and explaining the process.",
+      "action_distribution": {
+        "Layering ingredients": 2,
+        "Preparing ingredients": 1,
+        "Adding milk to the bowl": 1
+      },
+      "categories": {
+        "Muradabadi": 4
+      },
+      "video_ids": [
+        "pBvVoFFWe5s"
+      ],
+      "technique_distribution": {
+        "not applicable": 4
+      },
+      "cooking_stage_distribution": {
+        "prep": 4
+      }
+    },
+    {
+      "cluster_id": 34,
+      "size": 3,
+      "representative_action": "Pouring oil into a jar",
+      "representative_description": "The man is pouring oil from the bowl into a jar on the counter.",
+      "action_distribution": {
+        "Pouring oil into a bowl": 2,
+        "Pouring oil into a jar": 1
+      },
+      "categories": {
+        "Muradabadi": 3
+      },
+      "video_ids": [
+        "pBvVoFFWe5s"
+      ],
+      "technique_distribution": {
+        "pouring": 3
+      },
+      "cooking_stage_distribution": {
+        "prep": 3
+      }
+    },
+    {
+      "cluster_id": 35,
+      "size": 2,
+      "representative_action": "Eating",
+      "representative_description": "A man is seen eating food from a plate while standing in a market.",
+      "action_distribution": {
+        "Eating": 2
+      },
+      "categories": {
+        "Muradabadi": 2
+      },
+      "video_ids": [
+        "pBvVoFFWe5s"
+      ],
+      "technique_distribution": {
+        "not applicable": 2
+      },
+      "cooking_stage_distribution": {
+        "not applicable": 2
+      }
+    },
+    {
+      "cluster_id": 36,
+      "size": 4,
+      "representative_action": "Adding spices to the pan",
+      "representative_description": "The chef is adding spices to the pan with the fried onions and ginger.",
+      "action_distribution": {
+        "Frying onions and ginger": 2,
+        "Adding spices to the pan": 1,
+        "Adding garlic and ginger": 1
+      },
+      "categories": {
+        "Kolkata": 4
+      },
+      "video_ids": [
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "frying": 4
+      },
+      "cooking_stage_distribution": {
+        "prep": 2,
+        "cooking": 2
+      }
+    },
+    {
+      "cluster_id": 37,
+      "size": 1,
+      "representative_action": "Adding spices to chicken",
+      "representative_description": "The chef is adding biryani masala and red chili powder to the chicken in the bowl.",
+      "action_distribution": {
+        "Adding spices to chicken": 1
+      },
+      "categories": {
+        "Kolkata": 1
+      },
+      "video_ids": [
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "mixing": 1
+      },
+      "cooking_stage_distribution": {
+        "prep": 1
+      }
+    },
+    {
+      "cluster_id": 38,
+      "size": 2,
+      "representative_action": "Covering the pot",
+      "representative_description": "The chef is covering the pot with a lid.",
+      "action_distribution": {
+        "Covering the pot": 2
+      },
+      "categories": {
+        "Kolkata": 2
+      },
+      "video_ids": [
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "covering": 1,
+        "boiling": 1
+      },
+      "cooking_stage_distribution": {
+        "prep": 1,
+        "boiling": 1
+      }
+    },
+    {
+      "cluster_id": 39,
+      "size": 1,
+      "representative_action": "Frying tomatoes",
+      "representative_description": "The man is frying tomatoes in a pan on the stove.",
+      "action_distribution": {
+        "Frying tomatoes": 1
+      },
+      "categories": {
+        "Muradabadi": 1
+      },
+      "video_ids": [
+        "pBvVoFFWe5s"
+      ],
+      "technique_distribution": {
+        "frying": 1
+      },
+      "cooking_stage_distribution": {
+        "prep": 1
+      }
+    },
+    {
+      "cluster_id": 40,
+      "size": 1,
+      "representative_action": "Boiling vegetables",
+      "representative_description": "Vegetables are being boiled in a pot.",
+      "action_distribution": {
+        "Boiling vegetables": 1
+      },
+      "categories": {
+        "Kolkata": 1
+      },
+      "video_ids": [
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "boiling": 1
+      },
+      "cooking_stage_distribution": {
+        "prep": 1
+      }
+    },
+    {
+      "cluster_id": 41,
+      "size": 34,
+      "representative_action": "unknown",
+      "representative_description": "```json\n[\n    {\n        \"step_number\": 1,\n        \"action\": \"Marinating chicken\",\n        \"description\": \"The chicken pieces are being marinated with a mixture of spices.\",\n        \"start_frame\": 0,\n ",
+      "action_distribution": {
+        "unknown": 34
+      },
+      "categories": {
+        "Kolkata": 16,
+        "Muradabadi": 13,
+        "Hyderabadi": 5
+      },
+      "video_ids": [
+        "pBvVoFFWe5s",
+        "Gm5gj4vW-QA",
+        "u9eYgW5XLck"
+      ]
+    },
+    {
+      "cluster_id": 42,
+      "size": 1,
+      "representative_action": "Serving food",
+      "representative_description": "The cooked food is being served to customers.",
+      "action_distribution": {
+        "Serving food": 1
+      },
+      "categories": {
+        "Muradabadi": 1
+      },
+      "video_ids": [
+        "pBvVoFFWe5s"
+      ],
+      "technique_distribution": {
+        "not visible": 1
+      },
+      "cooking_stage_distribution": {
+        "serving": 1
+      }
+    },
+    {
+      "cluster_id": 43,
+      "size": 4,
+      "representative_action": "Adding ingredients to the pot",
+      "representative_description": "The man is adding ingredients to a pot on the stove.",
+      "action_distribution": {
+        "Adding ingredients to the pot": 1,
+        "Stirring the pot": 1,
+        "Adding more ingredients to the pot": 1,
+        "Stirring the pot again": 1
+      },
+      "categories": {
+        "Muradabadi": 4
+      },
+      "video_ids": [
+        "pBvVoFFWe5s"
+      ],
+      "technique_distribution": {
+        "boiling": 4
+      },
+      "cooking_stage_distribution": {
+        "prep": 4
+      }
+    },
+    {
+      "cluster_id": 44,
+      "size": 2,
+      "representative_action": "Adding boiled eggs",
+      "representative_description": "Adding boiled eggs to the pan with onions and meat.",
+      "action_distribution": {
+        "Adding boiled eggs": 1,
+        "Adding eggs": 1
+      },
+      "categories": {
+        "Kolkata": 2
+      },
+      "video_ids": [
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "frying": 2
+      },
+      "cooking_stage_distribution": {
+        "prep": 2
+      }
+    },
+    {
+      "cluster_id": 45,
+      "size": 1,
+      "representative_action": "Adding saffron milk",
+      "representative_description": "Adding saffron milk to the pot of rice.",
+      "action_distribution": {
+        "Adding saffron milk": 1
+      },
+      "categories": {
+        "Kolkata": 1
+      },
+      "video_ids": [
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "boiling": 1
+      },
+      "cooking_stage_distribution": {
+        "prep": 1
+      }
+    },
+    {
+      "cluster_id": 46,
+      "size": 1,
+      "representative_action": "Pointing to the camera",
+      "representative_description": "The man is pointing to the camera while speaking to the audience.",
+      "action_distribution": {
+        "Pointing to the camera": 1
+      },
+      "categories": {
+        "Muradabadi": 1
+      },
+      "video_ids": [
+        "pBvVoFFWe5s"
+      ],
+      "technique_distribution": {
+        "not applicable": 1
+      },
+      "cooking_stage_distribution": {
+        "not applicable": 1
+      }
+    },
+    {
+      "cluster_id": 47,
+      "size": 1,
+      "representative_action": "Pointing to ingredients",
+      "representative_description": "The man is pointing to various ingredients in the market.",
+      "action_distribution": {
+        "Pointing to ingredients": 1
+      },
+      "categories": {
+        "Muradabadi": 1
+      },
+      "video_ids": [
+        "pBvVoFFWe5s"
+      ],
+      "technique_distribution": {
+        "not applicable": 1
+      },
+      "cooking_stage_distribution": {
+        "prep": 1
+      }
+    },
+    {
+      "cluster_id": 48,
+      "size": 1,
+      "representative_action": "Talking to the camera",
+      "representative_description": "The man is standing in a market, talking to the camera while holding a black object.",
+      "action_distribution": {
+        "Talking to the camera": 1
+      },
+      "categories": {
+        "Muradabadi": 1
+      },
+      "video_ids": [
+        "pBvVoFFWe5s"
+      ],
+      "technique_distribution": {
+        "not applicable": 1
+      },
+      "cooking_stage_distribution": {
+        "not applicable": 1
+      }
+    },
+    {
+      "cluster_id": 49,
+      "size": 2,
+      "representative_action": "Soaking rice",
+      "representative_description": "The chef is soaking rice in water in a glass bowl.",
+      "action_distribution": {
+        "Soaking rice": 2
+      },
+      "categories": {
+        "Kolkata": 2
+      },
+      "video_ids": [
+        "u9eYgW5XLck"
+      ],
+      "technique_distribution": {
+        "soaking": 2
+      },
+      "cooking_stage_distribution": {
+        "prep": 2
+      }
+    }
+  ]
+}

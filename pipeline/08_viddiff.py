@@ -40,19 +40,34 @@ def propose_differences(category_a: str, category_b: str, groq_key: str) -> list
         client = Groq(api_key=groq_key)
 
         response = client.chat.completions.create(
-            model="qwen-2.5-7b",
+            model="qwen/qwen3.6-27b",
             messages=[{
                 "role": "system",
                 "content": "You are a culinary expert specializing in Indian biryani. Output JSON only."
             }, {
                 "role": "user",
                 "content": (
-                    f"List 5-8 specific visual/procedural differences between "
-                    f"{category_a} and {category_b} biryani cooking. "
-                    f"Output as JSON array of objects with 'aspect', 'description', 'visual_cue'."
+                    f"Compare {category_a} and {category_b} biryani cooking across "
+                    f"EACH of these 10 aspects:\n"
+                    f"1. rice (grain length, parboil level, soaking)\n"
+                    f"2. layering (number of layers, order, technique)\n"
+                    f"3. marination (wet vs dry, duration, acid, dairy)\n"
+                    f"4. dum (sealed vs open, duration, heat source)\n"
+                    f"5. vessel (handi vs deg vs matka vs pot)\n"
+                    f"6. spice_profile (key spices, intensity, whole vs ground)\n"
+                    f"7. cooking_order (meat first vs rice first, simultaneous)\n"
+                    f"8. garnish (saffron milk, fried onions, mint, kewra)\n"
+                    f"9. oil_usage (ghee vs oil vs mustard oil, quantity)\n"
+                    f"10. ingredient_substitutions (regional swaps, e.g. potato, egg)\n\n"
+                    f"Output as a JSON array of objects, one per aspect, each with:\n"
+                    f"  'aspect': the aspect name from the list above,\n"
+                    f"  'description': 1-2 sentence comparison,\n"
+                    f"  'visual_cue': what a camera would see differently.\n"
+                    f"Return ONLY the JSON array, no markdown."
                 )
             }],
-            temperature=0.2, max_tokens=1024,
+            temperature=0.2, max_tokens=6000,
+            reasoning_format="hidden",
         )
 
         text = response.choices[0].message.content.strip()
@@ -136,7 +151,7 @@ def main() -> None:
     out_dir.mkdir(parents=True, exist_ok=True)
     out_path = out_dir / "comparison_results.json"
     with open(out_path, "w") as f:
-        json.dump({"total_pairs": len(results), "comparisons": results}, f, indent=2)
+        json.dump({"schema_version": "2.0", "total_pairs": len(results), "comparisons": results}, f, indent=2)
 
     logger.info(f"\n{'═'*50}\nCOMPARISON: {len(results)} pairs processed\n{'═'*50}")
     logger.info("✓ Stage 8 complete! NEXT: Stage 9 — python pipeline/09_generate_qa.py")

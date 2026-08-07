@@ -7,15 +7,19 @@ Generates multi-tier QA pairs:
   - Easy: Groq Llama-3.1-8B, per segment
   - Medium: Gemini Flash, per video + multilingual templates
   - Hard: Gemini Flash, multi-video 2-5 combos
+  - Expert (v2.0): cooking science, substitutions, failure analysis,
+    regional adaptation questions
 
 Stratified train/test split by tier AND language.
 
 Usage:
     python pipeline/09_generate_qa.py
     python pipeline/09_generate_qa.py --tier easy --limit 100
+    python pipeline/09_generate_qa.py --tier expert
     python pipeline/09_generate_qa.py --dry-run
 
 Input:  datasets/alignments/, datasets/verified/, datasets/comparisons/
+        configs/canonical_recipes/{category}.json
 Output: datasets/qa/train.json, datasets/qa/test.json
 """
 
@@ -58,6 +62,25 @@ HARD_TEMPLATES = [
     "Compare the marination techniques shown across these {n} videos of different biryani styles.",
 ]
 
+EXPERT_TEMPLATES = [
+    # Cooking science
+    "Why is the rice cooked to exactly 70% in {category} biryani? What would happen if it were fully cooked before layering?",
+    "Explain the science behind sealing the pot with dough during dum. How does this affect moisture, pressure, and flavor development?",
+    "Why does {category} biryani use {fat_type} instead of other fats? How does the smoke point and flavor profile affect the final dish?",
+    # Substitutions
+    "If basmati rice is unavailable, what substitutions could work for {category} biryani, and what adjustments would be needed?",
+    "How would substituting yogurt with lemon juice in {category} biryani marination affect the meat texture and flavor?",
+    "What happens if you replace ghee with oil in {category} biryani? Which stages are most affected?",
+    # Failure analysis
+    "What are the signs that the rice in {category} biryani has been overcooked during parboiling, and how can this be recovered?",
+    "If the dum seal breaks during cooking, what impact does this have and how should the cook respond?",
+    "Why might the bottom layer burn in {category} biryani, and what preventive measures are shown in expert cooking videos?",
+    # Regional adaptation
+    "How would you adapt {cat_a} biryani technique for {cat_b} regional ingredients and taste preferences?",
+    "What are the key compromises when cooking {category} biryani outside its region of origin, and how do diaspora cooks handle them?",
+    "Compare how {cat_a} and {cat_b} biryani handle the same ingredient differently due to regional climate and tradition.",
+]
+
 
 def generate_easy_qa(segments: list[dict], groq_key: str, limit: int = None) -> list[dict]:
     """Generate easy QA from individual segments using Groq."""
@@ -87,9 +110,20 @@ def generate_easy_qa(segments: list[dict], groq_key: str, limit: int = None) -> 
             answer = resp.choices[0].message.content.strip()
 
             qa_pairs.append({
+                # Existing keys — unchanged
                 "question": template, "answer": answer, "tier": "easy",
                 "video_id": seg.get("video_id", ""), "category": seg.get("category", ""),
                 "segment_start": seg.get("start_time", 0), "segment_end": seg.get("end_time", 0),
+                # v2.0 additive keys
+                "instruction": template,
+                "context": context,
+                "canonical_recipe_ref": f"configs/canonical_recipes/{seg.get('category', '').lower()}.json",
+                "video_metadata_ref": {
+                    "video_id": seg.get("video_id", ""),
+                    "segment_action": seg.get("action", ""),
+                    "cooking_technique": seg.get("cooking_technique", ""),
+                    "cooking_stage": seg.get("cooking_stage", ""),
+                },
             })
 
             if (i + 1) % 20 == 0:
@@ -131,6 +165,77 @@ def generate_hard_qa(categories: list[str]) -> list[dict]:
     return qa_pairs
 
 
+def generate_expert_qa(
+    categories: list[str],
+    recipes: dict[str, dict[str, Any]] | None = None,
+) -> list[dict]:
+    """Generate expert-tier QA: cooking science, substitutions, failure
+    analysis, and regional adaptation questions.
+
+    Follows the same pattern as generate_hard_qa().  Uses canonical recipe
+    metadata when available to fill template placeholders.
+    """
+    import itertools
+
+    if recipes is None:
+        recipes = {}
+    qa_pairs: list[dict] = []
+    sorted_cats = sorted(categories)[:10]
+
+    for cat in sorted_cats:
+        recipe = recipes.get(cat, {})
+        # Determine fat type for science templates
+        fat_type = "ghee"
+        for feat in recipe.get("distinguishing_features", []):
+            fl = feat.lower()
+            if "mustard oil" in fl:
+                fat_type = "mustard oil"
+                break
+            elif "coconut" in fl:
+                fat_type = "coconut oil"
+                break
+
+        # Single-category expert templates (science, substitution, failure)
+        single_templates = [t for t in EXPERT_TEMPLATES if "{cat_a}" not in t and "{cat_b}" not in t]
+        for tmpl in random.sample(single_templates, min(3, len(single_templates))):
+            q = tmpl.format(category=cat, fat_type=fat_type, n=len(sorted_cats))
+            qa_pairs.append({
+                "question": q, "answer": "", "tier": "expert",
+                "category": cat, "needs_generation": True,
+                "canonical_recipe_ref": f"configs/canonical_recipes/{cat.lower()}.json",
+                "expert_subtopic": _classify_expert_subtopic(tmpl),
+            })
+
+    # Cross-category expert templates (regional adaptation)
+    cross_templates = [t for t in EXPERT_TEMPLATES if "{cat_a}" in t and "{cat_b}" in t]
+    for cat_a, cat_b in itertools.combinations(sorted_cats, 2):
+        if random.random() > 0.3:  # Sample ~30% of pairs to keep count manageable
+            continue
+        tmpl = random.choice(cross_templates)
+        q = tmpl.format(cat_a=cat_a, cat_b=cat_b, category=cat_a, fat_type="ghee", n=2)
+        qa_pairs.append({
+            "question": q, "answer": "", "tier": "expert",
+            "category": f"{cat_a}_vs_{cat_b}", "needs_generation": True,
+            "expert_subtopic": "regional_adaptation",
+        })
+
+    return qa_pairs
+
+
+def _classify_expert_subtopic(template: str) -> str:
+    """Classify an expert template into a subtopic."""
+    tl = template.lower()
+    if any(w in tl for w in ["science", "why", "explain", "affect"]):
+        return "cooking_science"
+    elif any(w in tl for w in ["substitut", "replace", "unavailable"]):
+        return "substitution"
+    elif any(w in tl for w in ["fail", "burn", "break", "overcook", "recover", "sign"]):
+        return "failure_analysis"
+    elif any(w in tl for w in ["adapt", "region", "diaspora", "compromise"]):
+        return "regional_adaptation"
+    return "general"
+
+
 def stratified_split(qa_pairs: list[dict], test_ratio: float = 0.2) -> tuple[list, list]:
     """Stratified split by tier and category."""
     from collections import defaultdict
@@ -154,7 +259,7 @@ def stratified_split(qa_pairs: list[dict], test_ratio: float = 0.2) -> tuple[lis
 def main() -> None:
     parser = argparse.ArgumentParser(description="CulinaryVLM Stage 9 — QA Generation")
     parser.add_argument("--config", default="configs/config.yaml")
-    parser.add_argument("--tier", choices=["easy", "medium", "hard", "all"], default="all")
+    parser.add_argument("--tier", choices=["easy", "medium", "hard", "expert", "all"], default="all")
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
@@ -187,8 +292,20 @@ def main() -> None:
 
     logger.info(f"Segments: {len(segments)}, Aligned videos: {len(videos_by_id)}, Categories: {len(categories)}")
 
+    # Load canonical recipes for expert tier
+    recipe_dir = PROJECT_ROOT / "configs" / "canonical_recipes"
+    recipes: dict[str, dict] = {}
+    for fp in recipe_dir.glob("*.json"):
+        try:
+            with open(fp) as f:
+                r = json.load(f)
+            recipes[r.get("category", fp.stem.title())] = r
+        except (json.JSONDecodeError, OSError):
+            pass
+
     if args.dry_run:
-        logger.info("[DRY RUN] Would generate QA across tiers: easy, medium, hard")
+        logger.info("[DRY RUN] Would generate QA across tiers: easy, medium, hard, expert")
+        logger.info(f"  Canonical recipes loaded: {len(recipes)}")
         return
 
     all_qa = []
@@ -212,14 +329,20 @@ def main() -> None:
         all_qa.extend(hard)
         logger.info(f"  Hard: {len(hard)} pairs")
 
+    if args.tier in ("expert", "all"):
+        logger.info("Generating EXPERT tier...")
+        expert = generate_expert_qa(list(categories), recipes=recipes)
+        all_qa.extend(expert)
+        logger.info(f"  Expert: {len(expert)} pairs")
+
     # Split
     train, test = stratified_split(all_qa)
 
     qa_dir.mkdir(parents=True, exist_ok=True)
     with open(qa_dir / "train.json", "w") as f:
-        json.dump({"total": len(train), "qa_pairs": train}, f, indent=2)
+        json.dump({"schema_version": "2.0", "total": len(train), "qa_pairs": train}, f, indent=2)
     with open(qa_dir / "test.json", "w") as f:
-        json.dump({"total": len(test), "qa_pairs": test}, f, indent=2)
+        json.dump({"schema_version": "2.0", "total": len(test), "qa_pairs": test}, f, indent=2)
 
     logger.info(f"\n{'═'*50}\nQA GENERATION: {len(all_qa)} total → {len(train)} train / {len(test)} test\n{'═'*50}")
     logger.info("✓ Stage 9 complete! NEXT: Stage 10 — training/finetune_qlora.py (GPU cluster)")

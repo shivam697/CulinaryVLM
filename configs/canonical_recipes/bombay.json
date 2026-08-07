@@ -1,7 +1,17 @@
 {
+  "schema_version": "2.0",
   "category": "Bombay",
   "full_name": "Bombay/Mumbai Chicken Biryani",
   "region": "Maharashtra (Mumbai)",
+  "protein": "chicken",
+  "utensil_hierarchy": [
+    "heavy-bottomed pot",
+    "frying pan (for potatoes)",
+    "kadhai (for onions)",
+    "strainer"
+  ],
+  "marination_strategy": "wet yogurt-based, 1-2 hrs, dairy (yogurt) + coconut paste + lemon",
+  "spice_intensity": "medium",
   "distinguishing_features": [
     "Blend of North and South Indian influences",
     "Uses fried potatoes (like Kolkata) and fried onions (like Hyderabadi)",
@@ -21,6 +31,29 @@
         "yogurt",
         "ginger-garlic paste",
         "lemon"
+      ],
+      "visible_objects": [
+        "mixing bowl",
+        "chicken pieces",
+        "yogurt/marinade",
+        "spice powders"
+      ],
+      "ingredient_state": {
+        "chicken": "raw, cut into pieces",
+        "marinade": "mixed wet paste coating chicken"
+      },
+      "expected_visual_features": [
+        "chicken coated in colored marinade",
+        "spice paste visible on pieces"
+      ],
+      "expected_audio": "mixing and squelching sounds",
+      "common_mistakes": [
+        "insufficient marination time",
+        "uneven coating"
+      ],
+      "recovery_actions": [
+        "extend marination in refrigerator",
+        "remix and re-coat all pieces"
       ]
     },
     {
@@ -33,6 +66,30 @@
         "chicken",
         "onion",
         "oil"
+      ],
+      "visible_objects": [
+        "cooking pot/pan",
+        "chicken pieces",
+        "oil",
+        "onions",
+        "spices"
+      ],
+      "ingredient_state": {
+        "chicken": "cooking in masala, browning and releasing juices"
+      },
+      "expected_visual_features": [
+        "chicken browning",
+        "gravy thickening",
+        "oil separating from masala"
+      ],
+      "expected_audio": "sizzling, bubbling masala",
+      "common_mistakes": [
+        "heat too high (masala burns)",
+        "not cooking until oil separates"
+      ],
+      "recovery_actions": [
+        "reduce heat",
+        "cook until oil separates from masala (sign of doneness)"
       ]
     },
     {
@@ -44,6 +101,28 @@
       "ingredients_used": [
         "potato",
         "oil"
+      ],
+      "visible_objects": [
+        "frying pan",
+        "potato pieces",
+        "hot oil"
+      ],
+      "ingredient_state": {
+        "potatoes": "peeled, cut, frying until golden",
+        "oil": "hot"
+      },
+      "expected_visual_features": [
+        "golden-brown potato pieces",
+        "oil bubbling"
+      ],
+      "expected_audio": "sizzling oil, crackling",
+      "common_mistakes": [
+        "potatoes not golden enough",
+        "oil too cold"
+      ],
+      "recovery_actions": [
+        "fry longer until deep golden",
+        "increase oil temperature"
       ]
     },
     {
@@ -57,6 +136,31 @@
         "bay leaf",
         "cardamom",
         "cinnamon"
+      ],
+      "visible_objects": [
+        "large pot",
+        "boiling water",
+        "rice",
+        "whole spices",
+        "strainer"
+      ],
+      "ingredient_state": {
+        "rice": "70% cooked — grains elongated but firm in center",
+        "water": "starchy, rolling boil"
+      },
+      "expected_visual_features": [
+        "elongated rice grains",
+        "rolling boil",
+        "whole spices floating"
+      ],
+      "expected_audio": "vigorous bubbling, boiling water",
+      "common_mistakes": [
+        "overcooking rice past 70%",
+        "not draining immediately"
+      ],
+      "recovery_actions": [
+        "spread rice on tray to stop cooking",
+        "rinse with cold water"
       ]
     },
     {
@@ -69,6 +173,29 @@
         "chicken",
         "potato",
         "basmati rice"
+      ],
+      "visible_objects": [
+        "cooking pot",
+        "chicken",
+        "potato",
+        "basmati rice"
+      ],
+      "ingredient_state": {
+        "chicken": "being layered in pot",
+        "potato": "being layered in pot",
+        "basmati rice": "being layered in pot"
+      },
+      "expected_visual_features": [
+        "distinct layers visible in pot"
+      ],
+      "expected_audio": "placing/spreading sounds",
+      "common_mistakes": [
+        "uneven distribution",
+        "pressing down (compacts, blocks steam)"
+      ],
+      "recovery_actions": [
+        "redistribute evenly",
+        "keep layers loose and fluffy"
       ]
     },
     {
@@ -82,6 +209,30 @@
         "ghee",
         "onion",
         "mint"
+      ],
+      "visible_objects": [
+        "saffron milk",
+        "ghee",
+        "fried onions",
+        "herbs"
+      ],
+      "ingredient_state": {
+        "saffron": "dissolved in warm milk, golden",
+        "ghee": "melted"
+      },
+      "expected_visual_features": [
+        "golden saffron streaks",
+        "green herb specks",
+        "aromatic steam"
+      ],
+      "expected_audio": "drizzling liquid, sprinkling",
+      "common_mistakes": [
+        "too little saffron/ghee",
+        "not steeping saffron first"
+      ],
+      "recovery_actions": [
+        "steep saffron in warm milk 10 min",
+        "be generous with ghee"
       ]
     },
     {
@@ -90,7 +241,26 @@
       "description": "Seal and cook on low heat 25 minutes.",
       "duration_minutes": 25,
       "is_defining_step": false,
-      "ingredients_used": []
+      "ingredients_used": [],
+      "visible_objects": [
+        "sealed pot on stove"
+      ],
+      "ingredient_state": {
+        "contents": "cooking via trapped steam, flavors melding"
+      },
+      "expected_visual_features": [
+        "sealed pot, no steam escaping",
+        "slight aroma building"
+      ],
+      "expected_audio": "initial hissing/steam, then very quiet on low heat",
+      "common_mistakes": [
+        "opening lid during dum (releases steam)",
+        "heat too high (bottom burns)"
+      ],
+      "recovery_actions": [
+        "never open lid — trust the process",
+        "place tawa underneath for heat diffusion"
+      ]
     },
     {
       "step_number": 8,
@@ -98,7 +268,30 @@
       "description": "Serve with burhani raita.",
       "duration_minutes": 5,
       "is_defining_step": true,
-      "ingredients_used": []
+      "ingredients_used": [],
+      "visible_objects": [
+        "cooking pot",
+        "serving dish",
+        "accompaniments"
+      ],
+      "ingredient_state": {
+        "rice": "fully cooked, fluffy",
+        "chicken": "fully cooked, tender"
+      },
+      "expected_visual_features": [
+        "fluffy rice with visible layers",
+        "tender chicken",
+        "steam rising"
+      ],
+      "expected_audio": "gentle mixing, steam release",
+      "common_mistakes": [
+        "mixing too vigorously (breaks rice grains)",
+        "not resting before serving"
+      ],
+      "recovery_actions": [
+        "fold gently from edges",
+        "rest 5-10 min minimum"
+      ]
     }
   ],
   "ingredient_aliases": {

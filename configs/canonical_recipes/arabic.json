@@ -1,7 +1,17 @@
 {
+  "schema_version": "2.0",
   "category": "Arabic",
   "full_name": "Arabic/Arabian Chicken Biryani (Mandi/Kabsa)",
   "region": "Middle East / Arabian Peninsula (adopted in India)",
+  "protein": "chicken",
+  "utensil_hierarchy": [
+    "roasting tray",
+    "large serving platter",
+    "pot (for rice)",
+    "frying pan (for nuts)"
+  ],
+  "marination_strategy": "wet yogurt-based, 2 hrs, dairy (yogurt) + baharat spice blend + lemon",
+  "spice_intensity": "medium",
   "distinguishing_features": [
     "Uses Arabian spice blend: bezar, loomi (dried lime), baharat",
     "Chicken is often smoked or slow-roasted, not curry-based",
@@ -21,6 +31,29 @@
         "yogurt",
         "lemon",
         "ginger-garlic paste"
+      ],
+      "visible_objects": [
+        "mixing bowl",
+        "chicken pieces",
+        "yogurt/marinade",
+        "spice powders"
+      ],
+      "ingredient_state": {
+        "chicken": "raw, cut into pieces",
+        "marinade": "mixed wet paste coating chicken"
+      },
+      "expected_visual_features": [
+        "chicken coated in colored marinade",
+        "spice paste visible on pieces"
+      ],
+      "expected_audio": "mixing and squelching sounds",
+      "common_mistakes": [
+        "insufficient marination time",
+        "uneven coating"
+      ],
+      "recovery_actions": [
+        "extend marination in refrigerator",
+        "remix and re-coat all pieces"
       ]
     },
     {
@@ -32,6 +65,29 @@
       "ingredients_used": [
         "chicken",
         "ghee"
+      ],
+      "visible_objects": [
+        "tandoor/oven/grill",
+        "marinated chicken",
+        "grill rack/tray"
+      ],
+      "ingredient_state": {
+        "chicken": "charring and cooking through, developing smoky crust"
+      },
+      "expected_visual_features": [
+        "charred reddish-brown chicken",
+        "smoke rising",
+        "juices dripping"
+      ],
+      "expected_audio": "sizzling on grill, occasional crackling",
+      "common_mistakes": [
+        "uneven cooking",
+        "too far from heat (no char)",
+        "drying out"
+      ],
+      "recovery_actions": [
+        "rotate pieces frequently",
+        "baste with marinade/oil"
       ]
     },
     {
@@ -45,6 +101,26 @@
         "saffron",
         "cardamom",
         "cinnamon"
+      ],
+      "visible_objects": [
+        "basmati rice",
+        "saffron",
+        "cardamom",
+        "cooking vessel"
+      ],
+      "ingredient_state": {
+        "basmati rice": "being processed",
+        "saffron": "being processed"
+      },
+      "expected_visual_features": [
+        "cooking in progress"
+      ],
+      "expected_audio": "cooking sounds",
+      "common_mistakes": [
+        "timing incorrect"
+      ],
+      "recovery_actions": [
+        "adjust timing and check frequently"
       ]
     },
     {
@@ -55,6 +131,26 @@
       "is_defining_step": true,
       "ingredients_used": [
         "ghee"
+      ],
+      "visible_objects": [
+        "frying pan",
+        "ghee",
+        "dry fruits/nuts"
+      ],
+      "ingredient_state": {
+        "nuts": "toasting in ghee, turning golden"
+      },
+      "expected_visual_features": [
+        "golden nuts, plump raisins"
+      ],
+      "expected_audio": "gentle sizzling",
+      "common_mistakes": [
+        "burning nuts",
+        "not watching closely"
+      ],
+      "recovery_actions": [
+        "low heat, stir constantly",
+        "remove immediately when golden"
       ]
     },
     {
@@ -66,6 +162,27 @@
       "ingredients_used": [
         "chicken",
         "basmati rice"
+      ],
+      "visible_objects": [
+        "large serving platter",
+        "rice",
+        "chicken",
+        "garnishes"
+      ],
+      "ingredient_state": {
+        "rice": "fully cooked, aromatic",
+        "chicken": "roasted/grilled, golden"
+      },
+      "expected_visual_features": [
+        "chicken arranged on rice bed",
+        "garnished with nuts and herbs"
+      ],
+      "expected_audio": "plating sounds",
+      "common_mistakes": [
+        "messy presentation"
+      ],
+      "recovery_actions": [
+        "arrange chicken pieces prominently on rice"
       ]
     },
     {
@@ -74,7 +191,30 @@
       "description": "Serve with dakous (tomato-chili sauce) and yogurt.",
       "duration_minutes": 5,
       "is_defining_step": true,
-      "ingredients_used": []
+      "ingredients_used": [],
+      "visible_objects": [
+        "cooking pot",
+        "serving dish",
+        "accompaniments"
+      ],
+      "ingredient_state": {
+        "rice": "fully cooked, fluffy",
+        "chicken": "fully cooked, tender"
+      },
+      "expected_visual_features": [
+        "fluffy rice with visible layers",
+        "tender chicken",
+        "steam rising"
+      ],
+      "expected_audio": "gentle mixing, steam release",
+      "common_mistakes": [
+        "mixing too vigorously (breaks rice grains)",
+        "not resting before serving"
+      ],
+      "recovery_actions": [
+        "fold gently from edges",
+        "rest 5-10 min minimum"
+      ]
     }
   ],
   "ingredient_aliases": {

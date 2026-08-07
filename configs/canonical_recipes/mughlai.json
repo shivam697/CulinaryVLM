@@ -1,7 +1,17 @@
 {
+  "schema_version": "2.0",
   "category": "Mughlai",
   "full_name": "Mughlai Chicken Biryani",
   "region": "North India (Mughal court cuisine)",
+  "protein": "chicken",
+  "utensil_hierarchy": [
+    "silver-lined degchi",
+    "kadhai",
+    "strainer",
+    "mixing bowl"
+  ],
+  "marination_strategy": "double marination: yogurt (1 hr) then cream + cashew paste + saffron (30 min)",
+  "spice_intensity": "medium",
   "distinguishing_features": [
     "Rich, elaborate preparation — the 'royal' biryani style",
     "Cream, cashew paste, and ghee create a rich gravy",
@@ -20,6 +30,26 @@
         "chicken",
         "yogurt",
         "ginger-garlic paste"
+      ],
+      "visible_objects": [
+        "chicken",
+        "yogurt",
+        "ginger-garlic paste",
+        "cooking vessel"
+      ],
+      "ingredient_state": {
+        "chicken": "being processed",
+        "yogurt": "being processed"
+      },
+      "expected_visual_features": [
+        "cooking in progress"
+      ],
+      "expected_audio": "cooking sounds",
+      "common_mistakes": [
+        "timing incorrect"
+      ],
+      "recovery_actions": [
+        "adjust timing and check frequently"
       ]
     },
     {
@@ -31,6 +61,25 @@
       "ingredients_used": [
         "chicken",
         "saffron"
+      ],
+      "visible_objects": [
+        "chicken",
+        "saffron",
+        "cooking vessel"
+      ],
+      "ingredient_state": {
+        "chicken": "being processed",
+        "saffron": "being processed"
+      },
+      "expected_visual_features": [
+        "cooking in progress"
+      ],
+      "expected_audio": "cooking sounds",
+      "common_mistakes": [
+        "timing incorrect"
+      ],
+      "recovery_actions": [
+        "adjust timing and check frequently"
       ]
     },
     {
@@ -45,6 +94,30 @@
         "cardamom",
         "cinnamon",
         "cloves"
+      ],
+      "visible_objects": [
+        "cooking pot/pan",
+        "chicken pieces",
+        "ghee",
+        "onions",
+        "spices"
+      ],
+      "ingredient_state": {
+        "chicken": "cooking in masala, browning and releasing juices"
+      },
+      "expected_visual_features": [
+        "chicken browning",
+        "gravy thickening",
+        "oil separating from masala"
+      ],
+      "expected_audio": "sizzling, bubbling masala",
+      "common_mistakes": [
+        "heat too high (masala burns)",
+        "not cooking until oil separates"
+      ],
+      "recovery_actions": [
+        "reduce heat",
+        "cook until oil separates from masala (sign of doneness)"
       ]
     },
     {
@@ -57,6 +130,31 @@
         "basmati rice",
         "saffron",
         "bay leaf"
+      ],
+      "visible_objects": [
+        "large pot",
+        "boiling water",
+        "rice",
+        "whole spices",
+        "strainer"
+      ],
+      "ingredient_state": {
+        "rice": "70% cooked — grains elongated but firm in center",
+        "water": "starchy, rolling boil"
+      },
+      "expected_visual_features": [
+        "elongated rice grains",
+        "rolling boil",
+        "whole spices floating"
+      ],
+      "expected_audio": "vigorous bubbling, boiling water",
+      "common_mistakes": [
+        "overcooking rice past 70%",
+        "not draining immediately"
+      ],
+      "recovery_actions": [
+        "spread rice on tray to stop cooking",
+        "rinse with cold water"
       ]
     },
     {
@@ -68,6 +166,27 @@
       "ingredients_used": [
         "chicken",
         "basmati rice"
+      ],
+      "visible_objects": [
+        "cooking pot",
+        "chicken",
+        "basmati rice"
+      ],
+      "ingredient_state": {
+        "chicken": "being layered in pot",
+        "basmati rice": "being layered in pot"
+      },
+      "expected_visual_features": [
+        "distinct layers visible in pot"
+      ],
+      "expected_audio": "placing/spreading sounds",
+      "common_mistakes": [
+        "uneven distribution",
+        "pressing down (compacts, blocks steam)"
+      ],
+      "recovery_actions": [
+        "redistribute evenly",
+        "keep layers loose and fluffy"
       ]
     },
     {
@@ -81,6 +200,30 @@
         "kewra water",
         "saffron",
         "ghee"
+      ],
+      "visible_objects": [
+        "saffron milk",
+        "ghee",
+        "fried onions",
+        "herbs"
+      ],
+      "ingredient_state": {
+        "saffron": "dissolved in warm milk, golden",
+        "ghee": "melted"
+      },
+      "expected_visual_features": [
+        "golden saffron streaks",
+        "green herb specks",
+        "aromatic steam"
+      ],
+      "expected_audio": "drizzling liquid, sprinkling",
+      "common_mistakes": [
+        "too little saffron/ghee",
+        "not steeping saffron first"
+      ],
+      "recovery_actions": [
+        "steep saffron in warm milk 10 min",
+        "be generous with ghee"
       ]
     },
     {
@@ -89,7 +232,26 @@
       "description": "Seal with dough, dum on low heat 25 minutes.",
       "duration_minutes": 25,
       "is_defining_step": false,
-      "ingredients_used": []
+      "ingredients_used": [],
+      "visible_objects": [
+        "sealed pot on stove"
+      ],
+      "ingredient_state": {
+        "contents": "cooking via trapped steam, flavors melding"
+      },
+      "expected_visual_features": [
+        "sealed pot, no steam escaping",
+        "slight aroma building"
+      ],
+      "expected_audio": "initial hissing/steam, then very quiet on low heat",
+      "common_mistakes": [
+        "opening lid during dum (releases steam)",
+        "heat too high (bottom burns)"
+      ],
+      "recovery_actions": [
+        "never open lid — trust the process",
+        "place tawa underneath for heat diffusion"
+      ]
     },
     {
       "step_number": 8,
@@ -97,7 +259,30 @@
       "description": "Serve with shahi korma and raita.",
       "duration_minutes": 5,
       "is_defining_step": false,
-      "ingredients_used": []
+      "ingredients_used": [],
+      "visible_objects": [
+        "cooking pot",
+        "serving dish",
+        "accompaniments"
+      ],
+      "ingredient_state": {
+        "rice": "fully cooked, fluffy",
+        "chicken": "fully cooked, tender"
+      },
+      "expected_visual_features": [
+        "fluffy rice with visible layers",
+        "tender chicken",
+        "steam rising"
+      ],
+      "expected_audio": "gentle mixing, steam release",
+      "common_mistakes": [
+        "mixing too vigorously (breaks rice grains)",
+        "not resting before serving"
+      ],
+      "recovery_actions": [
+        "fold gently from edges",
+        "rest 5-10 min minimum"
+      ]
     }
   ],
   "ingredient_aliases": {

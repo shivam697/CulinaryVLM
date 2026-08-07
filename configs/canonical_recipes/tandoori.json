@@ -1,7 +1,17 @@
 {
+  "schema_version": "2.0",
   "category": "Tandoori",
   "full_name": "Tandoori Chicken Biryani",
   "region": "North India (method-based)",
+  "protein": "chicken",
+  "utensil_hierarchy": [
+    "tandoor or oven (for grilling)",
+    "heavy pot (for biryani dum)",
+    "strainer",
+    "grill rack"
+  ],
+  "marination_strategy": "wet yogurt-based tandoori, 2 hrs, dairy (yogurt) + Kashmiri chili + mustard oil + lemon",
+  "spice_intensity": "medium-high",
   "distinguishing_features": [
     "Uses pre-cooked tandoori chicken instead of raw/curry chicken",
     "Smoky, charred flavor from tandoor-roasted chicken",
@@ -23,6 +33,29 @@
         "lemon",
         "ginger-garlic paste",
         "mustard oil"
+      ],
+      "visible_objects": [
+        "mixing bowl",
+        "chicken pieces",
+        "yogurt/marinade",
+        "spice powders"
+      ],
+      "ingredient_state": {
+        "chicken": "raw, cut into pieces",
+        "marinade": "mixed wet paste coating chicken"
+      },
+      "expected_visual_features": [
+        "chicken coated in colored marinade",
+        "spice paste visible on pieces"
+      ],
+      "expected_audio": "mixing and squelching sounds",
+      "common_mistakes": [
+        "insufficient marination time",
+        "uneven coating"
+      ],
+      "recovery_actions": [
+        "extend marination in refrigerator",
+        "remix and re-coat all pieces"
       ]
     },
     {
@@ -33,6 +66,29 @@
       "is_defining_step": true,
       "ingredients_used": [
         "chicken"
+      ],
+      "visible_objects": [
+        "tandoor/oven/grill",
+        "marinated chicken",
+        "grill rack/tray"
+      ],
+      "ingredient_state": {
+        "chicken": "charring and cooking through, developing smoky crust"
+      },
+      "expected_visual_features": [
+        "charred reddish-brown chicken",
+        "smoke rising",
+        "juices dripping"
+      ],
+      "expected_audio": "sizzling on grill, occasional crackling",
+      "common_mistakes": [
+        "uneven cooking",
+        "too far from heat (no char)",
+        "drying out"
+      ],
+      "recovery_actions": [
+        "rotate pieces frequently",
+        "baste with marinade/oil"
       ]
     },
     {
@@ -46,6 +102,31 @@
         "bay leaf",
         "cardamom",
         "cinnamon"
+      ],
+      "visible_objects": [
+        "large pot",
+        "boiling water",
+        "rice",
+        "whole spices",
+        "strainer"
+      ],
+      "ingredient_state": {
+        "rice": "70% cooked — grains elongated but firm in center",
+        "water": "starchy, rolling boil"
+      },
+      "expected_visual_features": [
+        "elongated rice grains",
+        "rolling boil",
+        "whole spices floating"
+      ],
+      "expected_audio": "vigorous bubbling, boiling water",
+      "common_mistakes": [
+        "overcooking rice past 70%",
+        "not draining immediately"
+      ],
+      "recovery_actions": [
+        "spread rice on tray to stop cooking",
+        "rinse with cold water"
       ]
     },
     {
@@ -58,6 +139,29 @@
         "onion",
         "green chili",
         "oil"
+      ],
+      "visible_objects": [
+        "pan",
+        "onions",
+        "tomatoes",
+        "spices",
+        "cream"
+      ],
+      "ingredient_state": {
+        "gravy": "reducing, thickening"
+      },
+      "expected_visual_features": [
+        "thick, rich gravy",
+        "oil separating"
+      ],
+      "expected_audio": "simmering, bubbling",
+      "common_mistakes": [
+        "gravy too thin",
+        "not cooking long enough"
+      ],
+      "recovery_actions": [
+        "cook until oil separates",
+        "reduce on medium heat"
       ]
     },
     {
@@ -68,6 +172,25 @@
       "is_defining_step": true,
       "ingredients_used": [
         "chicken"
+      ],
+      "visible_objects": [
+        "cooking pot",
+        "chicken"
+      ],
+      "ingredient_state": {
+        "chicken": "being layered in pot"
+      },
+      "expected_visual_features": [
+        "distinct layers visible in pot"
+      ],
+      "expected_audio": "placing/spreading sounds",
+      "common_mistakes": [
+        "uneven distribution",
+        "pressing down (compacts, blocks steam)"
+      ],
+      "recovery_actions": [
+        "redistribute evenly",
+        "keep layers loose and fluffy"
       ]
     },
     {
@@ -81,6 +204,29 @@
         "saffron",
         "ghee",
         "mint"
+      ],
+      "visible_objects": [
+        "cooking pot",
+        "basmati rice",
+        "saffron",
+        "ghee"
+      ],
+      "ingredient_state": {
+        "basmati rice": "being layered in pot",
+        "saffron": "being layered in pot",
+        "ghee": "being layered in pot"
+      },
+      "expected_visual_features": [
+        "distinct layers visible in pot"
+      ],
+      "expected_audio": "placing/spreading sounds",
+      "common_mistakes": [
+        "uneven distribution",
+        "pressing down (compacts, blocks steam)"
+      ],
+      "recovery_actions": [
+        "redistribute evenly",
+        "keep layers loose and fluffy"
       ]
     },
     {
@@ -89,7 +235,30 @@
       "description": "Mix gently, serve with raita and green chutney.",
       "duration_minutes": 5,
       "is_defining_step": false,
-      "ingredients_used": []
+      "ingredients_used": [],
+      "visible_objects": [
+        "cooking pot",
+        "serving dish",
+        "accompaniments"
+      ],
+      "ingredient_state": {
+        "rice": "fully cooked, fluffy",
+        "chicken": "fully cooked, tender"
+      },
+      "expected_visual_features": [
+        "fluffy rice with visible layers",
+        "tender chicken",
+        "steam rising"
+      ],
+      "expected_audio": "gentle mixing, steam release",
+      "common_mistakes": [
+        "mixing too vigorously (breaks rice grains)",
+        "not resting before serving"
+      ],
+      "recovery_actions": [
+        "fold gently from edges",
+        "rest 5-10 min minimum"
+      ]
     }
   ],
   "ingredient_aliases": {

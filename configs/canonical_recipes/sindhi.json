@@ -1,7 +1,17 @@
 {
+  "schema_version": "2.0",
   "category": "Sindhi",
   "full_name": "Sindhi/Karachi Chicken Biryani",
   "region": "Sindh / Karachi (Pakistani origin, Indian Sindhi diaspora)",
+  "protein": "chicken",
+  "utensil_hierarchy": [
+    "heavy-bottomed pot (deg)",
+    "frying pan (for potatoes)",
+    "strainer",
+    "mixing bowl"
+  ],
+  "marination_strategy": "wet yogurt-based, 1-2 hrs, dairy (yogurt) + heavy red chili + cumin",
+  "spice_intensity": "high",
   "distinguishing_features": [
     "Heavy use of dried plums (aloo bukhara) and potatoes",
     "Yogurt-based marinade with generous red chili and cumin",
@@ -23,6 +33,29 @@
         "red chili powder",
         "cumin",
         "turmeric"
+      ],
+      "visible_objects": [
+        "mixing bowl",
+        "chicken pieces",
+        "yogurt/marinade",
+        "spice powders"
+      ],
+      "ingredient_state": {
+        "chicken": "raw, cut into pieces",
+        "marinade": "mixed wet paste coating chicken"
+      },
+      "expected_visual_features": [
+        "chicken coated in colored marinade",
+        "spice paste visible on pieces"
+      ],
+      "expected_audio": "mixing and squelching sounds",
+      "common_mistakes": [
+        "insufficient marination time",
+        "uneven coating"
+      ],
+      "recovery_actions": [
+        "extend marination in refrigerator",
+        "remix and re-coat all pieces"
       ]
     },
     {
@@ -35,6 +68,30 @@
         "chicken",
         "onion",
         "green chili"
+      ],
+      "visible_objects": [
+        "cooking pot/pan",
+        "chicken pieces",
+        "ghee/oil",
+        "onions",
+        "spices"
+      ],
+      "ingredient_state": {
+        "chicken": "cooking in masala, browning and releasing juices"
+      },
+      "expected_visual_features": [
+        "chicken browning",
+        "gravy thickening",
+        "oil separating from masala"
+      ],
+      "expected_audio": "sizzling, bubbling masala",
+      "common_mistakes": [
+        "heat too high (masala burns)",
+        "not cooking until oil separates"
+      ],
+      "recovery_actions": [
+        "reduce heat",
+        "cook until oil separates from masala (sign of doneness)"
       ]
     },
     {
@@ -43,7 +100,21 @@
       "description": "Soak dried plums (aloo bukhara) in warm water.",
       "duration_minutes": 15,
       "is_defining_step": true,
-      "ingredients_used": []
+      "ingredients_used": [],
+      "visible_objects": [
+        "cooking vessel"
+      ],
+      "ingredient_state": {},
+      "expected_visual_features": [
+        "cooking in progress"
+      ],
+      "expected_audio": "cooking sounds",
+      "common_mistakes": [
+        "timing incorrect"
+      ],
+      "recovery_actions": [
+        "adjust timing and check frequently"
+      ]
     },
     {
       "step_number": 4,
@@ -54,6 +125,28 @@
       "ingredients_used": [
         "potato",
         "oil"
+      ],
+      "visible_objects": [
+        "frying pan",
+        "potato pieces",
+        "hot oil"
+      ],
+      "ingredient_state": {
+        "potatoes": "peeled, cut, frying until golden",
+        "oil": "hot"
+      },
+      "expected_visual_features": [
+        "golden-brown potato pieces",
+        "oil bubbling"
+      ],
+      "expected_audio": "sizzling oil, crackling",
+      "common_mistakes": [
+        "potatoes not golden enough",
+        "oil too cold"
+      ],
+      "recovery_actions": [
+        "fry longer until deep golden",
+        "increase oil temperature"
       ]
     },
     {
@@ -67,6 +160,31 @@
         "bay leaf",
         "cardamom",
         "cumin"
+      ],
+      "visible_objects": [
+        "large pot",
+        "boiling water",
+        "rice",
+        "whole spices",
+        "strainer"
+      ],
+      "ingredient_state": {
+        "rice": "70% cooked — grains elongated but firm in center",
+        "water": "starchy, rolling boil"
+      },
+      "expected_visual_features": [
+        "elongated rice grains",
+        "rolling boil",
+        "whole spices floating"
+      ],
+      "expected_audio": "vigorous bubbling, boiling water",
+      "common_mistakes": [
+        "overcooking rice past 70%",
+        "not draining immediately"
+      ],
+      "recovery_actions": [
+        "spread rice on tray to stop cooking",
+        "rinse with cold water"
       ]
     },
     {
@@ -78,6 +196,27 @@
       "ingredients_used": [
         "chicken",
         "potato"
+      ],
+      "visible_objects": [
+        "cooking pot",
+        "chicken",
+        "potato"
+      ],
+      "ingredient_state": {
+        "chicken": "being layered in pot",
+        "potato": "being layered in pot"
+      },
+      "expected_visual_features": [
+        "distinct layers visible in pot"
+      ],
+      "expected_audio": "placing/spreading sounds",
+      "common_mistakes": [
+        "uneven distribution",
+        "pressing down (compacts, blocks steam)"
+      ],
+      "recovery_actions": [
+        "redistribute evenly",
+        "keep layers loose and fluffy"
       ]
     },
     {
@@ -92,6 +231,29 @@
         "onion",
         "mint",
         "coriander"
+      ],
+      "visible_objects": [
+        "cooking pot",
+        "basmati rice",
+        "saffron",
+        "onion"
+      ],
+      "ingredient_state": {
+        "basmati rice": "being layered in pot",
+        "saffron": "being layered in pot",
+        "onion": "being layered in pot"
+      },
+      "expected_visual_features": [
+        "distinct layers visible in pot"
+      ],
+      "expected_audio": "placing/spreading sounds",
+      "common_mistakes": [
+        "uneven distribution",
+        "pressing down (compacts, blocks steam)"
+      ],
+      "recovery_actions": [
+        "redistribute evenly",
+        "keep layers loose and fluffy"
       ]
     },
     {
@@ -100,7 +262,26 @@
       "description": "Seal pot with dough or foil, cook low heat 25-30 min.",
       "duration_minutes": 30,
       "is_defining_step": false,
-      "ingredients_used": []
+      "ingredients_used": [],
+      "visible_objects": [
+        "sealed pot on stove"
+      ],
+      "ingredient_state": {
+        "contents": "cooking via trapped steam, flavors melding"
+      },
+      "expected_visual_features": [
+        "sealed pot, no steam escaping",
+        "slight aroma building"
+      ],
+      "expected_audio": "initial hissing/steam, then very quiet on low heat",
+      "common_mistakes": [
+        "opening lid during dum (releases steam)",
+        "heat too high (bottom burns)"
+      ],
+      "recovery_actions": [
+        "never open lid — trust the process",
+        "place tawa underneath for heat diffusion"
+      ]
     },
     {
       "step_number": 9,
@@ -108,7 +289,30 @@
       "description": "Mix gently, serve with raita and salad.",
       "duration_minutes": 5,
       "is_defining_step": false,
-      "ingredients_used": []
+      "ingredients_used": [],
+      "visible_objects": [
+        "cooking pot",
+        "serving dish",
+        "accompaniments"
+      ],
+      "ingredient_state": {
+        "rice": "fully cooked, fluffy",
+        "chicken": "fully cooked, tender"
+      },
+      "expected_visual_features": [
+        "fluffy rice with visible layers",
+        "tender chicken",
+        "steam rising"
+      ],
+      "expected_audio": "gentle mixing, steam release",
+      "common_mistakes": [
+        "mixing too vigorously (breaks rice grains)",
+        "not resting before serving"
+      ],
+      "recovery_actions": [
+        "fold gently from edges",
+        "rest 5-10 min minimum"
+      ]
     }
   ],
   "ingredient_aliases": {

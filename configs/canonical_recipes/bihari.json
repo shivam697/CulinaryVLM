@@ -1,7 +1,16 @@
 {
+  "schema_version": "2.0",
   "category": "Bihari",
   "full_name": "Bihari/Champaran Chicken Biryani",
   "region": "Bihar (Champaran / Patna)",
+  "protein": "chicken",
+  "utensil_hierarchy": [
+    "matka (earthen pot) or handi",
+    "kadhai (for mustard oil heating)",
+    "rolling pin (for dough seal)"
+  ],
+  "marination_strategy": "wet yogurt-based, 1 hr, dairy (yogurt) + mustard oil + minimal spices",
+  "spice_intensity": "medium",
   "distinguishing_features": [
     "Cooked in a sealed matka (earthen pot) or handi",
     "Mustard oil is the primary cooking fat",
@@ -21,6 +30,29 @@
         "yogurt",
         "mustard oil",
         "ginger-garlic paste"
+      ],
+      "visible_objects": [
+        "mixing bowl",
+        "chicken pieces",
+        "yogurt/marinade",
+        "spice powders"
+      ],
+      "ingredient_state": {
+        "chicken": "raw, cut into pieces",
+        "marinade": "mixed wet paste coating chicken"
+      },
+      "expected_visual_features": [
+        "chicken coated in colored marinade",
+        "spice paste visible on pieces"
+      ],
+      "expected_audio": "mixing and squelching sounds",
+      "common_mistakes": [
+        "insufficient marination time",
+        "uneven coating"
+      ],
+      "recovery_actions": [
+        "extend marination in refrigerator",
+        "remix and re-coat all pieces"
       ]
     },
     {
@@ -31,6 +63,24 @@
       "is_defining_step": true,
       "ingredients_used": [
         "mustard oil"
+      ],
+      "visible_objects": [
+        "handi",
+        "mustard oil",
+        "smoke rising"
+      ],
+      "ingredient_state": {
+        "mustard oil": "heated to smoking point, pungent aroma reducing"
+      },
+      "expected_visual_features": [
+        "oil shimmering, light smoke rising"
+      ],
+      "expected_audio": "oil heating, slight crackling",
+      "common_mistakes": [
+        "not heating to smoking point (raw pungent taste remains)"
+      ],
+      "recovery_actions": [
+        "heat until smoke point, then cool slightly before adding ingredients"
       ]
     },
     {
@@ -45,6 +95,28 @@
         "bay leaf",
         "cardamom",
         "cloves"
+      ],
+      "visible_objects": [
+        "pan",
+        "sliced onions",
+        "whole spices",
+        "oil/ghee"
+      ],
+      "ingredient_state": {
+        "onions": "frying, turning translucent to golden"
+      },
+      "expected_visual_features": [
+        "onions changing color",
+        "whole spices crackling"
+      ],
+      "expected_audio": "sizzling, crackling of spices",
+      "common_mistakes": [
+        "burning onions",
+        "not adding spices at right time"
+      ],
+      "recovery_actions": [
+        "reduce heat",
+        "add spices when onions are golden"
       ]
     },
     {
@@ -55,6 +127,23 @@
       "is_defining_step": false,
       "ingredients_used": [
         "chicken"
+      ],
+      "visible_objects": [
+        "chicken",
+        "cooking vessel"
+      ],
+      "ingredient_state": {
+        "chicken": "being processed"
+      },
+      "expected_visual_features": [
+        "cooking in progress"
+      ],
+      "expected_audio": "cooking sounds",
+      "common_mistakes": [
+        "timing incorrect"
+      ],
+      "recovery_actions": [
+        "adjust timing and check frequently"
       ]
     },
     {
@@ -65,6 +154,27 @@
       "is_defining_step": true,
       "ingredients_used": [
         "basmati rice"
+      ],
+      "visible_objects": [
+        "bowl",
+        "rice",
+        "water"
+      ],
+      "ingredient_state": {
+        "rice": "dry grains soaking in water, absorbing moisture"
+      },
+      "expected_visual_features": [
+        "white rice submerged in water",
+        "water turning slightly starchy"
+      ],
+      "expected_audio": "water pouring, gentle swishing",
+      "common_mistakes": [
+        "not washing rice enough (excess starch)",
+        "soaking too long (grains break)"
+      ],
+      "recovery_actions": [
+        "drain and rinse again",
+        "reduce parboil time if over-soaked"
       ]
     },
     {
@@ -76,6 +186,25 @@
       "ingredients_used": [
         "mint",
         "green chili"
+      ],
+      "visible_objects": [
+        "cooking pot",
+        "dough/foil/cloth",
+        "lid"
+      ],
+      "ingredient_state": {
+        "seal": "airtight closure around pot rim"
+      },
+      "expected_visual_features": [
+        "sealed pot with no visible gaps",
+        "dough/cloth around rim"
+      ],
+      "expected_audio": "pressing/sealing sounds",
+      "common_mistakes": [
+        "gaps in seal (steam escapes, rice dries out)"
+      ],
+      "recovery_actions": [
+        "press firmly and patch any gaps"
       ]
     },
     {
@@ -84,7 +213,26 @@
       "description": "Cook on low heat for 30 minutes. Do not open.",
       "duration_minutes": 30,
       "is_defining_step": true,
-      "ingredients_used": []
+      "ingredients_used": [],
+      "visible_objects": [
+        "sealed pot on stove"
+      ],
+      "ingredient_state": {
+        "contents": "cooking via trapped steam, flavors melding"
+      },
+      "expected_visual_features": [
+        "sealed pot, no steam escaping",
+        "slight aroma building"
+      ],
+      "expected_audio": "initial hissing/steam, then very quiet on low heat",
+      "common_mistakes": [
+        "opening lid during dum (releases steam)",
+        "heat too high (bottom burns)"
+      ],
+      "recovery_actions": [
+        "never open lid — trust the process",
+        "place tawa underneath for heat diffusion"
+      ]
     },
     {
       "step_number": 8,
@@ -92,7 +240,30 @@
       "description": "Break seal, serve directly from the handi.",
       "duration_minutes": 5,
       "is_defining_step": false,
-      "ingredients_used": []
+      "ingredients_used": [],
+      "visible_objects": [
+        "cooking pot",
+        "serving dish",
+        "accompaniments"
+      ],
+      "ingredient_state": {
+        "rice": "fully cooked, fluffy",
+        "chicken": "fully cooked, tender"
+      },
+      "expected_visual_features": [
+        "fluffy rice with visible layers",
+        "tender chicken",
+        "steam rising"
+      ],
+      "expected_audio": "gentle mixing, steam release",
+      "common_mistakes": [
+        "mixing too vigorously (breaks rice grains)",
+        "not resting before serving"
+      ],
+      "recovery_actions": [
+        "fold gently from edges",
+        "rest 5-10 min minimum"
+      ]
     }
   ],
   "ingredient_aliases": {

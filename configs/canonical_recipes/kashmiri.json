@@ -1,7 +1,17 @@
 {
+  "schema_version": "2.0",
   "category": "Kashmiri",
   "full_name": "Kashmiri Chicken Biryani",
   "region": "Jammu & Kashmir",
+  "protein": "chicken",
+  "utensil_hierarchy": [
+    "heavy copper degchi",
+    "frying pan (for dry fruits)",
+    "strainer",
+    "mixing bowl"
+  ],
+  "marination_strategy": "wet yogurt-based, 2 hrs, dairy (yogurt) + Kashmiri chili (color, mild heat) + saffron",
+  "spice_intensity": "low",
   "distinguishing_features": [
     "Uses Kashmiri red chili — vibrant color, mild heat",
     "Generous use of dry fruits: almonds, cashews, raisins",
@@ -22,6 +32,29 @@
         "red chili powder",
         "fennel seeds",
         "saffron"
+      ],
+      "visible_objects": [
+        "mixing bowl",
+        "chicken pieces",
+        "yogurt/marinade",
+        "spice powders"
+      ],
+      "ingredient_state": {
+        "chicken": "raw, cut into pieces",
+        "marinade": "mixed wet paste coating chicken"
+      },
+      "expected_visual_features": [
+        "chicken coated in colored marinade",
+        "spice paste visible on pieces"
+      ],
+      "expected_audio": "mixing and squelching sounds",
+      "common_mistakes": [
+        "insufficient marination time",
+        "uneven coating"
+      ],
+      "recovery_actions": [
+        "extend marination in refrigerator",
+        "remix and re-coat all pieces"
       ]
     },
     {
@@ -36,6 +69,30 @@
         "onion",
         "cardamom",
         "cinnamon"
+      ],
+      "visible_objects": [
+        "cooking pot/pan",
+        "chicken pieces",
+        "ghee",
+        "onions",
+        "spices"
+      ],
+      "ingredient_state": {
+        "chicken": "cooking in masala, browning and releasing juices"
+      },
+      "expected_visual_features": [
+        "chicken browning",
+        "gravy thickening",
+        "oil separating from masala"
+      ],
+      "expected_audio": "sizzling, bubbling masala",
+      "common_mistakes": [
+        "heat too high (masala burns)",
+        "not cooking until oil separates"
+      ],
+      "recovery_actions": [
+        "reduce heat",
+        "cook until oil separates from masala (sign of doneness)"
       ]
     },
     {
@@ -46,6 +103,26 @@
       "is_defining_step": true,
       "ingredients_used": [
         "ghee"
+      ],
+      "visible_objects": [
+        "frying pan",
+        "ghee",
+        "dry fruits/nuts"
+      ],
+      "ingredient_state": {
+        "nuts": "toasting in ghee, turning golden"
+      },
+      "expected_visual_features": [
+        "golden nuts, plump raisins"
+      ],
+      "expected_audio": "gentle sizzling",
+      "common_mistakes": [
+        "burning nuts",
+        "not watching closely"
+      ],
+      "recovery_actions": [
+        "low heat, stir constantly",
+        "remove immediately when golden"
       ]
     },
     {
@@ -59,6 +136,31 @@
         "saffron",
         "cardamom",
         "bay leaf"
+      ],
+      "visible_objects": [
+        "large pot",
+        "boiling water",
+        "rice",
+        "whole spices",
+        "strainer"
+      ],
+      "ingredient_state": {
+        "rice": "70% cooked — grains elongated but firm in center",
+        "water": "starchy, rolling boil"
+      },
+      "expected_visual_features": [
+        "elongated rice grains",
+        "rolling boil",
+        "whole spices floating"
+      ],
+      "expected_audio": "vigorous bubbling, boiling water",
+      "common_mistakes": [
+        "overcooking rice past 70%",
+        "not draining immediately"
+      ],
+      "recovery_actions": [
+        "spread rice on tray to stop cooking",
+        "rinse with cold water"
       ]
     },
     {
@@ -70,6 +172,27 @@
       "ingredients_used": [
         "chicken",
         "basmati rice"
+      ],
+      "visible_objects": [
+        "cooking pot",
+        "chicken",
+        "basmati rice"
+      ],
+      "ingredient_state": {
+        "chicken": "being layered in pot",
+        "basmati rice": "being layered in pot"
+      },
+      "expected_visual_features": [
+        "distinct layers visible in pot"
+      ],
+      "expected_audio": "placing/spreading sounds",
+      "common_mistakes": [
+        "uneven distribution",
+        "pressing down (compacts, blocks steam)"
+      ],
+      "recovery_actions": [
+        "redistribute evenly",
+        "keep layers loose and fluffy"
       ]
     },
     {
@@ -81,6 +204,26 @@
       "ingredients_used": [
         "saffron",
         "ghee"
+      ],
+      "visible_objects": [
+        "frying pan",
+        "ghee",
+        "dry fruits/nuts"
+      ],
+      "ingredient_state": {
+        "nuts": "toasting in ghee, turning golden"
+      },
+      "expected_visual_features": [
+        "golden nuts, plump raisins"
+      ],
+      "expected_audio": "gentle sizzling",
+      "common_mistakes": [
+        "burning nuts",
+        "not watching closely"
+      ],
+      "recovery_actions": [
+        "low heat, stir constantly",
+        "remove immediately when golden"
       ]
     },
     {
@@ -89,7 +232,26 @@
       "description": "Seal and cook on low heat 25 minutes.",
       "duration_minutes": 25,
       "is_defining_step": false,
-      "ingredients_used": []
+      "ingredients_used": [],
+      "visible_objects": [
+        "sealed pot on stove"
+      ],
+      "ingredient_state": {
+        "contents": "cooking via trapped steam, flavors melding"
+      },
+      "expected_visual_features": [
+        "sealed pot, no steam escaping",
+        "slight aroma building"
+      ],
+      "expected_audio": "initial hissing/steam, then very quiet on low heat",
+      "common_mistakes": [
+        "opening lid during dum (releases steam)",
+        "heat too high (bottom burns)"
+      ],
+      "recovery_actions": [
+        "never open lid — trust the process",
+        "place tawa underneath for heat diffusion"
+      ]
     },
     {
       "step_number": 8,
@@ -97,7 +259,30 @@
       "description": "Garnish with more saffron strands and dry fruits. Serve with raita.",
       "duration_minutes": 5,
       "is_defining_step": false,
-      "ingredients_used": []
+      "ingredients_used": [],
+      "visible_objects": [
+        "cooking pot",
+        "serving dish",
+        "accompaniments"
+      ],
+      "ingredient_state": {
+        "rice": "fully cooked, fluffy",
+        "chicken": "fully cooked, tender"
+      },
+      "expected_visual_features": [
+        "fluffy rice with visible layers",
+        "tender chicken",
+        "steam rising"
+      ],
+      "expected_audio": "gentle mixing, steam release",
+      "common_mistakes": [
+        "mixing too vigorously (breaks rice grains)",
+        "not resting before serving"
+      ],
+      "recovery_actions": [
+        "fold gently from edges",
+        "rest 5-10 min minimum"
+      ]
     }
   ],
   "ingredient_aliases": {

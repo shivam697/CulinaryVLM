@@ -1,7 +1,16 @@
 {
+  "schema_version": "2.0",
   "category": "Bamboo",
   "full_name": "Bamboo Chicken Biryani",
   "region": "Andhra Pradesh / Tribal regions",
+  "protein": "chicken",
+  "utensil_hierarchy": [
+    "fresh bamboo trunk (defining vessel)",
+    "wood fire setup",
+    "knife (for bamboo prep)"
+  ],
+  "marination_strategy": "dry/minimal, 30 min, basic spices (turmeric, red chili, ginger-garlic)",
+  "spice_intensity": "low",
   "distinguishing_features": [
     "Cooked inside a fresh bamboo trunk — completely unique vessel",
     "Bamboo imparts a subtle sweet, earthy, smoky flavor",
@@ -16,7 +25,28 @@
       "description": "Select a fresh green bamboo trunk, clean inside, create an opening at one end.",
       "duration_minutes": 10,
       "is_defining_step": true,
-      "ingredients_used": []
+      "ingredients_used": [],
+      "visible_objects": [
+        "bamboo trunk",
+        "chicken",
+        "rice",
+        "spices"
+      ],
+      "ingredient_state": {
+        "bamboo": "fresh, cleaned, ready for stuffing"
+      },
+      "expected_visual_features": [
+        "ingredients packed inside bamboo cavity"
+      ],
+      "expected_audio": "packing/stuffing sounds",
+      "common_mistakes": [
+        "overstuffing",
+        "not sealing properly"
+      ],
+      "recovery_actions": [
+        "leave room for steam",
+        "seal with banana leaf/dough"
+      ]
     },
     {
       "step_number": 2,
@@ -29,6 +59,29 @@
         "turmeric",
         "red chili powder",
         "ginger-garlic paste"
+      ],
+      "visible_objects": [
+        "mixing bowl",
+        "chicken pieces",
+        "yogurt/marinade",
+        "spice powders"
+      ],
+      "ingredient_state": {
+        "chicken": "raw, cut into pieces",
+        "marinade": "mixed wet paste coating chicken"
+      },
+      "expected_visual_features": [
+        "chicken coated in colored marinade",
+        "spice paste visible on pieces"
+      ],
+      "expected_audio": "mixing and squelching sounds",
+      "common_mistakes": [
+        "insufficient marination time",
+        "uneven coating"
+      ],
+      "recovery_actions": [
+        "extend marination in refrigerator",
+        "remix and re-coat all pieces"
       ]
     },
     {
@@ -43,6 +96,27 @@
         "onion",
         "green chili",
         "mint"
+      ],
+      "visible_objects": [
+        "bamboo trunk",
+        "chicken",
+        "rice",
+        "spices"
+      ],
+      "ingredient_state": {
+        "bamboo": "fresh, cleaned, ready for stuffing"
+      },
+      "expected_visual_features": [
+        "ingredients packed inside bamboo cavity"
+      ],
+      "expected_audio": "packing/stuffing sounds",
+      "common_mistakes": [
+        "overstuffing",
+        "not sealing properly"
+      ],
+      "recovery_actions": [
+        "leave room for steam",
+        "seal with banana leaf/dough"
       ]
     },
     {
@@ -51,7 +125,26 @@
       "description": "Pour measured water into bamboo, seal the opening with banana leaf or dough.",
       "duration_minutes": 5,
       "is_defining_step": true,
-      "ingredients_used": []
+      "ingredients_used": [],
+      "visible_objects": [
+        "cooking pot",
+        "dough/foil/cloth",
+        "lid"
+      ],
+      "ingredient_state": {
+        "seal": "airtight closure around pot rim"
+      },
+      "expected_visual_features": [
+        "sealed pot with no visible gaps",
+        "dough/cloth around rim"
+      ],
+      "expected_audio": "pressing/sealing sounds",
+      "common_mistakes": [
+        "gaps in seal (steam escapes, rice dries out)"
+      ],
+      "recovery_actions": [
+        "press firmly and patch any gaps"
+      ]
     },
     {
       "step_number": 5,
@@ -59,7 +152,29 @@
       "description": "Place sealed bamboo over open wood fire, rotate periodically for 45-60 minutes.",
       "duration_minutes": 50,
       "is_defining_step": true,
-      "ingredients_used": []
+      "ingredients_used": [],
+      "visible_objects": [
+        "bamboo on fire",
+        "wood fire",
+        "support structure"
+      ],
+      "ingredient_state": {
+        "contents": "cooking inside sealed bamboo via fire heat"
+      },
+      "expected_visual_features": [
+        "bamboo charring on outside",
+        "smoke rising",
+        "fire glowing"
+      ],
+      "expected_audio": "crackling fire, occasional hissing",
+      "common_mistakes": [
+        "not rotating (one side burns)",
+        "fire too intense"
+      ],
+      "recovery_actions": [
+        "rotate bamboo every 10 min",
+        "control fire distance"
+      ]
     },
     {
       "step_number": 6,
@@ -67,7 +182,28 @@
       "description": "Split bamboo open, scoop out biryani. The inner bamboo layer adds flavor.",
       "duration_minutes": 5,
       "is_defining_step": true,
-      "ingredients_used": []
+      "ingredients_used": [],
+      "visible_objects": [
+        "bamboo trunk",
+        "chicken",
+        "rice",
+        "spices"
+      ],
+      "ingredient_state": {
+        "bamboo": "fresh, cleaned, ready for stuffing"
+      },
+      "expected_visual_features": [
+        "ingredients packed inside bamboo cavity"
+      ],
+      "expected_audio": "packing/stuffing sounds",
+      "common_mistakes": [
+        "overstuffing",
+        "not sealing properly"
+      ],
+      "recovery_actions": [
+        "leave room for steam",
+        "seal with banana leaf/dough"
+      ]
     }
   ],
   "ingredient_aliases": {

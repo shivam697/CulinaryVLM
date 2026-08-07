@@ -65,9 +65,14 @@ Focus on: what makes this style unique in technique, layering, spice profile, an
 
 Return ONLY a valid JSON object with this exact structure (no markdown, no explanation):
 {{
+  "schema_version": "2.0",
   "category": "{category}",
   "full_name": "{category} Chicken Biryani",
   "region": "<geographic region of origin>",
+  "protein": "chicken",
+  "utensil_hierarchy": ["<primary vessel>", "<secondary utensil>", "<etc>"],
+  "marination_strategy": "<brief description: wet/dry, duration, acid+dairy components>",
+  "spice_intensity": "<one of: low, medium, medium-high, high>",
   "distinguishing_features": [
     "<3-5 features that make this style unique>"
   ],
@@ -78,7 +83,13 @@ Return ONLY a valid JSON object with this exact structure (no markdown, no expla
       "description": "<detailed 1-2 sentence description>",
       "duration_minutes": <estimated time or null>,
       "is_defining_step": <true if this step is unique to this style>,
-      "ingredients_used": ["<ingredient1>", "<ingredient2>"]
+      "ingredients_used": ["<ingredient1>", "<ingredient2>"],
+      "visible_objects": ["<object visible in video at this step>"],
+      "ingredient_state": {{"<ingredient>": "<physical state, e.g. '70% cooked', 'raw marinated'>"}},
+      "expected_visual_features": ["<what a camera would see, e.g. 'golden fried onions'>"],
+      "expected_audio": "<dominant sound, e.g. 'sizzling oil', 'bubbling water'>",
+      "common_mistakes": ["<typical error a home cook might make>"],
+      "recovery_actions": ["<how to fix the mistake>"]
     }}
   ],
   "ingredient_aliases": {{
@@ -102,7 +113,11 @@ IMPORTANT:
 - Include 8-15 steps covering: marination, rice preparation, layering, dum/cooking, resting
 - ingredient_aliases should cover at least 10 key ingredients with multilingual names
 - Focus on PROCEDURAL accuracy — this will be used to align with real cooking video segments
-- If a language translation is unknown, use null"""
+- If a language translation is unknown, use null
+- For each step, include visible_objects (what a camera sees), ingredient_state (physical state of each ingredient AT THIS POINT), expected_visual_features, expected_audio, common_mistakes, and recovery_actions
+- spice_intensity should reflect the overall heat/spice level: low, medium, medium-high, or high
+- utensil_hierarchy lists ALL utensils needed in order of importance
+- marination_strategy summarizes the marination approach concisely"""
 
 
 # ─── Built-in Fallback Recipes ───────────────────────────────
@@ -111,9 +126,14 @@ IMPORTANT:
 
 FALLBACK_RECIPES: dict[str, dict[str, Any]] = {
     "Hyderabadi": {
+        "schema_version": "2.0",
         "category": "Hyderabadi",
         "full_name": "Hyderabadi Chicken Biryani",
         "region": "Telangana / Andhra Pradesh (Hyderabad)",
+        "protein": "chicken",
+        "utensil_hierarchy": ["handi (heavy-bottomed round pot)", "tawa/kadhai (for frying birista)", "strainer", "mixing bowl", "rolling pin (for dough seal)"],
+        "marination_strategy": "wet yogurt-based, 2-6 hrs, acid (lemon juice) + dairy (yogurt) + aromatics (mint, fried onions)",
+        "spice_intensity": "medium-high",
         "distinguishing_features": [
             "Kacchi (raw) method — raw marinated meat layered with parboiled rice",
             "Sealed dum cooking with dough-sealed lid (purdah)",
@@ -122,16 +142,76 @@ FALLBACK_RECIPES: dict[str, dict[str, Any]] = {
             "Green chili-mint-coriander paste as key flavoring"
         ],
         "steps": [
-            {"step_number": 1, "action": "Marinate chicken", "description": "Marinate chicken with yogurt, ginger-garlic paste, green chili paste, red chili powder, turmeric, biryani masala, fried onions, mint, coriander, lemon juice, and salt for 2-6 hours.", "duration_minutes": 180, "is_defining_step": True, "ingredients_used": ["chicken", "yogurt", "ginger-garlic paste", "green chilies", "mint", "coriander", "fried onions", "biryani masala"]},
-            {"step_number": 2, "action": "Soak basmati rice", "description": "Wash and soak long-grain basmati rice in water for 30-45 minutes.", "duration_minutes": 30, "is_defining_step": False, "ingredients_used": ["basmati rice"]},
-            {"step_number": 3, "action": "Parboil rice", "description": "Boil rice in water with whole spices (bay leaf, cardamom, cloves, cinnamon, star anise) until 70% cooked. Drain.", "duration_minutes": 10, "is_defining_step": False, "ingredients_used": ["basmati rice", "bay leaf", "cardamom", "cloves", "cinnamon", "star anise", "salt"]},
-            {"step_number": 4, "action": "Fry onions for birista", "description": "Thinly slice onions and deep fry until dark golden brown and crispy. Reserve for layering.", "duration_minutes": 15, "is_defining_step": True, "ingredients_used": ["onions", "oil"]},
-            {"step_number": 5, "action": "Layer marinated chicken", "description": "Spread raw marinated chicken evenly at the bottom of a heavy-bottomed pot (handi).", "duration_minutes": 5, "is_defining_step": True, "ingredients_used": ["marinated chicken"]},
-            {"step_number": 6, "action": "Layer parboiled rice", "description": "Spread parboiled rice evenly over the chicken layer.", "duration_minutes": 5, "is_defining_step": False, "ingredients_used": ["parboiled rice"]},
-            {"step_number": 7, "action": "Add saffron and garnish", "description": "Drizzle saffron milk, ghee, fried onions, mint leaves, and coriander over the rice layer.", "duration_minutes": 5, "is_defining_step": True, "ingredients_used": ["saffron", "milk", "ghee", "fried onions", "mint", "coriander"]},
-            {"step_number": 8, "action": "Seal with dough (purdah)", "description": "Seal the lid with wheat flour dough to trap steam. This is the defining Hyderabadi dum technique.", "duration_minutes": 5, "is_defining_step": True, "ingredients_used": ["wheat flour dough"]},
-            {"step_number": 9, "action": "Cook on dum", "description": "Place sealed pot on high heat for 5 minutes, then reduce to very low heat for 25-35 minutes. Do not open.", "duration_minutes": 35, "is_defining_step": True, "ingredients_used": []},
-            {"step_number": 10, "action": "Rest and serve", "description": "Turn off heat, let rest for 10 minutes without opening. Break seal, gently mix layers, serve with raita and mirchi ka salan.", "duration_minutes": 10, "is_defining_step": False, "ingredients_used": []}
+            {"step_number": 1, "action": "Marinate chicken", "description": "Marinate chicken with yogurt, ginger-garlic paste, green chili paste, red chili powder, turmeric, biryani masala, fried onions, mint, coriander, lemon juice, and salt for 2-6 hours.", "duration_minutes": 180, "is_defining_step": True, "ingredients_used": ["chicken", "yogurt", "ginger-garlic paste", "green chilies", "mint", "coriander", "fried onions", "biryani masala"],
+             "visible_objects": ["mixing bowl", "chicken pieces", "yogurt", "spice powders", "mint leaves", "fried onions"],
+             "ingredient_state": {"chicken": "raw, cut into pieces", "yogurt": "whisked", "onions": "deep-fried golden (birista)"},
+             "expected_visual_features": ["red-orange marinated chicken", "thick yogurt coating", "visible mint and fried onions mixed in"],
+             "expected_audio": "mixing and squelching sounds",
+             "common_mistakes": ["insufficient marination time (under 2 hrs)", "not scoring chicken pieces", "using too little yogurt"],
+             "recovery_actions": ["extend marination time in refrigerator", "score pieces and re-coat generously"]},
+            {"step_number": 2, "action": "Soak basmati rice", "description": "Wash and soak long-grain basmati rice in water for 30-45 minutes.", "duration_minutes": 30, "is_defining_step": False, "ingredients_used": ["basmati rice"],
+             "visible_objects": ["bowl", "rice", "water"],
+             "ingredient_state": {"rice": "dry, uncooked, soaking in water"},
+             "expected_visual_features": ["white rice grains submerged in clear water", "water turning slightly starchy"],
+             "expected_audio": "water pouring, gentle swishing",
+             "common_mistakes": ["not washing rice enough (residual starch)", "soaking too long (grains break)"],
+             "recovery_actions": ["drain and rinse again before cooking", "reduce parboil time if over-soaked"]},
+            {"step_number": 3, "action": "Parboil rice", "description": "Boil rice in water with whole spices (bay leaf, cardamom, cloves, cinnamon, star anise) until 70% cooked. Drain.", "duration_minutes": 10, "is_defining_step": False, "ingredients_used": ["basmati rice", "bay leaf", "cardamom", "cloves", "cinnamon", "star anise", "salt"],
+             "visible_objects": ["large pot", "boiling water", "rice", "whole spices floating", "strainer"],
+             "ingredient_state": {"rice": "70% cooked — grains elongated but still firm in center", "water": "starchy, rolling boil"},
+             "expected_visual_features": ["white elongated grains", "rolling boil", "whole spices floating on surface"],
+             "expected_audio": "vigorous bubbling, water boiling",
+             "common_mistakes": ["overcooking rice past 70%", "not draining immediately", "forgetting whole spices"],
+             "recovery_actions": ["spread rice on flat tray to stop cooking", "rinse briefly with cold water to halt cooking"]},
+            {"step_number": 4, "action": "Fry onions for birista", "description": "Thinly slice onions and deep fry until dark golden brown and crispy. Reserve for layering.", "duration_minutes": 15, "is_defining_step": True, "ingredients_used": ["onions", "oil"],
+             "visible_objects": ["kadhai/deep pan", "sliced onions", "hot oil", "slotted spoon"],
+             "ingredient_state": {"onions": "thinly sliced, turning dark golden brown and crispy", "oil": "hot, shimmering"},
+             "expected_visual_features": ["dark golden-brown crispy onion strands", "oil bubbling around onions"],
+             "expected_audio": "continuous sizzling, crackling",
+             "common_mistakes": ["uneven slicing (some burn, some stay raw)", "removing too early (pale, not crispy)", "oil not hot enough"],
+             "recovery_actions": ["use mandoline for even slices", "fry in smaller batches", "drain on paper towels immediately"]},
+            {"step_number": 5, "action": "Layer marinated chicken", "description": "Spread raw marinated chicken evenly at the bottom of a heavy-bottomed pot (handi).", "duration_minutes": 5, "is_defining_step": True, "ingredients_used": ["marinated chicken"],
+             "visible_objects": ["handi", "marinated chicken pieces", "marinade"],
+             "ingredient_state": {"chicken": "raw marinated, coated in red-orange marinade"},
+             "expected_visual_features": ["red-orange chicken pieces arranged at bottom of handi", "marinade pooling"],
+             "expected_audio": "placement sounds, wet slapping",
+             "common_mistakes": ["uneven distribution (some spots cook faster)", "discarding excess marinade"],
+             "recovery_actions": ["rearrange pieces evenly", "pour all marinade over the chicken"]},
+            {"step_number": 6, "action": "Layer parboiled rice", "description": "Spread parboiled rice evenly over the chicken layer.", "duration_minutes": 5, "is_defining_step": False, "ingredients_used": ["parboiled rice"],
+             "visible_objects": ["handi with chicken", "parboiled rice being spread", "spoon"],
+             "ingredient_state": {"rice": "70% cooked, drained, still warm", "chicken": "raw marinated, underneath"},
+             "expected_visual_features": ["white rice layer covering the red chicken layer", "visible whole spices in rice"],
+             "expected_audio": "gentle placing sounds",
+             "common_mistakes": ["pressing rice down (compacts, prevents steam circulation)", "uneven layer thickness"],
+             "recovery_actions": ["gently fluff rice with fork to loosen", "redistribute for even coverage"]},
+            {"step_number": 7, "action": "Add saffron and garnish", "description": "Drizzle saffron milk, ghee, fried onions, mint leaves, and coriander over the rice layer.", "duration_minutes": 5, "is_defining_step": True, "ingredients_used": ["saffron", "milk", "ghee", "fried onions", "mint", "coriander"],
+             "visible_objects": ["saffron milk (golden)", "ghee", "fried onions", "mint leaves", "coriander leaves"],
+             "ingredient_state": {"saffron": "dissolved in warm milk, deep golden", "ghee": "melted, liquid", "onions": "crispy fried birista"},
+             "expected_visual_features": ["golden saffron streaks on white rice", "green mint and coriander specks", "brown fried onion strands"],
+             "expected_audio": "drizzling liquid, sprinkling",
+             "common_mistakes": ["using too little saffron", "not warming milk before adding saffron"],
+             "recovery_actions": ["add more saffron milk if rice looks too plain", "warm milk first then steep saffron 10 min"]},
+            {"step_number": 8, "action": "Seal with dough (purdah)", "description": "Seal the lid with wheat flour dough to trap steam. This is the defining Hyderabadi dum technique.", "duration_minutes": 5, "is_defining_step": True, "ingredients_used": ["wheat flour dough"],
+             "visible_objects": ["handi with rice", "dough rope", "lid"],
+             "ingredient_state": {"dough": "pliable wheat flour dough rope pressed around lid edge"},
+             "expected_visual_features": ["dough strip sealing the gap between lid and pot rim", "no steam escaping"],
+             "expected_audio": "pressing/sealing sounds, then silence (steam trapped)",
+             "common_mistakes": ["gaps in dough seal (steam escapes, rice dries)", "dough too dry (cracks)"],
+             "recovery_actions": ["press dough firmly and patch any gaps", "add a drop of water to dough if cracking"]},
+            {"step_number": 9, "action": "Cook on dum", "description": "Place sealed pot on high heat for 5 minutes, then reduce to very low heat for 25-35 minutes. Do not open.", "duration_minutes": 35, "is_defining_step": True, "ingredients_used": [],
+             "visible_objects": ["sealed handi on stove", "tawa underneath (optional, for heat diffusion)"],
+             "ingredient_state": {"rice": "cooking from 70% to fully done via steam", "chicken": "cooking from raw to fully done via trapped steam"},
+             "expected_visual_features": ["sealed pot on stove", "no visible steam escaping", "slight aroma building"],
+             "expected_audio": "initial hissing/steam sounds, then very quiet on low heat",
+             "common_mistakes": ["opening lid during dum (releases steam)", "heat too high throughout (bottom burns)", "insufficient dum time"],
+             "recovery_actions": ["never open — trust the process", "place a tawa under handi for heat diffusion", "extend dum time by 5-10 min if unsure"]},
+            {"step_number": 10, "action": "Rest and serve", "description": "Turn off heat, let rest for 10 minutes without opening. Break seal, gently mix layers, serve with raita and mirchi ka salan.", "duration_minutes": 10, "is_defining_step": False, "ingredients_used": [],
+             "visible_objects": ["sealed handi", "serving dish", "raita", "mirchi ka salan"],
+             "ingredient_state": {"rice": "fully cooked, fluffy, saffron-streaked", "chicken": "fully cooked, tender, falling off bone"},
+             "expected_visual_features": ["bicolor rice (white and saffron-gold)", "tender chicken visible when mixing", "steam rising when seal broken"],
+             "expected_audio": "seal cracking, steam release, gentle mixing",
+             "common_mistakes": ["mixing too vigorously (breaks rice grains)", "not resting (flavors not settled)"],
+             "recovery_actions": ["use flat spatula and fold gently from edges", "always rest minimum 5-10 min"]}
         ],
         "ingredient_aliases": {
             "chicken": {"hi": "मुर्गा/चिकन", "te": "కోడి", "ml": "കോഴി", "bn": "মুরগি", "ur": "مرغ"},
@@ -274,13 +354,32 @@ def validate_recipe(recipe: dict[str, Any], category: str) -> list[str]:
 
 
 def save_recipe(recipe: dict[str, Any], category: str, output_dir: Path) -> None:
-    """Save a canonical recipe to JSON file."""
+    """Save a canonical recipe to JSON file atomically.
+
+    Writes to a temporary file first, then uses os.replace() so that
+    the final path is either the old file or the complete new file —
+    never a half-written or missing file.
+    """
+    import tempfile
+
     output_dir.mkdir(parents=True, exist_ok=True)
     filename = category.lower().replace("/", "_").replace(" ", "_") + ".json"
     path = output_dir / filename
 
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(recipe, f, indent=2, ensure_ascii=False)
+    # Ensure schema_version is always present
+    recipe.setdefault("schema_version", "2.0")
+
+    # Write to temp file in same directory, then atomic rename
+    fd, tmp_path = tempfile.mkstemp(dir=output_dir, suffix=".json.tmp")
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            json.dump(recipe, f, indent=2, ensure_ascii=False)
+        os.replace(tmp_path, path)  # atomic on same filesystem
+    except Exception:
+        # Clean up temp file on failure; old file stays intact
+        if os.path.exists(tmp_path):
+            os.unlink(tmp_path)
+        raise
 
     logger.info(f"  ✓ Saved: {path.name} ({len(recipe.get('steps', []))} steps, "
                 f"{len(recipe.get('ingredient_aliases', {}))} aliases)")
@@ -300,6 +399,8 @@ def main() -> None:
                         help="Only generate for these categories")
     parser.add_argument("--min-videos", type=int, default=1,
                         help="Minimum videos in category to generate recipe (default: 1)")
+    parser.add_argument("--force", action="store_true",
+                        help="Overwrite existing recipe files (re-generate with current schema)")
     args = parser.parse_args()
 
     logger.info("╔══════════════════════════════════════════════════╗")
@@ -359,10 +460,12 @@ def main() -> None:
         # Check if recipe already exists
         filename = cat.lower().replace("/", "_").replace(" ", "_") + ".json"
         existing = output_dir / filename
-        if existing.exists():
+        if existing.exists() and not args.force:
             logger.info(f"  ⊘ Already exists: {filename} (use --force to overwrite)")
             skipped += 1
             continue
+        elif existing.exists() and args.force:
+            logger.info(f"  ♻ Overwriting: {filename} (--force)")
 
         if use_groq:
             recipe = generate_recipe_groq(cat, groq_api_key, model)

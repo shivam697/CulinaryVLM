@@ -1,0 +1,1086 @@
+{
+  "schema_version": "2.0",
+  "total": 65,
+  "qa_pairs": [
+    {
+      "question": "What equipment is being used?",
+      "answer": "A bowl is being used to mix the ingredients for the marinade.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 456.0,
+      "segment_end": 470.0,
+      "instruction": "What equipment is being used?",
+      "context": "Action: Preparing marinade. Description: Ingredients are being mixed in a bowl to make a marinade.",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "Preparing marinade",
+        "cooking_technique": "mixing",
+        "cooking_stage": "prep"
+      }
+    },
+    {
+      "question": "What ingredients are being used in this step?",
+      "answer": "Based on the description, the ingredient being used in this step is rice.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 312.0,
+      "segment_end": 326.0,
+      "instruction": "What ingredients are being used in this step?",
+      "context": "Action: unknown. Description: ```json\n[\n    {\n        \"step_number\": 1,\n        \"action\": \"Soaking rice\",\n        \"description\": \"The person is soaking rice in a pot of water.\",\n        \"start_frame\": 0,\n        \"end_frame\": 20,\n ",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "unknown",
+        "cooking_technique": "",
+        "cooking_stage": "prep"
+      }
+    },
+    {
+      "question": "What cooking technique is being demonstrated?",
+      "answer": "The cooking technique being demonstrated is saut\u00e9ing or possibly stir-frying, as the man is adding ingredients to a pot on the stove, which suggests a quick and high-heat cooking method.",
+      "tier": "easy",
+      "video_id": "pBvVoFFWe5s",
+      "category": "Muradabadi",
+      "segment_start": 88.0,
+      "segment_end": 102.0,
+      "instruction": "What cooking technique is being demonstrated?",
+      "context": "Action: Adding ingredients to the pot. Description: The man is adding ingredients to a pot on the stove.",
+      "canonical_recipe_ref": "configs/canonical_recipes/muradabadi.json",
+      "video_metadata_ref": {
+        "video_id": "pBvVoFFWe5s",
+        "segment_action": "Adding ingredients to the pot",
+        "cooking_technique": "boiling",
+        "cooking_stage": "other"
+      }
+    },
+    {
+      "question": "What is happening in this cooking step?",
+      "answer": "The chef is cooking the chicken pieces in the black wok by submerging them in hot oil, a process known as deep-frying. This method helps to achieve a crispy exterior and a tender interior. The oil is likely being heated to a high temperature to achieve the desired texture and color.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 288.0,
+      "segment_end": 302.0,
+      "instruction": "What is happening in this cooking step?",
+      "context": "Action: Frying chicken. Description: The chef is frying pieces of chicken in a black wok with oil.",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "Frying chicken",
+        "cooking_technique": "frying",
+        "cooking_stage": "meat_cooking"
+      }
+    },
+    {
+      "question": "What cooking technique is being demonstrated?",
+      "answer": "The cooking technique being demonstrated is frying. Specifically, it is saut\u00e9ing or pan-frying, as onions are being cooked in a pan with oil.",
+      "tier": "easy",
+      "video_id": "Gm5gj4vW-QA",
+      "category": "Hyderabadi",
+      "segment_start": 136.0,
+      "segment_end": 150.0,
+      "instruction": "What cooking technique is being demonstrated?",
+      "context": "Action: unknown. Description: ```json\n[\n    {\n        \"step_number\": 1,\n        \"action\": \"Frying onions\",\n        \"description\": \"Onions are being fried in a pan with oil.\",\n        \"start_frame\": 1,\n        \"end_frame\": 4,\n     ",
+      "canonical_recipe_ref": "configs/canonical_recipes/hyderabadi.json",
+      "video_metadata_ref": {
+        "video_id": "Gm5gj4vW-QA",
+        "segment_action": "unknown",
+        "cooking_technique": "",
+        "cooking_stage": "prep"
+      }
+    },
+    {
+      "question": "What cooking technique is being demonstrated?",
+      "answer": "There is no cooking technique being demonstrated in this context, as the description mentions a girl holding a 'Thank You' sign at the end of a video, which does not relate to cooking.",
+      "tier": "easy",
+      "video_id": "pBvVoFFWe5s",
+      "category": "Muradabadi",
+      "segment_start": 272.0,
+      "segment_end": 278.0,
+      "instruction": "What cooking technique is being demonstrated?",
+      "context": "Action: End of video. Description: The video ends with a graphic of a girl holding a 'Thank You' sign.",
+      "canonical_recipe_ref": "configs/canonical_recipes/muradabadi.json",
+      "video_metadata_ref": {
+        "video_id": "pBvVoFFWe5s",
+        "segment_action": "End of video",
+        "cooking_technique": "not applicable",
+        "cooking_stage": "other"
+      }
+    },
+    {
+      "question": "Describe what the cook is doing in this segment.",
+      "answer": "In this segment, the cook is layering ingredients in a biryani dish by placing them in a pot in a specific order. The cook is carefully arranging the ingredients, typically starting with a layer of basmati rice, followed by layers of marinated meat or vegetables, and finishing with a layer of spices and aromatics. This layering process is crucial for achieving the distinct flavors and textures of a well-made biryani.",
+      "tier": "easy",
+      "video_id": "Gm5gj4vW-QA",
+      "category": "Hyderabadi",
+      "segment_start": 248.0,
+      "segment_end": 262.0,
+      "instruction": "Describe what the cook is doing in this segment.",
+      "context": "Action: Layering ingredients. Description: The video shows the process of layering ingredients in a biryani dish. Ingredients are being placed in a pot in a specific order.",
+      "canonical_recipe_ref": "configs/canonical_recipes/hyderabadi.json",
+      "video_metadata_ref": {
+        "video_id": "Gm5gj4vW-QA",
+        "segment_action": "Layering ingredients",
+        "cooking_technique": "layering",
+        "cooking_stage": "layering"
+      }
+    },
+    {
+      "question": "Why is the rice cooked to exactly 70% in Kolkata biryani? What would happen if it were fully cooked before layering?",
+      "answer": "",
+      "tier": "expert",
+      "category": "Kolkata",
+      "needs_generation": true,
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "expert_subtopic": "cooking_science"
+    },
+    {
+      "question": "What equipment is being used?",
+      "answer": "The chef is using a pan and a stove for cooking the meat.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 56.0,
+      "segment_end": 70.0,
+      "instruction": "What equipment is being used?",
+      "context": "Action: Cooking meat. Description: The chef is cooking meat in a pan on the stove.",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "Cooking meat",
+        "cooking_technique": "frying",
+        "cooking_stage": "meat_cooking"
+      }
+    },
+    {
+      "question": "Describe what the cook is doing in this segment.",
+      "answer": "The cook is layering cooked rice and vegetables in a dish, alternating between the two ingredients to create a visually appealing and balanced composition. This process involves carefully placing each layer on top of the previous one to achieve the desired texture and presentation. The cook is aiming to create a harmonious combination of flavors and textures in the final dish.",
+      "tier": "easy",
+      "video_id": "pBvVoFFWe5s",
+      "category": "Muradabadi",
+      "segment_start": 216.0,
+      "segment_end": 230.0,
+      "instruction": "Describe what the cook is doing in this segment.",
+      "context": "Action: Layering rice and vegetables. Description: Rice and vegetables are being layered in a dish.",
+      "canonical_recipe_ref": "configs/canonical_recipes/muradabadi.json",
+      "video_metadata_ref": {
+        "video_id": "pBvVoFFWe5s",
+        "segment_action": "Layering rice and vegetables",
+        "cooking_technique": "layering",
+        "cooking_stage": "layering"
+      }
+    },
+    {
+      "question": "What equipment is being used?",
+      "answer": "The chef is likely using a spoon or a spatula to mix the marinated chicken with the yogurt.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 112.0,
+      "segment_end": 126.0,
+      "instruction": "What equipment is being used?",
+      "context": "Action: Mixing ingredients. Description: The chef is thoroughly mixing the marinated chicken with the yogurt.",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "Mixing ingredients",
+        "cooking_technique": "mixing",
+        "cooking_stage": "marination"
+      }
+    },
+    {
+      "question": "What is happening in this cooking step?",
+      "answer": "In this cooking step, water is being poured into a pot containing rice, which is a crucial initial step in cooking rice. This action helps to hydrate the rice and facilitates the cooking process. The water is typically added to the pot according to the recipe's specified ratio.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 0.0,
+      "segment_end": 14.0,
+      "instruction": "What is happening in this cooking step?",
+      "context": "Action: Pouring water. Description: Pouring water into a pot with rice.",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "Pouring water",
+        "cooking_technique": "boiling",
+        "cooking_stage": "rice_cooking"
+      }
+    },
+    {
+      "question": "Explain the science behind sealing the pot with dough during dum. How does this affect moisture, pressure, and flavor development?",
+      "answer": "",
+      "tier": "expert",
+      "category": "Muradabadi",
+      "needs_generation": true,
+      "canonical_recipe_ref": "configs/canonical_recipes/muradabadi.json",
+      "expert_subtopic": "cooking_science"
+    },
+    {
+      "question": "What is happening in this cooking step?",
+      "answer": "In this cooking step, the chef is preparing the ingredients for the biryani. Specifically, he is chopping vegetables.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 336.0,
+      "segment_end": 350.0,
+      "instruction": "What is happening in this cooking step?",
+      "context": "Action: unknown. Description: ```json\n[\n    {\n        \"step_number\": 1,\n        \"action\": \"Preparing ingredients\",\n        \"description\": \"The chef is preparing the ingredients for the biryani. He is seen chopping vegetables and a",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "unknown",
+        "cooking_technique": "",
+        "cooking_stage": "prep"
+      }
+    },
+    {
+      "question": "What equipment is being used?",
+      "answer": "The man is using a pan on the stove for frying onions.",
+      "tier": "easy",
+      "video_id": "pBvVoFFWe5s",
+      "category": "Muradabadi",
+      "segment_start": 112.0,
+      "segment_end": 126.0,
+      "instruction": "What equipment is being used?",
+      "context": "Action: Frying onions. Description: The man is frying onions in a pan on the stove.",
+      "canonical_recipe_ref": "configs/canonical_recipes/muradabadi.json",
+      "video_metadata_ref": {
+        "video_id": "pBvVoFFWe5s",
+        "segment_action": "Frying onions",
+        "cooking_technique": "frying",
+        "cooking_stage": "prep"
+      }
+    },
+    {
+      "question": "Describe what the cook is doing in this segment.",
+      "answer": "The cook is carefully transferring the cooked biryani from the cooking vessel to a serving dish, taking care not to break the layers or disturb the flavors. They are arranging the biryani in an attractive and appetizing manner, often garnishing it with fresh herbs or spices. This presentation is crucial to showcase the dish's aroma and flavors.",
+      "tier": "easy",
+      "video_id": "pBvVoFFWe5s",
+      "category": "Muradabadi",
+      "segment_start": 216.0,
+      "segment_end": 230.0,
+      "instruction": "Describe what the cook is doing in this segment.",
+      "context": "Action: Serving the biryani. Description: The cooked biryani is being served in a dish.",
+      "canonical_recipe_ref": "configs/canonical_recipes/muradabadi.json",
+      "video_metadata_ref": {
+        "video_id": "pBvVoFFWe5s",
+        "segment_action": "Serving the biryani",
+        "cooking_technique": "serving",
+        "cooking_stage": "serving"
+      }
+    },
+    {
+      "question": "What ingredients are being used in this step?",
+      "answer": "In this step, the man is layering vegetables and milk in the bowl.",
+      "tier": "easy",
+      "video_id": "pBvVoFFWe5s",
+      "category": "Muradabadi",
+      "segment_start": 64.0,
+      "segment_end": 78.0,
+      "instruction": "What ingredients are being used in this step?",
+      "context": "Action: Layering ingredients. Description: The man is layering the vegetables and milk in the bowl.",
+      "canonical_recipe_ref": "configs/canonical_recipes/muradabadi.json",
+      "video_metadata_ref": {
+        "video_id": "pBvVoFFWe5s",
+        "segment_action": "Layering ingredients",
+        "cooking_technique": "not applicable",
+        "cooking_stage": "layering"
+      }
+    },
+    {
+      "question": "What cooking technique is being demonstrated?",
+      "answer": "The cooking technique being demonstrated is saut\u00e9ing. The chef is adding minced garlic and ginger to the pan, which is a common step in saut\u00e9ing, where aromatics are quickly cooked in a small amount of oil or fat to release their flavors and aromas.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 328.0,
+      "segment_end": 342.0,
+      "instruction": "What cooking technique is being demonstrated?",
+      "context": "Action: Adding garlic and ginger. Description: The chef is adding minced garlic and ginger to the pan.",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "Adding garlic and ginger",
+        "cooking_technique": "frying",
+        "cooking_stage": "meat_cooking"
+      }
+    },
+    {
+      "question": "Describe what the cook is doing in this segment.",
+      "answer": "The chef is covering the pot with a lid to trap heat and moisture, allowing the contents to cook evenly and prevent moisture loss. This step helps to promote a consistent cooking temperature and aids in the development of flavors. By covering the pot, the chef is also reducing evaporation and speeding up the cooking process.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 424.0,
+      "segment_end": 438.0,
+      "instruction": "Describe what the cook is doing in this segment.",
+      "context": "Action: Covering the pot. Description: The chef is covering the pot with a lid.",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "Covering the pot",
+        "cooking_technique": "boiling",
+        "cooking_stage": "dum"
+      }
+    },
+    {
+      "question": "What ingredients are being used in this step?",
+      "answer": "Unfortunately, the provided JSON description does not mention the specific ingredients being used in this step. The description only mentions that a man is preparing ingredients, but it does not specify what those ingredients are.",
+      "tier": "easy",
+      "video_id": "pBvVoFFWe5s",
+      "category": "Muradabadi",
+      "segment_start": 56.0,
+      "segment_end": 70.0,
+      "instruction": "What ingredients are being used in this step?",
+      "context": "Action: unknown. Description: ```json\n[\n    {\n        \"step_number\": 1,\n        \"action\": \"Preparing ingredients\",\n        \"description\": \"A man is seen standing in a kitchen, preparing ingredients for cooking. He is wearing a yel",
+      "canonical_recipe_ref": "configs/canonical_recipes/muradabadi.json",
+      "video_metadata_ref": {
+        "video_id": "pBvVoFFWe5s",
+        "segment_action": "unknown",
+        "cooking_technique": "",
+        "cooking_stage": "prep"
+      }
+    },
+    {
+      "question": "What is happening in this cooking step?",
+      "answer": "The chef is seasoning the chicken by adding additional spices to the chicken pieces in the bowl. This step enhances the flavor of the chicken, preparing it for further cooking. The spices are being evenly distributed throughout the chicken.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 120.0,
+      "segment_end": 134.0,
+      "instruction": "What is happening in this cooking step?",
+      "context": "Action: Adding spices to chicken. Description: The chef is adding more spices to the chicken pieces in the bowl.",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "Adding spices to chicken",
+        "cooking_technique": "marinating",
+        "cooking_stage": "marination"
+      }
+    },
+    {
+      "question": "What cooking technique is being demonstrated?",
+      "answer": "The cooking technique being demonstrated is pan-frying or saut\u00e9ing, which involves cooking meat in a pan over medium-high heat, typically with some oil or fat. This technique is often used to quickly cook and brown the surface of the meat while locking in its juices.",
+      "tier": "easy",
+      "video_id": "pBvVoFFWe5s",
+      "category": "Muradabadi",
+      "segment_start": 184.0,
+      "segment_end": 198.0,
+      "instruction": "What cooking technique is being demonstrated?",
+      "context": "Action: Cooking meat. Description: A man is cooking meat in a pan on a stove.",
+      "canonical_recipe_ref": "configs/canonical_recipes/muradabadi.json",
+      "video_metadata_ref": {
+        "video_id": "pBvVoFFWe5s",
+        "segment_action": "Cooking meat",
+        "cooking_technique": "frying",
+        "cooking_stage": "meat_cooking"
+      }
+    },
+    {
+      "question": "What ingredients are being used in this step?",
+      "answer": "In this step, the man is combining two ingredients: fried onions and fried tomatoes in a bowl.",
+      "tier": "easy",
+      "video_id": "pBvVoFFWe5s",
+      "category": "Muradabadi",
+      "segment_start": 112.0,
+      "segment_end": 126.0,
+      "instruction": "What ingredients are being used in this step?",
+      "context": "Action: Combining fried ingredients. Description: The man is combining the fried onions and tomatoes in a bowl.",
+      "canonical_recipe_ref": "configs/canonical_recipes/muradabadi.json",
+      "video_metadata_ref": {
+        "video_id": "pBvVoFFWe5s",
+        "segment_action": "Combining fried ingredients",
+        "cooking_technique": "mixing",
+        "cooking_stage": "prep"
+      }
+    },
+    {
+      "question": "How do the spice profiles differ between Hyderabadi and Kolkata biryani?",
+      "answer": "",
+      "tier": "hard",
+      "category": "Hyderabadi_vs_Kolkata",
+      "needs_generation": true
+    },
+    {
+      "question": "What cooking technique is being demonstrated?",
+      "answer": "The cooking technique being demonstrated is stovetop cooking or boiling, where rice is cooked in a pot with water on a heat source, typically a stovetop.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 0.0,
+      "segment_end": 14.0,
+      "instruction": "What cooking technique is being demonstrated?",
+      "context": "Action: Cooking rice. Description: Cooking rice in a pot with water.",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "Cooking rice",
+        "cooking_technique": "boiling",
+        "cooking_stage": "rice_cooking"
+      }
+    },
+    {
+      "question": "What ingredients are being used in this step?",
+      "answer": "In this step, the chef is adding spices to the pan, which typically includes various seasonings such as salt, pepper, and other herbs or spices like cumin, paprika, or oregano.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 192.0,
+      "segment_end": 206.0,
+      "instruction": "What ingredients are being used in this step?",
+      "context": "Action: Adding spices. Description: The chef is adding spices to the pan.",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "Adding spices",
+        "cooking_technique": "frying",
+        "cooking_stage": "meat_cooking"
+      }
+    },
+    {
+      "question": "How does this video prepare the rice for Hyderabadi biryani?",
+      "answer": "",
+      "tier": "medium",
+      "video_id": "Gm5gj4vW-QA",
+      "category": "Hyderabadi",
+      "needs_generation": true
+    },
+    {
+      "question": "How do the spice profiles differ between Kolkata and Muradabadi biryani?",
+      "answer": "",
+      "tier": "hard",
+      "category": "Kolkata_vs_Muradabadi",
+      "needs_generation": true
+    },
+    {
+      "question": "What equipment is being used?",
+      "answer": "The equipment being used in this context is a pan, specifically for frying the chicken.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 32.0,
+      "segment_end": 46.0,
+      "instruction": "What equipment is being used?",
+      "context": "Action: Cooking chicken. Description: The chef is frying chicken in a pan.",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "Cooking chicken",
+        "cooking_technique": "frying",
+        "cooking_stage": "meat_cooking"
+      }
+    },
+    {
+      "question": "What is the marination process shown in this Muradabadi biryani video?",
+      "answer": "",
+      "tier": "medium",
+      "video_id": "pBvVoFFWe5s",
+      "category": "Muradabadi",
+      "needs_generation": true
+    },
+    {
+      "question": "What equipment is being used?",
+      "answer": "The equipment being used to cook the rice is a pot, specifically on the stove.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 56.0,
+      "segment_end": 70.0,
+      "instruction": "What equipment is being used?",
+      "context": "Action: Cooking rice. Description: The chef is cooking rice in a pot on the stove.",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "Cooking rice",
+        "cooking_technique": "boiling",
+        "cooking_stage": "rice_cooking"
+      }
+    },
+    {
+      "question": "What is happening in this cooking step?",
+      "answer": "In this cooking step, a layering process is being demonstrated for a biryani dish. The ingredients are being added in layers, starting with rice as the base, followed by other components such as spices, vegetables, or meat. This technique is used to create a visually appealing and flavorful biryani dish.",
+      "tier": "easy",
+      "video_id": "Gm5gj4vW-QA",
+      "category": "Hyderabadi",
+      "segment_start": 240.0,
+      "segment_end": 254.0,
+      "instruction": "What is happening in this cooking step?",
+      "context": "Action: Layering ingredients. Description: The video shows a layering process of ingredients in a biryani dish. Ingredients are being added in layers, starting with rice and then followed by other components.",
+      "canonical_recipe_ref": "configs/canonical_recipes/hyderabadi.json",
+      "video_metadata_ref": {
+        "video_id": "Gm5gj4vW-QA",
+        "segment_action": "Layering ingredients",
+        "cooking_technique": "layering",
+        "cooking_stage": "layering"
+      }
+    },
+    {
+      "question": "What cooking technique is being demonstrated?",
+      "answer": "The cooking technique being demonstrated is marinating. Marinating involves soaking food, in this case, chicken pieces, in a mixture of seasonings and spices to add flavor before cooking.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 48.0,
+      "segment_end": 62.0,
+      "instruction": "What cooking technique is being demonstrated?",
+      "context": "Action: Marinating chicken. Description: The chef is adding spices to a bowl of chicken pieces.",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "Marinating chicken",
+        "cooking_technique": "marinating",
+        "cooking_stage": "marination"
+      }
+    },
+    {
+      "question": "What is happening in this cooking step?",
+      "answer": "In this cooking step, screwpine essence is being added to the rice in the black cooking vessel, likely to infuse the rice with its distinctive flavor and aroma. This is a common practice in Southeast Asian cuisine, particularly in dishes like nasi lemak. The addition of screwpine essence is enhancing the overall flavor profile of the dish.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 408.0,
+      "segment_end": 422.0,
+      "instruction": "What is happening in this cooking step?",
+      "context": "Action: Adding screwpine essence. Description: Screwpine essence is being added to the rice in the black cooking vessel.",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "Adding screwpine essence",
+        "cooking_technique": "layering",
+        "cooking_stage": "layering"
+      }
+    },
+    {
+      "question": "What equipment is being used?",
+      "answer": "The equipment being used in this context is a pan.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 232.0,
+      "segment_end": 246.0,
+      "instruction": "What equipment is being used?",
+      "context": "Action: Frying onions. Description: Frying onions in a pan with turmeric powder.",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "Frying onions",
+        "cooking_technique": "frying",
+        "cooking_stage": "prep"
+      }
+    },
+    {
+      "question": "What ingredients are being used in this step?",
+      "answer": "The man is layering rice and meat in the pot.",
+      "tier": "easy",
+      "video_id": "pBvVoFFWe5s",
+      "category": "Muradabadi",
+      "segment_start": 184.0,
+      "segment_end": 198.0,
+      "instruction": "What ingredients are being used in this step?",
+      "context": "Action: Layering ingredients. Description: A man is layering rice and meat in a pot.",
+      "canonical_recipe_ref": "configs/canonical_recipes/muradabadi.json",
+      "video_metadata_ref": {
+        "video_id": "pBvVoFFWe5s",
+        "segment_action": "Layering ingredients",
+        "cooking_technique": "layering",
+        "cooking_stage": "layering"
+      }
+    },
+    {
+      "question": "Describe what the cook is doing in this segment.",
+      "answer": "The cook is soaking chicken pieces in a mixture of spices, allowing the flavors to penetrate and tenderize the meat. This process, called marinating, helps to add depth and aroma to the chicken. The cook is letting the chicken sit in the spice mixture for a period of time to allow the flavors to absorb.",
+      "tier": "easy",
+      "video_id": "Gm5gj4vW-QA",
+      "category": "Hyderabadi",
+      "segment_start": 32.0,
+      "segment_end": 46.0,
+      "instruction": "Describe what the cook is doing in this segment.",
+      "context": "Action: Marinating chicken. Description: The chicken pieces are being marinated with a mixture of spices.",
+      "canonical_recipe_ref": "configs/canonical_recipes/hyderabadi.json",
+      "video_metadata_ref": {
+        "video_id": "Gm5gj4vW-QA",
+        "segment_action": "Marinating chicken",
+        "cooking_technique": "marinating",
+        "cooking_stage": "marination"
+      }
+    },
+    {
+      "question": "What is happening in this cooking step?",
+      "answer": "In this cooking step, the marinated chicken is being seasoned with additional spices to enhance its flavor. The marinated chicken is being mixed with these extra spices to create a more complex and aromatic taste. This step is likely a crucial part of the overall recipe.",
+      "tier": "easy",
+      "video_id": "Gm5gj4vW-QA",
+      "category": "Hyderabadi",
+      "segment_start": 40.0,
+      "segment_end": 54.0,
+      "instruction": "What is happening in this cooking step?",
+      "context": "Action: Adding spices to chicken. Description: The marinated chicken is being mixed with additional spices.",
+      "canonical_recipe_ref": "configs/canonical_recipes/hyderabadi.json",
+      "video_metadata_ref": {
+        "video_id": "Gm5gj4vW-QA",
+        "segment_action": "Adding spices to chicken",
+        "cooking_technique": "mixing",
+        "cooking_stage": "marination"
+      }
+    },
+    {
+      "question": "What ingredients are being used in this step?",
+      "answer": "In this step, the ingredients being used are meat and onions.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 232.0,
+      "segment_end": 246.0,
+      "instruction": "What ingredients are being used in this step?",
+      "context": "Action: Frying meat. Description: Frying meat in the pan with onions.",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "Frying meat",
+        "cooking_technique": "frying",
+        "cooking_stage": "meat_cooking"
+      }
+    },
+    {
+      "question": "What equipment is being used?",
+      "answer": "The equipment being used is a milk container or a jug, likely with a spout or pouring mechanism, to pour the milk into the bowl.",
+      "tier": "easy",
+      "video_id": "pBvVoFFWe5s",
+      "category": "Muradabadi",
+      "segment_start": 64.0,
+      "segment_end": 78.0,
+      "instruction": "What equipment is being used?",
+      "context": "Action: Adding milk to the bowl. Description: The man is pouring milk into the bowl with the vegetables.",
+      "canonical_recipe_ref": "configs/canonical_recipes/muradabadi.json",
+      "video_metadata_ref": {
+        "video_id": "pBvVoFFWe5s",
+        "segment_action": "Adding milk to the bowl",
+        "cooking_technique": "not applicable",
+        "cooking_stage": "other"
+      }
+    },
+    {
+      "question": "How is the layering done in this Kolkata biryani?",
+      "answer": "",
+      "tier": "medium",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "needs_generation": true
+    },
+    {
+      "question": "What equipment is being used?",
+      "answer": "The man is using a spoon or a spatula to stir the contents of the pot.",
+      "tier": "easy",
+      "video_id": "pBvVoFFWe5s",
+      "category": "Muradabadi",
+      "segment_start": 88.0,
+      "segment_end": 102.0,
+      "instruction": "What equipment is being used?",
+      "context": "Action: Stirring the pot. Description: The man is stirring the contents of the pot.",
+      "canonical_recipe_ref": "configs/canonical_recipes/muradabadi.json",
+      "video_metadata_ref": {
+        "video_id": "pBvVoFFWe5s",
+        "segment_action": "Stirring the pot",
+        "cooking_technique": "boiling",
+        "cooking_stage": "rice_cooking|meat_cooking"
+      }
+    },
+    {
+      "question": "Describe what the cook is doing in this segment.",
+      "answer": "The cook is saut\u00e9ing or frying sliced onions in a pan with oil, typically over medium heat, to caramelize and soften them. They are likely stirring the onions occasionally to prevent burning and promote even cooking. This step is often used to add flavor and texture to various dishes, such as soups, stews, or sauces.",
+      "tier": "easy",
+      "video_id": "pBvVoFFWe5s",
+      "category": "Muradabadi",
+      "segment_start": 216.0,
+      "segment_end": 230.0,
+      "instruction": "Describe what the cook is doing in this segment.",
+      "context": "Action: Frying onions. Description: Onions are being fried in a pan with oil.",
+      "canonical_recipe_ref": "configs/canonical_recipes/muradabadi.json",
+      "video_metadata_ref": {
+        "video_id": "pBvVoFFWe5s",
+        "segment_action": "Frying onions",
+        "cooking_technique": "frying",
+        "cooking_stage": "prep"
+      }
+    },
+    {
+      "question": "What is happening in this cooking step?",
+      "answer": "The chef is braising the chicken in the wok, where the added liquid and spices are helping to cook the chicken slowly and evenly, infusing it with flavors. This cooking method is ideal for tenderizing the chicken and creating a rich, savory sauce. The liquid and spices are likely simmering together to create a flavorful broth.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 288.0,
+      "segment_end": 302.0,
+      "instruction": "What is happening in this cooking step?",
+      "context": "Action: Cooking the chicken in the wok. Description: The chef is cooking the chicken in the wok with the added liquid and spices.",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "Cooking the chicken in the wok",
+        "cooking_technique": "frying",
+        "cooking_stage": "meat_cooking"
+      }
+    },
+    {
+      "question": "What are the signs that the rice in Hyderabadi biryani has been overcooked during parboiling, and how can this be recovered?",
+      "answer": "",
+      "tier": "expert",
+      "category": "Hyderabadi",
+      "needs_generation": true,
+      "canonical_recipe_ref": "configs/canonical_recipes/hyderabadi.json",
+      "expert_subtopic": "failure_analysis"
+    },
+    {
+      "question": "What cooking technique is being demonstrated?",
+      "answer": "The cooking technique being demonstrated is chopping, which is a fundamental knife skill used to prepare ingredients for various dishes. Chopping involves cutting food into small, uniform pieces, and in this case, the chef is chopping an onion on a cutting board. This technique is essential for many recipes, including salads, sauces, and stir-fries.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 144.0,
+      "segment_end": 158.0,
+      "instruction": "What cooking technique is being demonstrated?",
+      "context": "Action: Cutting onion. Description: The chef is cutting an onion on a cutting board.",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "Cutting onion",
+        "cooking_technique": "cutting",
+        "cooking_stage": "prep"
+      }
+    },
+    {
+      "question": "What equipment is being used?",
+      "answer": "The equipment being used is a pan.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 240.0,
+      "segment_end": 254.0,
+      "instruction": "What equipment is being used?",
+      "context": "Action: Adding potatoes to pan. Description: Adding the cut potatoes to the pan.",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "Adding potatoes to pan",
+        "cooking_technique": "frying",
+        "cooking_stage": "meat_cooking"
+      }
+    },
+    {
+      "question": "What is happening in this cooking step?",
+      "answer": "In this cooking step, the chef is finely chopping a piece of ginger into small pieces. This involves cutting the ginger into thin slices or small fragments to release its flavor and aroma. The goal is to break down the ginger into a uniform texture that can be easily incorporated into a dish.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 216.0,
+      "segment_end": 230.0,
+      "instruction": "What is happening in this cooking step?",
+      "context": "Action: Finely chopping ginger. Description: The chef is chopping a piece of ginger into small pieces.",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "Finely chopping ginger",
+        "cooking_technique": "chopping",
+        "cooking_stage": "prep"
+      }
+    },
+    {
+      "question": "What equipment is being used?",
+      "answer": "The equipment being used is a pot, specifically one that can accommodate the layering of rice and fried onions.",
+      "tier": "easy",
+      "video_id": "Gm5gj4vW-QA",
+      "category": "Hyderabadi",
+      "segment_start": 248.0,
+      "segment_end": 262.0,
+      "instruction": "What equipment is being used?",
+      "context": "Action: Layering rice. Description: The video shows rice being layered on top of the fried onions in the pot.",
+      "canonical_recipe_ref": "configs/canonical_recipes/hyderabadi.json",
+      "video_metadata_ref": {
+        "video_id": "Gm5gj4vW-QA",
+        "segment_action": "Layering rice",
+        "cooking_technique": "layering",
+        "cooking_stage": "layering"
+      }
+    },
+    {
+      "question": "What is happening in this cooking step?",
+      "answer": "In this cooking step, fresh herbs are being added to the marinated chicken, likely to enhance its flavor and aroma. This is a preparatory step before cooking, where the herbs are incorporated into the marinade to infuse the chicken with their flavors. The herbs will likely be finely chopped or bruised to release their oils and flavors.",
+      "tier": "easy",
+      "video_id": "Gm5gj4vW-QA",
+      "category": "Hyderabadi",
+      "segment_start": 80.0,
+      "segment_end": 94.0,
+      "instruction": "What is happening in this cooking step?",
+      "context": "Action: Adding herbs. Description: Fresh herbs are being added to the marinated chicken.",
+      "canonical_recipe_ref": "configs/canonical_recipes/hyderabadi.json",
+      "video_metadata_ref": {
+        "video_id": "Gm5gj4vW-QA",
+        "segment_action": "Adding herbs",
+        "cooking_technique": "marinating",
+        "cooking_stage": "marination"
+      }
+    },
+    {
+      "question": "Describe what the cook is doing in this segment.",
+      "answer": "The cook is adding fried onions to the rice in a black cooking vessel, likely a wok or a large skillet, to incorporate the crispy texture and savory flavor of the onions into the dish. This step is adding a finishing touch to the rice, enhancing its overall taste and presentation. The cook is carefully combining the fried onions with the rice.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 408.0,
+      "segment_end": 422.0,
+      "instruction": "Describe what the cook is doing in this segment.",
+      "context": "Action: Adding fried onions. Description: Fried onions are being added to the rice in a black cooking vessel.",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "Adding fried onions",
+        "cooking_technique": "layering",
+        "cooking_stage": "layering"
+      }
+    },
+    {
+      "question": "What is happening in this cooking step?",
+      "answer": "In this cooking step, green cardamoms are being added to the pot. This is likely a part of a traditional or aromatic recipe, where the cardamoms will infuse their flavor and aroma into the dish. The cardamoms will typically be added whole or slightly crushed to release their oils and flavors.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 200.0,
+      "segment_end": 214.0,
+      "instruction": "What is happening in this cooking step?",
+      "context": "Action: Adding green cardamoms. Description: Adding green cardamoms to the pot.",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "Adding green cardamoms",
+        "cooking_technique": "boiling",
+        "cooking_stage": "other"
+      }
+    },
+    {
+      "question": "What ingredients are being used in this step?",
+      "answer": "In this step, the chef is using onions and oil.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 192.0,
+      "segment_end": 206.0,
+      "instruction": "What ingredients are being used in this step?",
+      "context": "Action: Frying onions. Description: The chef is frying onions in a pan with oil.",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "Frying onions",
+        "cooking_technique": "frying",
+        "cooking_stage": "prep"
+      }
+    },
+    {
+      "question": "Compare the dum cooking methods between Hyderabadi and Muradabadi biryani as shown in these videos.",
+      "answer": "",
+      "tier": "hard",
+      "category": "Hyderabadi_vs_Muradabadi",
+      "needs_generation": true
+    },
+    {
+      "question": "What cooking technique is being demonstrated?",
+      "answer": "The cooking technique being demonstrated is hydration or soaking, which is a step often used to prepare rice before cooking. This helps to soften the rice grains and reduce cooking time.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 80.0,
+      "segment_end": 94.0,
+      "instruction": "What cooking technique is being demonstrated?",
+      "context": "Action: Soaking rice. Description: The chef is soaking rice in water in a glass bowl.",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "Soaking rice",
+        "cooking_technique": "soaking",
+        "cooking_stage": "prep"
+      }
+    },
+    {
+      "question": "What is happening in this cooking step?",
+      "answer": "The man is adding chopped onions to the bowl of rice, which is likely a key ingredient in a dish such as fried rice or a pilaf. This step involves incorporating the onions into the rice mixture, possibly for flavor, texture, or both. The onions will be mixed with the rice to create a harmonious blend of ingredients.",
+      "tier": "easy",
+      "video_id": "pBvVoFFWe5s",
+      "category": "Muradabadi",
+      "segment_start": 96.0,
+      "segment_end": 110.0,
+      "instruction": "What is happening in this cooking step?",
+      "context": "Action: Adding onions to the bowl. Description: The man is adding chopped onions to the bowl of rice.",
+      "canonical_recipe_ref": "configs/canonical_recipes/muradabadi.json",
+      "video_metadata_ref": {
+        "video_id": "pBvVoFFWe5s",
+        "segment_action": "Adding onions to the bowl",
+        "cooking_technique": "mixing",
+        "cooking_stage": "prep"
+      }
+    },
+    {
+      "question": "What cooking technique is being demonstrated?",
+      "answer": "The cooking technique being demonstrated is \"braising\" or more specifically, \"stir-frying\" with the addition of liquid, which is often referred to as \"braising\" or \"braising liquid\" in the context of stir-frying.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 288.0,
+      "segment_end": 302.0,
+      "instruction": "What cooking technique is being demonstrated?",
+      "context": "Action: Pouring liquid into the wok. Description: The chef is pouring a liquid into the wok with the chicken and spices.",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "Pouring liquid into the wok",
+        "cooking_technique": "frying",
+        "cooking_stage": "meat_cooking"
+      }
+    },
+    {
+      "question": "Describe what the cook is doing in this segment.",
+      "answer": "The cook is saut\u00e9ing or frying onions in a pan with oil, typically over medium heat, to caramelize and soften them. They are likely stirring the onions occasionally to prevent burning and promote even cooking. This process helps to bring out the natural sweetness in the onions.",
+      "tier": "easy",
+      "video_id": "Gm5gj4vW-QA",
+      "category": "Hyderabadi",
+      "segment_start": 192.0,
+      "segment_end": 206.0,
+      "instruction": "Describe what the cook is doing in this segment.",
+      "context": "Action: Frying onions. Description: Onions are being fried in a pan with oil.",
+      "canonical_recipe_ref": "configs/canonical_recipes/hyderabadi.json",
+      "video_metadata_ref": {
+        "video_id": "Gm5gj4vW-QA",
+        "segment_action": "Frying onions",
+        "cooking_technique": "frying",
+        "cooking_stage": "prep"
+      }
+    },
+    {
+      "question": "What equipment is being used?",
+      "answer": "The equipment being used in the layering process is a large pot.",
+      "tier": "easy",
+      "video_id": "Gm5gj4vW-QA",
+      "category": "Hyderabadi",
+      "segment_start": 104.0,
+      "segment_end": 118.0,
+      "instruction": "What equipment is being used?",
+      "context": "Action: Layering ingredients. Description: The video shows a layering process of ingredients in a large pot, with rice and meat being added in a specific order.",
+      "canonical_recipe_ref": "configs/canonical_recipes/hyderabadi.json",
+      "video_metadata_ref": {
+        "video_id": "Gm5gj4vW-QA",
+        "segment_action": "Layering ingredients",
+        "cooking_technique": "layering",
+        "cooking_stage": "layering"
+      }
+    },
+    {
+      "question": "What cooking technique is being demonstrated?",
+      "answer": "The cooking technique being demonstrated is \"assembly\" or \"layering,\" where the man is adding the meat to the bowl of rice, likely as part of a larger dish such as a stir-fry or a bowl meal.",
+      "tier": "easy",
+      "video_id": "pBvVoFFWe5s",
+      "category": "Muradabadi",
+      "segment_start": 96.0,
+      "segment_end": 110.0,
+      "instruction": "What cooking technique is being demonstrated?",
+      "context": "Action: Adding meat to the bowl. Description: The man is adding meat to the bowl of rice.",
+      "canonical_recipe_ref": "configs/canonical_recipes/muradabadi.json",
+      "video_metadata_ref": {
+        "video_id": "pBvVoFFWe5s",
+        "segment_action": "Adding meat to the bowl",
+        "cooking_technique": "mixing",
+        "cooking_stage": "prep"
+      }
+    },
+    {
+      "question": "What ingredients are being used in this step?",
+      "answer": "In this step, the ingredients being used are meat and onions, which are being fried together in the same pan.",
+      "tier": "easy",
+      "video_id": "Gm5gj4vW-QA",
+      "category": "Hyderabadi",
+      "segment_start": 176.0,
+      "segment_end": 190.0,
+      "instruction": "What ingredients are being used in this step?",
+      "context": "Action: Frying meat. Description: Meat is being fried in the same pan as the onions.",
+      "canonical_recipe_ref": "configs/canonical_recipes/hyderabadi.json",
+      "video_metadata_ref": {
+        "video_id": "Gm5gj4vW-QA",
+        "segment_action": "Frying meat",
+        "cooking_technique": "frying",
+        "cooking_stage": "meat_cooking"
+      }
+    },
+    {
+      "question": "What is happening in this cooking step?",
+      "answer": "The chef is repositioning the pan on the stove, likely to resume cooking or adjust the heat. This step involves placing the pan back on the stovetop, possibly to reheat, stir, or continue cooking a dish. The chef is preparing to continue the cooking process.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 256.0,
+      "segment_end": 270.0,
+      "instruction": "What is happening in this cooking step?",
+      "context": "Action: Putting pan back on stove. Description: The chef is putting the pan back on the stove.",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "Putting pan back on stove",
+        "cooking_technique": "frying",
+        "cooking_stage": "other"
+      }
+    },
+    {
+      "question": "Describe what the cook is doing in this segment.",
+      "answer": "The chef is adding sliced or diced meat to the pan, typically along with saut\u00e9ed onions and potatoes, to create a hearty and flavorful dish. This step is often part of a larger recipe, such as a stew or a skillet meal. The meat is usually browned with the onions and potatoes to develop a rich and savory flavor.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 256.0,
+      "segment_end": 270.0,
+      "instruction": "Describe what the cook is doing in this segment.",
+      "context": "Action: Adding meat to the pan. Description: The chef is adding meat to the pan with onions and potatoes.",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "Adding meat to the pan",
+        "cooking_technique": "frying",
+        "cooking_stage": "meat_cooking"
+      }
+    },
+    {
+      "question": "What ingredients are being used in this step?",
+      "answer": "The ingredients being used in this step are onions, chicken, and rice.",
+      "tier": "easy",
+      "video_id": "Gm5gj4vW-QA",
+      "category": "Hyderabadi",
+      "segment_start": 120.0,
+      "segment_end": 134.0,
+      "instruction": "What ingredients are being used in this step?",
+      "context": "Action: Layering ingredients. Description: The chef is layering ingredients in a pot, starting with onions, followed by chicken, and then rice.",
+      "canonical_recipe_ref": "configs/canonical_recipes/hyderabadi.json",
+      "video_metadata_ref": {
+        "video_id": "Gm5gj4vW-QA",
+        "segment_action": "Layering ingredients",
+        "cooking_technique": "layering",
+        "cooking_stage": "layering"
+      }
+    },
+    {
+      "question": "What equipment is being used?",
+      "answer": "Based on the description, the equipment being used is a pan with oil.",
+      "tier": "easy",
+      "video_id": "u9eYgW5XLck",
+      "category": "Kolkata",
+      "segment_start": 480.0,
+      "segment_end": 494.0,
+      "instruction": "What equipment is being used?",
+      "context": "Action: unknown. Description: ```json\n[\n    {\n        \"step_number\": 1,\n        \"action\": \"Frying onions\",\n        \"description\": \"Frying chopped onions in a pan with oil.\",\n        \"start_frame\": 1,\n        \"end_frame\": 4,\n      ",
+      "canonical_recipe_ref": "configs/canonical_recipes/kolkata.json",
+      "video_metadata_ref": {
+        "video_id": "u9eYgW5XLck",
+        "segment_action": "unknown",
+        "cooking_technique": "",
+        "cooking_stage": "prep"
+      }
+    }
+  ]
+}

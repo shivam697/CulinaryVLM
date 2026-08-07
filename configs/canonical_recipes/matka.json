@@ -1,7 +1,17 @@
 {
+  "schema_version": "2.0",
   "category": "Matka",
   "full_name": "Matka Chicken Biryani",
   "region": "Various (method-based, not region-specific)",
+  "protein": "chicken",
+  "utensil_hierarchy": [
+    "clay matka/handi (defining vessel)",
+    "frying pan (for pre-cooking)",
+    "strainer",
+    "rolling pin (for dough seal)"
+  ],
+  "marination_strategy": "wet yogurt-based, 1 hr, dairy (yogurt) + standard spices",
+  "spice_intensity": "medium",
   "distinguishing_features": [
     "Cooked and served in a clay pot (matka/handi)",
     "Clay pot imparts earthy flavor and retains heat",
@@ -18,6 +28,27 @@
       "is_defining_step": true,
       "ingredients_used": [
         "oil"
+      ],
+      "visible_objects": [
+        "clay matka",
+        "water",
+        "oil"
+      ],
+      "ingredient_state": {
+        "matka": "soaked in water, being greased with oil"
+      },
+      "expected_visual_features": [
+        "wet clay pot",
+        "oil coating inside"
+      ],
+      "expected_audio": "water draining, oil spreading",
+      "common_mistakes": [
+        "not soaking long enough (matka cracks)",
+        "using unsoaked matka"
+      ],
+      "recovery_actions": [
+        "soak minimum 30 min",
+        "grease interior generously"
       ]
     },
     {
@@ -30,6 +61,29 @@
         "chicken",
         "yogurt",
         "ginger-garlic paste"
+      ],
+      "visible_objects": [
+        "mixing bowl",
+        "chicken pieces",
+        "yogurt/marinade",
+        "spice powders"
+      ],
+      "ingredient_state": {
+        "chicken": "raw, cut into pieces",
+        "marinade": "mixed wet paste coating chicken"
+      },
+      "expected_visual_features": [
+        "chicken coated in colored marinade",
+        "spice paste visible on pieces"
+      ],
+      "expected_audio": "mixing and squelching sounds",
+      "common_mistakes": [
+        "insufficient marination time",
+        "uneven coating"
+      ],
+      "recovery_actions": [
+        "extend marination in refrigerator",
+        "remix and re-coat all pieces"
       ]
     },
     {
@@ -42,6 +96,30 @@
         "chicken",
         "onion",
         "oil"
+      ],
+      "visible_objects": [
+        "cooking pot/pan",
+        "chicken pieces",
+        "oil",
+        "onions",
+        "spices"
+      ],
+      "ingredient_state": {
+        "chicken": "cooking in masala, browning and releasing juices"
+      },
+      "expected_visual_features": [
+        "chicken browning",
+        "gravy thickening",
+        "oil separating from masala"
+      ],
+      "expected_audio": "sizzling, bubbling masala",
+      "common_mistakes": [
+        "heat too high (masala burns)",
+        "not cooking until oil separates"
+      ],
+      "recovery_actions": [
+        "reduce heat",
+        "cook until oil separates from masala (sign of doneness)"
       ]
     },
     {
@@ -54,6 +132,31 @@
         "basmati rice",
         "bay leaf",
         "cardamom"
+      ],
+      "visible_objects": [
+        "large pot",
+        "boiling water",
+        "rice",
+        "whole spices",
+        "strainer"
+      ],
+      "ingredient_state": {
+        "rice": "70% cooked — grains elongated but firm in center",
+        "water": "starchy, rolling boil"
+      },
+      "expected_visual_features": [
+        "elongated rice grains",
+        "rolling boil",
+        "whole spices floating"
+      ],
+      "expected_audio": "vigorous bubbling, boiling water",
+      "common_mistakes": [
+        "overcooking rice past 70%",
+        "not draining immediately"
+      ],
+      "recovery_actions": [
+        "spread rice on tray to stop cooking",
+        "rinse with cold water"
       ]
     },
     {
@@ -68,6 +171,28 @@
         "saffron",
         "ghee",
         "mint"
+      ],
+      "visible_objects": [
+        "clay matka",
+        "chicken",
+        "rice",
+        "spices"
+      ],
+      "ingredient_state": {
+        "chicken": "being layered inside matka",
+        "basmati rice": "being layered inside matka",
+        "saffron": "being layered inside matka"
+      },
+      "expected_visual_features": [
+        "layered contents visible in clay pot"
+      ],
+      "expected_audio": "placing/layering sounds",
+      "common_mistakes": [
+        "overfilling",
+        "not leaving headspace for steam"
+      ],
+      "recovery_actions": [
+        "fill to 3/4 capacity"
       ]
     },
     {
@@ -76,7 +201,26 @@
       "description": "Seal the matka opening with wheat flour dough to create airtight dum.",
       "duration_minutes": 5,
       "is_defining_step": true,
-      "ingredients_used": []
+      "ingredients_used": [],
+      "visible_objects": [
+        "cooking pot",
+        "dough/foil/cloth",
+        "lid"
+      ],
+      "ingredient_state": {
+        "seal": "airtight closure around pot rim"
+      },
+      "expected_visual_features": [
+        "sealed pot with no visible gaps",
+        "dough/cloth around rim"
+      ],
+      "expected_audio": "pressing/sealing sounds",
+      "common_mistakes": [
+        "gaps in seal (steam escapes, rice dries out)"
+      ],
+      "recovery_actions": [
+        "press firmly and patch any gaps"
+      ]
     },
     {
       "step_number": 7,
@@ -84,7 +228,26 @@
       "description": "Place sealed matka on low heat or in oven for 30 minutes.",
       "duration_minutes": 30,
       "is_defining_step": true,
-      "ingredients_used": []
+      "ingredients_used": [],
+      "visible_objects": [
+        "sealed pot on stove"
+      ],
+      "ingredient_state": {
+        "contents": "cooking via trapped steam, flavors melding"
+      },
+      "expected_visual_features": [
+        "sealed pot, no steam escaping",
+        "slight aroma building"
+      ],
+      "expected_audio": "initial hissing/steam, then very quiet on low heat",
+      "common_mistakes": [
+        "opening lid during dum (releases steam)",
+        "heat too high (bottom burns)"
+      ],
+      "recovery_actions": [
+        "never open lid — trust the process",
+        "place tawa underneath for heat diffusion"
+      ]
     },
     {
       "step_number": 8,
@@ -92,7 +255,30 @@
       "description": "Break the dough seal at the table, serve directly from the clay pot.",
       "duration_minutes": 5,
       "is_defining_step": true,
-      "ingredients_used": []
+      "ingredients_used": [],
+      "visible_objects": [
+        "cooking pot",
+        "serving dish",
+        "accompaniments"
+      ],
+      "ingredient_state": {
+        "rice": "fully cooked, fluffy",
+        "chicken": "fully cooked, tender"
+      },
+      "expected_visual_features": [
+        "fluffy rice with visible layers",
+        "tender chicken",
+        "steam rising"
+      ],
+      "expected_audio": "gentle mixing, steam release",
+      "common_mistakes": [
+        "mixing too vigorously (breaks rice grains)",
+        "not resting before serving"
+      ],
+      "recovery_actions": [
+        "fold gently from edges",
+        "rest 5-10 min minimum"
+      ]
     }
   ],
   "ingredient_aliases": {

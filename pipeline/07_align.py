@@ -60,8 +60,15 @@ def align_video_to_recipe(
     video_segments: list[dict],
     recipe_steps: list[dict],
     embedder,
+    recipe: dict[str, Any] | None = None,
+    similarity_threshold: float = 0.5,
 ) -> list[dict[str, Any]]:
-    """Align video segments to canonical recipe steps via DTW."""
+    """Align video segments to canonical recipe steps via DTW.
+
+    If a full canonical recipe dict is provided, each alignment entry
+    inherits recipe-level metadata (style, rice_type, cooking_method,
+    dum_method, vessel, spice_profile) and step-level expected_ingredients.
+    """
     seg_texts = [f"{s.get('action', '')} {s.get('description', '')}" for s in video_segments]
     step_texts = [f"{s.get('action', '')} {s.get('description', '')}" for s in recipe_steps]
 
@@ -77,18 +84,72 @@ def align_video_to_recipe(
 
     path = compute_dtw(cost_matrix)
 
+    # Pre-compute recipe-level metadata (inherited by every alignment entry)
+    if recipe is None:
+        recipe = {}
+    recipe_meta = {
+        "style": recipe.get("category", ""),
+        "rice_type": recipe.get("rice_type", ""),
+        "cooking_method": "",  # derived below
+        "dum_method": recipe.get("dum_method", ""),
+        "vessel": recipe.get("cooking_vessel", ""),
+        "spice_profile": {
+            "key_spices": recipe.get("key_spices", []),
+            "intensity": recipe.get("spice_intensity", ""),
+        },
+    }
+    # Derive cooking_method from distinguishing_features (same logic as 00c)
+    for feat in recipe.get("distinguishing_features", []):
+        fl = feat.lower()
+        if "kacchi" in fl or "raw" in fl:
+            recipe_meta["cooking_method"] = "kacchi (raw layering)"
+            break
+        elif "pakki" in fl or "cooked" in fl:
+            recipe_meta["cooking_method"] = "pakki (pre-cooked)"
+            break
+        elif "bamboo" in fl:
+            recipe_meta["cooking_method"] = "bamboo-sealed fire cooking"
+            break
+    if not recipe_meta["cooking_method"]:
+        recipe_meta["cooking_method"] = "layered dum"
+
     alignments = []
     for seg_idx, step_idx in path:
-        alignments.append({
+        matched_step = recipe_steps[step_idx]
+
+        # Build expected_ingredients from the canonical step
+        expected_ingredients = list(matched_step.get("ingredients_used", []))
+        # Also include visible_objects if present (v2.0 steps)
+        for obj in matched_step.get("visible_objects", []):
+            if obj not in expected_ingredients:
+                expected_ingredients.append(obj)
+
+        entry = {
+            # Existing keys — unchanged
             "segment_index": seg_idx,
             "segment_action": video_segments[seg_idx].get("action", ""),
             "segment_start": video_segments[seg_idx].get("start_time", 0),
             "segment_end": video_segments[seg_idx].get("end_time", 0),
-            "canonical_step": recipe_steps[step_idx].get("step_number", step_idx + 1),
-            "canonical_action": recipe_steps[step_idx].get("action", ""),
+            "canonical_step": matched_step.get("step_number", step_idx + 1),
+            "canonical_action": matched_step.get("action", ""),
             "similarity": float(similarity[seg_idx, step_idx]),
-            "is_defining": recipe_steps[step_idx].get("is_defining_step", False),
-        })
+            "is_defining": matched_step.get("is_defining_step", False),
+            # Inherited recipe-level metadata (v2.0)
+            "style": recipe_meta["style"],
+            "rice_type": recipe_meta["rice_type"],
+            "cooking_method": recipe_meta["cooking_method"],
+            "dum_method": recipe_meta["dum_method"],
+            "vessel": recipe_meta["vessel"],
+            "spice_profile": recipe_meta["spice_profile"],
+            # Inherited step-level metadata (v2.0)
+            "expected_ingredients": expected_ingredients,
+            # Confidence flag — DTW forces every segment onto some step,
+            # so a low similarity score means the match is likely a
+            # structural artifact of the alignment path rather than a
+            # genuine semantic match.
+            "low_confidence": bool(similarity[seg_idx, step_idx] < similarity_threshold),
+        }
+        alignments.append(entry)
 
     return alignments
 
@@ -98,6 +159,8 @@ def main() -> None:
     parser.add_argument("--config", default="configs/config.yaml")
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--similarity-threshold", type=float, default=0.5,
+                         help="Alignments below this cosine similarity are flagged low_confidence")
     args = parser.parse_args()
 
     logger.info("╔══════════════════════════════════════════════════╗")
@@ -143,13 +206,13 @@ def main() -> None:
         sys.exit(1)
 
     # Load canonical recipes
-    recipes: dict[str, list] = {}
+    recipes: dict[str, dict] = {}
     for fp in recipe_dir.glob("*.json"):
         with open(fp) as f:
             r = json.load(f)
-        recipes[r["category"]] = r.get("steps", [])
+        recipes[r["category"]] = r
 
-    stats = {"aligned": 0, "skipped": 0, "no_recipe": 0}
+    stats = {"aligned": 0, "skipped": 0, "no_recipe": 0, "low_confidence": 0}
     align_dir.mkdir(parents=True, exist_ok=True)
 
     for vid, segments in by_video.items():
@@ -164,10 +227,17 @@ def main() -> None:
             stats["no_recipe"] += 1
             continue
 
-        alignments = align_video_to_recipe(segments, recipes[cat], embedder)
+        recipe = recipes[cat]
+        alignments = align_video_to_recipe(
+            segments, recipe.get("steps", []), embedder, recipe=recipe,
+            similarity_threshold=args.similarity_threshold,
+        )
+        low_conf_count = sum(1 for a in alignments if a["low_confidence"])
+        stats["low_confidence"] = stats.get("low_confidence", 0) + low_conf_count
 
         with open(out_path, "w") as f:
             json.dump({
+                "schema_version": "2.0",
                 "video_id": vid, "category": cat,
                 "num_alignments": len(alignments), "alignments": alignments,
             }, f, indent=2)

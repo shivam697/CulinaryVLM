@@ -1,7 +1,17 @@
 {
+  "schema_version": "2.0",
   "category": "Kolkata",
   "full_name": "Kolkata Chicken Biryani",
   "region": "West Bengal (Kolkata)",
+  "protein": "chicken",
+  "utensil_hierarchy": [
+    "heavy-bottomed degchi",
+    "frying pan (for potatoes)",
+    "pot (for boiling eggs)",
+    "strainer"
+  ],
+  "marination_strategy": "wet yogurt-based, 1-2 hrs, dairy (yogurt) + mild spices (nutmeg, mace)",
+  "spice_intensity": "low",
   "distinguishing_features": [
     "Light, subtly flavored biryani with less spice than Hyderabadi",
     "Signature use of whole boiled potatoes and eggs alongside chicken",
@@ -20,6 +30,29 @@
         "chicken",
         "yogurt",
         "ginger-garlic paste"
+      ],
+      "visible_objects": [
+        "mixing bowl",
+        "chicken pieces",
+        "yogurt/marinade",
+        "spice powders"
+      ],
+      "ingredient_state": {
+        "chicken": "raw, cut into pieces",
+        "marinade": "mixed wet paste coating chicken"
+      },
+      "expected_visual_features": [
+        "chicken coated in colored marinade",
+        "spice paste visible on pieces"
+      ],
+      "expected_audio": "mixing and squelching sounds",
+      "common_mistakes": [
+        "insufficient marination time",
+        "uneven coating"
+      ],
+      "recovery_actions": [
+        "extend marination in refrigerator",
+        "remix and re-coat all pieces"
       ]
     },
     {
@@ -32,6 +65,30 @@
         "chicken",
         "ghee",
         "onion"
+      ],
+      "visible_objects": [
+        "cooking pot/pan",
+        "chicken pieces",
+        "ghee",
+        "onions",
+        "spices"
+      ],
+      "ingredient_state": {
+        "chicken": "cooking in masala, browning and releasing juices"
+      },
+      "expected_visual_features": [
+        "chicken browning",
+        "gravy thickening",
+        "oil separating from masala"
+      ],
+      "expected_audio": "sizzling, bubbling masala",
+      "common_mistakes": [
+        "heat too high (masala burns)",
+        "not cooking until oil separates"
+      ],
+      "recovery_actions": [
+        "reduce heat",
+        "cook until oil separates from masala (sign of doneness)"
       ]
     },
     {
@@ -44,6 +101,29 @@
         "potato",
         "egg",
         "oil"
+      ],
+      "visible_objects": [
+        "pot",
+        "boiling water",
+        "potatoes",
+        "eggs"
+      ],
+      "ingredient_state": {
+        "potatoes": "boiling, becoming tender",
+        "eggs": "hard-boiling"
+      },
+      "expected_visual_features": [
+        "boiling water",
+        "potatoes/eggs submerged"
+      ],
+      "expected_audio": "bubbling water",
+      "common_mistakes": [
+        "overcooking potatoes (too soft)",
+        "not frying potatoes golden after boiling"
+      ],
+      "recovery_actions": [
+        "test with fork",
+        "fry until deep golden after boiling"
       ]
     },
     {
@@ -57,6 +137,27 @@
         "bay leaf",
         "cardamom",
         "cinnamon"
+      ],
+      "visible_objects": [
+        "bowl",
+        "rice",
+        "water"
+      ],
+      "ingredient_state": {
+        "rice": "dry grains soaking in water, absorbing moisture"
+      },
+      "expected_visual_features": [
+        "white rice submerged in water",
+        "water turning slightly starchy"
+      ],
+      "expected_audio": "water pouring, gentle swishing",
+      "common_mistakes": [
+        "not washing rice enough (excess starch)",
+        "soaking too long (grains break)"
+      ],
+      "recovery_actions": [
+        "drain and rinse again",
+        "reduce parboil time if over-soaked"
       ]
     },
     {
@@ -67,6 +168,25 @@
       "is_defining_step": false,
       "ingredients_used": [
         "chicken"
+      ],
+      "visible_objects": [
+        "cooking pot",
+        "chicken"
+      ],
+      "ingredient_state": {
+        "chicken": "being layered in pot"
+      },
+      "expected_visual_features": [
+        "distinct layers visible in pot"
+      ],
+      "expected_audio": "placing/spreading sounds",
+      "common_mistakes": [
+        "uneven distribution",
+        "pressing down (compacts, blocks steam)"
+      ],
+      "recovery_actions": [
+        "redistribute evenly",
+        "keep layers loose and fluffy"
       ]
     },
     {
@@ -78,6 +198,26 @@
       "ingredients_used": [
         "potato",
         "egg"
+      ],
+      "visible_objects": [
+        "cooking pot",
+        "fried potatoes",
+        "boiled eggs"
+      ],
+      "ingredient_state": {
+        "potatoes": "fried golden",
+        "eggs": "hard-boiled, halved"
+      },
+      "expected_visual_features": [
+        "golden potato pieces",
+        "white egg halves arranged"
+      ],
+      "expected_audio": "placing sounds",
+      "common_mistakes": [
+        "potatoes not golden enough"
+      ],
+      "recovery_actions": [
+        "ensure potatoes are properly fried before adding"
       ]
     },
     {
@@ -88,6 +228,25 @@
       "is_defining_step": false,
       "ingredients_used": [
         "basmati rice"
+      ],
+      "visible_objects": [
+        "cooking pot",
+        "basmati rice"
+      ],
+      "ingredient_state": {
+        "basmati rice": "being layered in pot"
+      },
+      "expected_visual_features": [
+        "distinct layers visible in pot"
+      ],
+      "expected_audio": "placing/spreading sounds",
+      "common_mistakes": [
+        "uneven distribution",
+        "pressing down (compacts, blocks steam)"
+      ],
+      "recovery_actions": [
+        "redistribute evenly",
+        "keep layers loose and fluffy"
       ]
     },
     {
@@ -102,6 +261,30 @@
         "kewra water",
         "ghee",
         "onion"
+      ],
+      "visible_objects": [
+        "saffron milk",
+        "ghee",
+        "fried onions",
+        "herbs"
+      ],
+      "ingredient_state": {
+        "saffron": "dissolved in warm milk, golden",
+        "ghee": "melted"
+      },
+      "expected_visual_features": [
+        "golden saffron streaks",
+        "green herb specks",
+        "aromatic steam"
+      ],
+      "expected_audio": "drizzling liquid, sprinkling",
+      "common_mistakes": [
+        "too little saffron/ghee",
+        "not steeping saffron first"
+      ],
+      "recovery_actions": [
+        "steep saffron in warm milk 10 min",
+        "be generous with ghee"
       ]
     },
     {
@@ -110,7 +293,26 @@
       "description": "Seal pot, cook on low heat for 20-25 minutes.",
       "duration_minutes": 25,
       "is_defining_step": false,
-      "ingredients_used": []
+      "ingredients_used": [],
+      "visible_objects": [
+        "sealed pot on stove"
+      ],
+      "ingredient_state": {
+        "contents": "cooking via trapped steam, flavors melding"
+      },
+      "expected_visual_features": [
+        "sealed pot, no steam escaping",
+        "slight aroma building"
+      ],
+      "expected_audio": "initial hissing/steam, then very quiet on low heat",
+      "common_mistakes": [
+        "opening lid during dum (releases steam)",
+        "heat too high (bottom burns)"
+      ],
+      "recovery_actions": [
+        "never open lid — trust the process",
+        "place tawa underneath for heat diffusion"
+      ]
     },
     {
       "step_number": 10,
@@ -118,7 +320,30 @@
       "description": "Rest 10 min, gently mix. Serve with change'r dal and raita.",
       "duration_minutes": 10,
       "is_defining_step": false,
-      "ingredients_used": []
+      "ingredients_used": [],
+      "visible_objects": [
+        "cooking pot",
+        "serving dish",
+        "accompaniments"
+      ],
+      "ingredient_state": {
+        "rice": "fully cooked, fluffy",
+        "chicken": "fully cooked, tender"
+      },
+      "expected_visual_features": [
+        "fluffy rice with visible layers",
+        "tender chicken",
+        "steam rising"
+      ],
+      "expected_audio": "gentle mixing, steam release",
+      "common_mistakes": [
+        "mixing too vigorously (breaks rice grains)",
+        "not resting before serving"
+      ],
+      "recovery_actions": [
+        "fold gently from edges",
+        "rest 5-10 min minimum"
+      ]
     }
   ],
   "ingredient_aliases": {

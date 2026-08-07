@@ -58,7 +58,13 @@ def load_all_segments(seg_dir: Path) -> list[dict[str, Any]]:
 
 
 def embed_actions(segments: list[dict], model_name: str = "all-MiniLM-L6-v2") -> np.ndarray:
-    """Encode segment actions into embeddings."""
+    """Encode segment actions into embeddings.
+
+    Builds a richer text representation from action + description +
+    cooking_technique + ingredient_state + cooking_stage when available
+    (v2.0 segments).  Falls back gracefully for v1.0 segments that lack
+    the new fields.
+    """
     try:
         from sentence_transformers import SentenceTransformer
     except ImportError:
@@ -66,9 +72,29 @@ def embed_actions(segments: list[dict], model_name: str = "all-MiniLM-L6-v2") ->
         sys.exit(1)
 
     model = SentenceTransformer(model_name)
-    texts = [
-        f"{s.get('action', '')} — {s.get('description', '')}" for s in segments
-    ]
+
+    texts = []
+    for s in segments:
+        parts = [
+            s.get("action", ""),
+            s.get("description", ""),
+        ]
+        # v2.0 fields — append only if non-empty
+        technique = s.get("cooking_technique", "")
+        if technique:
+            parts.append(f"technique: {technique}")
+
+        ingredient_state = s.get("ingredient_state", {})
+        if isinstance(ingredient_state, dict) and ingredient_state:
+            state_str = ", ".join(f"{k}: {v}" for k, v in ingredient_state.items())
+            parts.append(f"state: {state_str}")
+
+        cooking_stage = s.get("cooking_stage", "")
+        if cooking_stage:
+            parts.append(f"stage: {cooking_stage}")
+
+        texts.append(" — ".join(p for p in parts if p))
+
     embeddings = model.encode(texts, normalize_embeddings=True, show_progress_bar=True)
     return np.array(embeddings)
 
@@ -107,7 +133,7 @@ def build_cluster_summaries(
         representative = max(members, key=lambda s: len(s.get("description", "")))
         actions = Counter(s.get("action", "") for s in members)
 
-        summaries.append({
+        summary: dict[str, Any] = {
             "cluster_id": cluster_id,
             "size": len(members),
             "representative_action": representative.get("action", ""),
@@ -115,9 +141,21 @@ def build_cluster_summaries(
             "action_distribution": dict(actions.most_common(5)),
             "categories": dict(Counter(s["category"] for s in members).most_common()),
             "video_ids": list(set(s["video_id"] for s in members)),
-        })
+        }
+
+        # v2.0 additive distributions — only if present in input segments
+        techniques = [s.get("cooking_technique", "") for s in members if s.get("cooking_technique")]
+        if techniques:
+            summary["technique_distribution"] = dict(Counter(techniques).most_common(5))
+
+        stages = [s.get("cooking_stage", "") for s in members if s.get("cooking_stage")]
+        if stages:
+            summary["cooking_stage_distribution"] = dict(Counter(stages).most_common(5))
+
+        summaries.append(summary)
 
     return {
+        "schema_version": "2.0",
         "total_segments": len(segments),
         "total_clusters": len(summaries),
         "reduction_pct": round((1 - len(summaries) / max(len(segments), 1)) * 100, 1),

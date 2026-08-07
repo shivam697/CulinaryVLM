@@ -1,7 +1,17 @@
 {
+  "schema_version": "2.0",
   "category": "Muradabadi",
   "full_name": "Muradabadi Chicken Biryani",
   "region": "Uttar Pradesh (Moradabad)",
+  "protein": "chicken",
+  "utensil_hierarchy": [
+    "heavy degchi",
+    "stock pot (for yakhni)",
+    "frying pan",
+    "strainer"
+  ],
+  "marination_strategy": "yakhni-based, no separate marination — chicken boiled in spiced stock then fried in mustard oil",
+  "spice_intensity": "medium",
   "distinguishing_features": [
     "Uses mustard oil for a pungent, distinctive flavor",
     "Yakhni-based — rice cooked in meat stock",
@@ -22,6 +32,29 @@
         "bay leaf",
         "cardamom",
         "black pepper"
+      ],
+      "visible_objects": [
+        "stock pot",
+        "chicken pieces/bones",
+        "whole spices",
+        "onion"
+      ],
+      "ingredient_state": {
+        "stock": "simmering, extracting flavors",
+        "chicken": "cooking in spiced stock"
+      },
+      "expected_visual_features": [
+        "clear to slightly cloudy broth",
+        "whole spices and onion floating"
+      ],
+      "expected_audio": "gentle simmering, soft bubbling",
+      "common_mistakes": [
+        "boiling too vigorously (cloudy stock)",
+        "too few spices"
+      ],
+      "recovery_actions": [
+        "reduce to gentle simmer",
+        "strain carefully"
       ]
     },
     {
@@ -32,6 +65,27 @@
       "is_defining_step": false,
       "ingredients_used": [
         "basmati rice"
+      ],
+      "visible_objects": [
+        "bowl",
+        "rice",
+        "water"
+      ],
+      "ingredient_state": {
+        "rice": "dry grains soaking in water, absorbing moisture"
+      },
+      "expected_visual_features": [
+        "white rice submerged in water",
+        "water turning slightly starchy"
+      ],
+      "expected_audio": "water pouring, gentle swishing",
+      "common_mistakes": [
+        "not washing rice enough (excess starch)",
+        "soaking too long (grains break)"
+      ],
+      "recovery_actions": [
+        "drain and rinse again",
+        "reduce parboil time if over-soaked"
       ]
     },
     {
@@ -45,6 +99,30 @@
         "mustard oil",
         "cumin",
         "green chili"
+      ],
+      "visible_objects": [
+        "cooking pot/pan",
+        "chicken pieces",
+        "oil",
+        "onions",
+        "spices"
+      ],
+      "ingredient_state": {
+        "chicken": "cooking in masala, browning and releasing juices"
+      },
+      "expected_visual_features": [
+        "chicken browning",
+        "gravy thickening",
+        "oil separating from masala"
+      ],
+      "expected_audio": "sizzling, bubbling masala",
+      "common_mistakes": [
+        "heat too high (masala burns)",
+        "not cooking until oil separates"
+      ],
+      "recovery_actions": [
+        "reduce heat",
+        "cook until oil separates from masala (sign of doneness)"
       ]
     },
     {
@@ -55,6 +133,31 @@
       "is_defining_step": true,
       "ingredients_used": [
         "basmati rice"
+      ],
+      "visible_objects": [
+        "large pot",
+        "boiling water",
+        "rice",
+        "whole spices",
+        "strainer"
+      ],
+      "ingredient_state": {
+        "rice": "80% cooked — grains elongated but firm in center",
+        "water": "starchy, rolling boil"
+      },
+      "expected_visual_features": [
+        "elongated rice grains",
+        "rolling boil",
+        "whole spices floating"
+      ],
+      "expected_audio": "vigorous bubbling, boiling water",
+      "common_mistakes": [
+        "overcooking rice past 80%",
+        "not draining immediately"
+      ],
+      "recovery_actions": [
+        "spread rice on tray to stop cooking",
+        "rinse with cold water"
       ]
     },
     {
@@ -66,6 +169,27 @@
       "ingredients_used": [
         "chicken",
         "basmati rice"
+      ],
+      "visible_objects": [
+        "cooking pot",
+        "chicken",
+        "basmati rice"
+      ],
+      "ingredient_state": {
+        "chicken": "being layered in pot",
+        "basmati rice": "being layered in pot"
+      },
+      "expected_visual_features": [
+        "distinct layers visible in pot"
+      ],
+      "expected_audio": "placing/spreading sounds",
+      "common_mistakes": [
+        "uneven distribution",
+        "pressing down (compacts, blocks steam)"
+      ],
+      "recovery_actions": [
+        "redistribute evenly",
+        "keep layers loose and fluffy"
       ]
     },
     {
@@ -78,6 +202,30 @@
         "saffron",
         "mustard oil",
         "mint"
+      ],
+      "visible_objects": [
+        "saffron milk",
+        "ghee",
+        "fried onions",
+        "herbs"
+      ],
+      "ingredient_state": {
+        "saffron": "dissolved in warm milk, golden",
+        "ghee": "melted"
+      },
+      "expected_visual_features": [
+        "golden saffron streaks",
+        "green herb specks",
+        "aromatic steam"
+      ],
+      "expected_audio": "drizzling liquid, sprinkling",
+      "common_mistakes": [
+        "too little saffron/ghee",
+        "not steeping saffron first"
+      ],
+      "recovery_actions": [
+        "steep saffron in warm milk 10 min",
+        "be generous with ghee"
       ]
     },
     {
@@ -86,7 +234,26 @@
       "description": "Seal and cook on very low heat for 20 minutes.",
       "duration_minutes": 20,
       "is_defining_step": false,
-      "ingredients_used": []
+      "ingredients_used": [],
+      "visible_objects": [
+        "sealed pot on stove"
+      ],
+      "ingredient_state": {
+        "contents": "cooking via trapped steam, flavors melding"
+      },
+      "expected_visual_features": [
+        "sealed pot, no steam escaping",
+        "slight aroma building"
+      ],
+      "expected_audio": "initial hissing/steam, then very quiet on low heat",
+      "common_mistakes": [
+        "opening lid during dum (releases steam)",
+        "heat too high (bottom burns)"
+      ],
+      "recovery_actions": [
+        "never open lid — trust the process",
+        "place tawa underneath for heat diffusion"
+      ]
     },
     {
       "step_number": 8,
@@ -94,7 +261,30 @@
       "description": "Fluff gently, serve with green chutney and raita.",
       "duration_minutes": 5,
       "is_defining_step": false,
-      "ingredients_used": []
+      "ingredients_used": [],
+      "visible_objects": [
+        "cooking pot",
+        "serving dish",
+        "accompaniments"
+      ],
+      "ingredient_state": {
+        "rice": "fully cooked, fluffy",
+        "chicken": "fully cooked, tender"
+      },
+      "expected_visual_features": [
+        "fluffy rice with visible layers",
+        "tender chicken",
+        "steam rising"
+      ],
+      "expected_audio": "gentle mixing, steam release",
+      "common_mistakes": [
+        "mixing too vigorously (breaks rice grains)",
+        "not resting before serving"
+      ],
+      "recovery_actions": [
+        "fold gently from edges",
+        "rest 5-10 min minimum"
+      ]
     }
   ],
   "ingredient_aliases": {

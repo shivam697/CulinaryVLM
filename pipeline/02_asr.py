@@ -5,7 +5,9 @@ CulinaryVLM — Stage 2: ASR + Translation + NLP
 
 Transcribes downloaded videos using WhisperX (word-level timestamps),
 translates non-English transcripts to English using NLLB or Groq,
-and extracts NLP features (ingredients, actions, timestamps).
+and extracts lightweight NLP features (ingredients, actions, utensils,
+temperatures, quantities, ingredient_state) from each transcript segment
+using regex + lexicon (zero extra API calls, zero new dependencies).
 
 MUST RUN ON GPU CLUSTER (Gpu7-80G queue).
 
@@ -18,6 +20,7 @@ Usage:
 
 Run on: IIIT Delhi GPU cluster (L40S 48GB)
 Input:  datasets/raw_videos/{category}/{video_id}.mp4
+        configs/canonical_recipes/{category}.json (for ingredient vocabulary)
 Output: datasets/transcripts/{video_id}.json
 """
 
@@ -28,6 +31,7 @@ import gc
 import json
 import logging
 import os
+import re
 import sys
 import time
 from pathlib import Path
@@ -51,12 +55,218 @@ logger = logging.getLogger("stage_2")
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_CONFIG = "configs/config.yaml"
 
+# ─── Cooking Action & Utensil Lexicons (compact, no new deps) ────
+
+COOKING_ACTIONS: set[str] = {
+    # Heat / fire
+    "fry", "deep fry", "shallow fry", "sauté", "saute", "roast", "bake",
+    "grill", "broil", "toast", "char", "smoke", "sear", "flambe",
+    # Water / liquid
+    "boil", "simmer", "blanch", "parboil", "steam", "poach", "braise",
+    "stew", "reduce", "deglaze",
+    # Prep
+    "chop", "dice", "slice", "mince", "julienne", "grate", "peel",
+    "crush", "grind", "pound", "blend", "purée", "puree", "shred",
+    "cut", "trim", "score", "deseed",
+    # Combine
+    "mix", "stir", "fold", "whisk", "beat", "knead", "toss",
+    "combine", "incorporate", "emulsify",
+    # Apply
+    "marinate", "season", "rub", "coat", "baste", "drizzle", "garnish",
+    "sprinkle", "dust", "glaze", "temper", "tadka", "baghar",
+    # Biryani-specific
+    "layer", "dum", "seal", "soak", "drain", "strain", "rinse",
+    "wash", "rest", "infuse", "steep", "bloom",
+    # General
+    "cook", "heat", "warm", "cool", "chill", "freeze",
+    "add", "pour", "place", "spread", "arrange", "cover",
+    "remove", "transfer", "serve",
+}
+
+UTENSIL_LEXICON: set[str] = {
+    # Vessels
+    "handi", "degchi", "deg", "matka", "pot", "pan", "kadhai", "kadai",
+    "wok", "skillet", "saucepan", "tawa", "tava", "griddle",
+    "pressure cooker", "cooker", "oven", "tandoor", "microwave",
+    "slow cooker", "rice cooker", "instant pot",
+    # Tools
+    "ladle", "spatula", "spoon", "wooden spoon", "slotted spoon",
+    "tongs", "whisk", "rolling pin", "belan", "chakla",
+    "knife", "chopping board", "cutting board", "peeler",
+    "grater", "mortar", "pestle", "sil batta", "mixer", "blender",
+    "food processor", "strainer", "colander", "sieve",
+    # Biryani-specific
+    "muslin cloth", "potli", "aluminium foil", "foil", "lid",
+    "dough", "chapati dough",  # for sealing
+    "bamboo", "bamboo trunk", "banana leaf",
+}
+
+# Pre-compiled regex patterns for temperatures and quantities
+_RE_TEMPERATURE = re.compile(
+    r'(\d+\s*(?:°|degree|degrees?)\s*(?:c|f|celsius|fahrenheit)'
+    r'|low\s+(?:heat|flame)|medium\s+(?:heat|flame)|high\s+(?:heat|flame)'
+    r'|sim\s*(?:mer|ming)?\s+(?:heat|flame))',
+    re.IGNORECASE,
+)
+_RE_QUANTITY = re.compile(
+    r'(\d+(?:\.\d+)?\s*(?:'
+    r'kg|kilogram|gram|grams|g|lb|lbs|pound|pounds'
+    r'|cup|cups|tbsp|tablespoon|tablespoons|tsp|teaspoon|teaspoons'
+    r'|litre|liter|litres|liters|ml|millilitre|milliliter'
+    r'|pinch|pinches|handful|handfuls'
+    r'|piece|pieces|nos|number'
+    r'|inch|inches|cm'
+    r'|minute|minutes|min|mins|hour|hours|hr|hrs|second|seconds|sec|secs'
+    r')s?\b)',
+    re.IGNORECASE,
+)
+
+# Ingredient state indicators (action phrase → likely state)
+_STATE_INDICATORS: list[tuple[re.Pattern, str]] = [
+    (re.compile(r'\b(?:70|seventy)\s*%?\s*(?:cooked|done)\b', re.I), "70% cooked"),
+    (re.compile(r'\b(?:half|50)\s*%?\s*(?:cooked|done|boiled)\b', re.I), "half cooked"),
+    (re.compile(r'\bfully\s+(?:cooked|done)\b', re.I), "fully cooked"),
+    (re.compile(r'\bgolden\s*(?:brown)?\b', re.I), "golden brown"),
+    (re.compile(r'\bcrispy\b', re.I), "crispy"),
+    (re.compile(r'\btender\b', re.I), "tender"),
+    (re.compile(r'\braw\b', re.I), "raw"),
+    (re.compile(r'\bmarinated\b', re.I), "marinated"),
+    (re.compile(r'\bsoak(?:ed|ing)?\b', re.I), "soaked"),
+    (re.compile(r'\bfried\b', re.I), "fried"),
+    (re.compile(r'\bboil(?:ed|ing)?\b', re.I), "boiling/boiled"),
+    (re.compile(r'\bsimmer(?:ed|ing)?\b', re.I), "simmering"),
+    (re.compile(r'\bmelted\b', re.I), "melted"),
+    (re.compile(r'\bchopped\b', re.I), "chopped"),
+    (re.compile(r'\bsliced\b', re.I), "sliced"),
+    (re.compile(r'\bground\b', re.I), "ground"),
+    (re.compile(r'\bpaste\b', re.I), "paste form"),
+    (re.compile(r'\bpowder(?:ed)?\b', re.I), "powdered"),
+]
+
 
 def load_config(config_path: str) -> dict[str, Any]:
     """Load YAML config."""
     path = PROJECT_ROOT / config_path
     with open(path, "r", encoding="utf-8") as f:
         return yaml.safe_load(f)
+
+
+def load_ingredient_vocabulary(config: dict[str, Any]) -> set[str]:
+    """Build ingredient vocabulary from canonical recipe ingredient_aliases.
+
+    Collects English ingredient names from all canonical recipe files.
+    Returns a set of lowercased ingredient strings for fast lookup.
+    """
+    recipe_dir = PROJECT_ROOT / config["paths"].get(
+        "canonical_recipes", "configs/canonical_recipes"
+    )
+    vocab: set[str] = set()
+
+    if not recipe_dir.exists():
+        logger.warning(f"Canonical recipes dir not found: {recipe_dir}")
+        return vocab
+
+    for path in recipe_dir.glob("*.json"):
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                recipe = json.load(f)
+            for ingredient in recipe.get("ingredient_aliases", {}):
+                vocab.add(ingredient.lower())
+            # Also pull from key_spices
+            for spice in recipe.get("key_spices", []):
+                vocab.add(spice.lower())
+        except (json.JSONDecodeError, OSError):
+            pass
+
+    logger.info(f"Ingredient vocabulary: {len(vocab)} terms from canonical recipes")
+    return vocab
+
+
+def _extract_nlp_features(
+    text: str,
+    ingredient_vocab: set[str],
+) -> dict[str, Any]:
+    """Extract cooking-relevant NLP features from a transcript segment.
+
+    Pure regex + lexicon approach — no model loading, no API calls.
+    Runs on the text/text_en field of each segment.
+    """
+    text_lower = text.lower()
+
+    # 1. Detected ingredients (from canonical recipe vocabulary)
+    detected_ingredients: list[str] = []
+    for ingredient in sorted(ingredient_vocab, key=len, reverse=True):
+        # Match whole-word (avoid "rice" matching inside "price")
+        if re.search(r'\b' + re.escape(ingredient) + r'\b', text_lower):
+            detected_ingredients.append(ingredient)
+
+    # 2. Cooking actions
+    cooking_actions: list[str] = []
+    for action in sorted(COOKING_ACTIONS):
+        # Match the action as a word boundary (verb forms too)
+        pattern = r'\b' + re.escape(action)
+        if len(action) <= 3:
+            pattern += r'\b'  # exact match for short words like "fry", "cut"
+        if re.search(pattern, text_lower):
+            cooking_actions.append(action)
+
+    # 3. Utensils
+    utensils: list[str] = []
+    for utensil in sorted(UTENSIL_LEXICON):
+        if re.search(r'\b' + re.escape(utensil) + r'\b', text_lower):
+            utensils.append(utensil)
+
+    # 4. Temperatures
+    temperatures: list[str] = [
+        m.group(0).strip() for m in _RE_TEMPERATURE.finditer(text)
+    ]
+
+    # 5. Quantities
+    quantities: list[str] = [
+        m.group(0).strip() for m in _RE_QUANTITY.finditer(text)
+    ]
+
+    # 6. Ingredient state (best-effort: which ingredient is in what state)
+    ingredient_state: dict[str, str] = {}
+    for ingredient in detected_ingredients:
+        # Look for state indicators near the ingredient mention
+        # Use a tight window (~20 chars) to avoid cross-ingredient contamination
+        for m in re.finditer(r'\b' + re.escape(ingredient) + r'\b', text_lower):
+            start = max(0, m.start() - 20)
+            end = min(len(text_lower), m.end() + 20)
+            window = text_lower[start:end]
+            for pattern, state in _STATE_INDICATORS:
+                if pattern.search(window):
+                    ingredient_state[ingredient] = state
+                    break  # first match wins for this ingredient
+
+    return {
+        "detected_ingredients": detected_ingredients,
+        "cooking_actions": cooking_actions,
+        "utensils": utensils,
+        "temperatures": temperatures,
+        "quantities": quantities,
+        "ingredient_state": ingredient_state,
+    }
+
+
+def enrich_segments_nlp(
+    segments: list[dict[str, Any]],
+    ingredient_vocab: set[str],
+) -> list[dict[str, Any]]:
+    """Add NLP features to each transcript segment.
+
+    Runs on text_en (if available) or text field.
+    Adds: detected_ingredients, cooking_actions, utensils,
+          temperatures, quantities, ingredient_state.
+    """
+    for seg in segments:
+        # Prefer English text for NLP extraction
+        text = seg.get("text_en", seg.get("text", ""))
+        features = _extract_nlp_features(text, ingredient_vocab)
+        seg.update(features)
+
+    return segments
 
 
 def load_selection() -> list[dict[str, Any]]:
@@ -86,7 +296,7 @@ def check_gpu() -> str:
         import torch
         if torch.cuda.is_available():
             gpu_name = torch.cuda.get_device_name(0)
-            gpu_mem = torch.cuda.get_device_properties(0).total_mem / (1024**3)
+            gpu_mem = torch.cuda.get_device_properties(0).total_memory / (1024**3)
             logger.info(f"GPU: {gpu_name} ({gpu_mem:.1f} GB)")
             return "cuda"
         elif hasattr(torch.backends, "mps") and torch.backends.mps.is_available():
@@ -163,20 +373,34 @@ def transcribe_video(
         result["language"] = transcript.get("language", "unknown")
         logger.info(f"    Detected language: {result['language']}")
 
-        # Step 3: Word-level alignment
-        logger.info("    Aligning words...")
-        align_model, align_metadata = whisperx.load_align_model(
-            language_code=result["language"],
-            device=device,
-        )
-        aligned = whisperx.align(
-            transcript["segments"],
-            align_model,
-            align_metadata,
-            audio,
-            device=device,
-            return_char_alignments=False,
-        )
+        # Step 3: Word-level alignment (non-fatal — unsupported
+        # language codes like garbage detections skip gracefully)
+        align_model = None
+        try:
+            logger.info("    Aligning words...")
+            align_model, align_metadata = whisperx.load_align_model(
+                language_code=result["language"],
+                device=device,
+            )
+            aligned = whisperx.align(
+                transcript["segments"],
+                align_model,
+                align_metadata,
+                audio,
+                device=device,
+                return_char_alignments=False,
+            )
+        except Exception as e:
+            logger.warning(
+                f"    Word alignment skipped (non-fatal) for lang="
+                f"{result['language']}: {e}"
+            )
+            # Fall back to unaligned transcript segments
+            aligned = {"segments": transcript["segments"], "word_segments": []}
+        finally:
+            if align_model is not None:
+                del align_model
+                gc.collect()
 
         # Step 4: Speaker diarization (optional, needs HF token)
         if hf_token:
@@ -205,10 +429,6 @@ def transcribe_video(
 
         result["word_segments"] = aligned.get("word_segments", [])
         result["status"] = "success"
-
-        # Cleanup alignment model to free GPU memory
-        del align_model
-        gc.collect()
 
     except Exception as e:
         result["status"] = "error"
@@ -265,7 +485,7 @@ def translate_segments(
 
         try:
             response = client.chat.completions.create(
-                model="llama-3.1-70b-versatile",
+                model="llama-3.3-70b-versatile",
                 messages=[
                     {
                         "role": "system",
@@ -305,6 +525,7 @@ def save_transcript(
 ) -> None:
     """Save transcript JSON."""
     output = {
+        "schema_version": "2.0",
         "video_id": video_id,
         "category": category,
         "language": transcript["language"],
@@ -343,6 +564,7 @@ def main() -> None:
 
     config = load_config(args.config)
     videos = load_selection()
+    ingredient_vocab = load_ingredient_vocabulary(config)
 
     # Filter
     if args.category:
@@ -424,6 +646,12 @@ def main() -> None:
                 transcript["segments"],
                 transcript["language"],
                 groq_key or None,
+            )
+
+            # NLP feature extraction (v2.0 — lightweight, no API calls)
+            transcript["segments"] = enrich_segments_nlp(
+                transcript["segments"],
+                ingredient_vocab,
             )
 
             saved = save_transcript(vid, cat, transcript, transcript_dir)

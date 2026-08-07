@@ -75,7 +75,33 @@ def main() -> None:
 
     logger.info(f"Embedding with {args.model}...")
     model = SentenceTransformer(args.model)
-    texts = [f"{s.get('action', '')} {s.get('description', '')}" for s in segments]
+
+    # Build rich embedding text — falls back gracefully for v1.0 segments
+    texts = []
+    for s in segments:
+        parts = [
+            s.get("action", ""),
+            s.get("description", ""),
+        ]
+        # v2.0 enrichments — append only if non-empty
+        for key in ("cooking_technique", "cooking_stage", "style",
+                    "rice_type", "protein", "canonical_action"):
+            val = s.get(key, "")
+            if val:
+                parts.append(f"{key}: {val}")
+
+        ingredient_state = s.get("ingredient_state", {})
+        if isinstance(ingredient_state, dict) and ingredient_state:
+            parts.append("state: " + ", ".join(f"{k}: {v}" for k, v in ingredient_state.items()))
+        elif isinstance(ingredient_state, str) and ingredient_state:
+            parts.append(f"state: {ingredient_state}")
+
+        visible_objects = s.get("visible_objects", [])
+        if visible_objects:
+            parts.append("objects: " + ", ".join(visible_objects))
+
+        texts.append(" — ".join(p for p in parts if p))
+
     embeddings = model.encode(texts, normalize_embeddings=True, show_progress_bar=True, batch_size=64)
     embeddings = np.array(embeddings, dtype=np.float32)
 
@@ -100,7 +126,8 @@ def main() -> None:
     # Save metadata
     metadata = []
     for s in segments:
-        metadata.append({
+        meta: dict[str, Any] = {
+            # Existing keys — unchanged
             "video_id": s.get("video_id", ""),
             "category": s.get("category", ""),
             "action": s.get("action", ""),
@@ -108,14 +135,24 @@ def main() -> None:
             "start_time": s.get("start_time", 0),
             "end_time": s.get("end_time", 0),
             "segment_id": f"{s.get('video_id', '')}_{s.get('step_number', 0)}",
-        })
+            # v2.0 additive keys
+            "cooking_technique": s.get("cooking_technique", ""),
+            "cooking_stage": s.get("cooking_stage", ""),
+            "style": s.get("style", s.get("category", "")),
+            "rice_type": s.get("rice_type", ""),
+            "protein": s.get("protein", ""),
+            "canonical_action": s.get("canonical_action", ""),
+            "visible_objects": s.get("visible_objects", []),
+            "ingredient_state": s.get("ingredient_state", {}),
+        }
+        metadata.append(meta)
 
     with open(faiss_dir / "segments_metadata.pkl", "wb") as f:
         pickle.dump(metadata, f)
 
     # Also save as JSON for inspection
     with open(faiss_dir / "segments_metadata.json", "w") as f:
-        json.dump(metadata, f, indent=2)
+        json.dump({"schema_version": "2.0", "metadata": metadata}, f, indent=2)
 
     logger.info(f"Saved: {faiss_dir}/segments.index + segments_metadata.pkl")
     logger.info("✓ Stage 11 complete! FAISS index ready for the API.")

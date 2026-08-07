@@ -1,7 +1,16 @@
 {
+  "schema_version": "2.0",
   "category": "Ambur",
   "full_name": "Ambur Chicken Biryani",
   "region": "Tamil Nadu (Ambur, Vellore district)",
+  "protein": "chicken",
+  "utensil_hierarchy": [
+    "earthen pot or heavy pan",
+    "stock pot (for rice in meat stock)",
+    "strainer"
+  ],
+  "marination_strategy": "wet curd-based, 1 hr, dairy (yogurt) + minimal spices, no tomato",
+  "spice_intensity": "medium",
   "distinguishing_features": [
     "Uses Seeraga Samba rice (jeera rice) — short-grain, very aromatic",
     "Dahi-based (curd-based) marination, no tomato",
@@ -22,6 +31,29 @@
         "ginger-garlic paste",
         "red chili powder",
         "mint"
+      ],
+      "visible_objects": [
+        "mixing bowl",
+        "chicken pieces",
+        "yogurt/marinade",
+        "spice powders"
+      ],
+      "ingredient_state": {
+        "chicken": "raw, cut into pieces",
+        "marinade": "mixed wet paste coating chicken"
+      },
+      "expected_visual_features": [
+        "chicken coated in colored marinade",
+        "spice paste visible on pieces"
+      ],
+      "expected_audio": "mixing and squelching sounds",
+      "common_mistakes": [
+        "insufficient marination time",
+        "uneven coating"
+      ],
+      "recovery_actions": [
+        "extend marination in refrigerator",
+        "remix and re-coat all pieces"
       ]
     },
     {
@@ -34,6 +66,30 @@
         "chicken",
         "onion",
         "oil"
+      ],
+      "visible_objects": [
+        "cooking pot/pan",
+        "chicken pieces",
+        "oil",
+        "onions",
+        "spices"
+      ],
+      "ingredient_state": {
+        "chicken": "cooking in masala, browning and releasing juices"
+      },
+      "expected_visual_features": [
+        "chicken browning",
+        "gravy thickening",
+        "oil separating from masala"
+      ],
+      "expected_audio": "sizzling, bubbling masala",
+      "common_mistakes": [
+        "heat too high (masala burns)",
+        "not cooking until oil separates"
+      ],
+      "recovery_actions": [
+        "reduce heat",
+        "cook until oil separates from masala (sign of doneness)"
       ]
     },
     {
@@ -44,6 +100,25 @@
       "is_defining_step": true,
       "ingredients_used": [
         "basmati rice"
+      ],
+      "visible_objects": [
+        "bowl",
+        "rice",
+        "running water"
+      ],
+      "ingredient_state": {
+        "rice": "being washed, removing excess starch"
+      },
+      "expected_visual_features": [
+        "milky water draining off",
+        "rice grains getting cleaner"
+      ],
+      "expected_audio": "running water, swishing",
+      "common_mistakes": [
+        "not washing enough times"
+      ],
+      "recovery_actions": [
+        "wash until water runs clear"
       ]
     },
     {
@@ -57,6 +132,31 @@
         "bay leaf",
         "cardamom",
         "cinnamon"
+      ],
+      "visible_objects": [
+        "large pot",
+        "boiling water",
+        "rice",
+        "whole spices",
+        "strainer"
+      ],
+      "ingredient_state": {
+        "rice": "70-80% cooked — grains elongated but firm in center",
+        "water": "starchy, rolling boil"
+      },
+      "expected_visual_features": [
+        "elongated rice grains",
+        "rolling boil",
+        "whole spices floating"
+      ],
+      "expected_audio": "vigorous bubbling, boiling water",
+      "common_mistakes": [
+        "overcooking rice past 70-80%",
+        "not draining immediately"
+      ],
+      "recovery_actions": [
+        "spread rice on tray to stop cooking",
+        "rinse with cold water"
       ]
     },
     {
@@ -70,6 +170,29 @@
         "basmati rice",
         "ghee",
         "onion"
+      ],
+      "visible_objects": [
+        "cooking pot",
+        "chicken",
+        "basmati rice",
+        "ghee"
+      ],
+      "ingredient_state": {
+        "chicken": "being layered in pot",
+        "basmati rice": "being layered in pot",
+        "ghee": "being layered in pot"
+      },
+      "expected_visual_features": [
+        "distinct layers visible in pot"
+      ],
+      "expected_audio": "placing/spreading sounds",
+      "common_mistakes": [
+        "uneven distribution",
+        "pressing down (compacts, blocks steam)"
+      ],
+      "recovery_actions": [
+        "redistribute evenly",
+        "keep layers loose and fluffy"
       ]
     },
     {
@@ -78,7 +201,30 @@
       "description": "Serve with dalcha and brinjal gravy (traditional sides).",
       "duration_minutes": 5,
       "is_defining_step": true,
-      "ingredients_used": []
+      "ingredients_used": [],
+      "visible_objects": [
+        "pan",
+        "onions",
+        "tomatoes",
+        "spices",
+        "cream"
+      ],
+      "ingredient_state": {
+        "gravy": "reducing, thickening"
+      },
+      "expected_visual_features": [
+        "thick, rich gravy",
+        "oil separating"
+      ],
+      "expected_audio": "simmering, bubbling",
+      "common_mistakes": [
+        "gravy too thin",
+        "not cooking long enough"
+      ],
+      "recovery_actions": [
+        "cook until oil separates",
+        "reduce on medium heat"
+      ]
     }
   ],
   "ingredient_aliases": {

@@ -8,6 +8,7 @@ Enriches the categorized video metadata with additional fields:
   - is_code_switched (already added by 0A, verified here)
   - estimated_narration_language (inferred from title + category)
   - pipeline_priority (1=must-have, 2=nice-to-have, 3=optional)
+  - culinary_metadata (v2.0) — sub-object populated from canonical recipe
 
 Also produces a pipeline_selection.json that selects the final
 set of videos to proceed through Stages 1-10, applying the
@@ -19,6 +20,7 @@ Usage:
     python pipeline/00c_metadata_tagging.py --dry-run
 
 Input:  datasets/categorized/video_metadata.json
+        configs/canonical_recipes/{category}.json (optional, for culinary_metadata)
 Output: datasets/categorized/video_metadata_enriched.json
         datasets/categorized/pipeline_selection.json
 """
@@ -109,8 +111,123 @@ def load_metadata(config: dict[str, Any]) -> dict[str, Any]:
         return json.load(f)
 
 
-def enrich_videos(videos: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    """Add estimated narration language and pipeline priority."""
+def load_canonical_recipes(config: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    """Load all canonical recipe JSONs from configs/canonical_recipes/.
+
+    Returns a dict mapping category name (e.g. 'Hyderabadi') to the
+    loaded recipe dict.  Missing or malformed files are silently skipped.
+    """
+    recipe_dir = PROJECT_ROOT / config["paths"].get("canonical_recipes", "configs/canonical_recipes")
+    recipes: dict[str, dict[str, Any]] = {}
+
+    if not recipe_dir.exists():
+        logger.warning(f"Canonical recipes dir not found: {recipe_dir}")
+        return recipes
+
+    for path in sorted(recipe_dir.glob("*.json")):
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                recipe = json.load(f)
+            cat = recipe.get("category", path.stem.title())
+            recipes[cat] = recipe
+        except (json.JSONDecodeError, OSError) as exc:
+            logger.warning(f"  ⚠ Skipping {path.name}: {exc}")
+
+    logger.info(f"Loaded {len(recipes)} canonical recipes")
+    return recipes
+
+
+def _build_culinary_metadata(
+    category: str,
+    recipes: dict[str, dict[str, Any]],
+) -> dict[str, Any]:
+    """Build a culinary_metadata sub-object for a video from its canonical recipe.
+
+    Uses .get() for every field so old-schema (v1.0) recipe files and
+    categories with no recipe file degrade gracefully to empty defaults.
+    """
+    recipe = recipes.get(category)
+    if recipe is None:
+        return {
+            "style": category,
+            "region": "",
+            "protein": "",
+            "rice_type": "",
+            "cooking_method": "",
+            "dum_method": "",
+            "vessel": "",
+            "spice_profile": {},
+            "difficulty": "",
+            "estimated_duration": None,
+            "ingredient_aliases": {},
+            "canonical_recipe": "",
+            "notes": "",
+        }
+
+    # Derive cooking_method from distinguishing_features
+    # NOTE: pakki/pre-cooked is checked BEFORE kacchi/raw because some
+    # features mention both (e.g. "pre-cooked (pakki), not raw layered")
+    # and the affirmative match should take priority over a negated mention.
+    features = recipe.get("distinguishing_features", [])
+    cooking_method = ""
+    for feat in features:
+        feat_lower = feat.lower()
+        if "pakki" in feat_lower or "pre-cooked" in feat_lower:
+            cooking_method = "pakki (pre-cooked)"
+            break
+        elif "kacchi" in feat_lower or ("raw" in feat_lower and "not raw" not in feat_lower):
+            cooking_method = "kacchi (raw layering)"
+            break
+        elif "toss" in feat_lower or "mix method" in feat_lower:
+            cooking_method = "toss/mix"
+            break
+        elif "bamboo" in feat_lower:
+            cooking_method = "bamboo-sealed fire cooking"
+            break
+        elif "roast" in feat_lower or "grill" in feat_lower:
+            cooking_method = "roast/grill + assemble"
+            break
+    if not cooking_method:
+        cooking_method = "layered dum"  # safe default for most biryanis
+
+    # Derive difficulty heuristic from step count + spice_intensity
+    num_steps = len(recipe.get("steps", []))
+    spice_intensity = recipe.get("spice_intensity", "medium")
+    if num_steps >= 10 or spice_intensity == "high":
+        difficulty = "advanced"
+    elif num_steps >= 7:
+        difficulty = "intermediate"
+    else:
+        difficulty = "beginner"
+
+    return {
+        "style": category,
+        "region": recipe.get("region", ""),
+        "protein": recipe.get("protein", "chicken"),
+        "rice_type": recipe.get("rice_type", ""),
+        "cooking_method": cooking_method,
+        "dum_method": recipe.get("dum_method", ""),
+        "vessel": recipe.get("cooking_vessel", ""),
+        "spice_profile": {
+            "key_spices": recipe.get("key_spices", []),
+            "intensity": spice_intensity,
+        },
+        "difficulty": difficulty,
+        "estimated_duration": recipe.get("typical_duration_minutes"),
+        "ingredient_aliases": recipe.get("ingredient_aliases", {}),
+        "canonical_recipe": f"configs/canonical_recipes/{category.lower()}.json",
+        "notes": recipe.get("notes", ""),
+    }
+
+
+def enrich_videos(
+    videos: list[dict[str, Any]],
+    recipes: dict[str, dict[str, Any]] | None = None,
+) -> list[dict[str, Any]]:
+    """Add estimated narration language, pipeline priority, and culinary_metadata."""
+    if recipes is None:
+        recipes = {}
+
     for video in videos:
         cat = video["assigned_category"]
 
@@ -125,6 +242,9 @@ def enrich_videos(videos: list[dict[str, Any]]) -> list[dict[str, Any]]:
             video["pipeline_priority"] = min(video["pipeline_priority"], 1)
         elif video["confidence"] == "Medium":
             video["pipeline_priority"] = min(video["pipeline_priority"], 2)
+
+        # Culinary metadata from canonical recipe (v2.0)
+        video["culinary_metadata"] = _build_culinary_metadata(cat, recipes)
 
     return videos
 
@@ -206,6 +326,7 @@ def save_enriched(
 ) -> None:
     """Save enriched metadata."""
     output = {
+        "schema_version": "2.0",
         "metadata": {
             "description": "CulinaryVLM — Enriched video metadata (Phase 0C)",
             "source": "Phase 0A → Phase 0C enrichment",
@@ -226,6 +347,7 @@ def save_selection(
     """Save pipeline selection."""
     # Produce a lean selection file for Stage 1
     selection = {
+        "schema_version": "2.0",
         "metadata": {
             "description": "CulinaryVLM — Videos selected for ML pipeline",
             "total_selected": len(selected),
@@ -240,6 +362,7 @@ def save_selection(
                 "confidence": v["confidence"],
                 "priority": v["pipeline_priority"],
                 "estimated_language": v["estimated_narration_language"],
+                "culinary_metadata": v.get("culinary_metadata", {}),
             }
             for v in selected
         ],
@@ -269,8 +392,11 @@ def main() -> None:
     data = load_metadata(config)
     videos = data["videos"]
 
-    # 1. Enrich with narration language + priority
-    videos = enrich_videos(videos)
+    # 0. Load canonical recipes for culinary_metadata enrichment
+    recipes = load_canonical_recipes(config)
+
+    # 1. Enrich with narration language + priority + culinary_metadata
+    videos = enrich_videos(videos, recipes=recipes)
 
     # 2. Select pipeline videos
     selected = select_pipeline_videos(
