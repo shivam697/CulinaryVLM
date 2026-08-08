@@ -1,11 +1,7 @@
 import { useState, useEffect } from 'react';
 import { api } from '../api';
-
-const STYLES = [
-  'Ambur', 'Andhra', 'Arabic', 'Assamese', 'Bamboo', 'Bihari', 'Bombay',
-  'Degi', 'Delhi', 'Dindigul', 'Hyderabadi', 'Kashmiri', 'Kolkata',
-  'Lucknowi', 'Malabar', 'Matka', 'Mughlai', 'Muradabadi', 'Sindhi', 'Tandoori',
-];
+import { BIRYANI_STYLES } from '../constants/biryaniStyles';
+import PageHeader from '../components/PageHeader';
 
 export default function ComparePage() {
   const [catA, setCatA] = useState('Hyderabadi');
@@ -30,25 +26,25 @@ export default function ComparePage() {
 
   return (
     <div className="page-container">
-      <div className="page-header animate-in">
-        <h1>Compare Biryani Styles</h1>
-        <p>Side-by-side comparison of regional biryani cooking methods</p>
-      </div>
+      <PageHeader
+        title="Compare Biryani Styles"
+        subtitle="Side-by-side comparison of regional biryani cooking methods"
+      />
 
       {/* Selectors */}
-      <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '2rem', flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', gap: 'var(--space-4)', alignItems: 'center', marginBottom: 'var(--space-8)', flexWrap: 'wrap' }}>
         <select className="input" value={catA} onChange={(e) => setCatA(e.target.value)}
           style={{ maxWidth: '220px' }}>
-          {STYLES.map(s => <option key={s} value={s}>{s}</option>)}
+          {BIRYANI_STYLES.map(s => <option key={s} value={s}>{s}</option>)}
         </select>
 
-        <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, color: 'var(--text-muted)', fontSize: '1.25rem' }}>
+        <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, color: 'var(--text-muted)', fontSize: 'var(--text-xl)' }}>
           VS
         </span>
 
         <select className="input" value={catB} onChange={(e) => setCatB(e.target.value)}
           style={{ maxWidth: '220px' }}>
-          {STYLES.map(s => <option key={s} value={s}>{s}</option>)}
+          {BIRYANI_STYLES.map(s => <option key={s} value={s}>{s}</option>)}
         </select>
 
         <button className="btn btn-primary" onClick={handleCompare} disabled={loading || catA === catB}>
@@ -60,29 +56,29 @@ export default function ComparePage() {
       {result && (
         <div className="animate-in">
           {/* Summary */}
-          <div className="card-glass" style={{ marginBottom: '1.5rem', padding: '1.25rem' }}>
-            <p style={{ fontSize: '0.95rem', lineHeight: 1.7 }}>{result.summary}</p>
+          <div className="card-glass" style={{ marginBottom: 'var(--space-6)', padding: 'var(--space-5)' }}>
+            <p style={{ fontSize: 'var(--text-base)', lineHeight: 1.7 }}>{result.summary}</p>
           </div>
 
           {/* Difference rows */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
             {result.differences?.map((diff, i) => (
               <div key={i} className="diff-row animate-slide-up" style={{ animationDelay: `${i * 60}ms` }}>
                 <div className="diff-label">{diff.aspect}</div>
                 <div className="diff-value">
-                  <div style={{ fontSize: '0.75rem', color: 'var(--accent-primary)', marginBottom: '0.25rem', fontWeight: 600 }}>
+                  <div style={{ fontSize: 'var(--text-xs)', color: 'var(--accent-primary)', marginBottom: 'var(--space-1)', fontWeight: 600 }}>
                     {result.category_a}
                   </div>
                   {diff.category_a_value}
                 </div>
                 <div className="diff-value">
-                  <div style={{ fontSize: '0.75rem', color: 'var(--accent-blue)', marginBottom: '0.25rem', fontWeight: 600 }}>
+                  <div style={{ fontSize: 'var(--text-xs)', color: 'var(--accent-blue)', marginBottom: 'var(--space-1)', fontWeight: 600 }}>
                     {result.category_b}
                   </div>
                   {diff.category_b_value}
                 </div>
                 {diff.explanation && (
-                  <p style={{ gridColumn: '1 / -1', fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
+                  <p style={{ gridColumn: '1 / -1', fontSize: 'var(--text-sm)', color: 'var(--text-muted)', marginTop: 'var(--space-1)' }}>
                     {diff.explanation}
                   </p>
                 )}

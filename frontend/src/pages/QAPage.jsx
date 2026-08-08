@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { api } from '../api';
+import PageHeader from '../components/PageHeader';
+import SuggestionChips from '../components/SuggestionChips';
 
 export default function QAPage() {
   const [question, setQuestion] = useState('');
@@ -30,19 +32,19 @@ export default function QAPage() {
 
   return (
     <div className="page-container">
-      <div className="page-header animate-in">
-        <h1>Ask About Biryani</h1>
-        <p>Get answers about cooking techniques, ingredients, and regional variations</p>
-      </div>
+      <PageHeader
+        title="Ask About Biryani"
+        subtitle="Get answers about cooking techniques, ingredients, and regional variations"
+      />
 
-      <form onSubmit={handleAsk} style={{ marginBottom: '2rem', maxWidth: '700px' }}>
+      <form onSubmit={handleAsk} style={{ marginBottom: 'var(--space-8)', maxWidth: 'var(--container-narrow)' }}>
         <textarea
           className="input"
           placeholder="Ask anything about biryani... e.g., What spices make Hyderabadi biryani special?"
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
           rows={3}
-          style={{ resize: 'vertical', marginBottom: '0.75rem' }}
+          style={{ resize: 'vertical', marginBottom: 'var(--space-3)' }}
         />
         <button type="submit" className="btn btn-primary" disabled={loading}>
           {loading ? '⟳ Thinking...' : '💬 Ask Question'}
@@ -50,14 +52,14 @@ export default function QAPage() {
       </form>
 
       {answer && (
-        <div className="card animate-in" style={{ maxWidth: '700px' }}>
-          <div style={{ marginBottom: '1rem' }}>
-            <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Question:</p>
+        <div className="card animate-in" style={{ maxWidth: 'var(--container-narrow)' }}>
+          <div style={{ marginBottom: 'var(--space-4)' }}>
+            <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-muted)' }}>Question:</p>
             <p style={{ fontWeight: 600 }}>{answer.question}</p>
           </div>
 
           <div style={{
-            padding: '1.25rem',
+            padding: 'var(--space-5)',
             background: 'rgba(245, 158, 11, 0.05)',
             borderRadius: 'var(--radius-md)',
             borderLeft: '3px solid var(--accent-primary)',
@@ -65,7 +67,7 @@ export default function QAPage() {
             <p style={{ whiteSpace: 'pre-wrap', lineHeight: 1.7 }}>{answer.answer}</p>
           </div>
 
-          <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem', alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: 'var(--space-4)', marginTop: 'var(--space-4)', alignItems: 'center' }}>
             {answer.confidence > 0 && (
               <span className="badge badge-green">
                 Confidence: {Math.round(answer.confidence * 100)}%
@@ -82,22 +84,14 @@ export default function QAPage() {
       )}
 
       {!answer && !loading && (
-        <div style={{ maxWidth: '700px' }}>
-          <h3 style={{ marginBottom: '1rem', color: 'var(--text-secondary)', fontSize: '1rem' }}>
+        <div style={{ maxWidth: 'var(--container-narrow)' }}>
+          <h3 style={{ marginBottom: 'var(--space-4)', color: 'var(--text-secondary)', fontSize: 'var(--text-md)' }}>
             💡 Try these questions:
           </h3>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-            {sampleQuestions.map((q) => (
-              <button
-                key={q}
-                className="btn btn-secondary"
-                style={{ justifyContent: 'flex-start', textAlign: 'left' }}
-                onClick={() => setQuestion(q)}
-              >
-                {q}
-              </button>
-            ))}
-          </div>
+          <SuggestionChips
+            suggestions={sampleQuestions}
+            onSelect={(q) => setQuestion(q)}
+          />
         </div>
       )}
     </div>
