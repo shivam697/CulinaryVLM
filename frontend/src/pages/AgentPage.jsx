@@ -1,5 +1,10 @@
 import { useState, useRef, useEffect } from 'react';
 import { api } from '../api';
+import { CATEGORY_EMOJIS } from '../constants/biryaniStyles';
+import ChatSidebar from '../components/ChatSidebar';
+import ChatBubble from '../components/ChatBubble';
+import ChatInput from '../components/ChatInput';
+import SuggestionChips from '../components/SuggestionChips';
 
 export default function AgentPage() {
   const [messages, setMessages] = useState([
@@ -8,6 +13,8 @@ export default function AgentPage() {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [sessionId] = useState(() => crypto.randomUUID());
+  const [activeStyle, setActiveStyle] = useState(null);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
@@ -24,7 +31,11 @@ export default function AgentPage() {
     setLoading(true);
 
     try {
-      const data = await api.agentQuery(userMsg, sessionId);
+      // Prepend style context if a specific style is selected
+      const contextMsg = activeStyle
+        ? `[Context: ${activeStyle} biryani] ${userMsg}`
+        : userMsg;
+      const data = await api.agentQuery(contextMsg, sessionId);
       setMessages(prev => [...prev, {
         role: 'assistant',
         content: data.answer,
@@ -42,85 +53,105 @@ export default function AgentPage() {
     }
   };
 
-  const suggestions = [
-    'Compare Hyderabadi and Kolkata biryani dum methods',
-    'What makes Malabar biryani unique?',
-    'How many biryani styles use potatoes?',
-    'Which style has the longest cooking time?',
-  ];
+  const suggestions = activeStyle
+    ? [
+        `What spices are used in ${activeStyle} biryani?`,
+        `Describe the dum method for ${activeStyle} biryani`,
+        `What makes ${activeStyle} biryani unique?`,
+        `How is ${activeStyle} biryani traditionally served?`,
+      ]
+    : [
+        'Compare Hyderabadi and Kolkata biryani dum methods',
+        'What makes Malabar biryani unique?',
+        'How many biryani styles use potatoes?',
+        'Which style has the longest cooking time?',
+      ];
 
   return (
-    <div className="page-container" style={{ maxWidth: '850px', margin: '0 auto', padding: '1rem 1.5rem' }}>
-      <div className="page-header animate-in">
-        <h1>🤖 CulinaryVLM Agent</h1>
-        <p>Multi-tool reasoning powered by LangGraph</p>
-      </div>
+    <div className={`agent-layout${sidebarOpen ? ' sidebar-open' : ''}`}>
+      {/* Mobile sidebar toggle */}
+      <button
+        className="btn btn-ghost sidebar-toggle"
+        onClick={() => setSidebarOpen(!sidebarOpen)}
+        aria-label="Toggle biryani styles sidebar"
+      >
+        ☰
+      </button>
 
-      <div className="chat-container">
-        {/* Messages */}
-        <div className="chat-messages">
-          {messages.map((msg, i) => (
-            <div key={i} className={`chat-bubble ${msg.role}`}>
-              <div style={{ whiteSpace: 'pre-wrap' }}>{msg.content}</div>
+      {/* Sidebar */}
+      <ChatSidebar
+        activeStyle={activeStyle}
+        onStyleSelect={(style) => {
+          setActiveStyle(style);
+          setSidebarOpen(false);
+        }}
+      />
 
-              {/* Tool traces */}
-              {msg.traces?.length > 0 && (
-                <div className="tool-trace">
-                  <div style={{ fontWeight: 600, marginBottom: '0.5rem', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                    🔧 Tools Used
-                  </div>
-                  {msg.traces.map((t, j) => (
-                    <div key={j} className="tool-trace-item">
-                      <span className="tool-name">{t.tool_name}</span>
-                      <span className="tool-duration">{t.duration_ms?.toFixed(0)}ms</span>
-                    </div>
-                  ))}
-                </div>
-              )}
+      {/* Sidebar backdrop for mobile */}
+      {sidebarOpen && (
+        <div
+          className="sidebar-backdrop"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
 
-              {msg.plan && (
-                <div style={{ marginTop: '0.5rem', fontSize: '0.8rem', color: 'var(--text-muted)', fontStyle: 'italic' }}>
-                  Plan: {msg.plan}
-                </div>
-              )}
+      {/* Main chat area */}
+      <div className="agent-main">
+        {/* Chat header */}
+        <div className="chat-header">
+          <div className="chat-header-info">
+            <span className="chat-header-emoji">
+              {activeStyle ? (CATEGORY_EMOJIS[activeStyle] || '🍚') : '🤖'}
+            </span>
+            <div>
+              <h2 className="chat-header-title">
+                {activeStyle ? `${activeStyle} Biryani` : 'CulinaryVLM Agent'}
+              </h2>
+              <p className="chat-header-subtitle">
+                {activeStyle
+                  ? `Focused on ${activeStyle} regional style`
+                  : 'Multi-tool reasoning powered by LangGraph'}
+              </p>
             </div>
-          ))}
-
-          {loading && (
-            <div className="chat-bubble assistant" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <div className="spinner" style={{ width: '20px', height: '20px', borderWidth: '2px' }} />
-              <span style={{ color: 'var(--text-muted)' }}>Thinking...</span>
-            </div>
-          )}
-
-          <div ref={messagesEndRef} />
+          </div>
         </div>
 
-        {/* Suggestions (show only at start) */}
-        {messages.length <= 1 && (
-          <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', padding: '0.5rem 0' }}>
-            {suggestions.map(q => (
-              <button key={q} className="btn btn-secondary" style={{ fontSize: '0.8rem' }}
-                onClick={() => setInput(q)}>
-                {q}
-              </button>
+        <div className="chat-container">
+          {/* Messages */}
+          <div className="chat-messages" role="log" aria-live="polite">
+            {messages.map((msg, i) => (
+              <ChatBubble key={i} message={msg} />
             ))}
-          </div>
-        )}
 
-        {/* Input */}
-        <form onSubmit={handleSend} className="chat-input-area">
-          <input
-            className="input"
-            placeholder="Ask the agent anything about biryani..."
+            {loading && (
+              <div className="chat-bubble assistant" style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
+                <div className="spinner" style={{ width: '20px', height: '20px', borderWidth: '2px' }} />
+                <span style={{ color: 'var(--text-muted)' }}>Thinking...</span>
+              </div>
+            )}
+
+            <div ref={messagesEndRef} />
+          </div>
+
+          {/* Suggestions (show only at start) */}
+          {messages.length <= 1 && (
+            <SuggestionChips
+              suggestions={suggestions}
+              onSelect={(q) => setInput(q)}
+            />
+          )}
+
+          {/* Input */}
+          <ChatInput
             value={input}
-            onChange={(e) => setInput(e.target.value)}
-            disabled={loading}
+            onChange={setInput}
+            onSubmit={handleSend}
+            loading={loading}
+            placeholder={activeStyle
+              ? `Ask about ${activeStyle} biryani...`
+              : 'Ask the agent anything about biryani...'}
           />
-          <button type="submit" className="btn btn-primary" disabled={loading || !input.trim()}>
-            Send
-          </button>
-        </form>
+        </div>
       </div>
     </div>
   );
