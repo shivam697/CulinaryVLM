@@ -44,6 +44,7 @@ export default function QAPage() {
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
           rows={3}
+          aria-label="Enter your biryani question"
           style={{ resize: 'vertical', marginBottom: 'var(--space-3)' }}
         />
         <button type="submit" className="btn btn-primary" disabled={loading}>

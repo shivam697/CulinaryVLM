@@ -39,6 +39,7 @@ export default function SearchPage() {
             placeholder="e.g., marinating chicken with yogurt and spices..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
+            aria-label="Search cooking techniques"
             style={{ borderRadius: 'var(--radius-lg) 0 0 var(--radius-lg)' }}
           />
           <button

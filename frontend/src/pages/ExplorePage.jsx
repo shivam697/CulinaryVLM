@@ -32,10 +32,10 @@ export default function ExplorePage() {
       {/* Stats */}
       {stats && (
         <div className="grid grid-4 stagger" style={{ marginBottom: 'var(--space-8)' }}>
-          <StatCard value={stats.total_videos} label="Videos Analyzed" />
-          <StatCard value={Object.keys(stats.categories || {}).length} label="Regional Styles" />
-          <StatCard value={Object.keys(stats.languages || {}).length} label="Languages" />
-          <StatCard value={recipes.length} label="Canonical Recipes" />
+          <StatCard value={stats.total_videos} label="Videos Analyzed" index={0} />
+          <StatCard value={Object.keys(stats.categories || {}).length} label="Regional Styles" index={1} />
+          <StatCard value={Object.keys(stats.languages || {}).length} label="Languages" index={2} />
+          <StatCard value={recipes.length} label="Canonical Recipes" index={3} />
         </div>
       )}
 

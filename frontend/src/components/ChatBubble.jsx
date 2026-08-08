@@ -1,8 +1,27 @@
-export default function ChatBubble({ message }) {
+import { motion } from 'motion/react';
+
+/**
+ * ChatBubble — renders a single chat message with sender label, content,
+ * tool traces, and plan. Uses motion for fade+slide entrance animation.
+ *
+ * Props:
+ *   message: { role: string, content: string, traces?: array, plan?: string }
+ *   index: number (used for stagger delay)
+ */
+export default function ChatBubble({ message, index = 0 }) {
   const { role, content, traces, plan } = message;
 
   return (
-    <div className={`chat-bubble ${role}`}>
+    <motion.div
+      className={`chat-bubble ${role}`}
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.3,
+        delay: Math.min(index * 0.05, 0.3),
+        ease: [0.25, 0.46, 0.45, 0.94],
+      }}
+    >
       <div className="chat-bubble-sender">
         {role === 'user' ? '👤 You' : '🍚 CulinaryVLM'}
       </div>
@@ -11,7 +30,12 @@ export default function ChatBubble({ message }) {
 
       {/* Tool traces */}
       {traces?.length > 0 && (
-        <div className="tool-trace">
+        <motion.div
+          className="tool-trace"
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: 'auto' }}
+          transition={{ duration: 0.25, delay: 0.15 }}
+        >
           <div className="tool-trace-header">
             🔧 Tools Used
           </div>
@@ -21,7 +45,7 @@ export default function ChatBubble({ message }) {
               <span className="tool-duration">{t.duration_ms?.toFixed(0)}ms</span>
             </div>
           ))}
-        </div>
+        </motion.div>
       )}
 
       {plan && (
@@ -29,6 +53,6 @@ export default function ChatBubble({ message }) {
           📋 Plan: {plan}
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }

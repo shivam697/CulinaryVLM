@@ -34,6 +34,7 @@ export default function ComparePage() {
       {/* Selectors */}
       <div style={{ display: 'flex', gap: 'var(--space-4)', alignItems: 'center', marginBottom: 'var(--space-8)', flexWrap: 'wrap' }}>
         <select className="input" value={catA} onChange={(e) => setCatA(e.target.value)}
+          aria-label="First biryani style to compare"
           style={{ maxWidth: '220px' }}>
           {BIRYANI_STYLES.map(s => <option key={s} value={s}>{s}</option>)}
         </select>
@@ -43,6 +44,7 @@ export default function ComparePage() {
         </span>
 
         <select className="input" value={catB} onChange={(e) => setCatB(e.target.value)}
+          aria-label="Second biryani style to compare"
           style={{ maxWidth: '220px' }}>
           {BIRYANI_STYLES.map(s => <option key={s} value={s}>{s}</option>)}
         </select>

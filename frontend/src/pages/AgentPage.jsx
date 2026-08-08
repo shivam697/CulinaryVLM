@@ -120,7 +120,7 @@ export default function AgentPage() {
           {/* Messages */}
           <div className="chat-messages" role="log" aria-live="polite">
             {messages.map((msg, i) => (
-              <ChatBubble key={i} message={msg} />
+              <ChatBubble key={i} message={msg} index={i} />
             ))}
 
             {loading && (
