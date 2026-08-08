@@ -4,6 +4,15 @@ export default function ChatInput({ value, onChange, onSubmit, loading, placehol
     onSubmit(e);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      if (value.trim() && !loading) {
+        onSubmit(e);
+      }
+    }
+  };
+
   return (
     <form onSubmit={handleSubmit} className="chat-input-area">
       <input
@@ -11,6 +20,7 @@ export default function ChatInput({ value, onChange, onSubmit, loading, placehol
         placeholder={placeholder || 'Type a message...'}
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        onKeyDown={handleKeyDown}
         disabled={loading}
         aria-label="Chat message input"
       />
@@ -20,7 +30,7 @@ export default function ChatInput({ value, onChange, onSubmit, loading, placehol
         disabled={loading || !value.trim()}
         aria-label="Send message"
       >
-        Send
+        {loading ? '⏳' : '↑'} Send
       </button>
     </form>
   );

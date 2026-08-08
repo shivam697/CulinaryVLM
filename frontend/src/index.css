@@ -978,13 +978,37 @@ tr:hover td {
 
 .chat-input-area {
   display: flex;
-  gap: 0.75rem;
-  padding: 1rem 0;
+  gap: var(--space-3);
+  padding: var(--space-4) 0;
   border-top: 1px solid var(--border-subtle);
+  background: var(--bg-primary);
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
 }
 
 .chat-input-area .input {
   flex: 1;
+  height: var(--input-bar-height);
+  font-size: var(--text-base);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-5);
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.chat-input-area .input:focus {
+  border-color: var(--accent-terracotta);
+  box-shadow: 0 0 0 3px var(--accent-terracotta-muted);
+}
+
+.chat-input-area .btn {
+  height: var(--input-bar-height);
+  min-width: var(--input-bar-height);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-md);
+  padding: 0 var(--space-6);
 }
 
 /* Tool trace panel */
