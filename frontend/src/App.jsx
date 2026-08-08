@@ -11,13 +11,15 @@ export default function App() {
     <BrowserRouter>
       <div className="app-layout">
         <Navbar />
-        <Routes>
-          <Route path="/" element={<ExplorePage />} />
-          <Route path="/search" element={<SearchPage />} />
-          <Route path="/qa" element={<QAPage />} />
-          <Route path="/compare" element={<ComparePage />} />
-          <Route path="/agent" element={<AgentPage />} />
-        </Routes>
+        <main id="main-content">
+          <Routes>
+            <Route path="/" element={<ExplorePage />} />
+            <Route path="/search" element={<SearchPage />} />
+            <Route path="/qa" element={<QAPage />} />
+            <Route path="/compare" element={<ComparePage />} />
+            <Route path="/agent" element={<AgentPage />} />
+          </Routes>
+        </main>
       </div>
     </BrowserRouter>
   );

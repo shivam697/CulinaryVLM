@@ -32,7 +32,7 @@
   /* Text */
   --text-primary: #f0f0f5;
   --text-secondary: #a0a0b0;
-  --text-muted: #606070;
+  --text-muted: #8585a0;  /* WCAG AA 4.5:1+ on --bg-primary */
   --text-accent: #f59e0b;
 
   /* Borders */
@@ -189,6 +189,12 @@ h4 { font-size: var(--text-md); }
   min-height: 100vh;
 }
 
+#main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .page-container {
   flex: 1;
   max-width: var(--container-max);
@@ -280,6 +286,60 @@ h4 { font-size: var(--text-md); }
 .nav-link.active {
   color: var(--accent-primary);
   background: rgba(245, 158, 11, 0.1);
+}
+
+/* Navbar mobile toggle */
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: var(--text-xl);
+  cursor: pointer;
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast);
+}
+
+.navbar-toggle:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-links {
+    display: none;
+    position: absolute;
+    top: var(--navbar-height);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border-bottom: 1px solid var(--glass-border);
+    padding: var(--space-3) var(--space-4);
+    gap: var(--space-1);
+    box-shadow: var(--shadow-lg);
+    z-index: 99;
+  }
+
+  .navbar-links.open {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    font-size: var(--text-base);
+  }
+
+  .navbar-inner {
+    position: relative;
+  }
 }
 
 /* ─── Cards ─────────────────────────────────────────── */
