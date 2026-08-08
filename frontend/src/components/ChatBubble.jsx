@@ -3,6 +3,10 @@ export default function ChatBubble({ message }) {
 
   return (
     <div className={`chat-bubble ${role}`}>
+      <div className="chat-bubble-sender">
+        {role === 'user' ? '👤 You' : '🍚 CulinaryVLM'}
+      </div>
+
       <div className="chat-bubble-content">{content}</div>
 
       {/* Tool traces */}
@@ -22,7 +26,7 @@ export default function ChatBubble({ message }) {
 
       {plan && (
         <div className="chat-bubble-plan">
-          Plan: {plan}
+          📋 Plan: {plan}
         </div>
       )}
     </div>

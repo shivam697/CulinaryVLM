@@ -124,9 +124,11 @@ export default function AgentPage() {
             ))}
 
             {loading && (
-              <div className="chat-bubble assistant" style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)' }}>
-                <div className="spinner" style={{ width: '20px', height: '20px', borderWidth: '2px' }} />
-                <span style={{ color: 'var(--text-muted)' }}>Thinking...</span>
+              <div className="typing-indicator">
+                <div className="typing-dots">
+                  <span /><span /><span />
+                </div>
+                <span style={{ color: 'var(--text-muted)', fontSize: 'var(--text-sm)' }}>Thinking...</span>
               </div>
             )}
 
