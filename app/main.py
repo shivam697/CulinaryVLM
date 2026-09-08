@@ -46,63 +46,41 @@ async def lifespan(app: FastAPI):
     app.state.embed_model = None
     app.state.agent_graph = None
 
-    logger.info("CulinaryVLM API starting up (fast path)...")
+    logger.info("CulinaryVLM API starting up...")
 
-    # 1. Canonical recipes — fast (small JSON files, ~1MB)
+    # Load canonical recipes — fast (small JSON files)
     from app.services.recipes import load_canonical_recipes
     app.state.recipes = load_canonical_recipes(
         PROJECT_ROOT / "configs" / "canonical_recipes"
     )
     logger.info(f"Loaded {len(app.state.recipes)} canonical recipes")
 
-    # 2. Agent graph — fast (just wires graph nodes, no model downloads)
+    # Load agent graph in background — LangGraph imports are heavy
     agent_enabled = config.get("agent", {}).get("enabled", False)
     use_agent = os.environ.get("USE_AGENT_LAYER", "false").lower() == "true"
-    logger.info(f"Agent config: enabled={agent_enabled}, USE_AGENT_LAYER={use_agent}")
-    if agent_enabled and use_agent:
+    logger.info(f"Agent: enabled={agent_enabled}, USE_AGENT_LAYER={use_agent}")
+
+    def _load_agent():
+        if not (agent_enabled and use_agent):
+            logger.info("[BG] Agent disabled")
+            return
         try:
             from app.agents.graph import build_agent_graph
-            app.state.agent_graph = build_agent_graph(config)
-            if app.state.agent_graph is not None:
-                logger.info("Agent layer enabled (LangGraph)")
-            else:
-                logger.warning("Agent graph build returned None")
+            graph = build_agent_graph(config)
+            app.state.agent_graph = graph
+            logger.info(f"[BG] Agent graph built: {graph is not None}")
         except ImportError as e:
-            logger.warning(f"Agent deps not installed: {e}")
+            logger.warning(f"[BG] Agent deps missing: {e}")
         except Exception as e:
-            logger.error(f"Agent init failed: {e}")
-    else:
-        logger.info("Agent layer disabled")
-
-    # 3. FAISS index + embedding model in background (slow: binary read + model download)
-    def _background_init():
-        try:
-            faiss_path = PROJECT_ROOT / config["paths"].get("faiss_index", "datasets/faiss")
-            if (faiss_path / "segments.index").exists():
-                from app.services.retrieval import load_faiss_index
-                app.state.faiss_index = load_faiss_index(faiss_path)
-                logger.info(f"[BG] FAISS index loaded")
-            else:
-                logger.warning("[BG] FAISS index not found")
-        except Exception as e:
-            logger.error(f"[BG] FAISS load failed: {e}")
-
-        try:
-            from sentence_transformers import SentenceTransformer
-            app.state.embed_model = SentenceTransformer("all-MiniLM-L6-v2")
-            logger.info("[BG] Embedding model loaded")
-        except Exception as e:
-            logger.warning(f"[BG] Embedding model failed: {e}")
-
-        logger.info("[BG] Background init complete.")
+            logger.error(f"[BG] Agent graph failed: {e}")
 
     loop = asyncio.get_event_loop()
     loop.run_in_executor(
         concurrent.futures.ThreadPoolExecutor(max_workers=1),
-        _background_init
+        _load_agent
     )
 
-    logger.info("CulinaryVLM API ready.")
+    logger.info("CulinaryVLM API ready — search uses keyword matching, agent loading in background.")
     yield
 
     logger.info("CulinaryVLM API shutting down...")
