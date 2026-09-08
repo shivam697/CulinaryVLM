@@ -36,40 +36,34 @@ def load_app_config() -> dict:
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Startup and shutdown lifecycle."""
+    import asyncio
+    import concurrent.futures
+
     config = load_app_config()
     app.state.config = config
     app.state.project_root = PROJECT_ROOT
+    app.state.embed_model = None  # Will be set by background loader
 
     logger.info("CulinaryVLM API starting up...")
 
-    # Load FAISS index if available
+    # Load FAISS index (fast — just reads binary file)
     faiss_path = PROJECT_ROOT / config["paths"].get("faiss_index", "datasets/faiss")
     if (faiss_path / "segments.index").exists():
         from app.services.retrieval import load_faiss_index
         app.state.faiss_index = load_faiss_index(faiss_path)
         logger.info(f"FAISS index loaded: {faiss_path}")
-
-        # Pre-load embedding model so first search request doesn't timeout
-        try:
-            from sentence_transformers import SentenceTransformer
-            app.state.embed_model = SentenceTransformer("all-MiniLM-L6-v2")
-            logger.info("Embedding model pre-loaded (all-MiniLM-L6-v2)")
-        except Exception as e:
-            app.state.embed_model = None
-            logger.warning(f"Could not pre-load embedding model: {e}")
     else:
         app.state.faiss_index = None
-        app.state.embed_model = None
         logger.warning("FAISS index not found — /search will be unavailable")
 
-    # Load canonical recipes
+    # Load canonical recipes (fast — small JSON files)
     from app.services.recipes import load_canonical_recipes
     app.state.recipes = load_canonical_recipes(
         PROJECT_ROOT / "configs" / "canonical_recipes"
     )
     logger.info(f"Loaded {len(app.state.recipes)} canonical recipes")
 
-    # Optionally load agent graph
+    # Load agent graph (lightweight — just builds graph structure)
     agent_enabled = config.get("agent", {}).get("enabled", False)
     use_agent = os.environ.get("USE_AGENT_LAYER", "false").lower() == "true"
     if agent_enabled and use_agent:
@@ -87,6 +81,21 @@ async def lifespan(app: FastAPI):
         app.state.agent_graph = None
         logger.info("Agent layer disabled (config or env)")
 
+    # Pre-load embedding model in background — does NOT block port binding
+    def _load_embed_model():
+        try:
+            from sentence_transformers import SentenceTransformer
+            model = SentenceTransformer("all-MiniLM-L6-v2")
+            app.state.embed_model = model
+            logger.info("Embedding model pre-loaded (all-MiniLM-L6-v2)")
+        except Exception as e:
+            logger.warning(f"Could not pre-load embedding model: {e}")
+
+    loop = asyncio.get_event_loop()
+    loop.run_in_executor(concurrent.futures.ThreadPoolExecutor(max_workers=1), _load_embed_model)
+    logger.info("Embedding model loading started in background thread...")
+
+    logger.info("CulinaryVLM API ready — port is open, background tasks running.")
     yield
 
     logger.info("CulinaryVLM API shutting down...")
