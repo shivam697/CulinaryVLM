@@ -48,8 +48,18 @@ async def lifespan(app: FastAPI):
         from app.services.retrieval import load_faiss_index
         app.state.faiss_index = load_faiss_index(faiss_path)
         logger.info(f"FAISS index loaded: {faiss_path}")
+
+        # Pre-load embedding model so first search request doesn't timeout
+        try:
+            from sentence_transformers import SentenceTransformer
+            app.state.embed_model = SentenceTransformer("all-MiniLM-L6-v2")
+            logger.info("Embedding model pre-loaded (all-MiniLM-L6-v2)")
+        except Exception as e:
+            app.state.embed_model = None
+            logger.warning(f"Could not pre-load embedding model: {e}")
     else:
         app.state.faiss_index = None
+        app.state.embed_model = None
         logger.warning("FAISS index not found — /search will be unavailable")
 
     # Load canonical recipes

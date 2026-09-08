@@ -54,10 +54,10 @@ export default function SearchPage() {
       </form>
 
       {error && (
-        <div className="card" style={{ borderColor: 'var(--accent-secondary)', marginBottom: 'var(--space-6)' }}>
+      <div className="card" style={{ borderColor: 'var(--accent-secondary)', marginBottom: 'var(--space-6)' }}>
           <p style={{ color: 'var(--accent-secondary)' }}>⚠️ {error}</p>
           <p style={{ color: 'var(--text-muted)', fontSize: 'var(--text-sm)', marginTop: 'var(--space-2)' }}>
-            Note: Semantic search requires the FAISS index. Run Stage 11 first.
+            This may be a cold-start delay on the server. Please wait a moment and try again.
           </p>
         </div>
       )}

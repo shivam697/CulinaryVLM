@@ -25,7 +25,8 @@ async def search_segments(request: Request, body: SearchRequest):
 
     from app.services.retrieval import encode_query
 
-    query_embedding = encode_query(body.query)
+    embed_model = getattr(request.app.state, "embed_model", None)
+    query_embedding = encode_query(body.query, model=embed_model)
     raw_results = faiss_index.search(query_embedding, top_k=body.top_k)
 
     # Filter by category if specified
