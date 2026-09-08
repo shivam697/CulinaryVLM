@@ -4,6 +4,17 @@
 
 > A web app where users search cooking videos by technique, ask questions about biryani preparation across regional styles, and see AI-powered procedural comparisons — powered by a VLM fine-tuned on 500+ multilingual Indian cooking videos, exposed through a LangGraph agent that plans, picks tools, and composes answers.
 
+## 🌐 Live Deployment
+
+| Service | URL |
+|---|---|
+| **Frontend** (React + Vite) | [culinary-vlm.vercel.app](https://culinary-vlm.vercel.app) |
+| **Backend API** (FastAPI) | [culinary-vlm-api.onrender.com](https://culinary-vlm-api.onrender.com) |
+| **Fine-tuned Model** (HF Hub) | [shivamminde/culinary-vlm-qlora](https://huggingface.co/shivamminde/culinary-vlm-qlora) |
+| **Eval Notebook** (Colab) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shivam697/CulinaryVLM/blob/main/notebooks/evaluate_vlm.ipynb) |
+
+> **Note**: Backend is hosted on Render's free tier — it may take ~30 seconds to wake up on first request.
+
 ## 📊 Dataset
 
 - **573 chicken biryani videos** from YouTube, pre-curated and classified
@@ -21,12 +32,12 @@
 │  │ ASR │→│ Seg │→│Align│→│ QA  │→│Fine-tune│  │
 │  └─────┘ └─────┘ └─────┘ └─────┘ └─────────┘  │
 ├─────────────────────────────────────────────────┤
-│  FastAPI (6 original endpoints)                 │
+│  FastAPI (6 endpoints)                          │
 │  /qa  /search  /compare  /recipes  /videos      │
 ├─────────────────────────────────────────────────┤
 │  SYSTEM 2: Agent Layer (OPTIONAL, toggleable)   │
 │  LangChain + LangGraph • Feature-flagged        │
-│  /agent/query (8 tools, multi-step reasoning)   │
+│  /agent/query (multi-step reasoning)            │
 └─────────────────────────────────────────────────┘
 ```
 
@@ -47,13 +58,11 @@ cp .env.example .env
 pip install -r requirements.txt
 pip install -r requirements-agent.txt  # optional, for agent layer
 
-# Run pipeline (Phase 0)
-python pipeline/00a_categorize.py
-python pipeline/00b_canonical_recipes.py
-python pipeline/00c_metadata_tagging.py
+# Run backend
+uvicorn app.main:app --reload --port 8000
 
-# Docker (full stack)
-docker-compose up --build
+# Run frontend
+cd frontend && npm install && npm run dev
 ```
 
 ## 📁 Project Structure
@@ -66,8 +75,8 @@ culinary-vlm/
 │   ├── agents/             # LangGraph graph (optional)
 │   └── tools/              # LangChain tool wrappers (optional)
 ├── pipeline/               # ML pipeline (Stages 0-10)
-├── training/               # Fine-tuning scripts
-├── frontend/               # React + Vite + TailwindCSS
+├── training/               # Fine-tuning scripts (finetune_qlora.py)
+├── frontend/               # React + Vite
 ├── configs/                # YAML configs + canonical recipes
 ├── datasets/               # Data artifacts
 ├── scripts/                # PBS job scripts (GPU cluster)
@@ -79,31 +88,51 @@ culinary-vlm/
 
 | Layer | Technology |
 |---|---|
-| Frontend | React 18 + Vite + TailwindCSS |
-| Backend | FastAPI + SQLite + FAISS |
-| ML | Llama-3.2-11B-Vision (QLoRA), WhisperX, InternVL2-8B |
+| Frontend | React 18 + Vite + Vanilla CSS |
+| Backend | FastAPI + FAISS + keyword search |
+| ML | Llama-3.2-11B-Vision (QLoRA via Unsloth), WhisperX, InternVL2-8B |
 | Agent | LangChain + LangGraph (optional) |
-| Deploy | Render (API) + GitHub Pages (frontend) + HF Hub (model) |
+| Deploy | Render (API) + Vercel (frontend) + HF Hub (model) |
 
 ---
 
 ## 🤗 Fine-Tuned Model on Hugging Face
 
-The fine-tuned **Llama-3.2-11B-Vision** model (QLoRA, trained on 172 Indian cooking videos) is hosted publicly on Hugging Face Hub:
+The fine-tuned **Llama-3.2-11B-Vision** model (QLoRA LoRA adapter, trained on 172 Indian cooking videos) is hosted publicly on Hugging Face Hub:
 
-> **Model**: [`shivamminde/culinary-vlm`](https://huggingface.co/shivamminde/culinary-vlm)
+> **Model**: [`shivamminde/culinary-vlm-qlora`](https://huggingface.co/shivamminde/culinary-vlm-qlora)
 
-The model was fine-tuned using QLoRA (4-bit quantization) on a GPU cluster (IIIT Delhi HPC). Running it locally requires **~14 GB+ VRAM** (an A100/V100 GPU), which is not feasible on most personal machines (e.g., MacBooks with Apple Silicon).
+The adapter was trained using **Unsloth + QLoRA** (4-bit quantization, LoRA r=16) on a GPU cluster (IIIT Delhi HPC). Running it requires a GPU with **≥14 GB VRAM** — use Google Colab (free T4) for verification.
+
+### Training Details
+
+| Setting | Value |
+|---|---|
+| Base model | `unsloth/Llama-3.2-11B-Vision-Instruct-bnb-4bit` |
+| Method | QLoRA (4-bit, LoRA r=16, alpha=32) |
+| Vision layers | **Frozen** (`finetune_vision_layers=False`) |
+| Language layers | Fine-tuned |
+| Inference type | **Text-in → Text-out** (no image needed at inference) |
+| Input format | `Category + Context + Question` |
 
 ### ⚠️ Hardware Limitation
 
-> Running Llama-3.2-11B-Vision locally requires a dedicated GPU with at least 14 GB VRAM.  
-> For local development and API testing, the backend falls back to Groq-hosted LLMs and FAISS-based retrieval.  
-> To actually **run and verify the fine-tuned VLM**, use **Google Colab** (free T4 GPU) as described below.
+> Running Llama-3.2-11B-Vision locally requires a dedicated GPU with at least 14 GB VRAM.
+> For local development and API testing, the backend uses Groq-hosted LLMs and keyword-based retrieval.
+> To **run and verify the fine-tuned VLM**, use **Google Colab** (free T4 GPU) as described below.
 
 ---
 
 ## 🔬 Verifying the Fine-Tuned Model on Google Colab
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shivam697/CulinaryVLM/blob/main/notebooks/evaluate_vlm.ipynb)
+
+Click the badge above to open the full evaluation notebook in one click. It includes:
+- Model loading (Steps 1-3)
+- Single query inference (Step 4)
+- Batch evaluation on the test set with keyword overlap scoring (Step 5)
+
+Or follow the manual steps below:
 
 Since the 11B-parameter model requires a GPU, Google Colab (free T4 tier) is the easiest way to load and test it.
 
@@ -115,8 +144,12 @@ Since the 11B-parameter model requires a GPU, Google Colab (free T4 tier) is the
 
 ### Step 2 — Install Dependencies
 
+The model was trained with Unsloth — use the same library for inference:
+
 ```python
-!pip install -q transformers accelerate bitsandbytes pillow huggingface_hub
+# Install unsloth (same library used for training)
+!pip install -q "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git"
+!pip install -q huggingface_hub
 ```
 
 ### Step 3 — Authenticate with Hugging Face
@@ -126,54 +159,73 @@ from huggingface_hub import login
 login(token="YOUR_HF_TOKEN")   # Get from https://huggingface.co/settings/tokens
 ```
 
-### Step 4 — Load the Fine-Tuned Model
+### Step 4 — Load the Fine-Tuned Adapter
 
-> **Note**: The model was fine-tuned on **text-only QA pairs** (transcript context + question → answer). The vision layers were **frozen** during training (`finetune_vision_layers=False`). This is a **text-in, text-out** QA model — no images needed at inference.
+> **Key point**: `shivamminde/culinary-vlm-qlora` is a **LoRA adapter**, not a standalone model.
+> Unsloth loads the base model + adapter together automatically.
 
 ```python
-from transformers import AutoTokenizer, AutoModelForVision2Seq, BitsAndBytesConfig
+from unsloth import FastVisionModel
 import torch
 
-MODEL_ID = "shivamminde/culinary-vlm"
+ADAPTER_ID = "shivamminde/culinary-vlm-qlora"
 
-quant_config = BitsAndBytesConfig(
+# Load base model + LoRA adapter (Unsloth handles merging automatically)
+model, tokenizer = FastVisionModel.from_pretrained(
+    model_name=ADAPTER_ID,
+    max_seq_length=2048,
+    dtype=torch.bfloat16,
     load_in_4bit=True,
-    bnb_4bit_compute_dtype=torch.float16,
-    bnb_4bit_quant_type="nf4",
 )
 
-tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
-model = AutoModelForVision2Seq.from_pretrained(
-    MODEL_ID,
-    quantization_config=quant_config,
-    device_map="auto",
-)
+# Switch to inference mode
+FastVisionModel.for_inference(model)
 print("✅ Model loaded!")
 ```
 
 ### Step 5 — Run Text QA Inference
 
-The model takes `Category + Context + Question` as text input — matching the training format exactly:
+The model takes `Category + Context + Question` as text — matching the training format exactly.
+Vision layers were **frozen** during training, so **no image is needed** at inference:
 
 ```python
-# Format matches datasets/qa/train_filtered.json
+# Format matches training/finetune_qlora.py → format_qa_for_training()
 category = "Hyderabadi"
 context  = "Action: Adding turmeric powder. Description: The person is adding turmeric powder to the marinated chicken in the bowl."
 question = "What ingredients are being used in this step?"
 
-user_content = f"Category: {category}\n\nContext: {context}\n\nQuestion: {question}"
+# Build user message — same format as training
+user_parts = [f"Category: {category}"]
+if context:
+    user_parts.append(f"Context: {context}")
+user_parts.append(f"Question: {question}")
+user_content = "\n\n".join(user_parts)
+
 messages = [{"role": "user", "content": user_content}]
 
-input_text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+# Apply chat template and tokenize
+input_text = tokenizer.apply_chat_template(
+    messages, tokenize=False, add_generation_prompt=True
+)
 inputs = tokenizer(input_text, return_tensors="pt").to("cuda")
 
+# Generate answer
 with torch.no_grad():
-    output = model.generate(**inputs, max_new_tokens=256, do_sample=False)
+    output = model.generate(
+        **inputs,
+        max_new_tokens=256,
+        do_sample=False,
+        temperature=1.0,
+        use_cache=True,
+    )
 
-# Decode only the newly generated tokens
-answer = tokenizer.decode(output[0][inputs["input_ids"].shape[1]:], skip_special_tokens=True)
+# Decode only newly generated tokens (skip the input prompt)
+answer = tokenizer.decode(
+    output[0][inputs["input_ids"].shape[1]:],
+    skip_special_tokens=True
+)
 print("🍛 Model Answer:", answer)
-# Expected: "Turmeric powder and marinated chicken are being used..."
+# Expected: "Turmeric powder is being added to the marinated chicken..."
 ```
 
 ### Step 6 — Evaluate on the Test Set (Optional)
@@ -187,12 +239,12 @@ import json, torch
 with open("test_filtered.json") as f:
     test_data = json.load(f).get("qa_pairs", [])
 
-# Filter valid samples
+# Filter valid samples (same logic as training)
 test_data = [
     qa for qa in test_data
     if not qa.get("needs_generation") and qa.get("question") and qa.get("answer")
 ]
-print(f"Total test samples: {len(test_data)}")
+print(f"Total valid test samples: {len(test_data)}")
 
 # Run inference on first 20 samples
 for qa in test_data[:20]:
@@ -207,19 +259,23 @@ for qa in test_data[:20]:
     parts.append(f"Question: {question}")
 
     messages = [{"role": "user", "content": "\n\n".join(parts)}]
-    input_text = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+    input_text = tokenizer.apply_chat_template(
+        messages, tokenize=False, add_generation_prompt=True
+    )
     inputs = tokenizer(input_text, return_tensors="pt").to("cuda")
 
     with torch.no_grad():
-        output = model.generate(**inputs, max_new_tokens=256, do_sample=False)
+        output = model.generate(
+            **inputs, max_new_tokens=256, do_sample=False, use_cache=True
+        )
 
-    answer = tokenizer.decode(output[0][inputs["input_ids"].shape[1]:], skip_special_tokens=True)
+    answer = tokenizer.decode(
+        output[0][inputs["input_ids"].shape[1]:], skip_special_tokens=True
+    )
     print(f"\nQ: {question[:80]}")
-    print(f"Expected: {expected[:100]}")
-    print(f"Got:      {answer[:100]}")
+    print(f"Expected : {expected[:100]}")
+    print(f"Generated: {answer[:100]}")
 ```
-
-> **Tip**: For a full evaluation notebook, see [`notebooks/evaluate_vlm.ipynb`](notebooks/evaluate_vlm.ipynb).
 
 ---
 
