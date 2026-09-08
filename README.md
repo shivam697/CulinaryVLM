@@ -170,45 +170,48 @@ import torch
 
 ADAPTER_ID = "shivamminde/culinary-vlm-qlora"
 
-# Load base model + LoRA adapter (Unsloth handles merging automatically)
-model, tokenizer = FastVisionModel.from_pretrained(
+# FastVisionModel returns (model, processor)
+# processor is MllamaProcessor — NOT a plain tokenizer
+model, processor = FastVisionModel.from_pretrained(
     model_name=ADAPTER_ID,
     max_seq_length=2048,
     dtype=torch.bfloat16,
     load_in_4bit=True,
 )
-
-# Switch to inference mode
 FastVisionModel.for_inference(model)
-print("✅ Model loaded!")
+
+# IMPORTANT: extract the inner text tokenizer.
+# Calling processor(string) triggers image loading → ValueError.
+# processor.tokenizer is the plain PreTrainedTokenizerFast for text.
+text_tokenizer = processor.tokenizer if hasattr(processor, 'tokenizer') else processor
+
+print('✅ Model loaded!')
+print(f'Processor type: {type(processor).__name__}')
+print(f'Tokenizer type: {type(text_tokenizer).__name__}')
 ```
 
 ### Step 5 — Run Text QA Inference
 
 The model takes `Category + Context + Question` as text — matching the training format exactly.
+
 ```python
 def ask_model(category: str, question: str, context: str = "") -> str:
-    """Run text-only inference. Matches training format exactly."""
+    """Text-only QA inference. Matches training format from finetune_qlora.py."""
     parts = [f"Category: {category}"]
     if context:
         parts.append(f"Context: {context}")
     parts.append(f"Question: {question}")
     user_text = "\n\n".join(parts)
 
-    # IMPORTANT: content must be a list of typed dicts for vision models.
-    # A plain string is treated as an image URL → causes ValueError.
-    messages = [
-        {
-            "role": "user",
-            "content": [{"type": "text", "text": user_text}]
-        }
-    ]
+    # Use text_tokenizer (inner tokenizer) — NOT processor.
+    # processor(string) triggers MllamaProcessor image loading → ValueError.
+    messages = [{"role": "user", "content": user_text}]
 
-    input_text = tokenizer.apply_chat_template(
+    prompt = text_tokenizer.apply_chat_template(
         messages, tokenize=False, add_generation_prompt=True
     )
-    inputs = tokenizer(
-        input_text, return_tensors="pt", add_special_tokens=False
+    inputs = text_tokenizer(
+        prompt, return_tensors="pt", add_special_tokens=False
     ).to("cuda")
 
     with torch.no_grad():
@@ -217,10 +220,10 @@ def ask_model(category: str, question: str, context: str = "") -> str:
         )
 
     generated_ids = output[0][inputs["input_ids"].shape[1]:]
-    return tokenizer.decode(generated_ids, skip_special_tokens=True).strip()
+    return text_tokenizer.decode(generated_ids, skip_special_tokens=True).strip()
 
 
-# Example 1: With context (segment-grounded QA)
+# Example 1: With context
 a1 = ask_model(
     category="Hyderabadi",
     context="Action: Adding turmeric powder. Description: The person is adding turmeric powder to the marinated chicken.",
@@ -228,7 +231,7 @@ a1 = ask_model(
 )
 print(f"Q: What ingredients are being used?\nA: {a1}\n")
 
-# Example 2: General knowledge (no context)
+# Example 2: No context
 a2 = ask_model(
     category="Kolkata",
     question="What makes Kolkata biryani different from Hyderabadi biryani?"
