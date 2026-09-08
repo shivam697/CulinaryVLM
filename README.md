@@ -186,46 +186,54 @@ print("✅ Model loaded!")
 ### Step 5 — Run Text QA Inference
 
 The model takes `Category + Context + Question` as text — matching the training format exactly.
-Vision layers were **frozen** during training, so **no image is needed** at inference:
-
 ```python
-# Format matches training/finetune_qlora.py → format_qa_for_training()
-category = "Hyderabadi"
-context  = "Action: Adding turmeric powder. Description: The person is adding turmeric powder to the marinated chicken in the bowl."
-question = "What ingredients are being used in this step?"
+def ask_model(category: str, question: str, context: str = "") -> str:
+    """Run text-only inference. Matches training format exactly."""
+    parts = [f"Category: {category}"]
+    if context:
+        parts.append(f"Context: {context}")
+    parts.append(f"Question: {question}")
+    user_text = "\n\n".join(parts)
 
-# Build user message — same format as training
-user_parts = [f"Category: {category}"]
-if context:
-    user_parts.append(f"Context: {context}")
-user_parts.append(f"Question: {question}")
-user_content = "\n\n".join(user_parts)
+    # IMPORTANT: content must be a list of typed dicts for vision models.
+    # A plain string is treated as an image URL → causes ValueError.
+    messages = [
+        {
+            "role": "user",
+            "content": [{"type": "text", "text": user_text}]
+        }
+    ]
 
-messages = [{"role": "user", "content": user_content}]
-
-# Apply chat template and tokenize
-input_text = tokenizer.apply_chat_template(
-    messages, tokenize=False, add_generation_prompt=True
-)
-inputs = tokenizer(input_text, return_tensors="pt").to("cuda")
-
-# Generate answer
-with torch.no_grad():
-    output = model.generate(
-        **inputs,
-        max_new_tokens=256,
-        do_sample=False,
-        temperature=1.0,
-        use_cache=True,
+    input_text = tokenizer.apply_chat_template(
+        messages, tokenize=False, add_generation_prompt=True
     )
+    inputs = tokenizer(
+        input_text, return_tensors="pt", add_special_tokens=False
+    ).to("cuda")
 
-# Decode only newly generated tokens (skip the input prompt)
-answer = tokenizer.decode(
-    output[0][inputs["input_ids"].shape[1]:],
-    skip_special_tokens=True
+    with torch.no_grad():
+        output = model.generate(
+            **inputs, max_new_tokens=256, do_sample=False, use_cache=True
+        )
+
+    generated_ids = output[0][inputs["input_ids"].shape[1]:]
+    return tokenizer.decode(generated_ids, skip_special_tokens=True).strip()
+
+
+# Example 1: With context (segment-grounded QA)
+a1 = ask_model(
+    category="Hyderabadi",
+    context="Action: Adding turmeric powder. Description: The person is adding turmeric powder to the marinated chicken.",
+    question="What ingredients are being used in this step?"
 )
-print("🍛 Model Answer:", answer)
-# Expected: "Turmeric powder is being added to the marinated chicken..."
+print(f"Q: What ingredients are being used?\nA: {a1}\n")
+
+# Example 2: General knowledge (no context)
+a2 = ask_model(
+    category="Kolkata",
+    question="What makes Kolkata biryani different from Hyderabadi biryani?"
+)
+print(f"Q: What makes Kolkata biryani different?\nA: {a2}")
 ```
 
 ### Step 6 — Evaluate on the Test Set (Optional)
@@ -258,7 +266,7 @@ for qa in test_data[:20]:
         parts.append(f"Context: {context}")
     parts.append(f"Question: {question}")
 
-    messages = [{"role": "user", "content": "\n\n".join(parts)}]
+    messages = [{"role": "user", "content": [{"type": "text", "text": "\n\n".join(parts)}]}]
     input_text = tokenizer.apply_chat_template(
         messages, tokenize=False, add_generation_prompt=True
     )
