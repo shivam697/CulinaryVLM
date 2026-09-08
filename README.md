@@ -170,49 +170,48 @@ import torch
 
 ADAPTER_ID = "shivamminde/culinary-vlm-qlora"
 
-# FastVisionModel returns (model, processor)
-# processor is MllamaProcessor — NOT a plain tokenizer
+# device_map={"":0} forces ALL layers onto cuda:0.
+# Avoids 'RuntimeError: tensors on different devices' that occurs when
+# device_map="auto" (default) splits layers between CPU and GPU.
 model, processor = FastVisionModel.from_pretrained(
     model_name=ADAPTER_ID,
     max_seq_length=2048,
     dtype=torch.bfloat16,
     load_in_4bit=True,
+    device_map={"": 0},
 )
 FastVisionModel.for_inference(model)
 
-# IMPORTANT: extract the inner text tokenizer.
+# Extract inner text tokenizer from MllamaProcessor.
 # Calling processor(string) triggers image loading → ValueError.
-# processor.tokenizer is the plain PreTrainedTokenizerFast for text.
 text_tokenizer = processor.tokenizer if hasattr(processor, 'tokenizer') else processor
 
-print('✅ Model loaded!')
-print(f'Processor type: {type(processor).__name__}')
-print(f'Tokenizer type: {type(text_tokenizer).__name__}')
+# Detect actual model device — inputs must go to the same device
+MODEL_DEVICE = next(model.parameters()).device
+print(f'✅ Model loaded on {MODEL_DEVICE}')
 ```
 
 ### Step 5 — Run Text QA Inference
 
-The model takes `Category + Context + Question` as text — matching the training format exactly.
-
 ```python
 def ask_model(category: str, question: str, context: str = "") -> str:
-    """Text-only QA inference. Matches training format from finetune_qlora.py."""
+    """Text-only QA inference matching the training input format."""
     parts = [f"Category: {category}"]
     if context:
         parts.append(f"Context: {context}")
     parts.append(f"Question: {question}")
     user_text = "\n\n".join(parts)
 
-    # Use text_tokenizer (inner tokenizer) — NOT processor.
-    # processor(string) triggers MllamaProcessor image loading → ValueError.
+    # Use text_tokenizer (inner tokenizer), NOT processor.
     messages = [{"role": "user", "content": user_text}]
-
     prompt = text_tokenizer.apply_chat_template(
         messages, tokenize=False, add_generation_prompt=True
     )
+
+    # Move inputs to MODEL_DEVICE (cuda:0) — must match the model's device
     inputs = text_tokenizer(
         prompt, return_tensors="pt", add_special_tokens=False
-    ).to("cuda")
+    ).to(MODEL_DEVICE)
 
     with torch.no_grad():
         output = model.generate(
@@ -223,7 +222,6 @@ def ask_model(category: str, question: str, context: str = "") -> str:
     return text_tokenizer.decode(generated_ids, skip_special_tokens=True).strip()
 
 
-# Example 1: With context
 a1 = ask_model(
     category="Hyderabadi",
     context="Action: Adding turmeric powder. Description: The person is adding turmeric powder to the marinated chicken.",
@@ -231,7 +229,6 @@ a1 = ask_model(
 )
 print(f"Q: What ingredients are being used?\nA: {a1}\n")
 
-# Example 2: No context
 a2 = ask_model(
     category="Kolkata",
     question="What makes Kolkata biryani different from Hyderabadi biryani?"
