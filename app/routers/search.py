@@ -1,6 +1,4 @@
-"""Search router — semantic search over segments."""
-
-from fastapi import APIRouter, Request
+from fastapi import APIRouter, Request, HTTPException
 
 from app.models.schemas import SearchRequest, SearchResponse, SearchResult
 
@@ -15,12 +13,12 @@ async def search_segments(request: Request, body: SearchRequest):
     Find cooking technique segments similar to the query text.
     """
     faiss_index = request.app.state.faiss_index
+    embed_model = getattr(request.app.state, "embed_model", None)
 
-    if faiss_index is None:
-        return SearchResponse(
-            query=body.query,
-            total_results=0,
-            results=[],
+    if faiss_index is None or embed_model is None:
+        raise HTTPException(
+            status_code=503,
+            detail="Search index is still loading (server warming up). Please try again in 30 seconds."
         )
 
     from app.services.retrieval import encode_query

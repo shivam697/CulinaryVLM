@@ -42,59 +42,59 @@ async def lifespan(app: FastAPI):
     config = load_app_config()
     app.state.config = config
     app.state.project_root = PROJECT_ROOT
-    app.state.faiss_index = None   # loaded in background
-    app.state.embed_model = None   # loaded in background
-    app.state.agent_graph = None   # loaded in background
+    app.state.faiss_index = None
+    app.state.embed_model = None
+    app.state.agent_graph = None
 
     logger.info("CulinaryVLM API starting up (fast path)...")
 
-    # Load canonical recipes — fast (small JSON files, ~1MB total)
+    # 1. Canonical recipes — fast (small JSON files, ~1MB)
     from app.services.recipes import load_canonical_recipes
     app.state.recipes = load_canonical_recipes(
         PROJECT_ROOT / "configs" / "canonical_recipes"
     )
     logger.info(f"Loaded {len(app.state.recipes)} canonical recipes")
 
-    # Determine agent config — no imports yet
+    # 2. Agent graph — fast (just wires graph nodes, no model downloads)
     agent_enabled = config.get("agent", {}).get("enabled", False)
     use_agent = os.environ.get("USE_AGENT_LAYER", "false").lower() == "true"
+    logger.info(f"Agent config: enabled={agent_enabled}, USE_AGENT_LAYER={use_agent}")
+    if agent_enabled and use_agent:
+        try:
+            from app.agents.graph import build_agent_graph
+            app.state.agent_graph = build_agent_graph(config)
+            if app.state.agent_graph is not None:
+                logger.info("Agent layer enabled (LangGraph)")
+            else:
+                logger.warning("Agent graph build returned None")
+        except ImportError as e:
+            logger.warning(f"Agent deps not installed: {e}")
+        except Exception as e:
+            logger.error(f"Agent init failed: {e}")
+    else:
+        logger.info("Agent layer disabled")
 
-    # Load everything heavy in a single background thread
+    # 3. FAISS index + embedding model in background (slow: binary read + model download)
     def _background_init():
-        # 1. FAISS index (~23MB binary read)
         try:
             faiss_path = PROJECT_ROOT / config["paths"].get("faiss_index", "datasets/faiss")
             if (faiss_path / "segments.index").exists():
                 from app.services.retrieval import load_faiss_index
                 app.state.faiss_index = load_faiss_index(faiss_path)
-                logger.info(f"[BG] FAISS index loaded: {faiss_path}")
+                logger.info(f"[BG] FAISS index loaded")
             else:
-                logger.warning("[BG] FAISS index not found — /search unavailable")
+                logger.warning("[BG] FAISS index not found")
         except Exception as e:
             logger.error(f"[BG] FAISS load failed: {e}")
 
-        # 2. Sentence-transformers model (~90MB download on first run)
         try:
             from sentence_transformers import SentenceTransformer
             app.state.embed_model = SentenceTransformer("all-MiniLM-L6-v2")
-            logger.info("[BG] Embedding model loaded (all-MiniLM-L6-v2)")
+            logger.info("[BG] Embedding model loaded")
         except Exception as e:
-            logger.warning(f"[BG] Embedding model load failed: {e}")
+            logger.warning(f"[BG] Embedding model failed: {e}")
 
-        # 3. LangGraph agent graph
-        if agent_enabled and use_agent:
-            try:
-                from app.agents.graph import build_agent_graph
-                app.state.agent_graph = build_agent_graph(config)
-                logger.info("[BG] Agent layer enabled (LangGraph)")
-            except ImportError:
-                logger.warning("[BG] Agent deps not installed — agent disabled")
-            except Exception as e:
-                logger.error(f"[BG] Agent init failed: {e}")
-        else:
-            logger.info("[BG] Agent layer disabled (config or env)")
-
-        logger.info("[BG] All background initialization complete.")
+        logger.info("[BG] Background init complete.")
 
     loop = asyncio.get_event_loop()
     loop.run_in_executor(
@@ -102,7 +102,7 @@ async def lifespan(app: FastAPI):
         _background_init
     )
 
-    logger.info("CulinaryVLM API ready — port open, heavy init running in background.")
+    logger.info("CulinaryVLM API ready.")
     yield
 
     logger.info("CulinaryVLM API shutting down...")
@@ -130,8 +130,9 @@ def create_app() -> FastAPI:
         allow_headers=["*"],
     )
 
-    # Register routers
+    # Always register all routers including agent
     from app.routers import health, videos, recipes, search, qa, compare
+    from app.routers import agent
 
     app.include_router(health.router, tags=["Health"])
     app.include_router(videos.router, prefix="/api/v1", tags=["Videos"])
@@ -139,17 +140,7 @@ def create_app() -> FastAPI:
     app.include_router(search.router, prefix="/api/v1", tags=["Search"])
     app.include_router(qa.router, prefix="/api/v1", tags=["QA"])
     app.include_router(compare.router, prefix="/api/v1", tags=["Compare"])
-
-    # Conditionally include agent router
-    try:
-        config = load_app_config()
-        agent_enabled = config.get("agent", {}).get("enabled", False)
-        use_agent = os.environ.get("USE_AGENT_LAYER", "false").lower() == "true"
-        if agent_enabled and use_agent:
-            from app.routers import agent
-            app.include_router(agent.router, prefix="/api/v1", tags=["Agent"])
-    except Exception:
-        pass
+    app.include_router(agent.router, prefix="/api/v1", tags=["Agent"])
 
     return app
 
