@@ -47,7 +47,7 @@ async def planner_node(state: dict[str, Any]) -> dict[str, Any]:
 
         client = Groq(api_key=groq_key)
         response = client.chat.completions.create(
-            model="llama-3.1-70b-versatile",
+            model="groq/compound",
             messages=[
                 {"role": "system", "content": PLANNER_SYSTEM},
                 {"role": "user", "content": user_msg},

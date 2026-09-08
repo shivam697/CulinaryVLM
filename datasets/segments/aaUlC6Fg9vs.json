@@ -1,0 +1,2755 @@
+{
+  "schema_version": "2.0",
+  "video_id": "aaUlC6Fg9vs",
+  "category": "Delhi",
+  "num_segments": 87,
+  "segments": [
+    {
+      "step_number": 1,
+      "action": "Layering rice and vegetables",
+      "description": "Rice and vegetables are being layered in a large pot.",
+      "start_frame": 0,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "rice",
+        "carrots",
+        "onions",
+        "chicken"
+      ],
+      "cooking_technique": "layering",
+      "confidence": 0.95,
+      "visible_utensil": [],
+      "vessel": "handi",
+      "ingredient_state": {
+        "onions": "cooked",
+        "rice": "raw",
+        "carrots": "cooked",
+        "chicken": "raw"
+      },
+      "rice_state": "raw",
+      "meat_state": "raw",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 0.0,
+      "end_time": 14.0,
+      "window_start": 0
+    },
+    {
+      "step_number": 2,
+      "action": "Serving biryani",
+      "description": "The cooked biryani is being served on a plate.",
+      "start_frame": 4,
+      "end_frame": 5,
+      "ingredients_visible": [
+        "biryani",
+        "chicken",
+        "potatoes",
+        "onions",
+        "carrots"
+      ],
+      "cooking_technique": "serving",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "not visible",
+      "ingredient_state": {
+        "onions": "cooked",
+        "rice": "cooked",
+        "carrots": "cooked",
+        "chicken": "cooked"
+      },
+      "rice_state": "cooked",
+      "meat_state": "cooked",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "serving",
+      "start_time": 0.0,
+      "end_time": 14.0,
+      "window_start": 0
+    },
+    {
+      "step_number": 3,
+      "action": "Marinating chicken",
+      "description": "Chicken is being marinated in a bowl.",
+      "start_frame": 6,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "chicken",
+        "marinade"
+      ],
+      "cooking_technique": "marinating",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "chicken": "raw",
+        "marinade": "mixing"
+      },
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 0.0,
+      "end_time": 14.0,
+      "window_start": 0
+    },
+    {
+      "step_number": 4,
+      "action": "Marinating chicken",
+      "description": "Chicken pieces are being marinated in a bowl with yogurt and spices.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "chicken",
+        "yogurt",
+        "spices"
+      ],
+      "cooking_technique": "marinating",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "chicken": "raw",
+        "yogurt": "mixing",
+        "spices": "mixing"
+      },
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "not visible",
+      "cooking_stage": "prep",
+      "start_time": 8.0,
+      "end_time": 22.0,
+      "window_start": 4
+    },
+    {
+      "step_number": 5,
+      "action": "Adding chopped tomatoes",
+      "description": "Chopped tomatoes are being added to the marinated chicken.",
+      "start_frame": 4,
+      "end_frame": 6,
+      "ingredients_visible": [
+        "chicken",
+        "yogurt",
+        "spices",
+        "chopped tomatoes"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "chicken": "raw",
+        "yogurt": "mixing",
+        "spices": "mixing",
+        "chopped tomatoes": "mixing"
+      },
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "not visible",
+      "cooking_stage": "prep",
+      "start_time": 8.0,
+      "end_time": 22.0,
+      "window_start": 4
+    },
+    {
+      "step_number": 6,
+      "action": "Frying onions",
+      "description": "Onions are being fried in a pan.",
+      "start_frame": 7,
+      "end_frame": 9,
+      "ingredients_visible": [
+        "onions",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pan",
+      "ingredient_state": {
+        "onions": "fried",
+        "oil": "in use"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "high",
+      "oil_amount": "moderate",
+      "steam_visibility": "light",
+      "cooking_stage": "prep",
+      "start_time": 8.0,
+      "end_time": 22.0,
+      "window_start": 4
+    },
+    {
+      "step_number": 7,
+      "action": "Marinating chicken",
+      "description": "Whisked yogurt is poured over chicken pieces in a bowl.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "chicken",
+        "yogurt"
+      ],
+      "cooking_technique": "marinating",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "not visible",
+      "cooking_stage": "prep",
+      "start_time": 16.0,
+      "end_time": 30.0,
+      "window_start": 8
+    },
+    {
+      "step_number": 8,
+      "action": "Adding chopped tomatoes",
+      "description": "Chopped tomatoes are added to the bowl with yogurt and chicken.",
+      "start_frame": 3,
+      "end_frame": 5,
+      "ingredients_visible": [
+        "chicken",
+        "yogurt",
+        "chopped tomatoes"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "not visible",
+      "cooking_stage": "prep",
+      "start_time": 16.0,
+      "end_time": 30.0,
+      "window_start": 8
+    },
+    {
+      "step_number": 9,
+      "action": "Adding ginger garlic paste",
+      "description": "Ginger garlic paste is added to the bowl with yogurt, tomatoes, and chicken.",
+      "start_frame": 5,
+      "end_frame": 7,
+      "ingredients_visible": [
+        "chicken",
+        "yogurt",
+        "chopped tomatoes",
+        "ginger garlic paste"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "not visible",
+      "cooking_stage": "prep",
+      "start_time": 16.0,
+      "end_time": 30.0,
+      "window_start": 8
+    },
+    {
+      "step_number": 10,
+      "action": "Adding turmeric powder",
+      "description": "Turmeric powder is added to the bowl with yogurt, tomatoes, ginger garlic paste, and chicken.",
+      "start_frame": 7,
+      "end_frame": 9,
+      "ingredients_visible": [
+        "chicken",
+        "yogurt",
+        "chopped tomatoes",
+        "ginger garlic paste",
+        "turmeric powder"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "not visible",
+      "cooking_stage": "prep",
+      "start_time": 16.0,
+      "end_time": 30.0,
+      "window_start": 8
+    },
+    {
+      "step_number": 11,
+      "action": "Adding coriander seeds powder",
+      "description": "Coriander seeds powder is added to the bowl with yogurt, tomatoes, ginger garlic paste, turmeric powder, and chicken.",
+      "start_frame": 9,
+      "end_frame": 11,
+      "ingredients_visible": [
+        "chicken",
+        "yogurt",
+        "chopped tomatoes",
+        "ginger garlic paste",
+        "turmeric powder",
+        "coriander seeds powder"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "not visible",
+      "cooking_stage": "prep",
+      "start_time": 16.0,
+      "end_time": 30.0,
+      "window_start": 8
+    },
+    {
+      "step_number": 12,
+      "action": "Adding spices to chicken",
+      "description": "Adding ginger garlic paste, turmeric powder, coriander seeds powder, red chili powder, cumin seeds, and biryani masala powder to the chicken and onions mixture.",
+      "start_frame": 1,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "ginger garlic paste",
+        "turmeric powder",
+        "coriander seeds powder",
+        "red chili powder",
+        "cumin seeds",
+        "biryani masala powder"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "onions": "cooked",
+        "chicken": "raw"
+      },
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 24.0,
+      "end_time": 38.0,
+      "window_start": 12
+    },
+    {
+      "step_number": 13,
+      "action": "Adding spices to chicken",
+      "description": "Red chili powder, cumin seeds, and biryani masala powder are added to a bowl containing marinated chicken and diced tomatoes.",
+      "start_frame": 1,
+      "end_frame": 4,
+      "ingredients_visible": [
+        "chicken",
+        "red chili powder",
+        "cumin seeds",
+        "biryani masala powder",
+        "diced tomatoes"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "chicken": "marinated",
+        "diced tomatoes": "diced"
+      },
+      "rice_state": "not visible",
+      "meat_state": "marinated",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 32.0,
+      "end_time": 46.0,
+      "window_start": 16
+    },
+    {
+      "step_number": 14,
+      "action": "Adding biryani masala powder",
+      "description": "Biryani masala powder is added to the bowl with the marinated chicken and diced tomatoes.",
+      "start_frame": 5,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "chicken",
+        "red chili powder",
+        "cumin seeds",
+        "biryani masala powder",
+        "diced tomatoes"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "chicken": "marinated",
+        "diced tomatoes": "diced"
+      },
+      "rice_state": "not visible",
+      "meat_state": "marinated",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 32.0,
+      "end_time": 46.0,
+      "window_start": 16
+    },
+    {
+      "step_number": 15,
+      "action": "Adding spices",
+      "description": "Adding Biryani Masala Powder, lemon juice, chopped coriander, and mint leaves to a bowl containing marinated chicken and vegetables.",
+      "start_frame": 1,
+      "end_frame": 4,
+      "ingredients_visible": [
+        "Biryani Masala Powder",
+        "lemon juice",
+        "chopped coriander",
+        "mint leaves",
+        "marinated chicken",
+        "diced tomatoes",
+        "onions",
+        "garlic",
+        "ginger"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "onions": "diced",
+        "ginger": "diced",
+        "garlic": "diced",
+        "tomatoes": "diced",
+        "mint leaves": "chopped",
+        "coriander": "chopped"
+      },
+      "rice_state": "not visible",
+      "meat_state": "marinated",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 40.0,
+      "end_time": 54.0,
+      "window_start": 20
+    },
+    {
+      "step_number": 16,
+      "action": "Mixing ingredients",
+      "description": "Mixing the added spices and herbs with the marinated chicken and vegetables in the bowl.",
+      "start_frame": 5,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "Biryani Masala Powder",
+        "lemon juice",
+        "chopped coriander",
+        "mint leaves",
+        "marinated chicken",
+        "diced tomatoes",
+        "onions",
+        "garlic",
+        "ginger"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "onions": "diced",
+        "ginger": "diced",
+        "garlic": "diced",
+        "tomatoes": "diced",
+        "mint leaves": "chopped",
+        "coriander": "chopped"
+      },
+      "rice_state": "not visible",
+      "meat_state": "marinated",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 40.0,
+      "end_time": 54.0,
+      "window_start": 20
+    },
+    {
+      "step_number": 17,
+      "action": "Adding lemon juice",
+      "description": "Lemon juice is being poured into a bowl containing marinated chicken, tomatoes, and spices.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "lemon juice",
+        "marinated chicken",
+        "tomatoes",
+        "spices"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.95,
+      "visible_utensil": [],
+      "vessel": "bowl",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "marinated",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 48.0,
+      "end_time": 62.0,
+      "window_start": 24
+    },
+    {
+      "step_number": 18,
+      "action": "Adding chopped coriander and mint leaves",
+      "description": "Chopped coriander and mint leaves are being added to the bowl with the marinated chicken.",
+      "start_frame": 4,
+      "end_frame": 5,
+      "ingredients_visible": [
+        "chopped coriander and mint leaves",
+        "marinated chicken",
+        "tomatoes",
+        "spices"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.95,
+      "visible_utensil": [],
+      "vessel": "bowl",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "marinated",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 48.0,
+      "end_time": 62.0,
+      "window_start": 24
+    },
+    {
+      "step_number": 19,
+      "action": "Adding green chilies",
+      "description": "Green chilies are being added to the bowl with the marinated chicken.",
+      "start_frame": 6,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "green chilies",
+        "marinated chicken",
+        "tomatoes",
+        "spices"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.95,
+      "visible_utensil": [],
+      "vessel": "bowl",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "marinated",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 48.0,
+      "end_time": 62.0,
+      "window_start": 24
+    },
+    {
+      "step_number": 20,
+      "action": "Adding green chilies and coriander to the bowl",
+      "description": "Green chilies and chopped coriander are added to the bowl containing marinated chicken, onions, and tomatoes.",
+      "start_frame": 1,
+      "end_frame": 4,
+      "ingredients_visible": [
+        "green chilies",
+        "coriander",
+        "chicken",
+        "onions",
+        "tomatoes"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.95,
+      "visible_utensil": [],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "onions": "diced",
+        "chicken": "marinated",
+        "tomatoes": "diced"
+      },
+      "rice_state": "not visible",
+      "meat_state": "marinated",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 56.0,
+      "end_time": 70.0,
+      "window_start": 28
+    },
+    {
+      "step_number": 21,
+      "action": "Adding fried onions to the bowl",
+      "description": "Fried onions are added to the bowl containing the marinated chicken, green chilies, and coriander.",
+      "start_frame": 5,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "fried onions",
+        "green chilies",
+        "coriander",
+        "chicken",
+        "onions",
+        "tomatoes"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.95,
+      "visible_utensil": [],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "onions": "diced",
+        "chicken": "marinated",
+        "tomatoes": "diced"
+      },
+      "rice_state": "not visible",
+      "meat_state": "marinated",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 56.0,
+      "end_time": 70.0,
+      "window_start": 28
+    },
+    {
+      "step_number": 22,
+      "action": "Frying onions",
+      "description": "Fried onions are being added to a bowl containing chopped vegetables and meat.",
+      "start_frame": 1,
+      "end_frame": 4,
+      "ingredients_visible": [
+        "onions",
+        "chopped vegetables",
+        "meat"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "onions": "fried"
+      },
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 64.0,
+      "end_time": 78.0,
+      "window_start": 32
+    },
+    {
+      "step_number": 23,
+      "action": "Adding salt",
+      "description": "Salt is being added to the mixture in the bowl.",
+      "start_frame": 5,
+      "end_frame": 6,
+      "ingredients_visible": [
+        "onions",
+        "chopped vegetables",
+        "meat",
+        "salt"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "onions": "fried",
+        "chopped vegetables": "raw",
+        "meat": "raw",
+        "salt": "added"
+      },
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 64.0,
+      "end_time": 78.0,
+      "window_start": 32
+    },
+    {
+      "step_number": 24,
+      "action": "Mixing ingredients",
+      "description": "The ingredients in the bowl are being mixed together.",
+      "start_frame": 7,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "onions",
+        "chopped vegetables",
+        "meat",
+        "salt"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "onions": "fried",
+        "chopped vegetables": "raw",
+        "meat": "raw",
+        "salt": "added"
+      },
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 64.0,
+      "end_time": 78.0,
+      "window_start": 32
+    },
+    {
+      "step_number": 25,
+      "action": "Adding salt",
+      "description": "Adding salt to the mixture in the bowl.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "chicken",
+        "onions",
+        "green chilies",
+        "tomatoes",
+        "cilantro",
+        "salt"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "onions": "diced",
+        "chicken": "raw",
+        "green chilies": "diced",
+        "tomatoes": "diced",
+        "cilantro": "chopped",
+        "salt": "granulated"
+      },
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 72.0,
+      "end_time": 86.0,
+      "window_start": 36
+    },
+    {
+      "step_number": 26,
+      "action": "Mixing ingredients",
+      "description": "Mixing the ingredients in the bowl.",
+      "start_frame": 3,
+      "end_frame": 5,
+      "ingredients_visible": [
+        "chicken",
+        "onions",
+        "green chilies",
+        "tomatoes",
+        "cilantro",
+        "salt"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "onions": "diced",
+        "chicken": "raw",
+        "green chilies": "diced",
+        "tomatoes": "diced",
+        "cilantro": "chopped",
+        "salt": "granulated"
+      },
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 72.0,
+      "end_time": 86.0,
+      "window_start": 36
+    },
+    {
+      "step_number": 27,
+      "action": "Adding oil",
+      "description": "Pouring cooking oil into the pot.",
+      "start_frame": 6,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "cooking oil"
+      ],
+      "cooking_technique": "pouring",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "ladle"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "cooking oil": "in pot"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 72.0,
+      "end_time": 86.0,
+      "window_start": 36
+    },
+    {
+      "step_number": 28,
+      "action": "Adding spices",
+      "description": "Adding spices to the pot.",
+      "start_frame": 8,
+      "end_frame": 9,
+      "ingredients_visible": [
+        "cinnamon",
+        "cardamom",
+        "cloves"
+      ],
+      "cooking_technique": "adding",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "ladle"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "cinnamon": "whole",
+        "cardamom": "whole",
+        "cloves": "whole"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 72.0,
+      "end_time": 86.0,
+      "window_start": 36
+    },
+    {
+      "step_number": 29,
+      "action": "Pouring oil",
+      "description": "Pouring cooking oil into a pot",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "cooking oil"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [],
+      "vessel": "pot",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 80.0,
+      "end_time": 94.0,
+      "window_start": 40
+    },
+    {
+      "step_number": 30,
+      "action": "Adding spices",
+      "description": "Adding black cardamom, green cardamom, and cloves to the pot",
+      "start_frame": 4,
+      "end_frame": 7,
+      "ingredients_visible": [
+        "black cardamom",
+        "green cardamom",
+        "cloves"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "black cardamom": "not visible",
+        "green cardamom": "not visible",
+        "cloves": "not visible"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 80.0,
+      "end_time": 94.0,
+      "window_start": 40
+    },
+    {
+      "step_number": 31,
+      "action": "Adding spices",
+      "description": "Black cardamom, green cardamom, and cloves are added to a pot of oil.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "black cardamom",
+        "green cardamom",
+        "cloves"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "black cardamom": "in pot",
+        "green cardamom": "in pot",
+        "cloves": "in pot"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 88.0,
+      "end_time": 102.0,
+      "window_start": 44
+    },
+    {
+      "step_number": 32,
+      "action": "Frying spices",
+      "description": "The spices are fried in the oil.",
+      "start_frame": 4,
+      "end_frame": 6,
+      "ingredients_visible": [
+        "black cardamom",
+        "green cardamom",
+        "cloves"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "black cardamom": "in pot",
+        "green cardamom": "in pot",
+        "cloves": "in pot"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 88.0,
+      "end_time": 102.0,
+      "window_start": 44
+    },
+    {
+      "step_number": 33,
+      "action": "Adding ginger garlic paste",
+      "description": "Ginger garlic paste is added to the pot.",
+      "start_frame": 7,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "ginger garlic paste"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "ginger garlic paste": "in pot"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 88.0,
+      "end_time": 102.0,
+      "window_start": 44
+    },
+    {
+      "step_number": 34,
+      "action": "Stirring",
+      "description": "The contents of the pot are stirred.",
+      "start_frame": 9,
+      "end_frame": 10,
+      "ingredients_visible": [
+        "ginger garlic paste",
+        "black cardamom",
+        "green cardamom",
+        "cloves"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "ginger garlic paste": "in pot",
+        "black cardamom": "in pot",
+        "green cardamom": "in pot",
+        "cloves": "in pot"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 88.0,
+      "end_time": 102.0,
+      "window_start": 44
+    },
+    {
+      "step_number": 35,
+      "action": "Adding spices to oil",
+      "description": "Spices including ginger, garlic paste, cumin seeds, and bay leaves are added to hot oil in a pot.",
+      "start_frame": 0,
+      "end_frame": 30,
+      "ingredients_visible": [
+        "ginger garlic paste",
+        "cumin seeds",
+        "bay leaves"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "ginger garlic paste": "in oil",
+        "cumin seeds": "in oil",
+        "bay leaves": "in oil"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 96.0,
+      "end_time": 110.0,
+      "window_start": 48
+    },
+    {
+      "step_number": 36,
+      "action": "Frying spices",
+      "description": "The spices are fried in the oil until they start to sizzle.",
+      "start_frame": 30,
+      "end_frame": 60,
+      "ingredients_visible": [
+        "ginger garlic paste",
+        "cumin seeds",
+        "bay leaves"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "ginger garlic paste": "in oil",
+        "cumin seeds": "in oil",
+        "bay leaves": "in oil"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 96.0,
+      "end_time": 110.0,
+      "window_start": 48
+    },
+    {
+      "step_number": 37,
+      "action": "Adding peeled potatoes",
+      "description": "Peeled potatoes are added to the pot with the fried spices.",
+      "start_frame": 60,
+      "end_frame": 90,
+      "ingredients_visible": [
+        "ginger garlic paste",
+        "cumin seeds",
+        "bay leaves",
+        "peeled potatoes"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "ginger garlic paste": "in oil",
+        "cumin seeds": "in oil",
+        "bay leaves": "in oil",
+        "peeled potatoes": "in pot"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 96.0,
+      "end_time": 110.0,
+      "window_start": 48
+    },
+    {
+      "step_number": 38,
+      "action": "Boiling potatoes",
+      "description": "Potatoes are being boiled in a pot of water.",
+      "start_frame": 1,
+      "end_frame": 4,
+      "ingredients_visible": [
+        "water",
+        "peeled potatoes"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [],
+      "vessel": "pot",
+      "ingredient_state": {
+        "peeled potatoes": "boiled"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 104.0,
+      "end_time": 118.0,
+      "window_start": 52
+    },
+    {
+      "step_number": 39,
+      "action": "Adding boiled potatoes to the pot",
+      "description": "Boiled potatoes are being added to the pot of water.",
+      "start_frame": 5,
+      "end_frame": 7,
+      "ingredients_visible": [
+        "water",
+        "peeled potatoes"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "peeled potatoes": "boiled"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 104.0,
+      "end_time": 118.0,
+      "window_start": 52
+    },
+    {
+      "step_number": 40,
+      "action": "Frying potatoes",
+      "description": "Potatoes are being fried in a pot with oil.",
+      "start_frame": 1,
+      "end_frame": 7,
+      "ingredients_visible": [
+        "potatoes",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "potatoes": "fried"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 112.0,
+      "end_time": 126.0,
+      "window_start": 56
+    },
+    {
+      "step_number": 41,
+      "action": "Adding fried potatoes to the pot",
+      "description": "Fried potatoes are being added to the pot with the chicken.",
+      "start_frame": 8,
+      "end_frame": 9,
+      "ingredients_visible": [
+        "potatoes",
+        "chicken",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "potatoes": "fried",
+        "chicken": "raw"
+      },
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 112.0,
+      "end_time": 126.0,
+      "window_start": 56
+    },
+    {
+      "step_number": 42,
+      "action": "Frying potatoes",
+      "description": "Potatoes are being fried in a pot with oil.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "potatoes",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "potatoes": "fried"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 120.0,
+      "end_time": 134.0,
+      "window_start": 60
+    },
+    {
+      "step_number": 43,
+      "action": "Adding fried potatoes to the pot",
+      "description": "Fried potatoes are being added to the pot with the chicken.",
+      "start_frame": 4,
+      "end_frame": 5,
+      "ingredients_visible": [
+        "potatoes",
+        "chicken",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "potatoes": "fried",
+        "chicken": "raw"
+      },
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 120.0,
+      "end_time": 134.0,
+      "window_start": 60
+    },
+    {
+      "step_number": 44,
+      "action": "Cooking chicken and potatoes",
+      "description": "Chicken and potatoes are being cooked together in the pot.",
+      "start_frame": 6,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "potatoes",
+        "chicken",
+        "oil",
+        "spices"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "potatoes": "fried",
+        "chicken": "cooked"
+      },
+      "rice_state": "not visible",
+      "meat_state": "cooked",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "cooking",
+      "start_time": 120.0,
+      "end_time": 134.0,
+      "window_start": 60
+    },
+    {
+      "step_number": 45,
+      "action": "Stirring the curry",
+      "description": "The chef is stirring the curry in the pot to ensure even cooking of the chicken and potatoes.",
+      "start_frame": 1,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "chicken",
+        "potatoes",
+        "onions",
+        "chili peppers",
+        "tomatoes",
+        "spices"
+      ],
+      "cooking_technique": "stirring",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "wooden spoon"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "chicken": "cooked",
+        "potatoes": "cooked",
+        "onions": "cooked",
+        "chili peppers": "cooked",
+        "tomatoes": "cooked",
+        "spices": "mixed"
+      },
+      "rice_state": "not visible",
+      "meat_state": "cooked",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "light",
+      "cooking_stage": "cooking",
+      "start_time": 128.0,
+      "end_time": 142.0,
+      "window_start": 64
+    },
+    {
+      "step_number": 46,
+      "action": "Stirring the curry",
+      "description": "The chef is stirring the curry in the pot to ensure even cooking of the chicken and vegetables.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "chicken",
+        "potatoes",
+        "onions",
+        "green chilies",
+        "tomatoes"
+      ],
+      "cooking_technique": "stirring",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "onions": "cooked",
+        "potatoes": "cooked",
+        "chicken": "cooked",
+        "green chilies": "cooked",
+        "tomatoes": "cooked"
+      },
+      "rice_state": "not visible",
+      "meat_state": "cooked",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "light",
+      "cooking_stage": "cooking",
+      "start_time": 136.0,
+      "end_time": 150.0,
+      "window_start": 68
+    },
+    {
+      "step_number": 47,
+      "action": "Covering the pot",
+      "description": "The chef covers the pot to allow the curry to simmer and cook further.",
+      "start_frame": 4,
+      "end_frame": 5,
+      "ingredients_visible": [
+        "chicken",
+        "potatoes",
+        "onions",
+        "green chilies",
+        "tomatoes"
+      ],
+      "cooking_technique": "simmering",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "onions": "cooked",
+        "potatoes": "cooked",
+        "chicken": "cooked",
+        "green chilies": "cooked",
+        "tomatoes": "cooked"
+      },
+      "rice_state": "not visible",
+      "meat_state": "cooked",
+      "flame_level": "low",
+      "oil_amount": "moderate",
+      "steam_visibility": "light",
+      "cooking_stage": "cooking",
+      "start_time": 136.0,
+      "end_time": 150.0,
+      "window_start": 68
+    },
+    {
+      "step_number": 48,
+      "action": "Preparing spices",
+      "description": "The chef is preparing spices for the biryani by mixing bay leaves, star anise, green cardamom, black cardamom, black pepper, cloves, and cinnamon stick.",
+      "start_frame": 6,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "bay leaves",
+        "star anise",
+        "green cardamom",
+        "black cardamom",
+        "black pepper",
+        "cloves",
+        "cinnamon stick"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "bay leaves": "raw",
+        "star anise": "raw",
+        "green cardamom": "raw",
+        "black cardamom": "raw",
+        "black pepper": "raw",
+        "cloves": "raw",
+        "cinnamon stick": "raw"
+      },
+      "rice_state": "not visible",
+      "meat_state": "cooked",
+      "flame_level": "off",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "preparation",
+      "start_time": 136.0,
+      "end_time": 150.0,
+      "window_start": 68
+    },
+    {
+      "step_number": 49,
+      "action": "Preparing spices",
+      "description": "The chef is adding bay leaves, star anise, green cardamom, black cardamom, black pepper, cloves, and cinnamon stick to a pot of water.",
+      "start_frame": 1,
+      "end_frame": 4,
+      "ingredients_visible": [
+        "Bay leaves",
+        "Star anise",
+        "Green cardamom",
+        "Black cardamom",
+        "Black pepper",
+        "Cloves",
+        "Cinnamon stick"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 144.0,
+      "end_time": 158.0,
+      "window_start": 72
+    },
+    {
+      "step_number": 50,
+      "action": "Adding cumin seeds",
+      "description": "The chef is adding cumin seeds to the pot of water.",
+      "start_frame": 5,
+      "end_frame": 6,
+      "ingredients_visible": [
+        "Cumin seeds"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 144.0,
+      "end_time": 158.0,
+      "window_start": 72
+    },
+    {
+      "step_number": 51,
+      "action": "Adding lemon juice",
+      "description": "The chef is adding lemon juice to the pot of water.",
+      "start_frame": 7,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "Lemon juice"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 144.0,
+      "end_time": 158.0,
+      "window_start": 72
+    },
+    {
+      "step_number": 52,
+      "action": "Adding salt",
+      "description": "The chef is adding salt to the pot of water.",
+      "start_frame": 9,
+      "end_frame": 10,
+      "ingredients_visible": [
+        "Salt"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 144.0,
+      "end_time": 158.0,
+      "window_start": 72
+    },
+    {
+      "step_number": 53,
+      "action": "Adding cumin seeds",
+      "description": "Cumin seeds are added to a pot of boiling water.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "cumin seeds"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "cumin seeds": "boiled"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "high",
+      "oil_amount": "not visible",
+      "steam_visibility": "light",
+      "cooking_stage": "prep",
+      "start_time": 152.0,
+      "end_time": 166.0,
+      "window_start": 76
+    },
+    {
+      "step_number": 54,
+      "action": "Adding lemon juice",
+      "description": "Lemon juice is added to the pot of boiling water.",
+      "start_frame": 3,
+      "end_frame": 5,
+      "ingredients_visible": [
+        "lemon juice"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "lemon juice": "boiled"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "high",
+      "oil_amount": "not visible",
+      "steam_visibility": "light",
+      "cooking_stage": "prep",
+      "start_time": 152.0,
+      "end_time": 166.0,
+      "window_start": 76
+    },
+    {
+      "step_number": 55,
+      "action": "Adding salt",
+      "description": "Salt is added to the pot of boiling water.",
+      "start_frame": 5,
+      "end_frame": 7,
+      "ingredients_visible": [
+        "salt"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "salt": "boiled"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "high",
+      "oil_amount": "not visible",
+      "steam_visibility": "light",
+      "cooking_stage": "prep",
+      "start_time": 152.0,
+      "end_time": 166.0,
+      "window_start": 76
+    },
+    {
+      "step_number": 56,
+      "action": "Adding clarified butter",
+      "description": "Clarified butter is added to the pot of boiling water.",
+      "start_frame": 7,
+      "end_frame": 9,
+      "ingredients_visible": [
+        "clarified butter"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "clarified butter": "boiled"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "high",
+      "oil_amount": "not visible",
+      "steam_visibility": "light",
+      "cooking_stage": "prep",
+      "start_time": 152.0,
+      "end_time": 166.0,
+      "window_start": 76
+    },
+    {
+      "step_number": 57,
+      "action": "Adding boiled rice",
+      "description": "Boiled rice is added to the pot of boiling water.",
+      "start_frame": 9,
+      "end_frame": 11,
+      "ingredients_visible": [
+        "boiled rice"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "boiled rice": "boiled"
+      },
+      "rice_state": "boiled",
+      "meat_state": "not visible",
+      "flame_level": "high",
+      "oil_amount": "not visible",
+      "steam_visibility": "light",
+      "cooking_stage": "prep",
+      "start_time": 152.0,
+      "end_time": 166.0,
+      "window_start": 76
+    },
+    {
+      "step_number": 58,
+      "action": "Adding clarified butter",
+      "description": "Clarified butter is being added to a pot of water.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "butter"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "ladle"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "butter": "in liquid form"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 160.0,
+      "end_time": 174.0,
+      "window_start": 80
+    },
+    {
+      "step_number": 59,
+      "action": "Adding spices",
+      "description": "Various spices are being added to the pot of water.",
+      "start_frame": 3,
+      "end_frame": 5,
+      "ingredients_visible": [
+        "cinnamon stick",
+        "star anise",
+        "peppercorns",
+        "bay leaves",
+        "clove",
+        "cardamom",
+        "ginger",
+        "garlic"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "ladle"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "cinnamon stick": "in water",
+        "star anise": "in water",
+        "peppercorns": "in water",
+        "bay leaves": "in water",
+        "clove": "in water",
+        "cardamom": "in water",
+        "ginger": "in water",
+        "garlic": "in water"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 160.0,
+      "end_time": 174.0,
+      "window_start": 80
+    },
+    {
+      "step_number": 60,
+      "action": "Adding soaked basmati rice",
+      "description": "Soaked basmati rice is being added to the pot of water.",
+      "start_frame": 5,
+      "end_frame": 7,
+      "ingredients_visible": [
+        "soaked basmati rice"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "ladle"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "soaked basmati rice": "in water"
+      },
+      "rice_state": "soaking",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 160.0,
+      "end_time": 174.0,
+      "window_start": 80
+    },
+    {
+      "step_number": 61,
+      "action": "Boiling the mixture",
+      "description": "The mixture with spices and rice is being boiled.",
+      "start_frame": 7,
+      "end_frame": 9,
+      "ingredients_visible": [
+        "soaked basmati rice",
+        "cinnamon stick",
+        "star anise",
+        "peppercorns",
+        "bay leaves",
+        "clove",
+        "cardamom",
+        "ginger",
+        "garlic"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "ladle"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "soaked basmati rice": "boiling",
+        "cinnamon stick": "in water",
+        "star anise": "in water",
+        "peppercorns": "in water",
+        "bay leaves": "in water",
+        "clove": "in water",
+        "cardamom": "in water",
+        "ginger": "in water",
+        "garlic": "in water"
+      },
+      "rice_state": "soaking",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 160.0,
+      "end_time": 174.0,
+      "window_start": 80
+    },
+    {
+      "step_number": 62,
+      "action": "Soaking rice",
+      "description": "Rice is being soaked in water with spices.",
+      "start_frame": 1,
+      "end_frame": 4,
+      "ingredients_visible": [
+        "rice",
+        "water",
+        "spices"
+      ],
+      "cooking_technique": "soaking",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "ladle"
+      ],
+      "vessel": "handi",
+      "ingredient_state": {
+        "rice": "soaking",
+        "water": "boiled"
+      },
+      "rice_state": "soaking",
+      "meat_state": "not visible",
+      "flame_level": "off",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 168.0,
+      "end_time": 182.0,
+      "window_start": 84
+    },
+    {
+      "step_number": 63,
+      "action": "Cooking rice",
+      "description": "The soaked rice is being cooked in a pot with spices.",
+      "start_frame": 5,
+      "end_frame": 7,
+      "ingredients_visible": [
+        "rice",
+        "water",
+        "spices"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "ladle"
+      ],
+      "vessel": "handi",
+      "ingredient_state": {
+        "rice": "cooking",
+        "water": "boiled"
+      },
+      "rice_state": "cooking",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "light",
+      "cooking_stage": "rice_cooking",
+      "start_time": 168.0,
+      "end_time": 182.0,
+      "window_start": 84
+    },
+    {
+      "step_number": 64,
+      "action": "Preparing meat",
+      "description": "Meat is being fried in a pan with spices.",
+      "start_frame": 8,
+      "end_frame": 10,
+      "ingredients_visible": [
+        "meat",
+        "oil",
+        "spices"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "meat": "frying",
+        "oil": "moderate"
+      },
+      "rice_state": "cooking",
+      "meat_state": "frying",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "meat_cooking",
+      "start_time": 168.0,
+      "end_time": 182.0,
+      "window_start": 84
+    },
+    {
+      "step_number": 65,
+      "action": "Combining rice and meat",
+      "description": "The cooked rice and fried meat are being mixed together in the pot.",
+      "start_frame": 11,
+      "end_frame": 13,
+      "ingredients_visible": [
+        "rice",
+        "meat",
+        "spices"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "handi",
+      "ingredient_state": {
+        "rice": "cooked",
+        "meat": "cooked"
+      },
+      "rice_state": "cooked",
+      "meat_state": "cooked",
+      "flame_level": "off",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "combining",
+      "start_time": 168.0,
+      "end_time": 182.0,
+      "window_start": 84
+    },
+    {
+      "step_number": 66,
+      "action": "Adding oil",
+      "description": "Oil is being added to the pot with the mixed rice and meat.",
+      "start_frame": 14,
+      "end_frame": 16,
+      "ingredients_visible": [
+        "rice",
+        "meat",
+        "oil",
+        "spices"
+      ],
+      "cooking_technique": "adding oil",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "handi",
+      "ingredient_state": {
+        "rice": "cooked",
+        "meat": "cooked",
+        "oil": "added"
+      },
+      "rice_state": "cooked",
+      "meat_state": "cooked",
+      "flame_level": "off",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "finalizing",
+      "start_time": 168.0,
+      "end_time": 182.0,
+      "window_start": 84
+    },
+    {
+      "step_number": 67,
+      "action": "Frying onions",
+      "description": "Frying onions in a pot with oil.",
+      "start_frame": 1,
+      "end_frame": 4,
+      "ingredients_visible": [
+        "onions"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "onions": "golden brown"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 176.0,
+      "end_time": 190.0,
+      "window_start": 88
+    },
+    {
+      "step_number": 68,
+      "action": "Adding fried onions to the pot",
+      "description": "Adding fried onions to the pot with other ingredients.",
+      "start_frame": 5,
+      "end_frame": 7,
+      "ingredients_visible": [
+        "onions",
+        "chicken",
+        "potatoes"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "onions": "fried",
+        "chicken": "raw",
+        "potatoes": "raw"
+      },
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 176.0,
+      "end_time": 190.0,
+      "window_start": 88
+    },
+    {
+      "action": "unknown",
+      "description": "```json\n[\n    {\n        \"step_number\": 1,\n        \"action\": \"Frying onions\",\n        \"description\": \"Frying onions in a pot with oil.\",\n        \"start_frame\": 1,\n        \"end_frame\": 3,\n        \"ingre",
+      "start_time": 184.0,
+      "end_time": 198.0,
+      "confidence": 0.3,
+      "visible_utensil": [],
+      "vessel": "",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "",
+      "step_number": 69
+    },
+    {
+      "step_number": 70,
+      "action": "Layering ingredients",
+      "description": "Chopped coriander leaves are added to the pot of chicken and potatoes.",
+      "start_frame": 1,
+      "end_frame": 4,
+      "ingredients_visible": [
+        "chopped coriander leaves",
+        "chicken",
+        "potatoes"
+      ],
+      "cooking_technique": "layering",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "onions": "cooked",
+        "chicken": "cooked",
+        "potatoes": "cooked"
+      },
+      "rice_state": "not visible",
+      "meat_state": "cooked",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "layering",
+      "start_time": 192.0,
+      "end_time": 206.0,
+      "window_start": 96
+    },
+    {
+      "step_number": 71,
+      "action": "Adding rice",
+      "description": "Rice is added to the pot on top of the layered ingredients.",
+      "start_frame": 5,
+      "end_frame": 7,
+      "ingredients_visible": [
+        "rice",
+        "chopped coriander leaves",
+        "chicken",
+        "potatoes"
+      ],
+      "cooking_technique": "layering",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "onions": "cooked",
+        "chicken": "cooked",
+        "potatoes": "cooked"
+      },
+      "rice_state": "raw",
+      "meat_state": "cooked",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "layering",
+      "start_time": 192.0,
+      "end_time": 206.0,
+      "window_start": 96
+    },
+    {
+      "step_number": 72,
+      "action": "Adding red food color",
+      "description": "Red food color is added to the rice.",
+      "start_frame": 8,
+      "end_frame": 9,
+      "ingredients_visible": [
+        "rice",
+        "chopped coriander leaves",
+        "chicken",
+        "potatoes",
+        "red food color"
+      ],
+      "cooking_technique": "layering",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "onions": "cooked",
+        "chicken": "cooked",
+        "potatoes": "cooked"
+      },
+      "rice_state": "raw",
+      "meat_state": "cooked",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "layering",
+      "start_time": 192.0,
+      "end_time": 206.0,
+      "window_start": 96
+    },
+    {
+      "step_number": 73,
+      "action": "Adding clarified butter",
+      "description": "Clarified butter is added to the rice.",
+      "start_frame": 10,
+      "end_frame": 11,
+      "ingredients_visible": [
+        "rice",
+        "chopped coriander leaves",
+        "chicken",
+        "potatoes",
+        "red food color",
+        "clarified butter"
+      ],
+      "cooking_technique": "layering",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "onions": "cooked",
+        "chicken": "cooked",
+        "potatoes": "cooked"
+      },
+      "rice_state": "raw",
+      "meat_state": "cooked",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "layering",
+      "start_time": 192.0,
+      "end_time": 206.0,
+      "window_start": 96
+    },
+    {
+      "step_number": 74,
+      "action": "Adding red food color",
+      "description": "A person is adding red food color to a pot of cooked rice.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "rice",
+        "red food color"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "fully cooked",
+        "red food color": "mixing"
+      },
+      "rice_state": "fully cooked",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 200.0,
+      "end_time": 214.0,
+      "window_start": 100
+    },
+    {
+      "step_number": 75,
+      "action": "Adding carrot and clarified butter",
+      "description": "A person is adding carrot and clarified butter to the pot of rice.",
+      "start_frame": 4,
+      "end_frame": 6,
+      "ingredients_visible": [
+        "rice",
+        "carrot",
+        "clarified butter"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "fully cooked",
+        "carrot": "diced",
+        "clarified butter": "mixing"
+      },
+      "rice_state": "fully cooked",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 200.0,
+      "end_time": 214.0,
+      "window_start": 100
+    },
+    {
+      "step_number": 76,
+      "action": "Adding fried onions",
+      "description": "A person is adding fried onions to the pot of rice.",
+      "start_frame": 7,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "rice",
+        "carrot",
+        "clarified butter",
+        "fried onions"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "fully cooked",
+        "carrot": "diced",
+        "clarified butter": "mixing",
+        "fried onions": "fried"
+      },
+      "rice_state": "fully cooked",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 200.0,
+      "end_time": 214.0,
+      "window_start": 100
+    },
+    {
+      "step_number": 77,
+      "action": "Adding clarified butter",
+      "description": "Clarified butter is being added to the cooked rice.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "rice",
+        "butter"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "rice": "fully cooked",
+        "butter": "in liquid state"
+      },
+      "rice_state": "fully cooked",
+      "meat_state": "not visible",
+      "flame_level": "off",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 208.0,
+      "end_time": 222.0,
+      "window_start": 104
+    },
+    {
+      "step_number": 78,
+      "action": "Adding fried onions",
+      "description": "Fried onions are being added to the rice.",
+      "start_frame": 3,
+      "end_frame": 5,
+      "ingredients_visible": [
+        "rice",
+        "butter",
+        "onions"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "rice": "fully cooked",
+        "butter": "in liquid state",
+        "onions": "fried"
+      },
+      "rice_state": "fully cooked",
+      "meat_state": "not visible",
+      "flame_level": "off",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 208.0,
+      "end_time": 222.0,
+      "window_start": 104
+    },
+    {
+      "step_number": 79,
+      "action": "Adding chopped coriander leaves",
+      "description": "Chopped coriander leaves are being added to the rice.",
+      "start_frame": 5,
+      "end_frame": 7,
+      "ingredients_visible": [
+        "rice",
+        "butter",
+        "onions",
+        "coriander leaves"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "rice": "fully cooked",
+        "butter": "in liquid state",
+        "onions": "fried",
+        "coriander leaves": "chopped"
+      },
+      "rice_state": "fully cooked",
+      "meat_state": "not visible",
+      "flame_level": "off",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 208.0,
+      "end_time": 222.0,
+      "window_start": 104
+    },
+    {
+      "step_number": 80,
+      "action": "Covering the bowl",
+      "description": "The bowl is being covered with a lid.",
+      "start_frame": 7,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "rice",
+        "butter",
+        "onions",
+        "coriander leaves"
+      ],
+      "cooking_technique": "covering",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "rice": "fully cooked",
+        "butter": "in liquid state",
+        "onions": "fried",
+        "coriander leaves": "chopped"
+      },
+      "rice_state": "fully cooked",
+      "meat_state": "not visible",
+      "flame_level": "off",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 208.0,
+      "end_time": 222.0,
+      "window_start": 104
+    },
+    {
+      "step_number": 81,
+      "action": "Layering ingredients",
+      "description": "Chopped coriander leaves and fried onions are being layered on top of the rice.",
+      "start_frame": 1,
+      "end_frame": 4,
+      "ingredients_visible": [
+        "chopped coriander leaves",
+        "fried onions",
+        "rice"
+      ],
+      "cooking_technique": "layering",
+      "confidence": 0.95,
+      "visible_utensil": [],
+      "vessel": "handi",
+      "ingredient_state": {
+        "onions": "fried",
+        "rice": "raw"
+      },
+      "rice_state": "raw",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "layering",
+      "start_time": 216.0,
+      "end_time": 230.0,
+      "window_start": 108
+    },
+    {
+      "step_number": 82,
+      "action": "Adding spices",
+      "description": "A mixture of spices is being added to the rice.",
+      "start_frame": 5,
+      "end_frame": 6,
+      "ingredients_visible": [
+        "spices",
+        "rice"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "handi",
+      "ingredient_state": {
+        "spices": "mixing",
+        "rice": "raw"
+      },
+      "rice_state": "raw",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 216.0,
+      "end_time": 230.0,
+      "window_start": 108
+    },
+    {
+      "step_number": 83,
+      "action": "Adding vegetables",
+      "description": "Diced carrots and peas are being added to the rice.",
+      "start_frame": 7,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "diced carrots",
+        "peas",
+        "rice"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.85,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "handi",
+      "ingredient_state": {
+        "diced carrots": "diced",
+        "peas": "diced",
+        "rice": "raw"
+      },
+      "rice_state": "raw",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 216.0,
+      "end_time": 230.0,
+      "window_start": 108
+    },
+    {
+      "step_number": 84,
+      "action": "Adding meat",
+      "description": "Fried chicken is being added to the rice.",
+      "start_frame": 9,
+      "end_frame": 10,
+      "ingredients_visible": [
+        "fried chicken",
+        "rice"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.8,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "handi",
+      "ingredient_state": {
+        "fried chicken": "fried",
+        "rice": "raw"
+      },
+      "rice_state": "raw",
+      "meat_state": "fried",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 216.0,
+      "end_time": 230.0,
+      "window_start": 108
+    },
+    {
+      "step_number": 85,
+      "action": "Adding cheese",
+      "description": "Shredded cheese is being added to the rice.",
+      "start_frame": 11,
+      "end_frame": 12,
+      "ingredients_visible": [
+        "shredded cheese",
+        "rice"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.75,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "handi",
+      "ingredient_state": {
+        "shredded cheese": "shredded",
+        "rice": "raw"
+      },
+      "rice_state": "raw",
+      "meat_state": "fried",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 216.0,
+      "end_time": 230.0,
+      "window_start": 108
+    },
+    {
+      "step_number": 86,
+      "action": "Layering ingredients",
+      "description": "The chef is layering rice, vegetables, and meat in a large pot.",
+      "start_frame": 1,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "rice",
+        "carrots",
+        "onions",
+        "chicken"
+      ],
+      "cooking_technique": "layering",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "handi",
+      "ingredient_state": {
+        "onions": "cooked",
+        "rice": "cooked",
+        "carrots": "cooked",
+        "chicken": "cooked"
+      },
+      "rice_state": "fully cooked",
+      "meat_state": "fully cooked",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "light",
+      "cooking_stage": "layering",
+      "start_time": 224.0,
+      "end_time": 238.0,
+      "window_start": 112
+    },
+    {
+      "step_number": 87,
+      "action": "Serving",
+      "description": "The cooked biryani is being served on a white plate.",
+      "start_frame": 1,
+      "end_frame": 6,
+      "ingredients_visible": [
+        "biryani",
+        "chicken",
+        "potatoes",
+        "onions",
+        "carrots",
+        "cilantro"
+      ],
+      "cooking_technique": "serving",
+      "confidence": 1.0,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "not visible",
+      "ingredient_state": {
+        "onions": "cooked",
+        "rice": "fully cooked",
+        "meat": "cooked",
+        "potatoes": "cooked",
+        "carrots": "cooked",
+        "cilantro": "chopped"
+      },
+      "rice_state": "fully cooked",
+      "meat_state": "cooked",
+      "flame_level": "off",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "serving",
+      "start_time": 232.0,
+      "end_time": 242.0,
+      "window_start": 116
+    }
+  ]
+}

@@ -1,454 +1,215 @@
 {
-  "schema_version": "2.0",
-  "category": "Hyderabadi",
-  "full_name": "Hyderabadi Chicken Biryani",
-  "region": "Telangana / Andhra Pradesh (Hyderabad)",
-  "protein": "chicken",
-  "utensil_hierarchy": [
-    "handi (heavy-bottomed round pot)",
-    "tawa/kadhai (for frying birista)",
-    "strainer",
-    "mixing bowl",
-    "rolling pin (for dough seal)"
-  ],
-  "marination_strategy": "wet yogurt-based, 2-6 hrs, acid (lemon juice) + dairy (yogurt) + aromatics (mint, fried onions)",
-  "spice_intensity": "medium-high",
-  "distinguishing_features": [
-    "Kacchi (raw) method — raw marinated meat layered with parboiled rice",
-    "Sealed dum cooking with dough-sealed lid (purdah)",
-    "Generous use of saffron, fried onions (birista), and mint",
-    "Basmati rice soaked and parboiled with whole spices",
-    "Served with mirchi ka salan and raita"
-  ],
-  "steps": [
-    {
-      "step_number": 1,
-      "action": "Marinate chicken",
-      "description": "Marinate chicken with yogurt, ginger-garlic paste, green chili paste, red chili powder, turmeric, biryani masala, fried onions, mint, coriander, lemon juice, salt for 2-6 hours.",
-      "duration_minutes": 180,
-      "is_defining_step": true,
-      "ingredients_used": [
-        "chicken",
-        "yogurt",
-        "ginger-garlic paste",
-        "green chilies",
-        "mint",
-        "coriander",
-        "fried onions",
-        "biryani masala"
-      ],
-      "visible_objects": [
-        "mixing bowl",
-        "chicken pieces",
-        "yogurt",
-        "spice powders",
-        "mint leaves",
-        "fried onions"
-      ],
-      "ingredient_state": {
-        "chicken": "raw, cut into pieces",
-        "yogurt": "whisked",
-        "onions": "deep-fried golden (birista)"
-      },
-      "expected_visual_features": [
-        "red-orange marinated chicken",
-        "thick yogurt coating",
-        "visible mint and fried onions mixed in"
-      ],
-      "expected_audio": "mixing and squelching sounds",
-      "common_mistakes": [
-        "insufficient marination time (under 2 hrs)",
-        "not scoring chicken pieces"
-      ],
-      "recovery_actions": [
-        "extend marination time in refrigerator",
-        "score pieces and re-coat generously"
-      ]
-    },
-    {
-      "step_number": 2,
-      "action": "Soak basmati rice",
-      "description": "Wash and soak long-grain basmati rice in water for 30-45 minutes.",
-      "duration_minutes": 30,
-      "is_defining_step": false,
-      "ingredients_used": [
-        "basmati rice"
-      ],
-      "visible_objects": [
-        "bowl",
-        "rice",
-        "water"
-      ],
-      "ingredient_state": {
-        "rice": "dry grains soaking in water"
-      },
-      "expected_visual_features": [
-        "white rice submerged in water",
-        "water turning slightly starchy"
-      ],
-      "expected_audio": "water pouring, gentle swishing",
-      "common_mistakes": [
-        "not washing rice enough",
-        "soaking too long (grains break)"
-      ],
-      "recovery_actions": [
-        "drain and rinse again",
-        "reduce parboil time if over-soaked"
-      ]
-    },
-    {
-      "step_number": 3,
-      "action": "Parboil rice",
-      "description": "Boil rice with whole spices (bay leaf, cardamom, cloves, cinnamon, star anise) until 70% cooked. Drain.",
-      "duration_minutes": 10,
-      "is_defining_step": false,
-      "ingredients_used": [
-        "basmati rice",
-        "bay leaf",
-        "cardamom",
-        "cloves",
-        "cinnamon",
-        "star anise",
-        "salt"
-      ],
-      "visible_objects": [
-        "large pot",
-        "boiling water",
-        "rice",
-        "whole spices floating",
-        "strainer"
-      ],
-      "ingredient_state": {
-        "rice": "70% cooked — grains elongated but firm in center",
-        "water": "starchy, rolling boil"
-      },
-      "expected_visual_features": [
-        "white elongated grains",
-        "rolling boil",
-        "whole spices floating"
-      ],
-      "expected_audio": "vigorous bubbling, water boiling",
-      "common_mistakes": [
-        "overcooking rice past 70%",
-        "not draining immediately"
-      ],
-      "recovery_actions": [
-        "spread rice on tray to stop cooking",
-        "rinse with cold water"
-      ]
-    },
-    {
-      "step_number": 4,
-      "action": "Fry onions for birista",
-      "description": "Thinly slice onions and deep fry until dark golden brown and crispy.",
-      "duration_minutes": 15,
-      "is_defining_step": true,
-      "ingredients_used": [
-        "onion",
-        "oil"
-      ],
-      "visible_objects": [
-        "kadhai/deep pan",
-        "sliced onions",
-        "hot oil",
-        "slotted spoon"
-      ],
-      "ingredient_state": {
-        "onions": "thinly sliced, turning dark golden and crispy",
-        "oil": "hot, shimmering"
-      },
-      "expected_visual_features": [
-        "dark golden-brown crispy onion strands",
-        "oil bubbling around onions"
-      ],
-      "expected_audio": "continuous sizzling, crackling",
-      "common_mistakes": [
-        "uneven slicing",
-        "removing too early (pale)",
-        "oil not hot enough"
-      ],
-      "recovery_actions": [
-        "use mandoline for even slices",
-        "fry in smaller batches"
-      ]
-    },
-    {
-      "step_number": 5,
-      "action": "Layer marinated chicken",
-      "description": "Spread raw marinated chicken evenly at the bottom of a heavy handi.",
-      "duration_minutes": 5,
-      "is_defining_step": true,
-      "ingredients_used": [
-        "chicken"
-      ],
-      "visible_objects": [
+    "schema_version": "2.0",
+    "category": "Hyderabadi",
+    "full_name": "Hyderabadi Chicken Biryani",
+    "region": "Telangana and Andhra Pradesh",
+    "protein": "chicken",
+    "utensil_hierarchy": [
         "handi",
-        "marinated chicken pieces",
-        "marinade"
-      ],
-      "ingredient_state": {
-        "chicken": "raw marinated, coated in red-orange marinade"
-      },
-      "expected_visual_features": [
-        "red-orange chicken arranged at bottom of handi"
-      ],
-      "expected_audio": "placement sounds, wet slapping",
-      "common_mistakes": [
-        "uneven distribution",
-        "discarding excess marinade"
-      ],
-      "recovery_actions": [
-        "rearrange evenly",
-        "pour all marinade over chicken"
-      ]
-    },
-    {
-      "step_number": 6,
-      "action": "Layer parboiled rice",
-      "description": "Spread parboiled rice evenly over the chicken layer.",
-      "duration_minutes": 5,
-      "is_defining_step": false,
-      "ingredients_used": [
-        "basmati rice"
-      ],
-      "visible_objects": [
-        "handi with chicken",
-        "parboiled rice",
-        "spoon"
-      ],
-      "ingredient_state": {
-        "rice": "70% cooked, drained",
-        "chicken": "raw marinated, underneath"
-      },
-      "expected_visual_features": [
-        "white rice layer covering red chicken layer"
-      ],
-      "expected_audio": "gentle placing sounds",
-      "common_mistakes": [
-        "pressing rice down",
-        "uneven layer thickness"
-      ],
-      "recovery_actions": [
-        "fluff rice gently with fork",
-        "redistribute for even coverage"
-      ]
-    },
-    {
-      "step_number": 7,
-      "action": "Add saffron and garnish",
-      "description": "Drizzle saffron milk, ghee, fried onions, mint, coriander over the rice.",
-      "duration_minutes": 5,
-      "is_defining_step": true,
-      "ingredients_used": [
+        "pressure cooker",
+        "large pot"
+    ],
+    "marination_strategy": "wet marination with yogurt, lemon juice for 2-3 hours",
+    "spice_intensity": "medium-high",
+    "distinguishing_features": [
+        "layering of rice and chicken",
+        "use of dum cooking method (sealed vessel)",
+        "distinctive spice blend including saffron, kewra water",
+        "golden fried onions as garnish"
+    ],
+    "steps": [
+        {
+            "step_number": 1,
+            "action": "marinate the chicken",
+            "description": "Mix yogurt with lemon juice and spices, then coat chicken pieces thoroughly. Let sit for at least 2 hours.",
+            "duration_minutes": null,
+            "is_defining_step": true,
+            "ingredients_used": [
+                "chicken",
+                "yogurt"
+            ],
+            "visible_objects": [
+                "marinating bowl",
+                "chicken pieces"
+            ],
+            "ingredient_state": {
+                "chicken": "raw marinated"
+            },
+            "expected_visual_features": [
+                "chicken coated in yogurt mixture"
+            ],
+            "expected_audio": null,
+            "common_mistakes": [
+                "not letting the chicken sit long enough to absorb flavors"
+            ],
+            "recovery_actions": [
+                "extend marination time if possible"
+            ]
+        },
+        {
+            "step_number": 2,
+            "action": "prepare rice",
+            "description": "Soak basmati rice for at least an hour, then drain and rinse.",
+            "duration_minutes": null,
+            "is_defining_step": false,
+            "ingredients_used": [
+                "basmati rice"
+            ],
+            "visible_objects": [
+                "soaking bowl",
+                "rice grains"
+            ],
+            "ingredient_state": {
+                "rice": "soaked"
+            },
+            "expected_visual_features": [
+                "clear soaking water, white rice grains"
+            ],
+            "expected_audio": null,
+            "common_mistakes": [
+                "not draining the rice properly after soaking"
+            ],
+            "recovery_actions": [
+                "rinse thoroughly to remove excess starch"
+            ]
+        },
+        {
+            "step_number": 3,
+            "action": "fry onions",
+            "description": "Slice onions thinly and fry until golden brown, then set aside.",
+            "duration_minutes": null,
+            "is_defining_step": true,
+            "ingredients_used": [
+                "onions"
+            ],
+            "visible_objects": [
+                "frying pan",
+                "golden fried onions"
+            ],
+            "ingredient_state": {
+                "onions": "fried"
+            },
+            "expected_visual_features": [
+                "crisp, golden brown onions"
+            ],
+            "expected_audio": "sizzling oil",
+            "common_mistakes": [
+                "burning the onions instead of frying them to a golden color"
+            ],
+            "recovery_actions": [
+                "start over with fresh onions and lower heat"
+            ]
+        },
+        {
+            "step_number": 4,
+            "action": "cook rice separately",
+            "description": "Cook soaked rice in salted water until almost done, then drain.",
+            "duration_minutes": null,
+            "is_defining_step": false,
+            "ingredients_used": [
+                "basmati rice"
+            ],
+            "visible_objects": [
+                "cooking pot",
+                "cooked rice"
+            ],
+            "ingredient_state": {
+                "rice": "70% cooked"
+            },
+            "expected_visual_features": [
+                "separated, fluffy grains of rice"
+            ],
+            "expected_audio": null,
+            "common_mistakes": [
+                "overcooking the rice to mush"
+            ],
+            "recovery_actions": [
+                "use less water next time"
+            ]
+        },
+        {
+            "step_number": 5,
+            "action": "prepare chicken masala",
+            "description": "In a large pot, sauté onions and ginger-garlic paste until fragrant. Add spices and marinated chicken.",
+            "duration_minutes": null,
+            "is_defining_step": true,
+            "ingredients_used": [
+                "onions",
+                "ginger-garlic paste"
+            ],
+            "visible_objects": [
+                "large pot",
+                "sautéed onion mixture"
+            ],
+            "ingredient_state": {
+                "chicken": "partially cooked in masala"
+            },
+            "expected_visual_features": [
+                "fragrant, aromatic chicken and spices"
+            ],
+            "expected_audio": "bubbling oil",
+            "common_mistakes": [
+                "burning the spices instead of sautéing them gently"
+            ],
+            "recovery_actions": [
+                "add a little water to cool down the pot"
+            ]
+        },
+        {
+            "step_number": 6,
+            "action": "layer rice and chicken in handi",
+            "description": "Layer half the cooked rice, then marinated chicken with masala, then remaining rice.",
+            "duration_minutes": null,
+            "is_defining_step": true,
+            "ingredients_used": [
+                "basmati rice",
+                "chicken"
+            ],
+            "visible_objects": [
+                "handi",
+                "layered rice and chicken"
+            ],
+            "ingredient_state": {
+                "rice": "70% cooked",
+                "chicken": "partially cooked"
+            },
+            "expected_visual_features": [
+                "distinct layers of rice and chicken in the handi"
+            ],
+            "expected_audio": null,
+            "common_mistakes": [
+                "mixing the rice and chicken instead of layering them"
+            ],
+            "recovery_actions": [
+                "start over with new ingredients"
+            ]
+        },
+        {
+            "step_number": 7,
+            "action": "seal the handi",
+            "description": "Seal the handi using dough or a tight lid, ensuring no steam escapes.",
+            "duration_minutes": null,
+            "is_defining_step": true,
+            "ingredients_used": [
+                "handi"
+            ],
+            "visible_objects": [
+                "layered rice and chicken masala"
+            ],
+            "expected_audio": null
+        }
+    ],
+    "key_spices": [
         "saffron",
-        "ghee",
-        "onion",
-        "mint",
-        "coriander"
-      ],
-      "visible_objects": [
-        "saffron milk",
-        "ghee",
-        "fried onions",
-        "mint leaves",
-        "coriander"
-      ],
-      "ingredient_state": {
-        "saffron": "dissolved in warm milk, golden",
-        "ghee": "melted",
-        "onions": "crispy fried birista"
-      },
-      "expected_visual_features": [
-        "golden saffron streaks on white rice",
-        "green herbs",
-        "brown onion strands"
-      ],
-      "expected_audio": "drizzling liquid, sprinkling",
-      "common_mistakes": [
-        "too little saffron",
-        "not warming milk before adding saffron"
-      ],
-      "recovery_actions": [
-        "add more saffron milk",
-        "steep saffron in warm milk 10 min"
-      ]
-    },
-    {
-      "step_number": 8,
-      "action": "Seal with dough (purdah)",
-      "description": "Seal the lid with wheat flour dough to trap all steam.",
-      "duration_minutes": 5,
-      "is_defining_step": true,
-      "ingredients_used": [],
-      "visible_objects": [
-        "handi with rice",
-        "dough rope",
-        "lid"
-      ],
-      "ingredient_state": {
-        "dough": "pliable wheat flour rope pressed around lid edge"
-      },
-      "expected_visual_features": [
-        "dough strip sealing lid-pot gap",
-        "no steam escaping"
-      ],
-      "expected_audio": "pressing/sealing sounds, then silence",
-      "common_mistakes": [
-        "gaps in dough seal",
-        "dough too dry (cracks)"
-      ],
-      "recovery_actions": [
-        "press firmly and patch gaps",
-        "add water to dough if cracking"
-      ]
-    },
-    {
-      "step_number": 9,
-      "action": "Cook on dum",
-      "description": "High heat 5 min, then very low heat 25-35 min. Do not open.",
-      "duration_minutes": 35,
-      "is_defining_step": true,
-      "ingredients_used": [],
-      "visible_objects": [
-        "sealed handi on stove",
-        "tawa underneath (optional)"
-      ],
-      "ingredient_state": {
-        "rice": "cooking from 70% to done via steam",
-        "chicken": "cooking from raw to done via steam"
-      },
-      "expected_visual_features": [
-        "sealed pot on stove",
-        "no steam escaping"
-      ],
-      "expected_audio": "initial hissing, then very quiet on low heat",
-      "common_mistakes": [
-        "opening lid during dum",
-        "heat too high throughout (bottom burns)"
-      ],
-      "recovery_actions": [
-        "never open — trust the process",
-        "place tawa under handi for heat diffusion"
-      ]
-    },
-    {
-      "step_number": 10,
-      "action": "Rest and serve",
-      "description": "Rest 10 min, break seal, gently mix layers. Serve with raita and mirchi ka salan.",
-      "duration_minutes": 10,
-      "is_defining_step": false,
-      "ingredients_used": [],
-      "visible_objects": [
-        "sealed handi",
-        "serving dish",
-        "raita",
-        "mirchi ka salan"
-      ],
-      "ingredient_state": {
-        "rice": "fully cooked, fluffy, saffron-streaked",
-        "chicken": "fully cooked, tender"
-      },
-      "expected_visual_features": [
-        "bicolor rice (white and gold)",
-        "tender chicken visible",
-        "steam rising"
-      ],
-      "expected_audio": "seal cracking, steam release, gentle mixing",
-      "common_mistakes": [
-        "mixing too vigorously (breaks grains)",
-        "not resting"
-      ],
-      "recovery_actions": [
-        "use flat spatula, fold gently from edges",
-        "rest minimum 5-10 min"
-      ]
-    }
-  ],
-  "ingredient_aliases": {
-    "chicken": {
-      "hi": "मुर्गा/चिकन",
-      "te": "కోడి",
-      "ml": "കോഴി",
-      "bn": "মুরগি",
-      "ur": "مرغ"
-    },
-    "basmati rice": {
-      "hi": "बासमती चावल",
-      "te": "బాస్మతి బియ్యం",
-      "ml": "ബസ്മതി അരി",
-      "bn": "বাসমতী চাল",
-      "ur": "باسمتی چاول"
-    },
-    "yogurt": {
-      "hi": "दही",
-      "te": "పెరుగు",
-      "ml": "തൈര്",
-      "bn": "দই",
-      "ur": "دہی"
-    },
-    "onion": {
-      "hi": "प्याज",
-      "te": "ఉల్లిపాయ",
-      "ml": "ഉള്ളി",
-      "bn": "পেঁয়াজ",
-      "ur": "پیاز"
-    },
-    "ghee": {
-      "hi": "घी",
-      "te": "నెయ్యి",
-      "ml": "നെയ്യ്",
-      "bn": "ঘি",
-      "ur": "گھی"
-    },
-    "saffron": {
-      "hi": "केसर",
-      "te": "కుంకుమపువ్వు",
-      "ml": "കുങ്കുമപ്പൂവ്",
-      "bn": "জাফরান",
-      "ur": "زعفران"
-    },
-    "mint": {
-      "hi": "पुदीना",
-      "te": "పుదీనా",
-      "ml": "പുതിന",
-      "bn": "পুদিনা",
-      "ur": "پودینہ"
-    },
-    "coriander": {
-      "hi": "धनिया",
-      "te": "కొత్తిమీర",
-      "ml": "മല്ലി",
-      "bn": "ধনে",
-      "ur": "دھنیا"
-    },
-    "green chili": {
-      "hi": "हरी मिर्च",
-      "te": "పచ్చి మిర్చి",
-      "ml": "പച്ചമുളക്",
-      "bn": "কাঁচা লঙ্কা",
-      "ur": "ہری مرچ"
-    },
-    "ginger-garlic paste": {
-      "hi": "अदरक-लहसुन पेस्ट",
-      "te": "అల్లం-వెల్లుల్లి పేస్ట్",
-      "ml": "ഇഞ്ചി-വെളുത്തുള്ളി പേസ്റ്റ്",
-      "bn": "আদা-রসুন বাটা",
-      "ur": "ادرک لہسن پیسٹ"
-    }
-  },
-  "key_spices": [
-    "saffron",
-    "cardamom",
-    "cloves",
-    "cinnamon",
-    "star anise",
-    "mace",
-    "nutmeg",
-    "bay leaf"
-  ],
-  "rice_type": "Long-grain Basmati",
-  "cooking_vessel": "Heavy-bottomed handi",
-  "dum_method": "Sealed dum with dough (purdah)",
-  "typical_duration_minutes": 120,
-  "notes": "Uses kacchi (raw) method. Nizam's kitchen legacy. Always served with mirchi ka salan."
+        "kewra water",
+        "cardamom",
+        "cinnamon",
+        "cloves",
+        "bay leaf"
+    ],
+    "rice_type": "Long-grain Basmati",
+    "cooking_vessel": "Handi (sealed pot)",
+    "dum_method": "Sealed dum with dough or tight lid",
+    "typical_duration_minutes": 105,
+    "notes": ""
 }

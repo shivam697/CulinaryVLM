@@ -1,0 +1,6027 @@
+{
+  "schema_version": "2.0",
+  "video_id": "fw_z1nxkWGI",
+  "category": "Malabar",
+  "num_segments": 205,
+  "segments": [
+    {
+      "step_number": 1,
+      "action": "Pouring water",
+      "description": "Pouring water into a pot",
+      "start_frame": 0,
+      "end_frame": 2,
+      "ingredients_visible": [],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [],
+      "vessel": "pot",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 0.0,
+      "end_time": 14.0,
+      "window_start": 0
+    },
+    {
+      "step_number": 2,
+      "action": "Cooking rice",
+      "description": "Cooking rice in a pot",
+      "start_frame": 3,
+      "end_frame": 5,
+      "ingredients_visible": [
+        "rice",
+        "chicken",
+        "onions",
+        "green chilies",
+        "lemon"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "cooking",
+        "chicken": "raw",
+        "onions": "cooked",
+        "green chilies": "raw",
+        "lemon": "raw"
+      },
+      "meat_state": "raw",
+      "flame_level": "medium",
+      "oil_amount": "light",
+      "steam_visibility": "light",
+      "cooking_stage": "rice_cooking",
+      "start_time": 0.0,
+      "end_time": 14.0,
+      "window_start": 0,
+      "rice_state": "not visible"
+    },
+    {
+      "step_number": 3,
+      "action": "Serving",
+      "description": "Serving the cooked rice and chicken",
+      "start_frame": 6,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "rice",
+        "chicken",
+        "onions",
+        "green chilies",
+        "lemon"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "cooked",
+        "chicken": "cooked",
+        "onions": "cooked",
+        "green chilies": "raw",
+        "lemon": "raw"
+      },
+      "meat_state": "cooked",
+      "flame_level": "off",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "serving",
+      "start_time": 0.0,
+      "end_time": 14.0,
+      "window_start": 0,
+      "rice_state": "not visible"
+    },
+    {
+      "action": "unknown",
+      "description": "```json\n[\n    {\n        \"step_number\": 1,\n        \"action\": \"Serving rice\",\n        \"description\": \"A bowl of cooked rice is being served on a banana leaf.\",\n        \"start_frame\": 1,\n        \"end_fra",
+      "start_time": 8.0,
+      "end_time": 22.0,
+      "confidence": 0.3,
+      "visible_utensil": [],
+      "vessel": "",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "",
+      "step_number": 4
+    },
+    {
+      "step_number": 5,
+      "action": "Layering rice and meat",
+      "description": "The person is layering cooked rice and meat onto a plate.",
+      "start_frame": 0,
+      "end_frame": 4,
+      "ingredients_visible": [
+        "rice",
+        "meat"
+      ],
+      "cooking_technique": "layering",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "plate",
+      "ingredient_state": {
+        "rice": "fully cooked",
+        "meat": "cooked"
+      },
+      "rice_state": "fully cooked",
+      "meat_state": "cooked",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "layering",
+      "start_time": 16.0,
+      "end_time": 30.0,
+      "window_start": 8
+    },
+    {
+      "step_number": 6,
+      "action": "Serving the biryani",
+      "description": "The person is serving the layered rice and meat onto a plate.",
+      "start_frame": 4,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "rice",
+        "meat"
+      ],
+      "cooking_technique": "serving",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "plate",
+      "ingredient_state": {
+        "rice": "fully cooked",
+        "meat": "cooked"
+      },
+      "rice_state": "fully cooked",
+      "meat_state": "cooked",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "serving",
+      "start_time": 16.0,
+      "end_time": 30.0,
+      "window_start": 8
+    },
+    {
+      "step_number": 7,
+      "action": "Cooking the biryani",
+      "description": "The person is cooking the biryani in a pot.",
+      "start_frame": 8,
+      "end_frame": 12,
+      "ingredients_visible": [
+        "rice",
+        "meat"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "fully cooked",
+        "meat": "cooked"
+      },
+      "rice_state": "fully cooked",
+      "meat_state": "cooked",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "light",
+      "cooking_stage": "cooking",
+      "start_time": 16.0,
+      "end_time": 30.0,
+      "window_start": 8
+    },
+    {
+      "step_number": 8,
+      "action": "Explaining the recipe",
+      "description": "The woman is explaining the recipe for making biryani.",
+      "start_frame": 24,
+      "end_frame": 38,
+      "ingredients_visible": [],
+      "cooking_technique": "not applicable",
+      "confidence": 0.9,
+      "visible_utensil": [],
+      "vessel": "not visible",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 24.0,
+      "end_time": 38.0,
+      "window_start": 12
+    },
+    {
+      "step_number": 9,
+      "action": "Explaining the recipe",
+      "description": "The woman is explaining the recipe for making biryani.",
+      "start_frame": 0,
+      "end_frame": 32,
+      "ingredients_visible": [],
+      "cooking_technique": "not applicable",
+      "confidence": 1.0,
+      "visible_utensil": [],
+      "vessel": "not visible",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 32.0,
+      "end_time": 46.0,
+      "window_start": 16
+    },
+    {
+      "step_number": 10,
+      "action": "Preparing ingredients",
+      "description": "The woman is preparing ingredients for the garam masala. She is seen holding a small container and explaining the ingredients needed.",
+      "start_frame": 1,
+      "end_frame": 4,
+      "ingredients_visible": [
+        "cardamom",
+        "cinnamon",
+        "cloves",
+        "star anise",
+        "peppercorns",
+        "nutmeg",
+        "mace",
+        "fenugreek seeds",
+        "shahi jeera",
+        "kashmiri red chili"
+      ],
+      "cooking_technique": "prep",
+      "confidence": 0.9,
+      "visible_utensil": [],
+      "vessel": "not visible",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 40.0,
+      "end_time": 54.0,
+      "window_start": 20
+    },
+    {
+      "step_number": 11,
+      "action": "Frying onions",
+      "description": "The woman is frying onions in a pan on the stove. The pan is shown with oil and onions being cooked.",
+      "start_frame": 5,
+      "end_frame": 7,
+      "ingredients_visible": [
+        "onions"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "golden brown"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "light",
+      "cooking_stage": "cooking",
+      "start_time": 40.0,
+      "end_time": 54.0,
+      "window_start": 20
+    },
+    {
+      "action": "unknown",
+      "description": "```json\n[\n    {\n        \"step_number\": 1,\n        \"action\": \"Preparing ingredients\",\n        \"description\": \"The woman is arranging the ingredients on a table.\",\n        \"start_frame\": 0,\n        \"end",
+      "start_time": 48.0,
+      "end_time": 62.0,
+      "confidence": 0.3,
+      "visible_utensil": [],
+      "vessel": "",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "",
+      "step_number": 12
+    },
+    {
+      "step_number": 13,
+      "action": "Adding oil and spices",
+      "description": "Adding oil to a hot pan and then adding cardamom, cinnamon, cloves, peppercorns, nutmeg, and mace.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "cardamom",
+        "cinnamon",
+        "cloves",
+        "peppercorns",
+        "nutmeg",
+        "mace"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "tawa",
+      "ingredient_state": {
+        "cardamom": "in pan",
+        "cinnamon": "in pan",
+        "cloves": "in pan",
+        "peppercorns": "in pan",
+        "nutmeg": "in pan",
+        "mace": "in pan"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "high",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 56.0,
+      "end_time": 70.0,
+      "window_start": 28
+    },
+    {
+      "step_number": 14,
+      "action": "Frying spices",
+      "description": "Frying the spices in the oil.",
+      "start_frame": 4,
+      "end_frame": 6,
+      "ingredients_visible": [
+        "cardamom",
+        "cinnamon",
+        "cloves",
+        "peppercorns",
+        "nutmeg",
+        "mace"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "tawa",
+      "ingredient_state": {
+        "cardamom": "in pan",
+        "cinnamon": "in pan",
+        "cloves": "in pan",
+        "peppercorns": "in pan",
+        "nutmeg": "in pan",
+        "mace": "in pan"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "high",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 56.0,
+      "end_time": 70.0,
+      "window_start": 28
+    },
+    {
+      "step_number": 15,
+      "action": "Adding fennel seeds",
+      "description": "Adding fennel seeds to the pan.",
+      "start_frame": 7,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "fennel seeds"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "tawa",
+      "ingredient_state": {
+        "cardamom": "in pan",
+        "cinnamon": "in pan",
+        "cloves": "in pan",
+        "peppercorns": "in pan",
+        "nutmeg": "in pan",
+        "mace": "in pan",
+        "fennel seeds": "in pan"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "high",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 56.0,
+      "end_time": 70.0,
+      "window_start": 28
+    },
+    {
+      "step_number": 16,
+      "action": "Adding spices",
+      "description": "Peppercorns, nutmeg, mace, fennel seeds, and shahi jeera are added to a hot pan.",
+      "start_frame": 1,
+      "end_frame": 4,
+      "ingredients_visible": [
+        "peppercorns",
+        "nutmeg",
+        "mace",
+        "fennel seeds",
+        "shahi jeera"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [],
+      "vessel": "pan",
+      "ingredient_state": {
+        "peppercorns": "in pan",
+        "nutmeg": "in pan",
+        "mace": "in pan",
+        "fennel seeds": "in pan",
+        "shahi jeera": "in pan"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "high",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 64.0,
+      "end_time": 78.0,
+      "window_start": 32
+    },
+    {
+      "step_number": 17,
+      "action": "Frying spices",
+      "description": "The spices are fried in the pan.",
+      "start_frame": 8,
+      "end_frame": 9,
+      "ingredients_visible": [
+        "peppercorns",
+        "nutmeg",
+        "mace",
+        "fennel seeds",
+        "shahi jeera",
+        "kashmiri red chili"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [],
+      "vessel": "pan",
+      "ingredient_state": {
+        "peppercorns": "in pan",
+        "nutmeg": "in pan",
+        "mace": "in pan",
+        "fennel seeds": "in pan",
+        "shahi jeera": "in pan",
+        "kashmiri red chili": "in pan"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "high",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 64.0,
+      "end_time": 78.0,
+      "window_start": 32
+    },
+    {
+      "step_number": 18,
+      "action": "Adding spices to pan",
+      "description": "Spices are being added to a hot pan.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "cumin seeds",
+        "coriander seeds",
+        "cinnamon stick",
+        "bay leaves",
+        "peppercorns",
+        "red chili",
+        "green cardamom",
+        "star anise",
+        "cloves"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "cumin seeds": "raw",
+        "coriander seeds": "raw",
+        "cinnamon stick": "raw",
+        "bay leaves": "raw",
+        "peppercorns": "raw",
+        "red chili": "raw",
+        "green cardamom": "raw",
+        "star anise": "raw",
+        "cloves": "raw"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "high",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 72.0,
+      "end_time": 86.0,
+      "window_start": 36
+    },
+    {
+      "step_number": 19,
+      "action": "Adding cashew nuts and raisins",
+      "description": "Cashew nuts and raisins are being added to the pan.",
+      "start_frame": 4,
+      "end_frame": 5,
+      "ingredients_visible": [
+        "cashew nuts",
+        "raisins"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "cashew nuts": "raw",
+        "raisins": "raw"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "high",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 72.0,
+      "end_time": 86.0,
+      "window_start": 36
+    },
+    {
+      "step_number": 20,
+      "action": "Dry roasting spices",
+      "description": "Spices are being dry roasted in the pan.",
+      "start_frame": 6,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "cumin seeds",
+        "coriander seeds",
+        "cinnamon stick",
+        "bay leaves",
+        "peppercorns",
+        "red chili",
+        "green cardamom",
+        "star anise",
+        "cloves"
+      ],
+      "cooking_technique": "dry roasting",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "cumin seeds": "roasted",
+        "coriander seeds": "roasted",
+        "cinnamon stick": "roasted",
+        "bay leaves": "roasted",
+        "peppercorns": "roasted",
+        "red chili": "roasted",
+        "green cardamom": "roasted",
+        "star anise": "roasted",
+        "cloves": "roasted"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "high",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 72.0,
+      "end_time": 86.0,
+      "window_start": 36
+    },
+    {
+      "step_number": 21,
+      "action": "Dry roasting spices",
+      "description": "Spices are being dry roasted in a pan.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "cumin seeds",
+        "red chili",
+        "bay leaves",
+        "cinnamon stick",
+        "cardamom pods",
+        "cloves"
+      ],
+      "cooking_technique": "dry roasting",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pan",
+      "ingredient_state": {
+        "cumin seeds": "roasted",
+        "red chili": "roasted",
+        "bay leaves": "roasted",
+        "cinnamon stick": "roasted",
+        "cardamom pods": "roasted",
+        "cloves": "roasted"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "light",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 80.0,
+      "end_time": 94.0,
+      "window_start": 40
+    },
+    {
+      "step_number": 22,
+      "action": "Removing dry roasted spices",
+      "description": "Dry roasted spices are being removed from the pan.",
+      "start_frame": 4,
+      "end_frame": 5,
+      "ingredients_visible": [
+        "cumin seeds",
+        "red chili",
+        "bay leaves",
+        "cinnamon stick",
+        "cardamom pods",
+        "cloves"
+      ],
+      "cooking_technique": "removing",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pan",
+      "ingredient_state": {
+        "cumin seeds": "roasted",
+        "red chili": "roasted",
+        "bay leaves": "roasted",
+        "cinnamon stick": "roasted",
+        "cardamom pods": "roasted",
+        "cloves": "roasted"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "off",
+      "oil_amount": "light",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 80.0,
+      "end_time": 94.0,
+      "window_start": 40
+    },
+    {
+      "step_number": 23,
+      "action": "Frying onions and chilies",
+      "description": "Onions and chilies are being fried in the pan.",
+      "start_frame": 6,
+      "end_frame": 7,
+      "ingredients_visible": [
+        "onions",
+        "chilies",
+        "cumin seeds",
+        "red chili",
+        "bay leaves",
+        "cinnamon stick",
+        "cardamom pods",
+        "cloves"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pan",
+      "ingredient_state": {
+        "onions": "fried",
+        "chilies": "fried"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "light",
+      "cooking_stage": "prep",
+      "start_time": 80.0,
+      "end_time": 94.0,
+      "window_start": 40
+    },
+    {
+      "action": "unknown",
+      "description": "```json\n[\n    {\n        \"step_number\": 1,\n        \"action\": \"Frying spices\",\n        \"description\": \"Spices are being fried in a pan on the stove.\",\n        \"start_frame\": 1,\n        \"end_frame\": 3,\n ",
+      "start_time": 88.0,
+      "end_time": 102.0,
+      "confidence": 0.3,
+      "visible_utensil": [],
+      "vessel": "",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "",
+      "step_number": 24
+    },
+    {
+      "step_number": 25,
+      "action": "Pouring liquid",
+      "description": "Pouring a liquid mixture into a pot.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "spices",
+        "liquid"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "ladle"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 96.0,
+      "end_time": 110.0,
+      "window_start": 48
+    },
+    {
+      "step_number": 26,
+      "action": "Grinding spices",
+      "description": "Grinding spices in a spice grinder.",
+      "start_frame": 4,
+      "end_frame": 6,
+      "ingredients_visible": [
+        "spices"
+      ],
+      "cooking_technique": "grinding",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spice grinder"
+      ],
+      "vessel": "spice grinder",
+      "ingredient_state": {
+        "spices": "grinding"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 96.0,
+      "end_time": 110.0,
+      "window_start": 48
+    },
+    {
+      "step_number": 27,
+      "action": "Adding ground spices",
+      "description": "Adding ground spices to a pot.",
+      "start_frame": 7,
+      "end_frame": 9,
+      "ingredients_visible": [
+        "ground spices"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "ladle",
+        "spoon"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "ground spices": "added"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 96.0,
+      "end_time": 110.0,
+      "window_start": 48
+    },
+    {
+      "step_number": 28,
+      "action": "Grinding spices",
+      "description": "The person is grinding spices in a spice grinder.",
+      "start_frame": 0,
+      "end_frame": 20,
+      "ingredients_visible": [
+        "spices"
+      ],
+      "cooking_technique": "grinding",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "spice grinder",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 104.0,
+      "end_time": 118.0,
+      "window_start": 52
+    },
+    {
+      "step_number": 29,
+      "action": "Frying onions",
+      "description": "The person is frying onions in a pan.",
+      "start_frame": 20,
+      "end_frame": 40,
+      "ingredients_visible": [
+        "onions",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "fried"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "light",
+      "cooking_stage": "prep",
+      "start_time": 104.0,
+      "end_time": 118.0,
+      "window_start": 52
+    },
+    {
+      "step_number": 30,
+      "action": "Frying cashews and raisins",
+      "description": "The person is frying cashews and raisins in a pan.",
+      "start_frame": 40,
+      "end_frame": 60,
+      "ingredients_visible": [
+        "cashews",
+        "raisins",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "cashews": "fried",
+        "raisins": "fried"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "light",
+      "cooking_stage": "prep",
+      "start_time": 104.0,
+      "end_time": 118.0,
+      "window_start": 52
+    },
+    {
+      "step_number": 31,
+      "action": "Layering ingredients",
+      "description": "The person is layering ingredients in a pot.",
+      "start_frame": 60,
+      "end_frame": 80,
+      "ingredients_visible": [
+        "onions",
+        "cashews",
+        "raisins",
+        "oil"
+      ],
+      "cooking_technique": "layering",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "fried",
+        "cashews": "fried",
+        "raisins": "fried"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "light",
+      "cooking_stage": "prep",
+      "start_time": 104.0,
+      "end_time": 118.0,
+      "window_start": 52
+    },
+    {
+      "step_number": 32,
+      "action": "Scooping cumin powder",
+      "description": "A person is using a wooden spoon to scoop cumin powder from a bowl into a pan.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "cumin powder"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "wooden spoon"
+      ],
+      "vessel": "pan",
+      "ingredient_state": {
+        "cumin powder": "in pan"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 112.0,
+      "end_time": 126.0,
+      "window_start": 56
+    },
+    {
+      "step_number": 33,
+      "action": "Adding oil to pan",
+      "description": "Oil is being poured into a hot pan.",
+      "start_frame": 4,
+      "end_frame": 6,
+      "ingredients_visible": [
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "ladle"
+      ],
+      "vessel": "pan",
+      "ingredient_state": {
+        "oil": "in pan"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "high",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 112.0,
+      "end_time": 126.0,
+      "window_start": 56
+    },
+    {
+      "step_number": 34,
+      "action": "Frying onions",
+      "description": "Onions are being fried in the hot oil in the pan.",
+      "start_frame": 7,
+      "end_frame": 9,
+      "ingredients_visible": [
+        "onions"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "tongs"
+      ],
+      "vessel": "pan",
+      "ingredient_state": {
+        "onions": "golden brown"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "high",
+      "oil_amount": "moderate",
+      "steam_visibility": "light",
+      "cooking_stage": "prep",
+      "start_time": 112.0,
+      "end_time": 126.0,
+      "window_start": 56
+    },
+    {
+      "step_number": 35,
+      "action": "Pouring oil",
+      "description": "Pouring oil into a hot pan for deep frying.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "oil"
+      ],
+      "cooking_technique": "deep frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "ladle"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "high",
+      "oil_amount": "deep",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 120.0,
+      "end_time": 134.0,
+      "window_start": 60
+    },
+    {
+      "step_number": 36,
+      "action": "Frying onions",
+      "description": "Frying thinly sliced onions in hot oil.",
+      "start_frame": 4,
+      "end_frame": 7,
+      "ingredients_visible": [
+        "onions"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "frying"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "high",
+      "oil_amount": "deep",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 120.0,
+      "end_time": 134.0,
+      "window_start": 60
+    },
+    {
+      "action": "unknown",
+      "description": "```json\n[\n    {\n        \"step_number\": 1,\n        \"action\": \"Frying onions\",\n        \"description\": \"Frying thinly sliced onions in a hot pan with oil.\",\n        \"start_frame\": 1,\n        \"end_frame\":",
+      "start_time": 128.0,
+      "end_time": 142.0,
+      "confidence": 0.3,
+      "visible_utensil": [],
+      "vessel": "",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "",
+      "step_number": 37
+    },
+    {
+      "step_number": 38,
+      "action": "Frying onions",
+      "description": "Frying sliced onions in a pan with oil until they turn golden brown.",
+      "start_frame": 1,
+      "end_frame": 4,
+      "ingredients_visible": [
+        "onions"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "golden brown"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 136.0,
+      "end_time": 150.0,
+      "window_start": 68
+    },
+    {
+      "step_number": 39,
+      "action": "Frying meat",
+      "description": "Frying marinated meat in the same pan until it is browned.",
+      "start_frame": 5,
+      "end_frame": 7,
+      "ingredients_visible": [
+        "meat"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "meat": "browned"
+      },
+      "rice_state": "not visible",
+      "meat_state": "browned",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "meat_cooking",
+      "start_time": 136.0,
+      "end_time": 150.0,
+      "window_start": 68
+    },
+    {
+      "step_number": 40,
+      "action": "Draining fried onions and meat",
+      "description": "Draining the fried onions and meat from the pan using a strainer.",
+      "start_frame": 8,
+      "end_frame": 9,
+      "ingredients_visible": [
+        "onions",
+        "meat"
+      ],
+      "cooking_technique": "draining",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula",
+        "strainer"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "browned",
+        "meat": "browned"
+      },
+      "rice_state": "not visible",
+      "meat_state": "browned",
+      "flame_level": "off",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 136.0,
+      "end_time": 150.0,
+      "window_start": 68
+    },
+    {
+      "step_number": 41,
+      "action": "Frying onions",
+      "description": "Frying sliced onions in a pan with oil.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "onions"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "golden brown"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 144.0,
+      "end_time": 158.0,
+      "window_start": 72
+    },
+    {
+      "step_number": 42,
+      "action": "Frying cashews",
+      "description": "Frying cashews in a pan with oil.",
+      "start_frame": 4,
+      "end_frame": 6,
+      "ingredients_visible": [
+        "cashews"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "cashews": "fried"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 144.0,
+      "end_time": 158.0,
+      "window_start": 72
+    },
+    {
+      "step_number": 43,
+      "action": "Frying cashews",
+      "description": "Cashews are being fried in a hot pan with oil.",
+      "start_frame": 1,
+      "end_frame": 4,
+      "ingredients_visible": [
+        "cashews",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "cashews": "fried"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "high",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 152.0,
+      "end_time": 166.0,
+      "window_start": 76
+    },
+    {
+      "step_number": 44,
+      "action": "Draining fried cashews",
+      "description": "The fried cashews are being drained using a strainer.",
+      "start_frame": 5,
+      "end_frame": 7,
+      "ingredients_visible": [
+        "cashews",
+        "oil"
+      ],
+      "cooking_technique": "draining",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula",
+        "strainer"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "cashews": "fried"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "off",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 152.0,
+      "end_time": 166.0,
+      "window_start": 76
+    },
+    {
+      "step_number": 45,
+      "action": "Placing fried cashews in a bowl",
+      "description": "The fried cashews are being transferred to a bowl.",
+      "start_frame": 8,
+      "end_frame": 10,
+      "ingredients_visible": [
+        "cashews"
+      ],
+      "cooking_technique": "draining",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula",
+        "strainer"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "cashews": "fried"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "off",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 152.0,
+      "end_time": 166.0,
+      "window_start": 76
+    },
+    {
+      "step_number": 46,
+      "action": "Frying cashews",
+      "description": "Frying cashews in a pan with oil.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "cashews",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "cashews": "fried"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 160.0,
+      "end_time": 174.0,
+      "window_start": 80
+    },
+    {
+      "step_number": 47,
+      "action": "Draining cashews",
+      "description": "Draining fried cashews using a strainer.",
+      "start_frame": 3,
+      "end_frame": 5,
+      "ingredients_visible": [
+        "cashews",
+        "oil"
+      ],
+      "cooking_technique": "draining",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula",
+        "strainer"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "cashews": "fried"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "off",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 160.0,
+      "end_time": 174.0,
+      "window_start": 80
+    },
+    {
+      "step_number": 48,
+      "action": "Frying raisins",
+      "description": "Frying raisins in a pan with oil.",
+      "start_frame": 6,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "raisins",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "raisins": "fried"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 160.0,
+      "end_time": 174.0,
+      "window_start": 80
+    },
+    {
+      "step_number": 49,
+      "action": "Heating oil",
+      "description": "Heating oil in a black wok on a stove.",
+      "start_frame": 0,
+      "end_frame": 20,
+      "ingredients_visible": [
+        "oil"
+      ],
+      "cooking_technique": "heating",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "wok"
+      ],
+      "vessel": "wok",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 168.0,
+      "end_time": 182.0,
+      "window_start": 84
+    },
+    {
+      "step_number": 50,
+      "action": "Adding raisins",
+      "description": "Adding 1/2 cup of raisins to the hot oil in the wok.",
+      "start_frame": 20,
+      "end_frame": 40,
+      "ingredients_visible": [
+        "raisins",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "ladle"
+      ],
+      "vessel": "wok",
+      "ingredient_state": {
+        "raisins": "frying"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 168.0,
+      "end_time": 182.0,
+      "window_start": 84
+    },
+    {
+      "step_number": 51,
+      "action": "Frying raisins",
+      "description": "Frying raisins in the hot oil in the wok.",
+      "start_frame": 40,
+      "end_frame": 60,
+      "ingredients_visible": [
+        "raisins",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "ladle"
+      ],
+      "vessel": "wok",
+      "ingredient_state": {
+        "raisins": "fried"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 168.0,
+      "end_time": 182.0,
+      "window_start": 84
+    },
+    {
+      "step_number": 52,
+      "action": "Draining raisins",
+      "description": "Draining the fried raisins from the wok using a strainer.",
+      "start_frame": 60,
+      "end_frame": 80,
+      "ingredients_visible": [
+        "raisins",
+        "oil"
+      ],
+      "cooking_technique": "draining",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "strainer"
+      ],
+      "vessel": "wok",
+      "ingredient_state": {
+        "raisins": "fried"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "off",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 168.0,
+      "end_time": 182.0,
+      "window_start": 84
+    },
+    {
+      "step_number": 53,
+      "action": "Serving raisins",
+      "description": "Serving the fried raisins in a bowl.",
+      "start_frame": 80,
+      "end_frame": 100,
+      "ingredients_visible": [
+        "raisins"
+      ],
+      "cooking_technique": "serving",
+      "confidence": 0.9,
+      "visible_utensil": [],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "raisins": "fried"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "off",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 168.0,
+      "end_time": 182.0,
+      "window_start": 84
+    },
+    {
+      "step_number": 54,
+      "action": "Frying chickpeas",
+      "description": "Frying chickpeas in a pan with oil.",
+      "start_frame": 0,
+      "end_frame": 30,
+      "ingredients_visible": [
+        "chickpeas",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "chickpeas": "fried"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 176.0,
+      "end_time": 190.0,
+      "window_start": 88
+    },
+    {
+      "step_number": 55,
+      "action": "Frying onions",
+      "description": "Frying onions in a pan with oil.",
+      "start_frame": 30,
+      "end_frame": 60,
+      "ingredients_visible": [
+        "onions",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "golden brown"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 176.0,
+      "end_time": 190.0,
+      "window_start": 88
+    },
+    {
+      "step_number": 56,
+      "action": "Frying chicken",
+      "description": "Frying chicken in a pan with oil.",
+      "start_frame": 60,
+      "end_frame": 90,
+      "ingredients_visible": [
+        "chicken",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "chicken": "fried"
+      },
+      "rice_state": "not visible",
+      "meat_state": "fried",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 176.0,
+      "end_time": 190.0,
+      "window_start": 88
+    },
+    {
+      "step_number": 57,
+      "action": "Layering ingredients",
+      "description": "Layering ingredients in a pot.",
+      "start_frame": 90,
+      "end_frame": 120,
+      "ingredients_visible": [
+        "chickpeas",
+        "onions",
+        "chicken",
+        "rice",
+        "ghee"
+      ],
+      "cooking_technique": "layering",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "chickpeas": "fried",
+        "onions": "fried",
+        "chicken": "fried",
+        "rice": "raw",
+        "ghee": "not visible"
+      },
+      "rice_state": "raw",
+      "meat_state": "fried",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "layering",
+      "start_time": 176.0,
+      "end_time": 190.0,
+      "window_start": 88
+    },
+    {
+      "step_number": 58,
+      "action": "Cooking the biryani",
+      "description": "Cooking the biryani in a pot with ghee.",
+      "start_frame": 120,
+      "end_frame": 150,
+      "ingredients_visible": [
+        "biryani",
+        "ghee"
+      ],
+      "cooking_technique": "dum",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "biryani": "cooked",
+        "ghee": "not visible"
+      },
+      "rice_state": "cooked",
+      "meat_state": "cooked",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "light",
+      "cooking_stage": "cooking",
+      "start_time": 176.0,
+      "end_time": 190.0,
+      "window_start": 88
+    },
+    {
+      "action": "unknown",
+      "description": "```json\n[\n    {\n        \"step_number\": 1,\n        \"action\": \"Frying onions\",\n        \"description\": \"The chef is frying onions in a pan with oil.\",\n        \"start_frame\": 0,\n        \"end_frame\": 4,\n  ",
+      "start_time": 184.0,
+      "end_time": 198.0,
+      "confidence": 0.3,
+      "visible_utensil": [],
+      "vessel": "",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "",
+      "step_number": 59
+    },
+    {
+      "step_number": 60,
+      "action": "Pouring ghee",
+      "description": "Pouring 1/4 cup of ghee into a hot pan.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "ghee"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "ladle"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "high",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 192.0,
+      "end_time": 206.0,
+      "window_start": 96
+    },
+    {
+      "step_number": 61,
+      "action": "Frying onions",
+      "description": "Frying thinly sliced onions in the ghee.",
+      "start_frame": 4,
+      "end_frame": 7,
+      "ingredients_visible": [
+        "onions",
+        "ghee"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "ladle",
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "fried"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "high",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 192.0,
+      "end_time": 206.0,
+      "window_start": 96
+    },
+    {
+      "step_number": 62,
+      "action": "Frying onions",
+      "description": "Sliced onions are being fried in a pan with oil.",
+      "start_frame": 0,
+      "end_frame": 30,
+      "ingredients_visible": [
+        "onions",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "frying"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 200.0,
+      "end_time": 214.0,
+      "window_start": 100
+    },
+    {
+      "step_number": 63,
+      "action": "Frying garlic",
+      "description": "Minced garlic is being fried in the same pan with onions.",
+      "start_frame": 30,
+      "end_frame": 60,
+      "ingredients_visible": [
+        "onions",
+        "garlic",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "fried",
+        "garlic": "frying"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 200.0,
+      "end_time": 214.0,
+      "window_start": 100
+    },
+    {
+      "step_number": 64,
+      "action": "Frying ginger",
+      "description": "Minced ginger is being fried in the same pan with onions and garlic.",
+      "start_frame": 60,
+      "end_frame": 90,
+      "ingredients_visible": [
+        "onions",
+        "garlic",
+        "ginger",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "fried",
+        "garlic": "fried",
+        "ginger": "frying"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 200.0,
+      "end_time": 214.0,
+      "window_start": 100
+    },
+    {
+      "step_number": 65,
+      "action": "Frying onions",
+      "description": "Frying shredded onions in a pan with oil.",
+      "start_frame": 1,
+      "end_frame": 4,
+      "ingredients_visible": [
+        "onions"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "fried"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 208.0,
+      "end_time": 222.0,
+      "window_start": 104
+    },
+    {
+      "step_number": 66,
+      "action": "Adding garlic paste",
+      "description": "Adding garlic paste to the pan with fried onions.",
+      "start_frame": 5,
+      "end_frame": 6,
+      "ingredients_visible": [
+        "garlic paste"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "fried",
+        "garlic paste": "raw"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 208.0,
+      "end_time": 222.0,
+      "window_start": 104
+    },
+    {
+      "step_number": 67,
+      "action": "Adding ginger paste",
+      "description": "Adding ginger paste to the pan with garlic paste and fried onions.",
+      "start_frame": 7,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "ginger paste"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "fried",
+        "garlic paste": "cooked",
+        "ginger paste": "raw"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 208.0,
+      "end_time": 222.0,
+      "window_start": 104
+    },
+    {
+      "step_number": 68,
+      "action": "Adding green chili paste",
+      "description": "Adding green chili paste to the pan with garlic and ginger paste and fried onions.",
+      "start_frame": 9,
+      "end_frame": 10,
+      "ingredients_visible": [
+        "green chili paste"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "fried",
+        "garlic paste": "cooked",
+        "ginger paste": "cooked",
+        "green chili paste": "raw"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 208.0,
+      "end_time": 222.0,
+      "window_start": 104
+    },
+    {
+      "step_number": 69,
+      "action": "Frying vegetables",
+      "description": "Frying vegetables (green chili and ginger) in the pan.",
+      "start_frame": 11,
+      "end_frame": 12,
+      "ingredients_visible": [
+        "green chili",
+        "ginger"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "fried",
+        "garlic paste": "cooked",
+        "ginger paste": "cooked",
+        "green chili paste": "cooked",
+        "green chili": "fried",
+        "ginger": "fried"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 208.0,
+      "end_time": 222.0,
+      "window_start": 104
+    },
+    {
+      "step_number": 70,
+      "action": "Adding green chili paste",
+      "description": "Adding 2 tablespoons of green chili paste to the pan with sautéed onions.",
+      "start_frame": 0,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "onions",
+        "green chili paste"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "sautéed",
+        "green chili paste": "added"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 216.0,
+      "end_time": 230.0,
+      "window_start": 108
+    },
+    {
+      "step_number": 71,
+      "action": "Stirring the mixture",
+      "description": "Stirring the mixture in the pan to ensure even cooking.",
+      "start_frame": 3,
+      "end_frame": 5,
+      "ingredients_visible": [
+        "onions",
+        "green chili paste"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "sautéed",
+        "green chili paste": "mixed"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 216.0,
+      "end_time": 230.0,
+      "window_start": 108
+    },
+    {
+      "step_number": 72,
+      "action": "Adding chicken",
+      "description": "Adding 1 kg of chicken to the pan with sautéed onions and green chili paste.",
+      "start_frame": 5,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "onions",
+        "green chili paste",
+        "chicken"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "sautéed",
+        "green chili paste": "mixed",
+        "chicken": "raw"
+      },
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 216.0,
+      "end_time": 230.0,
+      "window_start": 108
+    },
+    {
+      "step_number": 73,
+      "action": "Frying onions",
+      "description": "The person is frying chopped onions in a pan with oil.",
+      "start_frame": 0,
+      "end_frame": 15,
+      "ingredients_visible": [
+        "onions"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "fried"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 224.0,
+      "end_time": 238.0,
+      "window_start": 112
+    },
+    {
+      "step_number": 74,
+      "action": "Marinating chicken",
+      "description": "The person is adding marinated chicken to the pan with onions.",
+      "start_frame": 16,
+      "end_frame": 30,
+      "ingredients_visible": [
+        "onions",
+        "chicken"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "fried",
+        "chicken": "marinated"
+      },
+      "rice_state": "not visible",
+      "meat_state": "marinated",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 224.0,
+      "end_time": 238.0,
+      "window_start": 112
+    },
+    {
+      "step_number": 75,
+      "action": "Frying chicken",
+      "description": "The person is frying the marinated chicken in the pan with onions.",
+      "start_frame": 31,
+      "end_frame": 45,
+      "ingredients_visible": [
+        "onions",
+        "chicken"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "fried",
+        "chicken": "frying"
+      },
+      "rice_state": "not visible",
+      "meat_state": "frying",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 224.0,
+      "end_time": 238.0,
+      "window_start": 112
+    },
+    {
+      "step_number": 76,
+      "action": "Frying onions and chicken",
+      "description": "The person is frying chopped onions and chicken in a pan with oil.",
+      "start_frame": 1,
+      "end_frame": 4,
+      "ingredients_visible": [
+        "onions",
+        "chicken"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "fried",
+        "chicken": "raw"
+      },
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 232.0,
+      "end_time": 246.0,
+      "window_start": 116
+    },
+    {
+      "step_number": 77,
+      "action": "Frying chicken",
+      "description": "The person is frying the chicken in the pan.",
+      "start_frame": 5,
+      "end_frame": 7,
+      "ingredients_visible": [
+        "onions",
+        "chicken"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "fried",
+        "chicken": "cooked"
+      },
+      "rice_state": "not visible",
+      "meat_state": "cooked",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 232.0,
+      "end_time": 246.0,
+      "window_start": 116
+    },
+    {
+      "step_number": 78,
+      "action": "Cooking chicken and onions",
+      "description": "The person is cooking the chicken and onions in the pan.",
+      "start_frame": 8,
+      "end_frame": 9,
+      "ingredients_visible": [
+        "onions",
+        "chicken"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "fried",
+        "chicken": "cooked"
+      },
+      "rice_state": "not visible",
+      "meat_state": "cooked",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 232.0,
+      "end_time": 246.0,
+      "window_start": 116
+    },
+    {
+      "step_number": 79,
+      "action": "Frying onions",
+      "description": "The person is frying onions in a pan with oil.",
+      "start_frame": 0,
+      "end_frame": 20,
+      "ingredients_visible": [
+        "onions",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "frying",
+        "rice": "not visible"
+      },
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 240.0,
+      "end_time": 254.0,
+      "window_start": 120,
+      "rice_state": "not visible"
+    },
+    {
+      "step_number": 80,
+      "action": "Adding chicken",
+      "description": "The person is adding chicken to the pan with onions.",
+      "start_frame": 20,
+      "end_frame": 40,
+      "ingredients_visible": [
+        "onions",
+        "chicken",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "frying",
+        "rice": "not visible"
+      },
+      "meat_state": "raw",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 240.0,
+      "end_time": 254.0,
+      "window_start": 120,
+      "rice_state": "not visible"
+    },
+    {
+      "step_number": 81,
+      "action": "Cooking chicken",
+      "description": "The person is cooking the chicken in the pan.",
+      "start_frame": 40,
+      "end_frame": 60,
+      "ingredients_visible": [
+        "onions",
+        "chicken",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "frying",
+        "rice": "not visible"
+      },
+      "meat_state": "cooking",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 240.0,
+      "end_time": 254.0,
+      "window_start": 120,
+      "rice_state": "not visible"
+    },
+    {
+      "step_number": 82,
+      "action": "Adding spices",
+      "description": "The person is adding turmeric powder and salt to the pan.",
+      "start_frame": 60,
+      "end_frame": 80,
+      "ingredients_visible": [
+        "onions",
+        "chicken",
+        "turmeric powder",
+        "salt",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "frying",
+        "rice": "not visible"
+      },
+      "meat_state": "cooking",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 240.0,
+      "end_time": 254.0,
+      "window_start": 120,
+      "rice_state": "not visible"
+    },
+    {
+      "step_number": 83,
+      "action": "Frying eggs",
+      "description": "The person is frying eggs in the pan.",
+      "start_frame": 80,
+      "end_frame": 100,
+      "ingredients_visible": [
+        "onions",
+        "chicken",
+        "turmeric powder",
+        "salt",
+        "eggs",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "frying",
+        "rice": "not visible"
+      },
+      "meat_state": "cooking",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 240.0,
+      "end_time": 254.0,
+      "window_start": 120,
+      "rice_state": "not visible"
+    },
+    {
+      "step_number": 84,
+      "action": "Adding turmeric powder",
+      "description": "Turmeric powder is being added to the pan with chicken pieces.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "turmeric powder",
+        "chicken"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "turmeric powder": "added",
+        "chicken": "raw"
+      },
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 248.0,
+      "end_time": 262.0,
+      "window_start": 124
+    },
+    {
+      "step_number": 85,
+      "action": "Adding salt",
+      "description": "Salt is being added to the pan with chicken pieces.",
+      "start_frame": 4,
+      "end_frame": 5,
+      "ingredients_visible": [
+        "salt",
+        "chicken"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "salt": "added",
+        "chicken": "raw"
+      },
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 248.0,
+      "end_time": 262.0,
+      "window_start": 124
+    },
+    {
+      "step_number": 86,
+      "action": "Frying chicken",
+      "description": "The chicken is being fried in the pan.",
+      "start_frame": 6,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "chicken"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "chicken": "raw"
+      },
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "cooking",
+      "start_time": 248.0,
+      "end_time": 262.0,
+      "window_start": 124
+    },
+    {
+      "step_number": 87,
+      "action": "Adding spices",
+      "description": "Various spices are being added to the pan with chicken pieces.",
+      "start_frame": 9,
+      "end_frame": 11,
+      "ingredients_visible": [
+        "spices",
+        "chicken"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "spices": "added",
+        "chicken": "raw"
+      },
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "cooking",
+      "start_time": 248.0,
+      "end_time": 262.0,
+      "window_start": 124
+    },
+    {
+      "step_number": 88,
+      "action": "Frying chicken",
+      "description": "The chicken is being fried in a pan with oil.",
+      "start_frame": 1,
+      "end_frame": 4,
+      "ingredients_visible": [
+        "chicken"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "chicken": "frying"
+      },
+      "rice_state": "not visible",
+      "meat_state": "frying",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "meat_cooking",
+      "start_time": 256.0,
+      "end_time": 270.0,
+      "window_start": 128
+    },
+    {
+      "step_number": 89,
+      "action": "Adding spices",
+      "description": "Spices are being added to the pan with the fried chicken.",
+      "start_frame": 5,
+      "end_frame": 7,
+      "ingredients_visible": [
+        "chicken",
+        "spices"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "chicken": "frying",
+        "spices": "added"
+      },
+      "rice_state": "not visible",
+      "meat_state": "frying",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "meat_cooking",
+      "start_time": 256.0,
+      "end_time": 270.0,
+      "window_start": 128
+    },
+    {
+      "step_number": 90,
+      "action": "Adding garam masala",
+      "description": "Adding ground garam masala to the pan with chicken and vegetables.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "chicken",
+        "onions",
+        "garam masala"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "golden brown",
+        "chicken": "cooked",
+        "garam masala": "added"
+      },
+      "rice_state": "not visible",
+      "meat_state": "cooked",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "cooking",
+      "start_time": 264.0,
+      "end_time": 278.0,
+      "window_start": 132
+    },
+    {
+      "step_number": 91,
+      "action": "Stirring",
+      "description": "Stirring the chicken and vegetables in the pan.",
+      "start_frame": 3,
+      "end_frame": 5,
+      "ingredients_visible": [
+        "chicken",
+        "onions",
+        "garam masala"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "golden brown",
+        "chicken": "cooked",
+        "garam masala": "mixed in"
+      },
+      "rice_state": "not visible",
+      "meat_state": "cooked",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "cooking",
+      "start_time": 264.0,
+      "end_time": 278.0,
+      "window_start": 132
+    },
+    {
+      "step_number": 92,
+      "action": "Adding tomatoes",
+      "description": "Adding diced tomatoes to the pan with chicken and vegetables.",
+      "start_frame": 6,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "chicken",
+        "onions",
+        "garam masala",
+        "tomatoes"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "golden brown",
+        "chicken": "cooked",
+        "garam masala": "mixed in",
+        "tomatoes": "added"
+      },
+      "rice_state": "not visible",
+      "meat_state": "cooked",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "cooking",
+      "start_time": 264.0,
+      "end_time": 278.0,
+      "window_start": 132
+    },
+    {
+      "step_number": 93,
+      "action": "Frying chicken",
+      "description": "The person is frying pieces of chicken in a pan with oil.",
+      "start_frame": 1,
+      "end_frame": 4,
+      "ingredients_visible": [
+        "chicken"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "chicken": "frying"
+      },
+      "rice_state": "not visible",
+      "meat_state": "frying",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "meat_cooking",
+      "start_time": 272.0,
+      "end_time": 286.0,
+      "window_start": 136
+    },
+    {
+      "step_number": 94,
+      "action": "Adding tomatoes",
+      "description": "The person is adding diced tomatoes to the pan with the fried chicken.",
+      "start_frame": 4,
+      "end_frame": 6,
+      "ingredients_visible": [
+        "chicken",
+        "tomatoes"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "chicken": "frying",
+        "tomatoes": "diced"
+      },
+      "rice_state": "not visible",
+      "meat_state": "frying",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "meat_cooking",
+      "start_time": 272.0,
+      "end_time": 286.0,
+      "window_start": 136
+    },
+    {
+      "step_number": 95,
+      "action": "Stirring the mixture",
+      "description": "The person is stirring the chicken and tomatoes in the pan.",
+      "start_frame": 6,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "chicken",
+        "tomatoes"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "chicken": "frying",
+        "tomatoes": "diced"
+      },
+      "rice_state": "not visible",
+      "meat_state": "frying",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "meat_cooking",
+      "start_time": 272.0,
+      "end_time": 286.0,
+      "window_start": 136
+    },
+    {
+      "action": "unknown",
+      "description": "```json\n[\n    {\n        \"step_number\": 1,\n        \"action\": \"Frying onions and tomatoes\",\n        \"description\": \"The person is frying diced onions and tomatoes in a pan with oil.\",\n        \"start_fra",
+      "start_time": 280.0,
+      "end_time": 294.0,
+      "confidence": 0.3,
+      "visible_utensil": [],
+      "vessel": "",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "",
+      "step_number": 96
+    },
+    {
+      "step_number": 97,
+      "action": "Adding yogurt to the pan",
+      "description": "Yogurt is being poured into the pan with the cooked chicken and vegetables.",
+      "start_frame": 288,
+      "end_frame": 302,
+      "ingredients_visible": [
+        "yogurt",
+        "chicken",
+        "vegetables"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "ladle"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "chicken": "cooked",
+        "vegetables": "cooked"
+      },
+      "rice_state": "not visible",
+      "meat_state": "cooked",
+      "flame_level": "low",
+      "oil_amount": "light",
+      "steam_visibility": "none",
+      "cooking_stage": "cooking",
+      "start_time": 288.0,
+      "end_time": 302.0,
+      "window_start": 144
+    },
+    {
+      "step_number": 98,
+      "action": "pouring cream",
+      "description": "Pouring cream into the pan with chicken and vegetables.",
+      "start_frame": 0,
+      "end_frame": 20,
+      "ingredients_visible": [
+        "cream",
+        "chicken",
+        "vegetables"
+      ],
+      "cooking_technique": "pouring",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "ladle"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 296.0,
+      "end_time": 310.0,
+      "window_start": 148
+    },
+    {
+      "step_number": 99,
+      "action": "stirring",
+      "description": "Stirring the chicken and vegetables in the pan.",
+      "start_frame": 20,
+      "end_frame": 40,
+      "ingredients_visible": [
+        "cream",
+        "chicken",
+        "vegetables"
+      ],
+      "cooking_technique": "stirring",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 296.0,
+      "end_time": 310.0,
+      "window_start": 148
+    },
+    {
+      "step_number": 100,
+      "action": "cooking with lid",
+      "description": "Cooking the chicken and vegetables with the lid on the pan.",
+      "start_frame": 40,
+      "end_frame": 60,
+      "ingredients_visible": [
+        "cream",
+        "chicken",
+        "vegetables"
+      ],
+      "cooking_technique": "cooking",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 296.0,
+      "end_time": 310.0,
+      "window_start": 148
+    },
+    {
+      "step_number": 101,
+      "action": "adding mint leaves",
+      "description": "Adding mint leaves to the pan.",
+      "start_frame": 60,
+      "end_frame": 80,
+      "ingredients_visible": [
+        "cream",
+        "chicken",
+        "vegetables",
+        "mint leaves"
+      ],
+      "cooking_technique": "adding",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 296.0,
+      "end_time": 310.0,
+      "window_start": 148
+    },
+    {
+      "step_number": 102,
+      "action": "Adding mint leaves",
+      "description": "Adding fresh mint leaves to the pan of cooked chicken and vegetables.",
+      "start_frame": 304,
+      "end_frame": 318,
+      "ingredients_visible": [
+        "mint leaves",
+        "chopped coriander leaves",
+        "chicken",
+        "vegetables"
+      ],
+      "cooking_technique": "stir-frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "mint leaves": "added",
+        "chopped coriander leaves": "added"
+      },
+      "rice_state": "not visible",
+      "meat_state": "cooked",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "finalizing",
+      "start_time": 304.0,
+      "end_time": 318.0,
+      "window_start": 152
+    },
+    {
+      "step_number": 103,
+      "action": "Adding coriander leaves",
+      "description": "Adding chopped coriander leaves to the pan of cooked chicken and vegetables.",
+      "start_frame": 0,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "chopped coriander leaves",
+        "chicken",
+        "vegetables"
+      ],
+      "cooking_technique": "stir-frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "golden brown",
+        "chicken": "cooked",
+        "coriander leaves": "added"
+      },
+      "rice_state": "not visible",
+      "meat_state": "cooked",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 312.0,
+      "end_time": 326.0,
+      "window_start": 156
+    },
+    {
+      "step_number": 104,
+      "action": "Frying onions",
+      "description": "Frying onions in a separate pan.",
+      "start_frame": 4,
+      "end_frame": 6,
+      "ingredients_visible": [
+        "onions"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "golden brown"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 312.0,
+      "end_time": 326.0,
+      "window_start": 156
+    },
+    {
+      "step_number": 105,
+      "action": "Frying onions",
+      "description": "The person is frying onions in a pan with oil.",
+      "start_frame": 0,
+      "end_frame": 120,
+      "ingredients_visible": [
+        "onions"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "golden brown"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 320.0,
+      "end_time": 334.0,
+      "window_start": 160
+    },
+    {
+      "step_number": 106,
+      "action": "Adding fried onions to the pan",
+      "description": "The person is adding the fried onions to the pan with the other ingredients.",
+      "start_frame": 120,
+      "end_frame": 240,
+      "ingredients_visible": [
+        "onions",
+        "chicken",
+        "vegetables"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "in pan",
+        "chicken": "raw",
+        "vegetables": "cooked"
+      },
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 320.0,
+      "end_time": 334.0,
+      "window_start": 160
+    },
+    {
+      "step_number": 107,
+      "action": "Frying onions",
+      "description": "Frying onions in a pan with oil.",
+      "start_frame": 0,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "onions",
+        "chicken"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "fried",
+        "chicken": "raw"
+      },
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 328.0,
+      "end_time": 342.0,
+      "window_start": 164
+    },
+    {
+      "step_number": 108,
+      "action": "Frying chicken",
+      "description": "Frying the chicken in the pan.",
+      "start_frame": 3,
+      "end_frame": 5,
+      "ingredients_visible": [
+        "onions",
+        "chicken"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "fried",
+        "chicken": "frying"
+      },
+      "rice_state": "not visible",
+      "meat_state": "frying",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 328.0,
+      "end_time": 342.0,
+      "window_start": 164
+    },
+    {
+      "step_number": 109,
+      "action": "Adding coconut milk",
+      "description": "Pouring coconut milk into the pan.",
+      "start_frame": 6,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "onions",
+        "chicken",
+        "coconut milk"
+      ],
+      "cooking_technique": "pouring",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "ladle"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "fried",
+        "chicken": "frying",
+        "coconut milk": "added"
+      },
+      "rice_state": "not visible",
+      "meat_state": "frying",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 328.0,
+      "end_time": 342.0,
+      "window_start": 164
+    },
+    {
+      "step_number": 110,
+      "action": "Adding coconut milk",
+      "description": "Pouring coconut milk into the pan with the chicken and vegetables.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "coconut milk",
+        "chicken",
+        "vegetables"
+      ],
+      "cooking_technique": "pouring",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "ladle"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "coconut milk": "in fluid state",
+        "chicken": "cooked",
+        "vegetables": "cooked"
+      },
+      "rice_state": "not visible",
+      "meat_state": "cooked",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "cooking",
+      "start_time": 336.0,
+      "end_time": 350.0,
+      "window_start": 168
+    },
+    {
+      "step_number": 111,
+      "action": "Stirring the mixture",
+      "description": "Stirring the chicken and vegetables with coconut milk in the pan.",
+      "start_frame": 4,
+      "end_frame": 6,
+      "ingredients_visible": [
+        "coconut milk",
+        "chicken",
+        "vegetables"
+      ],
+      "cooking_technique": "stirring",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "coconut milk": "mixing with chicken and vegetables",
+        "chicken": "cooked",
+        "vegetables": "cooked"
+      },
+      "rice_state": "not visible",
+      "meat_state": "cooked",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "cooking",
+      "start_time": 336.0,
+      "end_time": 350.0,
+      "window_start": 168
+    },
+    {
+      "step_number": 112,
+      "action": "Frying onions",
+      "description": "The person is frying onions in a pan with oil.",
+      "start_frame": 1,
+      "end_frame": 5,
+      "ingredients_visible": [
+        "onions",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "fried"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 344.0,
+      "end_time": 358.0,
+      "window_start": 172
+    },
+    {
+      "step_number": 113,
+      "action": "Frying meat",
+      "description": "The person is frying pieces of meat in the same pan.",
+      "start_frame": 6,
+      "end_frame": 10,
+      "ingredients_visible": [
+        "meat",
+        "onions",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "fried",
+        "meat": "frying"
+      },
+      "rice_state": "not visible",
+      "meat_state": "frying",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 344.0,
+      "end_time": 358.0,
+      "window_start": 172
+    },
+    {
+      "step_number": 114,
+      "action": "Adding spices",
+      "description": "The person is adding spices to the pan.",
+      "start_frame": 11,
+      "end_frame": 15,
+      "ingredients_visible": [
+        "spices",
+        "meat",
+        "onions",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "fried",
+        "meat": "frying",
+        "spices": "added"
+      },
+      "rice_state": "not visible",
+      "meat_state": "frying",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 344.0,
+      "end_time": 358.0,
+      "window_start": 172
+    },
+    {
+      "step_number": 115,
+      "action": "Cooking meat",
+      "description": "The person is cooking the meat with the spices.",
+      "start_frame": 16,
+      "end_frame": 20,
+      "ingredients_visible": [
+        "meat",
+        "onions",
+        "oil",
+        "spices"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "fried",
+        "meat": "cooking",
+        "spices": "cooked"
+      },
+      "rice_state": "not visible",
+      "meat_state": "cooking",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 344.0,
+      "end_time": 358.0,
+      "window_start": 172
+    },
+    {
+      "step_number": 116,
+      "action": "Cooking rice",
+      "description": "The person is cooking rice in a separate pot.",
+      "start_frame": 21,
+      "end_frame": 25,
+      "ingredients_visible": [
+        "rice",
+        "water",
+        "salt"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "ladle"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "cooking",
+        "water": "boiling",
+        "salt": "added"
+      },
+      "rice_state": "cooking",
+      "meat_state": "cooked",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "light",
+      "cooking_stage": "rice_cooking",
+      "start_time": 344.0,
+      "end_time": 358.0,
+      "window_start": 172
+    },
+    {
+      "step_number": 117,
+      "action": "Frying onions",
+      "description": "Onions are being fried in a pan with oil.",
+      "start_frame": 0,
+      "end_frame": 52,
+      "ingredients_visible": [
+        "onions",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "golden brown"
+      },
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 352.0,
+      "end_time": 366.0,
+      "window_start": 176,
+      "rice_state": "not visible"
+    },
+    {
+      "step_number": 118,
+      "action": "Frying meat",
+      "description": "Meat is being fried in the same pan as the onions.",
+      "start_frame": 52,
+      "end_frame": 104,
+      "ingredients_visible": [
+        "meat",
+        "onions",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "golden brown",
+        "meat": "frying"
+      },
+      "meat_state": "frying",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 352.0,
+      "end_time": 366.0,
+      "window_start": 176,
+      "rice_state": "not visible"
+    },
+    {
+      "step_number": 119,
+      "action": "Cooking meat",
+      "description": "The fried meat is being cooked in the pan.",
+      "start_frame": 104,
+      "end_frame": 156,
+      "ingredients_visible": [
+        "meat",
+        "onions",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "golden brown",
+        "meat": "cooked"
+      },
+      "meat_state": "cooked",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 352.0,
+      "end_time": 366.0,
+      "window_start": 176,
+      "rice_state": "not visible"
+    },
+    {
+      "step_number": 120,
+      "action": "Cooking rice",
+      "description": "Rice is being cooked in a pot with water.",
+      "start_frame": 156,
+      "end_frame": 352,
+      "ingredients_visible": [
+        "rice",
+        "water",
+        "salt"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "ladle"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "raw",
+        "water": "boiling",
+        "salt": "dissolved"
+      },
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "light",
+      "cooking_stage": "rice_cooking",
+      "start_time": 352.0,
+      "end_time": 366.0,
+      "window_start": 176,
+      "rice_state": "not visible"
+    },
+    {
+      "step_number": 121,
+      "action": "Rinsing rice",
+      "description": "Rinsing 2 cups of Seeraga Samba rice in a bowl.",
+      "start_frame": 360,
+      "end_frame": 374,
+      "ingredients_visible": [
+        "Seeraga Samba Rice"
+      ],
+      "cooking_technique": "rinsing",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "bowl"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "Seeraga Samba Rice": "raw"
+      },
+      "rice_state": "raw",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 360.0,
+      "end_time": 374.0,
+      "window_start": 180
+    },
+    {
+      "step_number": 122,
+      "action": "Pouring water",
+      "description": "Pouring water into a bowl of rice.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "rice",
+        "water"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "rice": "raw",
+        "water": "in bowl"
+      },
+      "rice_state": "raw",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 368.0,
+      "end_time": 382.0,
+      "window_start": 184
+    },
+    {
+      "step_number": 123,
+      "action": "Soaking rice",
+      "description": "Soaking rice in water for 10 minutes.",
+      "start_frame": 4,
+      "end_frame": 7,
+      "ingredients_visible": [
+        "rice",
+        "water"
+      ],
+      "cooking_technique": "soaking",
+      "confidence": 0.9,
+      "visible_utensil": [],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "rice": "soaking",
+        "water": "in bowl"
+      },
+      "rice_state": "soaking",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 368.0,
+      "end_time": 382.0,
+      "window_start": 184
+    },
+    {
+      "step_number": 124,
+      "action": "Pouring water",
+      "description": "Pouring water into a pot",
+      "start_frame": 0,
+      "end_frame": 20,
+      "ingredients_visible": [],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "ladle"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 376.0,
+      "end_time": 390.0,
+      "window_start": 188
+    },
+    {
+      "step_number": 125,
+      "action": "Soaking rice",
+      "description": "Soaking rice in water",
+      "start_frame": 20,
+      "end_frame": 60,
+      "ingredients_visible": [
+        "rice"
+      ],
+      "cooking_technique": "soaking",
+      "confidence": 0.9,
+      "visible_utensil": [],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "soaking"
+      },
+      "rice_state": "soaking",
+      "meat_state": "not visible",
+      "flame_level": "off",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 376.0,
+      "end_time": 390.0,
+      "window_start": 188
+    },
+    {
+      "step_number": 126,
+      "action": "Cooking ghee",
+      "description": "Cooking ghee in a pan",
+      "start_frame": 60,
+      "end_frame": 100,
+      "ingredients_visible": [
+        "ghee"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "tawa",
+      "ingredient_state": {
+        "ghee": "melting"
+      },
+      "rice_state": "soaking",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "light",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 376.0,
+      "end_time": 390.0,
+      "window_start": 188
+    },
+    {
+      "step_number": 127,
+      "action": "Soaking rice",
+      "description": "Rice is being soaked in water.",
+      "start_frame": 0,
+      "end_frame": 39,
+      "ingredients_visible": [
+        "rice"
+      ],
+      "cooking_technique": "soaking",
+      "confidence": 0.9,
+      "visible_utensil": [],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "rice": "soaking"
+      },
+      "rice_state": "soaking",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 384.0,
+      "end_time": 398.0,
+      "window_start": 192
+    },
+    {
+      "step_number": 128,
+      "action": "Frying ghee",
+      "description": "Ghee is being fried in a pan.",
+      "start_frame": 40,
+      "end_frame": 79,
+      "ingredients_visible": [
+        "ghee",
+        "green chilies",
+        "cinnamon",
+        "cloves",
+        "cardamom",
+        "bay leaf",
+        "star anise"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pan",
+      "ingredient_state": {
+        "ghee": "fried",
+        "green chilies": "raw",
+        "cinnamon": "raw",
+        "cloves": "raw",
+        "cardamom": "raw",
+        "bay leaf": "raw",
+        "star anise": "raw"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 384.0,
+      "end_time": 398.0,
+      "window_start": 192
+    },
+    {
+      "step_number": 129,
+      "action": "Frying whole spices",
+      "description": "Whole spices (cinnamon, clove, cardamom, bay leaf, star anise) are being fried in the pan.",
+      "start_frame": 80,
+      "end_frame": 119,
+      "ingredients_visible": [
+        "cinnamon",
+        "cloves",
+        "cardamom",
+        "bay leaf",
+        "star anise"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pan",
+      "ingredient_state": {
+        "cinnamon": "fried",
+        "cloves": "fried",
+        "cardamom": "fried",
+        "bay leaf": "fried",
+        "star anise": "fried"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 384.0,
+      "end_time": 398.0,
+      "window_start": 192
+    },
+    {
+      "step_number": 130,
+      "action": "Frying bay leaf",
+      "description": "Bay leaf is being fried in the pan.",
+      "start_frame": 120,
+      "end_frame": 151,
+      "ingredients_visible": [
+        "bay leaf"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pan",
+      "ingredient_state": {
+        "bay leaf": "fried"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 384.0,
+      "end_time": 398.0,
+      "window_start": 192
+    },
+    {
+      "step_number": 131,
+      "action": "Adding spices to oil",
+      "description": "Whole spices including cinnamon, clove, cardamom, bay leaf, and star anise are added to hot oil in a pan.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "cinnamon",
+        "clove",
+        "cardamom",
+        "bay leaf",
+        "star anise"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 392.0,
+      "end_time": 406.0,
+      "window_start": 196
+    },
+    {
+      "step_number": 132,
+      "action": "Pouring water into the pan",
+      "description": "Water is poured into the pan with the spices.",
+      "start_frame": 4,
+      "end_frame": 6,
+      "ingredients_visible": [
+        "water"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "ladle"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 392.0,
+      "end_time": 406.0,
+      "window_start": 196
+    },
+    {
+      "step_number": 133,
+      "action": "Pouring water",
+      "description": "Pouring 3 1/4 cups of water into a pot.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "water"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "ladle"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 400.0,
+      "end_time": 414.0,
+      "window_start": 200
+    },
+    {
+      "step_number": 134,
+      "action": "Adding spices",
+      "description": "Adding spices to the pot.",
+      "start_frame": 4,
+      "end_frame": 5,
+      "ingredients_visible": [
+        "spices"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "ladle"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 400.0,
+      "end_time": 414.0,
+      "window_start": 200
+    },
+    {
+      "step_number": 135,
+      "action": "Adding salt",
+      "description": "Adding 1 tsp of salt to the pot.",
+      "start_frame": 6,
+      "end_frame": 7,
+      "ingredients_visible": [
+        "salt"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "ladle"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 400.0,
+      "end_time": 414.0,
+      "window_start": 200
+    },
+    {
+      "step_number": 136,
+      "action": "Covering the pot",
+      "description": "Covering the pot with a lid.",
+      "start_frame": 8,
+      "end_frame": 9,
+      "ingredients_visible": [],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "ladle"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 400.0,
+      "end_time": 414.0,
+      "window_start": 200
+    },
+    {
+      "step_number": 137,
+      "action": "Adding salt to water",
+      "description": "Salt is being added to a pot of boiling water.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "water",
+        "salt"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "water": "boiling",
+        "salt": "dissolved"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "high",
+      "oil_amount": "not visible",
+      "steam_visibility": "light",
+      "cooking_stage": "prep",
+      "start_time": 408.0,
+      "end_time": 422.0,
+      "window_start": 204
+    },
+    {
+      "step_number": 138,
+      "action": "Cooking rice",
+      "description": "Rice is being cooked in a pot with boiling water.",
+      "start_frame": 4,
+      "end_frame": 6,
+      "ingredients_visible": [
+        "water",
+        "rice",
+        "salt"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "water": "boiling",
+        "rice": "soaking",
+        "salt": "dissolved"
+      },
+      "rice_state": "soaking",
+      "meat_state": "not visible",
+      "flame_level": "high",
+      "oil_amount": "not visible",
+      "steam_visibility": "light",
+      "cooking_stage": "rice_cooking",
+      "start_time": 408.0,
+      "end_time": 422.0,
+      "window_start": 204
+    },
+    {
+      "action": "unknown",
+      "description": "```json\n[\n    {\n        \"step_number\": 1,\n        \"action\": \"Heating oil\",\n        \"description\": \"Heating oil in a pot on the stove.\",\n        \"start_frame\": 1,\n        \"end_frame\": 3,\n        \"ingre",
+      "start_time": 416.0,
+      "end_time": 430.0,
+      "confidence": 0.3,
+      "visible_utensil": [],
+      "vessel": "",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "",
+      "step_number": 139
+    },
+    {
+      "step_number": 140,
+      "action": "Cooking rice",
+      "description": "Rice is being cooked in a pot with water.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "rice",
+        "water"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "raw",
+        "water": "boiled"
+      },
+      "rice_state": "raw",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "light",
+      "cooking_stage": "prep",
+      "start_time": 424.0,
+      "end_time": 438.0,
+      "window_start": 212
+    },
+    {
+      "step_number": 141,
+      "action": "Straining rice",
+      "description": "Rice is being strained from the pot.",
+      "start_frame": 4,
+      "end_frame": 5,
+      "ingredients_visible": [
+        "rice"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "strainer"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "raw"
+      },
+      "rice_state": "raw",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "light",
+      "cooking_stage": "prep",
+      "start_time": 424.0,
+      "end_time": 438.0,
+      "window_start": 212
+    },
+    {
+      "step_number": 142,
+      "action": "Cooking rice with spices",
+      "description": "Rice is being cooked with spices in a pot.",
+      "start_frame": 6,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "rice",
+        "spices"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "raw",
+        "spices": "cooked"
+      },
+      "rice_state": "raw",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "light",
+      "cooking_stage": "prep",
+      "start_time": 424.0,
+      "end_time": 438.0,
+      "window_start": 212
+    },
+    {
+      "step_number": 143,
+      "action": "Cooking rice with spices and lid",
+      "description": "Rice is being cooked with spices and a lid on the pot.",
+      "start_frame": 9,
+      "end_frame": 10,
+      "ingredients_visible": [
+        "rice",
+        "spices"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "raw",
+        "spices": "cooked"
+      },
+      "rice_state": "raw",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "light",
+      "cooking_stage": "prep",
+      "start_time": 424.0,
+      "end_time": 438.0,
+      "window_start": 212
+    },
+    {
+      "action": "unknown",
+      "description": "```json\n[\n    {\n        \"step_number\": 1,\n        \"action\": \"Cooking rice\",\n        \"description\": \"Cooking rice in a pot with water.\",\n        \"start_frame\": 1,\n        \"end_frame\": 30,\n        \"ingr",
+      "start_time": 432.0,
+      "end_time": 446.0,
+      "confidence": 0.3,
+      "visible_utensil": [],
+      "vessel": "",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "",
+      "step_number": 144
+    },
+    {
+      "step_number": 145,
+      "action": "Cooking rice",
+      "description": "Rice is being cooked in a pot on the stove.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "rice",
+        "water"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "cooking",
+        "water": "boiling"
+      },
+      "rice_state": "cooking",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "light",
+      "cooking_stage": "rice_cooking",
+      "start_time": 440.0,
+      "end_time": 454.0,
+      "window_start": 220
+    },
+    {
+      "step_number": 146,
+      "action": "Preparing ingredients",
+      "description": "Various ingredients are being prepared and laid out on the table.",
+      "start_frame": 4,
+      "end_frame": 5,
+      "ingredients_visible": [
+        "chicken",
+        "cooked rice",
+        "ghee",
+        "chopped coriander leaves",
+        "mint leaves",
+        "fried onions",
+        "fried raisins",
+        "fried cashew nuts",
+        "garam masala",
+        "saffron water"
+      ],
+      "cooking_technique": "not applicable",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "not visible",
+      "ingredient_state": {
+        "chicken": "raw",
+        "cooked rice": "cooked",
+        "ghee": "not visible",
+        "chopped coriander leaves": "chopped",
+        "mint leaves": "chopped",
+        "fried onions": "fried",
+        "fried raisins": "fried",
+        "fried cashew nuts": "fried",
+        "garam masala": "not visible",
+        "saffron water": "not visible"
+      },
+      "rice_state": "cooked",
+      "meat_state": "raw",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 440.0,
+      "end_time": 454.0,
+      "window_start": 220
+    },
+    {
+      "step_number": 147,
+      "action": "Cooking chicken",
+      "description": "Chicken is being cooked in a pot on the stove.",
+      "start_frame": 6,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "chicken",
+        "ghee",
+        "onions",
+        "raisins",
+        "cashew nuts",
+        "garam masala",
+        "saffron water"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "chicken": "cooking",
+        "ghee": "not visible",
+        "onions": "fried",
+        "raisins": "fried",
+        "cashew nuts": "fried",
+        "garam masala": "not visible",
+        "saffron water": "not visible"
+      },
+      "rice_state": "cooked",
+      "meat_state": "cooking",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "light",
+      "cooking_stage": "meat_cooking",
+      "start_time": 440.0,
+      "end_time": 454.0,
+      "window_start": 220
+    },
+    {
+      "step_number": 148,
+      "action": "Serving chicken gravy",
+      "description": "Serving the chicken gravy onto a plate.",
+      "start_frame": 0,
+      "end_frame": 30,
+      "ingredients_visible": [
+        "chicken gravy"
+      ],
+      "cooking_technique": "serving",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "serving",
+      "start_time": 448.0,
+      "end_time": 462.0,
+      "window_start": 224
+    },
+    {
+      "step_number": 149,
+      "action": "Serving cooked rice",
+      "description": "Serving the cooked rice onto a plate.",
+      "start_frame": 30,
+      "end_frame": 60,
+      "ingredients_visible": [
+        "cooked rice"
+      ],
+      "cooking_technique": "serving",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {},
+      "rice_state": "fully cooked",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "serving",
+      "start_time": 448.0,
+      "end_time": 462.0,
+      "window_start": 224
+    },
+    {
+      "action": "unknown",
+      "description": "```json\n[\n    {\n        \"step_number\": 1,\n        \"action\": \"Layering cooked rice and meat\",\n        \"description\": \"The person is layering cooked rice and meat in a large bowl.\",\n        \"start_frame",
+      "start_time": 456.0,
+      "end_time": 470.0,
+      "confidence": 0.3,
+      "visible_utensil": [],
+      "vessel": "",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "",
+      "step_number": 150
+    },
+    {
+      "step_number": 151,
+      "action": "Adding spices to rice",
+      "description": "A hand is seen adding spices to a pot of rice.",
+      "start_frame": 0,
+      "end_frame": 30,
+      "ingredients_visible": [
+        "rice",
+        "spices"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "raw",
+        "spices": "added"
+      },
+      "rice_state": "raw",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 464.0,
+      "end_time": 478.0,
+      "window_start": 232
+    },
+    {
+      "step_number": 152,
+      "action": "Adding ghee to rice",
+      "description": "A hand is seen adding ghee to the pot of rice.",
+      "start_frame": 30,
+      "end_frame": 60,
+      "ingredients_visible": [
+        "rice",
+        "ghee"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "raw",
+        "ghee": "added"
+      },
+      "rice_state": "raw",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "light",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 464.0,
+      "end_time": 478.0,
+      "window_start": 232
+    },
+    {
+      "step_number": 153,
+      "action": "Adding chopped coriander leaves to rice",
+      "description": "A hand is seen adding chopped coriander leaves to the pot of rice.",
+      "start_frame": 60,
+      "end_frame": 90,
+      "ingredients_visible": [
+        "rice",
+        "ghee",
+        "chopped coriander leaves"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "raw",
+        "ghee": "added",
+        "chopped coriander leaves": "added"
+      },
+      "rice_state": "raw",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "light",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 464.0,
+      "end_time": 478.0,
+      "window_start": 232
+    },
+    {
+      "step_number": 154,
+      "action": "Adding mint leaves to rice",
+      "description": "A hand is seen adding mint leaves to the pot of rice.",
+      "start_frame": 90,
+      "end_frame": 120,
+      "ingredients_visible": [
+        "rice",
+        "ghee",
+        "chopped coriander leaves",
+        "mint leaves"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "raw",
+        "ghee": "added",
+        "chopped coriander leaves": "added",
+        "mint leaves": "added"
+      },
+      "rice_state": "raw",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "light",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 464.0,
+      "end_time": 478.0,
+      "window_start": 232
+    },
+    {
+      "step_number": 155,
+      "action": "Frying onions",
+      "description": "A hand is seen frying onions in a pan.",
+      "start_frame": 120,
+      "end_frame": 150,
+      "ingredients_visible": [
+        "onions"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "tongs"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "golden brown"
+      },
+      "rice_state": "raw",
+      "meat_state": "not visible",
+      "flame_level": "high",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 464.0,
+      "end_time": 478.0,
+      "window_start": 232
+    },
+    {
+      "action": "unknown",
+      "description": "```json\n[\n    {\n        \"step_number\": 1,\n        \"action\": \"Adding ghee\",\n        \"description\": \"Adding 1 teaspoon of ghee to a bowl of raw rice.\",\n        \"start_frame\": 1,\n        \"end_frame\": 2,\n",
+      "start_time": 472.0,
+      "end_time": 486.0,
+      "confidence": 0.3,
+      "visible_utensil": [],
+      "vessel": "",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "",
+      "step_number": 156
+    },
+    {
+      "action": "unknown",
+      "description": "```json\n[\n    {\n        \"step_number\": 1,\n        \"action\": \"Adding fried onions\",\n        \"description\": \"Fried onions are being added to the cooked rice.\",\n        \"start_frame\": 1,\n        \"end_fra",
+      "start_time": 480.0,
+      "end_time": 494.0,
+      "confidence": 0.3,
+      "visible_utensil": [],
+      "vessel": "",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "",
+      "step_number": 157
+    },
+    {
+      "step_number": 158,
+      "action": "Adding garam masala",
+      "description": "Adding garam masala to a bowl of cooked rice.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "garam masala",
+        "cooked rice"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "garam masala": "added",
+        "cooked rice": "mixing"
+      },
+      "rice_state": "mixing",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 488.0,
+      "end_time": 502.0,
+      "window_start": 244
+    },
+    {
+      "step_number": 159,
+      "action": "Adding saffron water",
+      "description": "Adding saffron water to the bowl of cooked rice.",
+      "start_frame": 4,
+      "end_frame": 6,
+      "ingredients_visible": [
+        "saffron water",
+        "cooked rice"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "saffron water": "added",
+        "cooked rice": "mixing"
+      },
+      "rice_state": "mixing",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 488.0,
+      "end_time": 502.0,
+      "window_start": 244
+    },
+    {
+      "step_number": 160,
+      "action": "Adding saffron water and cooked rice",
+      "description": "Adding saffron water and cooked rice to a pot.",
+      "start_frame": 7,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "saffron water",
+        "cooked rice"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "saffron water": "added",
+        "cooked rice": "mixing"
+      },
+      "rice_state": "mixing",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 488.0,
+      "end_time": 502.0,
+      "window_start": 244
+    },
+    {
+      "step_number": 161,
+      "action": "Adding water to rice",
+      "description": "Water is being added to a bowl of rice.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "rice",
+        "water"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "rice": "soaking",
+        "water": "boiled"
+      },
+      "rice_state": "soaking",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 496.0,
+      "end_time": 510.0,
+      "window_start": 248
+    },
+    {
+      "step_number": 162,
+      "action": "Cooking rice",
+      "description": "Rice is being cooked in a pot.",
+      "start_frame": 4,
+      "end_frame": 6,
+      "ingredients_visible": [
+        "rice",
+        "water"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "cooked",
+        "water": "boiled"
+      },
+      "rice_state": "cooked",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "light",
+      "cooking_stage": "rice_cooking",
+      "start_time": 496.0,
+      "end_time": 510.0,
+      "window_start": 248
+    },
+    {
+      "step_number": 163,
+      "action": "Draining water from cooked rice",
+      "description": "Water is being drained from the cooked rice.",
+      "start_frame": 7,
+      "end_frame": 9,
+      "ingredients_visible": [
+        "rice"
+      ],
+      "cooking_technique": "draining",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spoon"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "rice": "cooked"
+      },
+      "rice_state": "cooked",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "rice_cooking",
+      "start_time": 496.0,
+      "end_time": 510.0,
+      "window_start": 248
+    },
+    {
+      "step_number": 164,
+      "action": "Fluffing rice",
+      "description": "Fluffing the cooked rice with a perforated spoon to separate the grains.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "rice"
+      ],
+      "cooking_technique": "fluffing",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "rice": "fully cooked"
+      },
+      "rice_state": "fully cooked",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 504.0,
+      "end_time": 518.0,
+      "window_start": 252
+    },
+    {
+      "step_number": 165,
+      "action": "Adding ghee",
+      "description": "Adding 1 tablespoon of ghee to the cooked rice.",
+      "start_frame": 4,
+      "end_frame": 5,
+      "ingredients_visible": [
+        "rice",
+        "ghee"
+      ],
+      "cooking_technique": "adding",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "rice": "fully cooked",
+        "ghee": "liquid"
+      },
+      "rice_state": "fully cooked",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "light",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 504.0,
+      "end_time": 518.0,
+      "window_start": 252
+    },
+    {
+      "step_number": 166,
+      "action": "Adding coriander leaves",
+      "description": "Adding chopped coriander leaves to the rice.",
+      "start_frame": 6,
+      "end_frame": 7,
+      "ingredients_visible": [
+        "rice",
+        "coriander leaves"
+      ],
+      "cooking_technique": "adding",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "rice": "fully cooked",
+        "coriander leaves": "chopped"
+      },
+      "rice_state": "fully cooked",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 504.0,
+      "end_time": 518.0,
+      "window_start": 252
+    },
+    {
+      "step_number": 167,
+      "action": "Adding mint leaves",
+      "description": "Adding mint leaves to the rice.",
+      "start_frame": 8,
+      "end_frame": 9,
+      "ingredients_visible": [
+        "rice",
+        "mint leaves"
+      ],
+      "cooking_technique": "adding",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "rice": "fully cooked",
+        "mint leaves": "chopped"
+      },
+      "rice_state": "fully cooked",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 504.0,
+      "end_time": 518.0,
+      "window_start": 252
+    },
+    {
+      "step_number": 168,
+      "action": "Adding fried onions",
+      "description": "Adding fried onions to the rice.",
+      "start_frame": 10,
+      "end_frame": 11,
+      "ingredients_visible": [
+        "rice",
+        "fried onions"
+      ],
+      "cooking_technique": "adding",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "rice": "fully cooked",
+        "fried onions": "golden brown"
+      },
+      "rice_state": "fully cooked",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 504.0,
+      "end_time": 518.0,
+      "window_start": 252
+    },
+    {
+      "step_number": 169,
+      "action": "Adding egg and herbs to rice",
+      "description": "An egg is cracked into a pot of rice, followed by the addition of chopped coriander leaves and mint leaves.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "rice",
+        "egg",
+        "coriander leaves",
+        "mint leaves"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "cooking",
+        "egg": "raw",
+        "coriander leaves": "raw",
+        "mint leaves": "raw"
+      },
+      "rice_state": "cooking",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "rice_cooking",
+      "start_time": 512.0,
+      "end_time": 526.0,
+      "window_start": 256
+    },
+    {
+      "step_number": 170,
+      "action": "Adding fried onions to rice",
+      "description": "Fried onions are added to the pot of rice.",
+      "start_frame": 4,
+      "end_frame": 5,
+      "ingredients_visible": [
+        "rice",
+        "fried onions",
+        "coriander leaves",
+        "mint leaves"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "cooking",
+        "fried onions": "cooked",
+        "coriander leaves": "raw",
+        "mint leaves": "raw"
+      },
+      "rice_state": "cooking",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "rice_cooking",
+      "start_time": 512.0,
+      "end_time": 526.0,
+      "window_start": 256
+    },
+    {
+      "step_number": 171,
+      "action": "Adding fried raisins to rice",
+      "description": "Fried raisins are added to the pot of rice.",
+      "start_frame": 6,
+      "end_frame": 7,
+      "ingredients_visible": [
+        "rice",
+        "fried onions",
+        "fried raisins",
+        "coriander leaves",
+        "mint leaves"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "cooking",
+        "fried onions": "cooked",
+        "fried raisins": "cooked",
+        "coriander leaves": "raw",
+        "mint leaves": "raw"
+      },
+      "rice_state": "cooking",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "rice_cooking",
+      "start_time": 512.0,
+      "end_time": 526.0,
+      "window_start": 256
+    },
+    {
+      "step_number": 172,
+      "action": "Adding fried cashew nuts and garam masala to rice",
+      "description": "Fried cashew nuts and garam masala are added to the pot of rice.",
+      "start_frame": 8,
+      "end_frame": 9,
+      "ingredients_visible": [
+        "rice",
+        "fried onions",
+        "fried raisins",
+        "fried cashew nuts",
+        "garam masala",
+        "coriander leaves",
+        "mint leaves"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.95,
+      "visible_utensil": [],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "cooking",
+        "fried onions": "cooked",
+        "fried raisins": "cooked",
+        "fried cashew nuts": "cooked",
+        "garam masala": "raw",
+        "coriander leaves": "raw",
+        "mint leaves": "raw"
+      },
+      "rice_state": "cooking",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "rice_cooking",
+      "start_time": 512.0,
+      "end_time": 526.0,
+      "window_start": 256
+    },
+    {
+      "step_number": 173,
+      "action": "Layering ingredients",
+      "description": "Adding fried raisins, cashew nuts, and garam masala to the rice.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "fried raisins",
+        "fried cashew nuts",
+        "garam masala",
+        "rice"
+      ],
+      "cooking_technique": "layering",
+      "confidence": 0.95,
+      "visible_utensil": [],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "fried raisins": "on top",
+        "fried cashew nuts": "on top",
+        "garam masala": "on top",
+        "rice": "raw"
+      },
+      "rice_state": "raw",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 520.0,
+      "end_time": 534.0,
+      "window_start": 260
+    },
+    {
+      "step_number": 174,
+      "action": "Pouring saffron water",
+      "description": "Pouring saffron water over the rice.",
+      "start_frame": 4,
+      "end_frame": 6,
+      "ingredients_visible": [
+        "saffron water",
+        "rice",
+        "fried raisins",
+        "fried cashew nuts",
+        "garam masala"
+      ],
+      "cooking_technique": "pouring",
+      "confidence": 0.95,
+      "visible_utensil": [],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "fried raisins": "on top",
+        "fried cashew nuts": "on top",
+        "garam masala": "on top",
+        "rice": "raw"
+      },
+      "rice_state": "raw",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 520.0,
+      "end_time": 534.0,
+      "window_start": 260
+    },
+    {
+      "step_number": 175,
+      "action": "Wrapping the bowl",
+      "description": "Wrapping the bowl with aluminum foil.",
+      "start_frame": 7,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "rice",
+        "fried raisins",
+        "fried cashew nuts",
+        "garam masala",
+        "saffron water"
+      ],
+      "cooking_technique": "wrapping",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "tongs"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "fried raisins": "on top",
+        "fried cashew nuts": "on top",
+        "garam masala": "on top",
+        "rice": "raw"
+      },
+      "rice_state": "raw",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 520.0,
+      "end_time": 534.0,
+      "window_start": 260
+    },
+    {
+      "step_number": 176,
+      "action": "Pouring saffron water",
+      "description": "Pouring saffron water over the rice and other ingredients in the pot.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [
+        "rice",
+        "saffron water",
+        "almonds",
+        "raisins",
+        "cashews",
+        "saffron"
+      ],
+      "cooking_technique": "pouring",
+      "confidence": 0.9,
+      "visible_utensil": [],
+      "vessel": "pot",
+      "ingredient_state": {
+        "onions": "cooked",
+        "rice": "raw",
+        "saffron": "dissolved"
+      },
+      "rice_state": "raw",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 528.0,
+      "end_time": 542.0,
+      "window_start": 264
+    },
+    {
+      "step_number": 177,
+      "action": "Sealing the pot",
+      "description": "Sealing the pot with aluminum foil.",
+      "start_frame": 4,
+      "end_frame": 7,
+      "ingredients_visible": [
+        "aluminum foil",
+        "pot",
+        "saffron water",
+        "almonds",
+        "raisins",
+        "cashews",
+        "saffron"
+      ],
+      "cooking_technique": "sealing",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "tongs"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "onions": "cooked",
+        "rice": "raw",
+        "saffron": "dissolved"
+      },
+      "rice_state": "raw",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 528.0,
+      "end_time": 542.0,
+      "window_start": 264
+    },
+    {
+      "step_number": 178,
+      "action": "Preparing aluminum foil",
+      "description": "Wrapping aluminum foil around a pot.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [],
+      "cooking_technique": "wrapping",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "tongs"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 536.0,
+      "end_time": 550.0,
+      "window_start": 268
+    },
+    {
+      "step_number": 179,
+      "action": "Cooking with aluminum foil",
+      "description": "Cooking the pot with aluminum foil wrapped around it.",
+      "start_frame": 4,
+      "end_frame": 6,
+      "ingredients_visible": [],
+      "cooking_technique": "dum cooking",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "tongs"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "cooking",
+      "start_time": 536.0,
+      "end_time": 550.0,
+      "window_start": 268
+    },
+    {
+      "step_number": 180,
+      "action": "Removing aluminum foil",
+      "description": "Removing the aluminum foil from the pot.",
+      "start_frame": 7,
+      "end_frame": 8,
+      "ingredients_visible": [],
+      "cooking_technique": "removing foil",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "tongs"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "cooking",
+      "start_time": 536.0,
+      "end_time": 550.0,
+      "window_start": 268
+    },
+    {
+      "step_number": 181,
+      "action": "Preparing pan",
+      "description": "The person is placing a large, black, round pan on a stove with a blue flame.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [],
+      "cooking_technique": "preparing",
+      "confidence": 0.9,
+      "visible_utensil": [],
+      "vessel": "pan",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 544.0,
+      "end_time": 558.0,
+      "window_start": 272
+    },
+    {
+      "step_number": 182,
+      "action": "Cooking meat",
+      "description": "The person is cooking meat in a pot on the stove.",
+      "start_frame": 4,
+      "end_frame": 6,
+      "ingredients_visible": [
+        "meat"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "meat": "raw"
+      },
+      "rice_state": "not visible",
+      "meat_state": "raw",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "light",
+      "cooking_stage": "meat_cooking",
+      "start_time": 544.0,
+      "end_time": 558.0,
+      "window_start": 272
+    },
+    {
+      "step_number": 183,
+      "action": "Cooking rice",
+      "description": "The person is cooking rice in a pot on the stove.",
+      "start_frame": 7,
+      "end_frame": 9,
+      "ingredients_visible": [
+        "rice"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "ladle"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "raw"
+      },
+      "rice_state": "raw",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "light",
+      "cooking_stage": "rice_cooking",
+      "start_time": 544.0,
+      "end_time": 558.0,
+      "window_start": 272
+    },
+    {
+      "step_number": 184,
+      "action": "Preparing the pot",
+      "description": "The person is covering a pot with a cloth and sealing it with aluminum foil.",
+      "start_frame": 1,
+      "end_frame": 3,
+      "ingredients_visible": [],
+      "cooking_technique": "sealing",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 552.0,
+      "end_time": 566.0,
+      "window_start": 276
+    },
+    {
+      "step_number": 185,
+      "action": "Cooking the rice",
+      "description": "The person is cooking rice in a pot with a lid on.",
+      "start_frame": 4,
+      "end_frame": 5,
+      "ingredients_visible": [
+        "rice"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "raw"
+      },
+      "rice_state": "raw",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "not visible",
+      "steam_visibility": "light",
+      "cooking_stage": "rice_cooking",
+      "start_time": 552.0,
+      "end_time": 566.0,
+      "window_start": 276
+    },
+    {
+      "step_number": 186,
+      "action": "Preparing the biryani",
+      "description": "The person is mixing cooked rice with vegetables and meat.",
+      "start_frame": 6,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "rice",
+        "vegetables",
+        "meat"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "cooked",
+        "vegetables": "cooked",
+        "meat": "cooked"
+      },
+      "rice_state": "cooked",
+      "meat_state": "cooked",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "layering",
+      "start_time": 552.0,
+      "end_time": 566.0,
+      "window_start": 276
+    },
+    {
+      "step_number": 187,
+      "action": "Layering ingredients",
+      "description": "The person is layering rice, meat, and vegetables in a pot.",
+      "start_frame": 1,
+      "end_frame": 4,
+      "ingredients_visible": [
+        "rice",
+        "meat",
+        "vegetables"
+      ],
+      "cooking_technique": "layering",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "raw",
+        "meat": "raw",
+        "vegetables": "raw"
+      },
+      "rice_state": "raw",
+      "meat_state": "raw",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "layering",
+      "start_time": 560.0,
+      "end_time": 574.0,
+      "window_start": 280
+    },
+    {
+      "step_number": 188,
+      "action": "Cooking rice",
+      "description": "The person is cooking the rice in the pot.",
+      "start_frame": 5,
+      "end_frame": 7,
+      "ingredients_visible": [
+        "rice",
+        "meat",
+        "vegetables"
+      ],
+      "cooking_technique": "boiling",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "raw",
+        "meat": "raw",
+        "vegetables": "raw"
+      },
+      "rice_state": "raw",
+      "meat_state": "raw",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "cooking",
+      "start_time": 560.0,
+      "end_time": 574.0,
+      "window_start": 280
+    },
+    {
+      "step_number": 189,
+      "action": "Serving biryani",
+      "description": "The person is serving the cooked biryani onto a plate.",
+      "start_frame": 8,
+      "end_frame": 10,
+      "ingredients_visible": [
+        "rice",
+        "meat",
+        "vegetables"
+      ],
+      "cooking_technique": "serving",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "rice": "cooked",
+        "meat": "cooked",
+        "vegetables": "cooked"
+      },
+      "rice_state": "cooked",
+      "meat_state": "cooked",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "serving",
+      "start_time": 560.0,
+      "end_time": 574.0,
+      "window_start": 280
+    },
+    {
+      "step_number": 190,
+      "action": "Layering rice and meat",
+      "description": "The person is layering cooked rice and meat in a pan with a green leaf lining.",
+      "start_frame": 1,
+      "end_frame": 4,
+      "ingredients_visible": [
+        "rice",
+        "meat"
+      ],
+      "cooking_technique": "layering",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pan",
+      "ingredient_state": {
+        "rice": "fully cooked",
+        "meat": "cooked"
+      },
+      "rice_state": "fully cooked",
+      "meat_state": "cooked",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "layering",
+      "start_time": 568.0,
+      "end_time": 582.0,
+      "window_start": 284
+    },
+    {
+      "step_number": 191,
+      "action": "Adding spices and garnish",
+      "description": "The person is adding spices and garnish to the rice and meat mixture.",
+      "start_frame": 5,
+      "end_frame": 7,
+      "ingredients_visible": [
+        "spices",
+        "garnish"
+      ],
+      "cooking_technique": "layering",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pan",
+      "ingredient_state": {
+        "rice": "fully cooked",
+        "meat": "cooked"
+      },
+      "rice_state": "fully cooked",
+      "meat_state": "cooked",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "layering",
+      "start_time": 568.0,
+      "end_time": 582.0,
+      "window_start": 284
+    },
+    {
+      "step_number": 192,
+      "action": "Finalizing the dish",
+      "description": "The person is finalizing the dish by adding the last layer of rice and garnish.",
+      "start_frame": 8,
+      "end_frame": 9,
+      "ingredients_visible": [
+        "rice",
+        "garnish"
+      ],
+      "cooking_technique": "layering",
+      "confidence": 0.95,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pan",
+      "ingredient_state": {
+        "rice": "fully cooked",
+        "meat": "cooked"
+      },
+      "rice_state": "fully cooked",
+      "meat_state": "cooked",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "layering",
+      "start_time": 568.0,
+      "end_time": 582.0,
+      "window_start": 284
+    },
+    {
+      "action": "unknown",
+      "description": "```json\n[\n    {\n        \"step_number\": 1,\n        \"action\": \"Adding spices to the pan\",\n        \"description\": \"A hand is seen adding spices to a pan with rice and meat.\",\n        \"start_frame\": 1,\n  ",
+      "start_time": 576.0,
+      "end_time": 590.0,
+      "confidence": 0.3,
+      "visible_utensil": [],
+      "vessel": "",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "",
+      "step_number": 193
+    },
+    {
+      "step_number": 194,
+      "action": "Layering ingredients",
+      "description": "Rice and meat are being layered in a pot.",
+      "start_frame": 1,
+      "end_frame": 4,
+      "ingredients_visible": [
+        "rice",
+        "meat",
+        "onions",
+        "chili peppers",
+        "lime"
+      ],
+      "cooking_technique": "layering",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "onions": "cooked",
+        "rice": "raw",
+        "meat": "raw"
+      },
+      "rice_state": "raw",
+      "meat_state": "raw",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "layering",
+      "start_time": 584.0,
+      "end_time": 598.0,
+      "window_start": 292
+    },
+    {
+      "step_number": 195,
+      "action": "Serving",
+      "description": "The cooked biryani is being served on a plate.",
+      "start_frame": 5,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "biryani",
+        "lime"
+      ],
+      "cooking_technique": "serving",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "pot",
+      "ingredient_state": {
+        "biryani": "cooked"
+      },
+      "rice_state": "fully cooked",
+      "meat_state": "cooked",
+      "flame_level": "off",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "serving",
+      "start_time": 584.0,
+      "end_time": 598.0,
+      "window_start": 292
+    },
+    {
+      "action": "unknown",
+      "description": "```json\n[\n    {\n        \"step_number\": 1,\n        \"action\": \"Layering rice and meat\",\n        \"description\": \"Rice and meat are being layered in a pot.\",\n        \"start_frame\": 0,\n        \"end_frame\":",
+      "start_time": 592.0,
+      "end_time": 606.0,
+      "confidence": 0.3,
+      "visible_utensil": [],
+      "vessel": "",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "",
+      "step_number": 196
+    },
+    {
+      "action": "unknown",
+      "description": "```json\n[\n    {\n        \"step_number\": 1,\n        \"action\": \"Serving rice\",\n        \"description\": \"A plate of cooked rice is being served on a banana leaf.\",\n        \"start_frame\": 0,\n        \"end_fr",
+      "start_time": 600.0,
+      "end_time": 614.0,
+      "confidence": 0.3,
+      "visible_utensil": [],
+      "vessel": "",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "",
+      "step_number": 197
+    },
+    {
+      "step_number": 198,
+      "action": "Preparing ingredients",
+      "description": "The woman is preparing the ingredients for the biryani. She is seen holding a pot and a spoon, and there are various ingredients visible on the table.",
+      "start_frame": 1,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "onions",
+        "garlic",
+        "ginger",
+        "cumin seeds",
+        "bay leaves",
+        "cinnamon",
+        "cardamom",
+        "cloves",
+        "black peppercorns",
+        "green chilies",
+        "tomatoes",
+        "coriander leaves"
+      ],
+      "cooking_technique": "preparing",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula",
+        "ladle",
+        "tongs"
+      ],
+      "vessel": "not visible",
+      "ingredient_state": {
+        "onions": "diced",
+        "garlic": "minced",
+        "ginger": "grated",
+        "cumin seeds": "raw",
+        "bay leaves": "raw",
+        "cinnamon": "raw",
+        "cardamom": "raw",
+        "cloves": "raw",
+        "black peppercorns": "raw",
+        "green chilies": "diced",
+        "tomatoes": "diced",
+        "coriander leaves": "chopped"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 608.0,
+      "end_time": 622.0,
+      "window_start": 304
+    },
+    {
+      "step_number": 199,
+      "action": "Cooking introduction",
+      "description": "The woman is speaking to the camera, likely introducing the cooking video.",
+      "start_frame": 1,
+      "end_frame": 8,
+      "ingredients_visible": [],
+      "cooking_technique": "not applicable",
+      "confidence": 0.9,
+      "visible_utensil": [],
+      "vessel": "not applicable",
+      "ingredient_state": {},
+      "rice_state": "not applicable",
+      "meat_state": "not applicable",
+      "flame_level": "not applicable",
+      "oil_amount": "not applicable",
+      "steam_visibility": "not applicable",
+      "cooking_stage": "prep",
+      "start_time": 616.0,
+      "end_time": 630.0,
+      "window_start": 308
+    },
+    {
+      "step_number": 200,
+      "action": "Cooking with book",
+      "description": "The woman is holding a book titled 'Home Cooking' and discussing recipes.",
+      "start_frame": 9,
+      "end_frame": 16,
+      "ingredients_visible": [
+        "tomatoes",
+        "basil",
+        "almonds"
+      ],
+      "cooking_technique": "not applicable",
+      "confidence": 0.8,
+      "visible_utensil": [],
+      "vessel": "not applicable",
+      "ingredient_state": {
+        "tomatoes": "raw",
+        "basil": "raw",
+        "almonds": "raw"
+      },
+      "rice_state": "not applicable",
+      "meat_state": "not applicable",
+      "flame_level": "not applicable",
+      "oil_amount": "not applicable",
+      "steam_visibility": "not applicable",
+      "cooking_stage": "prep",
+      "start_time": 616.0,
+      "end_time": 630.0,
+      "window_start": 308
+    },
+    {
+      "action": "unknown",
+      "description": "```json\n[\n    {\n        \"step_number\": 1,\n        \"action\": \"Flipping pancakes\",\n        \"description\": \"The person is flipping pancakes on a griddle.\",\n        \"start_frame\": 0,\n        \"end_frame\": ",
+      "start_time": 624.0,
+      "end_time": 638.0,
+      "confidence": 0.3,
+      "visible_utensil": [],
+      "vessel": "",
+      "ingredient_state": {},
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "",
+      "step_number": 201
+    },
+    {
+      "step_number": 202,
+      "action": "Preparing ingredients",
+      "description": "The chef is preparing the ingredients for the biryani. Ingredients such as tomatoes, onions, and spices are visible on the table.",
+      "start_frame": 0,
+      "end_frame": 4,
+      "ingredients_visible": [
+        "tomatoes",
+        "onions",
+        "spices"
+      ],
+      "cooking_technique": "prep",
+      "confidence": 0.9,
+      "visible_utensil": [],
+      "vessel": "not visible",
+      "ingredient_state": {
+        "tomatoes": "raw",
+        "onions": "raw",
+        "spices": "raw"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 632.0,
+      "end_time": 638.0,
+      "window_start": 316
+    },
+    {
+      "step_number": 203,
+      "action": "Frying onions",
+      "description": "The chef is frying onions in a pan. The onions are turning golden brown.",
+      "start_frame": 5,
+      "end_frame": 8,
+      "ingredients_visible": [
+        "onions",
+        "oil"
+      ],
+      "cooking_technique": "frying",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "kadhai",
+      "ingredient_state": {
+        "onions": "golden brown",
+        "oil": "in use"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "medium",
+      "oil_amount": "moderate",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 632.0,
+      "end_time": 638.0,
+      "window_start": 316
+    },
+    {
+      "step_number": 204,
+      "action": "Preparing tomatoes",
+      "description": "The chef is preparing tomatoes by cutting them into pieces.",
+      "start_frame": 9,
+      "end_frame": 12,
+      "ingredients_visible": [
+        "tomatoes"
+      ],
+      "cooking_technique": "prep",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "knife"
+      ],
+      "vessel": "not visible",
+      "ingredient_state": {
+        "tomatoes": "diced"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 632.0,
+      "end_time": 638.0,
+      "window_start": 316
+    },
+    {
+      "step_number": 205,
+      "action": "Combining ingredients",
+      "description": "The chef is combining the fried onions and diced tomatoes in a bowl.",
+      "start_frame": 13,
+      "end_frame": 16,
+      "ingredients_visible": [
+        "onions",
+        "tomatoes"
+      ],
+      "cooking_technique": "mixing",
+      "confidence": 0.9,
+      "visible_utensil": [
+        "spatula"
+      ],
+      "vessel": "bowl",
+      "ingredient_state": {
+        "onions": "cooked",
+        "tomatoes": "diced"
+      },
+      "rice_state": "not visible",
+      "meat_state": "not visible",
+      "flame_level": "not visible",
+      "oil_amount": "not visible",
+      "steam_visibility": "none",
+      "cooking_stage": "prep",
+      "start_time": 632.0,
+      "end_time": 638.0,
+      "window_start": 316
+    }
+  ]
+}

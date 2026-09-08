@@ -4,8 +4,9 @@ CulinaryVLM — Phase 0B: Canonical Recipe Extension
 ═══════════════════════════════════════════════════════════════
 
 Generates canonical recipe templates for each biryani category
-using Groq Llama-3.1-70B. These recipes serve as the alignment
-reference for Stage 7 (multimodal alignment with DTW).
+using a local Ollama server (qwen2.5:32b-instruct). These recipes
+serve as the alignment reference for Stage 7 (multimodal alignment
+with DTW).
 
 Format follows the paper's Appendix A structure + an added
 ingredient_aliases field for multilingual matching.
@@ -16,7 +17,7 @@ Usage:
     python pipeline/00b_canonical_recipes.py --dry-run
     python pipeline/00b_canonical_recipes.py --offline   # use built-in fallback recipes
 
-Requires: GROQ_API_KEY in .env or environment
+Requires: Ollama server running with qwen2.5:32b-instruct
 Input:  datasets/categorized/video_metadata.json
 Output: configs/canonical_recipes/{category}.json
 """
@@ -50,9 +51,10 @@ logger = logging.getLogger("phase_0b")
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_CONFIG = "configs/config.yaml"
 
-# ─── Rate limit constants ────────────────────────────────────
-GROQ_RPM_LIMIT = 30   # requests per minute (free tier)
-GROQ_DELAY = 2.5       # seconds between requests (safe margin)
+# ─── Ollama client import ────────────────────────────────────
+
+sys.path.insert(0, str(PROJECT_ROOT))
+from pipeline.utils.ollama_client import check_ollama, ollama_chat  # noqa: E402
 
 # ─── Prompt Template ─────────────────────────────────────────
 
@@ -121,7 +123,7 @@ IMPORTANT:
 
 
 # ─── Built-in Fallback Recipes ───────────────────────────────
-# These are used when --offline is set or Groq API is unavailable.
+# These are used when --offline is set or Ollama is unavailable.
 # They cover the minimum needed categories.
 
 FALLBACK_RECIPES: dict[str, dict[str, Any]] = {
@@ -265,50 +267,34 @@ def get_categories_with_counts(metadata: dict[str, Any]) -> dict[str, int]:
     return dict(cats.most_common())
 
 
-def generate_recipe_groq(
+def generate_recipe_ollama(
     category: str,
-    api_key: str,
-    model: str = "llama-3.1-70b-versatile",
+    host: str,
+    model: str,
 ) -> dict[str, Any] | None:
-    """Call Groq API to generate a canonical recipe."""
-    try:
-        from groq import Groq
-    except ImportError:
-        logger.error("groq package not installed. Run: pip install groq")
-        return None
-
-    client = Groq(api_key=api_key)
+    """Call local Ollama server to generate a canonical recipe."""
     prompt = CANONICAL_RECIPE_PROMPT.format(category=category)
 
+    content = ollama_chat(
+        host=host,
+        model=model,
+        system="You are an expert in Indian regional cuisine. Return ONLY valid JSON, no markdown formatting.",
+        user=prompt,
+        num_predict=4000,
+        temperature=0.3,
+        json_format=True,
+    )
+
+    if not content:
+        logger.error(f"Empty response for {category}")
+        return None
+
     try:
-        response = client.chat.completions.create(
-            model=model,
-            messages=[
-                {
-                    "role": "system",
-                    "content": "You are an expert in Indian regional cuisine. Return ONLY valid JSON, no markdown formatting.",
-                },
-                {"role": "user", "content": prompt},
-            ],
-            temperature=0.3,
-            max_tokens=4000,
-            response_format={"type": "json_object"},
-        )
-
-        content = response.choices[0].message.content
-        if not content:
-            logger.error(f"Empty response for {category}")
-            return None
-
         recipe = json.loads(content)
         return recipe
-
     except json.JSONDecodeError as e:
         logger.error(f"JSON parse error for {category}: {e}")
-        logger.error(f"Raw content: {content[:200]}...")  # type: ignore[possibly-undefined]
-        return None
-    except Exception as e:
-        logger.error(f"Groq API error for {category}: {e}")
+        logger.error(f"Raw content: {content[:200]}...")
         return None
 
 
@@ -401,6 +387,10 @@ def main() -> None:
                         help="Minimum videos in category to generate recipe (default: 1)")
     parser.add_argument("--force", action="store_true",
                         help="Overwrite existing recipe files (re-generate with current schema)")
+    parser.add_argument("--host", default="http://localhost:11434",
+                        help="Ollama server URL (default: http://localhost:11434)")
+    parser.add_argument("--model", default="qwen2.5:32b-instruct",
+                        help="Ollama model name (default: qwen2.5:32b-instruct)")
     args = parser.parse_args()
 
     logger.info("╔══════════════════════════════════════════════════╗")
@@ -433,20 +423,15 @@ def main() -> None:
     if args.dry_run:
         logger.info("[DRY RUN] Would generate recipes for the above categories")
         logger.info("  Pass --offline to use built-in fallback recipes")
-        logger.info("  Or set GROQ_API_KEY to use Groq Llama-3.1-70B")
+        logger.info("  Or ensure Ollama is running with the target model")
         return
 
-    # Check for Groq API key
-    groq_api_key = os.environ.get("GROQ_API_KEY", "")
-    use_groq = bool(groq_api_key) and not args.offline
-
-    if use_groq:
-        logger.info("Using Groq Llama-3.1-70B for recipe generation")
-        model = config.get("agent", {}).get("llm_model", "llama-3.1-70b-versatile")
+    # Check Ollama connectivity (unless offline)
+    use_ollama = not args.offline
+    if use_ollama:
+        check_ollama(args.host, args.model)
+        logger.info(f"Using Ollama {args.model} for recipe generation")
     else:
-        if not args.offline:
-            logger.warning("GROQ_API_KEY not set — falling back to built-in recipes")
-            logger.warning("Set GROQ_API_KEY or use --offline flag")
         logger.info("Using built-in fallback recipes")
 
     # Generate recipes
@@ -467,13 +452,12 @@ def main() -> None:
         elif existing.exists() and args.force:
             logger.info(f"  ♻ Overwriting: {filename} (--force)")
 
-        if use_groq:
-            recipe = generate_recipe_groq(cat, groq_api_key, model)
-            time.sleep(GROQ_DELAY)  # Rate limit
+        if use_ollama:
+            recipe = generate_recipe_ollama(cat, args.host, args.model)
         elif cat in FALLBACK_RECIPES:
             recipe = FALLBACK_RECIPES[cat]
         else:
-            logger.warning(f"  ⊘ No fallback recipe for '{cat}' — skipping (need Groq API)")
+            logger.warning(f"  ⊘ No fallback recipe for '{cat}' — skipping (need Ollama)")
             skipped += 1
             continue
 

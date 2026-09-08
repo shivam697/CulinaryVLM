@@ -13,6 +13,7 @@ services:
     buildCommand: |
       pip install -r requirements.txt
       pip install -r requirements-agent.txt
+      python -m spacy download en_core_web_sm
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: GROQ_API_KEY
@@ -21,11 +22,14 @@ services:
         sync: false
       - key: HF_TOKEN
         sync: false
+      - key: VLM_SPACE_ID
+        value: "shivamminde/culinary-vlm"
       - key: USE_AGENT_LAYER
         value: "true"
       - key: DATABASE_URL
         value: "sqlite:///datasets/culinary_vlm.db"
       - key: PYTHON_VERSION
-        value: "3.10.13"
+        value: "3.11.0"
     healthCheckPath: /health
     autoDeploy: true
+

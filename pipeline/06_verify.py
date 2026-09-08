@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
 """
-CulinaryVLM — Stage 6: Verification (Gemini Flash)
+CulinaryVLM — Stage 6: Verification (Ollama)
 ═══════════════════════════════════════════════
 
-Verifies each segment using Gemini 1.5 Flash with structured JSON
-classification (v2.0).  Returns cooking_stage, ingredient_state,
-confidence, missing_information alongside the yes/no verdict.
-Falls back to old yes/no text parsing if Gemini doesn't return
-valid JSON.  Rate-limited to 14 RPM. Runs overnight on MacBook.
+Verifies each segment using local Ollama (qwen2.5:32b-instruct)
+with structured JSON classification (v2.0).  Returns cooking_stage,
+ingredient_state, confidence, missing_information alongside the
+yes/no verdict.  Falls back to old yes/no text parsing if Ollama
+doesn't return valid JSON.
 
 Usage:
     python pipeline/06_verify.py
-    python pipeline/06_verify.py --resume --rpm 10
+    python pipeline/06_verify.py --resume
+    python pipeline/06_verify.py --dry-run
 
 Input:  datasets/segments/{video_id}.json
 Output: datasets/verified/verified_segments.json
@@ -32,9 +33,12 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s │ %(levelname)-7s 
 logger = logging.getLogger("stage_6")
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
+sys.path.insert(0, str(PROJECT_ROOT))
+from pipeline.utils.ollama_client import check_ollama, ollama_chat  # noqa: E402
+
 
 def _parse_yes_no_fallback(text: str) -> dict:
-    """Fallback parser for non-JSON Gemini responses (old yes/no format)."""
+    """Fallback parser for non-JSON responses (old yes/no format)."""
     lower = text.strip().lower()
     is_valid = lower.startswith("yes")
     return {
@@ -48,8 +52,8 @@ def _parse_yes_no_fallback(text: str) -> dict:
     }
 
 
-def verify_segment_gemini(segment: dict, api_key: str) -> dict:
-    """Ask Gemini Flash if this segment is a valid cooking step.
+def verify_segment_ollama(segment: dict, host: str, model: str) -> dict:
+    """Ask local Ollama if this segment is a valid cooking step.
 
     Returns a dict containing at minimum:
         - verified: bool | None  (backward-compatible with 07_align.py)
@@ -58,10 +62,6 @@ def verify_segment_gemini(segment: dict, api_key: str) -> dict:
     missing_information.
     """
     try:
-        import google.generativeai as genai
-        genai.configure(api_key=api_key)
-        model = genai.GenerativeModel("gemini-flash-latest")
-
         prompt = (
             f"Is this a valid cooking step in a biryani recipe?\n"
             f"Action: {segment.get('action', '')}\n"
@@ -78,23 +78,29 @@ def verify_segment_gemini(segment: dict, api_key: str) -> dict:
             f'}}'
         )
 
-        max_retries = 4
-        for attempt in range(max_retries):
-            try:
-                response = model.generate_content(prompt)
-                raw_text = response.text.strip()
-                break
-            except Exception as retry_err:
-                if "429" in str(retry_err) and attempt < max_retries - 1:
-                    wait = (2 ** attempt) * 10  # 10s, 20s, 40s
-                    logger.warning(f"  429 rate limit, waiting {wait}s (attempt {attempt+1}/{max_retries})")
-                    time.sleep(wait)
-                    continue
-                raise
+        raw_text = ollama_chat(
+            host=host,
+            model=model,
+            system="You are a cooking step verification assistant. Respond with valid JSON only.",
+            user=prompt,
+            num_predict=512,
+            temperature=0.1,
+            json_format=True,
+        )
 
-        # Try to parse as JSON first (v2.0 structured response)
+        if not raw_text:
+            return {
+                "verified": None,
+                "cooking_stage": "",
+                "ingredient_state": "",
+                "confidence": 0.0,
+                "missing_information": [],
+                "reason": "Empty response from Ollama",
+                "status": "error",
+            }
+
+        # Strip markdown code fences if model wraps in ```json ... ```
         json_text = raw_text
-        # Strip markdown code fences if Gemini wraps in ```json ... ```
         if json_text.startswith("```"):
             lines = json_text.split("\n")
             json_text = "\n".join(
@@ -120,98 +126,7 @@ def verify_segment_gemini(segment: dict, api_key: str) -> dict:
                 "status": "success",
             }
         except (json.JSONDecodeError, ValueError, TypeError):
-            # Gemini didn't return valid JSON — fall back to old yes/no parsing
-            logger.debug(f"  JSON parse failed, falling back to yes/no: {raw_text[:80]}")
-            return _parse_yes_no_fallback(raw_text)
-
-    except Exception as e:
-        return {
-            "verified": None,
-            "cooking_stage": "",
-            "ingredient_state": "",
-            "confidence": 0.0,
-            "missing_information": [],
-            "reason": str(e)[:200],
-            "status": "error",
-        }
-
-
-def verify_segment_groq(segment: dict, api_key: str) -> dict:
-    """Ask Groq (Llama 3.3 70B, falling back to Llama 3.1 8B) if this segment is a valid cooking step."""
-    try:
-        from groq import Groq
-        client = Groq(api_key=api_key)
-
-        prompt = (
-            f"Is this a valid cooking step in a biryani recipe?\n"
-            f"Action: {segment.get('action', '')}\n"
-            f"Description: {segment.get('description', '')}\n"
-            f"Technique: {segment.get('cooking_technique', '')}\n\n"
-            f"Respond with ONLY a JSON object (no markdown, no code fences):\n"
-            f'{{\n'
-            f'  "verified": true/false,\n'
-            f'  "cooking_stage": "prep|marination|rice_cooking|meat_cooking|layering|dum|serving|other",\n'
-            f'  "ingredient_state": "brief description of ingredient states visible",\n'
-            f'  "confidence": 0.0-1.0,\n'
-            f'  "missing_information": ["list of info that would help verify"],\n'
-            f'  "reason": "brief explanation"\n'
-            f'}}'
-        )
-
-        models_to_try = ["llama-3.3-70b-versatile", "llama-3.1-8b-instant"]
-        max_retries = 2
-        raw_text = ""
-        last_err = None
-        for model_name in models_to_try:
-            success = False
-            for attempt in range(max_retries):
-                try:
-                    response = client.chat.completions.create(
-                        model=model_name,
-                        messages=[{"role": "user", "content": prompt}],
-                        temperature=0.1,
-                    )
-                    raw_text = response.choices[0].message.content.strip()
-                    success = True
-                    break
-                except Exception as retry_err:
-                    last_err = retry_err
-                    if "429" in str(retry_err) and attempt < max_retries - 1:
-                        wait = (2 ** attempt) * 10
-                        logger.warning(f"  429 rate limit on {model_name}, waiting {wait}s (attempt {attempt+1}/{max_retries})")
-                        time.sleep(wait)
-                        continue
-                    break
-            if success:
-                break
-            else:
-                logger.warning(f"  {model_name} exhausted, falling back to next model")
-        if not raw_text:
-            raise last_err
-
-        json_text = raw_text
-        if json_text.startswith("```"):
-            lines = json_text.split("\n")
-            json_text = "\n".join(l for l in lines if not l.strip().startswith("```"))
-
-        try:
-            parsed = json.loads(json_text)
-            verified_val = parsed.get("verified")
-            if isinstance(verified_val, str):
-                verified_val = verified_val.lower() in ("true", "yes", "1")
-            elif not isinstance(verified_val, bool):
-                verified_val = None
-
-            return {
-                "verified": verified_val,
-                "cooking_stage": str(parsed.get("cooking_stage", "")),
-                "ingredient_state": str(parsed.get("ingredient_state", "")),
-                "confidence": float(parsed.get("confidence", 0.5)),
-                "missing_information": list(parsed.get("missing_information", [])),
-                "reason": str(parsed.get("reason", ""))[:200],
-                "status": "success",
-            }
-        except (json.JSONDecodeError, ValueError, TypeError):
+            # Didn't return valid JSON — fall back to old yes/no parsing
             logger.debug(f"  JSON parse failed, falling back to yes/no: {raw_text[:80]}")
             return _parse_yes_no_fallback(raw_text)
 
@@ -230,9 +145,12 @@ def verify_segment_groq(segment: dict, api_key: str) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description="CulinaryVLM Stage 6 — Verification")
     parser.add_argument("--config", default="configs/config.yaml")
-    parser.add_argument("--rpm", type=int, default=25, help="Requests per minute (Groq rate limit)")
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--host", default="http://localhost:11434",
+                        help="Ollama server URL (default: http://localhost:11434)")
+    parser.add_argument("--model", default="qwen2.5:32b-instruct",
+                        help="Ollama model name (default: qwen2.5:32b-instruct)")
     args = parser.parse_args()
 
     logger.info("╔══════════════════════════════════════════════════╗")
@@ -259,14 +177,11 @@ def main() -> None:
     logger.info(f"Total segments to verify: {len(all_segments)}")
 
     if args.dry_run:
-        est_minutes = len(all_segments) / args.rpm
-        logger.info(f"[DRY RUN] Estimated time: {est_minutes:.0f} min ({est_minutes/60:.1f} hours) at {args.rpm} RPM")
+        logger.info(f"[DRY RUN] Would verify {len(all_segments)} segments using Ollama {args.model}")
         return
 
-    api_key = os.environ.get("GROQ_API_KEY", "")
-    if not api_key or api_key.startswith("REPLACE"):
-        logger.error("GROQ_API_KEY not set. Add it to .env")
-        sys.exit(1)
+    # Validate Ollama connectivity
+    check_ollama(args.host, args.model)
 
     # Resume support
     existing = {}
@@ -278,7 +193,6 @@ def main() -> None:
                 if s.get("status") != "error"
             }
 
-    delay = 60.0 / args.rpm
     stats = {"verified": 0, "rejected": 0, "error": 0, "skipped": 0}
 
     for i, seg in enumerate(all_segments, 1):
@@ -289,7 +203,7 @@ def main() -> None:
             continue
 
         logger.info(f"[{i}/{len(all_segments)}] {seg['category']} | {seg.get('action', '')[:40]}")
-        result = verify_segment_groq(seg, api_key)
+        result = verify_segment_ollama(seg, args.host, args.model)
         seg.update(result)
 
         if result["verified"] is True:
@@ -298,9 +212,6 @@ def main() -> None:
             stats["rejected"] += 1
         else:
             stats["error"] += 1
-
-        # Rate limit
-        time.sleep(delay)
 
         # Checkpoint every 50
         if i % 50 == 0:

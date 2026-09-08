@@ -286,7 +286,7 @@ api:
 agent:
   enabled: true              # USE_AGENT_LAYER flag
   llm_provider: "groq"       # groq | gemini
-  llm_model: "llama-3.1-70b-versatile"
+  llm_model: "groq/compound"
   fallback_provider: "gemini"
   fallback_model: "gemini-1.5-flash"
   memory_backend: "memory"   # memory | sqlite

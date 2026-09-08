@@ -4,10 +4,11 @@ CulinaryVLM — Stage 2: ASR + Translation + NLP
 ═══════════════════════════════════════════════════════════════
 
 Transcribes downloaded videos using WhisperX (word-level timestamps),
-translates non-English transcripts to English using NLLB or Groq,
-and extracts lightweight NLP features (ingredients, actions, utensils,
-temperatures, quantities, ingredient_state) from each transcript segment
-using regex + lexicon (zero extra API calls, zero new dependencies).
+translates non-English transcripts to English using local Ollama
+(qwen2.5:32b-instruct), and extracts lightweight NLP features
+(ingredients, actions, utensils, temperatures, quantities,
+ingredient_state) from each transcript segment using regex + lexicon
+(zero extra API calls, zero new dependencies).
 
 MUST RUN ON GPU CLUSTER (Gpu7-80G queue).
 
@@ -441,12 +442,13 @@ def transcribe_video(
 def translate_segments(
     segments: list[dict[str, Any]],
     source_lang: str,
-    groq_api_key: str | None = None,
+    ollama_host: str | None = None,
+    ollama_model: str | None = None,
 ) -> list[dict[str, Any]]:
     """
     Translate non-English segments to English.
 
-    Uses Groq API (Llama-3.1-70B) for translation.
+    Uses local Ollama server for translation.
     Falls back to returning original text if translation fails.
     """
     if source_lang == "en":
@@ -454,20 +456,13 @@ def translate_segments(
             seg["text_en"] = seg["text"]
         return segments
 
-    if not groq_api_key:
-        logger.warning("  No GROQ_API_KEY — skipping translation")
+    if not ollama_host:
+        logger.warning("  No Ollama host configured — skipping translation")
         for seg in segments:
             seg["text_en"] = seg["text"]  # Keep original
         return segments
 
-    try:
-        from groq import Groq
-        client = Groq(api_key=groq_api_key)
-    except ImportError:
-        logger.warning("  groq package not installed — skipping translation")
-        for seg in segments:
-            seg["text_en"] = seg["text"]
-        return segments
+    from pipeline.utils.ollama_client import ollama_chat  # noqa: E402
 
     lang_names = {
         "hi": "Hindi", "te": "Telugu", "ml": "Malayalam",
@@ -475,6 +470,7 @@ def translate_segments(
         "as": "Assamese", "mr": "Marathi", "gu": "Gujarati",
     }
     lang_name = lang_names.get(source_lang, source_lang)
+    model = ollama_model or "qwen2.5:32b-instruct"
 
     # Batch translation: combine segments into chunks of ~10
     batch_size = 10
@@ -484,30 +480,34 @@ def translate_segments(
         combined = "\n---\n".join(texts)
 
         try:
-            response = client.chat.completions.create(
-                model="llama-3.3-70b-versatile",
-                messages=[
-                    {
-                        "role": "system",
-                        "content": f"You are a cooking video translator. Translate the following {lang_name} cooking instructions to English. "
-                                   f"Preserve cooking terminology. Separate translations with ---. "
-                                   f"Keep the same number of segments. Only output translations."
-                    },
-                    {"role": "user", "content": combined},
-                ],
-                temperature=0.1,
-                max_tokens=4096,
+            system_prompt = (
+                f"You are a cooking video translator. Translate the following "
+                f"{lang_name} cooking instructions to English. "
+                f"Preserve cooking terminology. Separate translations with ---. "
+                f"Keep the same number of segments. Only output translations."
             )
 
-            translated = response.choices[0].message.content.strip().split("---")
+            response = ollama_chat(
+                host=ollama_host,
+                model=model,
+                system=system_prompt,
+                user=combined,
+                num_predict=4096,
+                temperature=0.1,
+                json_format=False,
+            )
 
-            for j, seg in enumerate(batch):
-                if j < len(translated):
-                    seg["text_en"] = translated[j].strip()
-                else:
+            if response:
+                translated = response.strip().split("---")
+                for j, seg in enumerate(batch):
+                    if j < len(translated):
+                        seg["text_en"] = translated[j].strip()
+                    else:
+                        seg["text_en"] = seg["text"]
+            else:
+                logger.warning("  Empty translation response from Ollama")
+                for seg in batch:
                     seg["text_en"] = seg["text"]
-
-            time.sleep(0.5)  # Rate limit
 
         except Exception as e:
             logger.warning(f"  Translation batch failed: {e}")
@@ -556,6 +556,10 @@ def main() -> None:
                         choices=["tiny", "base", "small", "medium", "large-v2", "large-v3"])
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--host", default="http://localhost:11434",
+                        help="Ollama server URL (default: http://localhost:11434)")
+    parser.add_argument("--model", default="qwen2.5:0.5b",
+                        help="Ollama model for translation (default: qwen2.5:32b-instruct)")
     args = parser.parse_args()
 
     logger.info("╔══════════════════════════════════════════════════╗")
@@ -604,13 +608,20 @@ def main() -> None:
 
     # Setup
     device = check_gpu()
-    groq_key = os.environ.get("GROQ_API_KEY", "")
     hf_token = os.environ.get("HF_TOKEN", "")
 
-    if groq_key.startswith("REPLACE"):
-        groq_key = ""
     if hf_token.startswith("REPLACE"):
         hf_token = ""
+
+    # Validate Ollama connectivity for translation
+    ollama_host = args.host
+    ollama_model = args.model
+    try:
+        from pipeline.utils.ollama_client import check_ollama
+        check_ollama(ollama_host, ollama_model)
+    except SystemExit:
+        logger.warning("Ollama not available — translation will be skipped")
+        ollama_host = None
 
     # Load WhisperX
     model, effective_batch = load_whisperx_model(
@@ -645,7 +656,8 @@ def main() -> None:
             transcript["segments"] = translate_segments(
                 transcript["segments"],
                 transcript["language"],
-                groq_key or None,
+                ollama_host=ollama_host,
+                ollama_model=ollama_model,
             )
 
             # NLP feature extraction (v2.0 — lightweight, no API calls)

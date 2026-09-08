@@ -4,7 +4,7 @@ CulinaryVLM — Stage 8: VidDiff Comparison
 ═══════════════════════════════════════════
 
 Three-stage comparison pipeline:
-  1. Proposer: Qwen2.5-7B via Groq — proposes difference aspects
+  1. Proposer: Local Ollama (qwen2.5:32b-instruct) — proposes difference aspects
   2. Frame Retriever: OpenCLIP — retrieves relevant frame pairs
   3. Action Differencer: Gemini Flash MCQ — scores differences
 
@@ -32,49 +32,64 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s │ %(levelname)-7s 
 logger = logging.getLogger("stage_8")
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
+sys.path.insert(0, str(PROJECT_ROOT))
+from pipeline.utils.ollama_client import check_ollama, ollama_chat  # noqa: E402
 
-def propose_differences(category_a: str, category_b: str, groq_key: str) -> list[dict]:
-    """Use Groq Qwen2.5 to propose comparison aspects."""
+
+def propose_differences(category_a: str, category_b: str, host: str, model: str) -> list[dict]:
+    """Use local Ollama to propose comparison aspects."""
     try:
-        from groq import Groq
-        client = Groq(api_key=groq_key)
-
-        response = client.chat.completions.create(
-            model="qwen/qwen3.6-27b",
-            messages=[{
-                "role": "system",
-                "content": "You are a culinary expert specializing in Indian biryani. Output JSON only."
-            }, {
-                "role": "user",
-                "content": (
-                    f"Compare {category_a} and {category_b} biryani cooking across "
-                    f"EACH of these 10 aspects:\n"
-                    f"1. rice (grain length, parboil level, soaking)\n"
-                    f"2. layering (number of layers, order, technique)\n"
-                    f"3. marination (wet vs dry, duration, acid, dairy)\n"
-                    f"4. dum (sealed vs open, duration, heat source)\n"
-                    f"5. vessel (handi vs deg vs matka vs pot)\n"
-                    f"6. spice_profile (key spices, intensity, whole vs ground)\n"
-                    f"7. cooking_order (meat first vs rice first, simultaneous)\n"
-                    f"8. garnish (saffron milk, fried onions, mint, kewra)\n"
-                    f"9. oil_usage (ghee vs oil vs mustard oil, quantity)\n"
-                    f"10. ingredient_substitutions (regional swaps, e.g. potato, egg)\n\n"
-                    f"Output as a JSON array of objects, one per aspect, each with:\n"
-                    f"  'aspect': the aspect name from the list above,\n"
-                    f"  'description': 1-2 sentence comparison,\n"
-                    f"  'visual_cue': what a camera would see differently.\n"
-                    f"Return ONLY the JSON array, no markdown."
-                )
-            }],
-            temperature=0.2, max_tokens=6000,
-            reasoning_format="hidden",
+        user_prompt = (
+            f"Compare {category_a} and {category_b} biryani cooking across "
+            f"EACH of these 10 aspects:\n"
+            f"1. rice (grain length, parboil level, soaking)\n"
+            f"2. layering (number of layers, order, technique)\n"
+            f"3. marination (wet vs dry, duration, acid, dairy)\n"
+            f"4. dum (sealed vs open, duration, heat source)\n"
+            f"5. vessel (handi vs deg vs matka vs pot)\n"
+            f"6. spice_profile (key spices, intensity, whole vs ground)\n"
+            f"7. cooking_order (meat first vs rice first, simultaneous)\n"
+            f"8. garnish (saffron milk, fried onions, mint, kewra)\n"
+            f"9. oil_usage (ghee vs oil vs mustard oil, quantity)\n"
+            f"10. ingredient_substitutions (regional swaps, e.g. potato, egg)\n\n"
+            f"Output as a JSON array of objects, one per aspect, each with:\n"
+            f"  'aspect': the aspect name from the list above,\n"
+            f"  'description': 1-2 sentence comparison,\n"
+            f"  'visual_cue': what a camera would see differently.\n"
+            f"Return ONLY the JSON array, no markdown."
         )
 
-        text = response.choices[0].message.content.strip()
+        text = ollama_chat(
+            host=host,
+            model=model,
+            system="You are a culinary expert specializing in Indian biryani. Output JSON only.",
+            user=user_prompt,
+            num_predict=6000,
+            temperature=0.2,
+            json_format=True,
+        )
+
+        if not text:
+            logger.warning("Proposer returned empty response")
+            return [{"aspect": "general", "description": "General cooking differences", "visual_cue": "N/A"}]
+
         # Extract JSON from response
         if "```" in text:
             text = text.split("```")[1].lstrip("json\n")
-        return json.loads(text)
+
+        parsed = json.loads(text)
+        # Handle case where Ollama wraps array in an object due to json_format
+        if isinstance(parsed, dict):
+            # Try common wrapper keys
+            for key in ("aspects", "differences", "comparisons", "data", "result"):
+                if key in parsed and isinstance(parsed[key], list):
+                    return parsed[key]
+            # If single-level dict with list values, take first list
+            for v in parsed.values():
+                if isinstance(v, list):
+                    return v
+            return [{"aspect": "general", "description": "General cooking differences", "visual_cue": "N/A"}]
+        return parsed
     except Exception as e:
         logger.warning(f"Proposer failed: {e}")
         return [{"aspect": "general", "description": "General cooking differences", "visual_cue": "N/A"}]
@@ -99,6 +114,10 @@ def main() -> None:
     parser.add_argument("--config", default="configs/config.yaml")
     parser.add_argument("--pairs", type=int, default=50)
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--host", default="http://localhost:11434",
+                        help="Ollama server URL (default: http://localhost:11434)")
+    parser.add_argument("--model", default="qwen2.5:32b-instruct",
+                        help="Ollama model name (default: qwen2.5:32b-instruct)")
     args = parser.parse_args()
 
     logger.info("╔══════════════════════════════════════════════════╗")
@@ -128,17 +147,15 @@ def main() -> None:
             logger.info(f"  {a} vs {b}")
         return
 
-    groq_key = os.environ.get("GROQ_API_KEY", "")
-    if not groq_key or groq_key.startswith("REPLACE"):
-        logger.error("GROQ_API_KEY required for Proposer stage")
-        sys.exit(1)
+    # Validate Ollama connectivity
+    check_ollama(args.host, args.model)
 
     results = []
     for i, (cat_a, cat_b) in enumerate(pairs, 1):
         logger.info(f"\n[{i}/{len(pairs)}] {cat_a} vs {cat_b}")
 
         # Stage 1: Propose
-        aspects = propose_differences(cat_a, cat_b, groq_key)
+        aspects = propose_differences(cat_a, cat_b, args.host, args.model)
         logger.info(f"  Proposed {len(aspects)} aspects")
 
         results.append({
@@ -146,7 +163,6 @@ def main() -> None:
             "proposed_aspects": aspects,
             "num_aspects": len(aspects),
         })
-        time.sleep(1)  # Rate limit
 
     out_dir.mkdir(parents=True, exist_ok=True)
     out_path = out_dir / "comparison_results.json"

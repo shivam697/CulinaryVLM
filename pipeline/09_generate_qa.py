@@ -4,11 +4,10 @@ CulinaryVLM — Stage 9: QA Generation
 ═══════════════════════════════════════
 
 Generates multi-tier QA pairs:
-  - Easy: Groq Llama-3.1-8B, per segment
-  - Medium: Gemini Flash, per video + multilingual templates
-  - Hard: Gemini Flash, multi-video 2-5 combos
-  - Expert (v2.0): cooking science, substitutions, failure analysis,
-    regional adaptation questions
+  - Easy: Local Ollama (qwen2.5:32b-instruct), per segment
+  - Medium: Template skeletons (needs_generation=true, filled by 09b)
+  - Hard: Template skeletons (needs_generation=true, filled by 09b)
+  - Expert (v2.0): Template skeletons (needs_generation=true, filled by 09b)
 
 Stratified train/test split by tier AND language.
 
@@ -38,6 +37,11 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s │ %(levelname)-7s 
 logger = logging.getLogger("stage_9")
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 random.seed(42)
+
+sys.path.insert(0, str(PROJECT_ROOT))
+from pipeline.utils.ollama_client import check_ollama, ollama_chat  # noqa: E402
+
+CHECKPOINT_EVERY = 50
 
 EASY_TEMPLATES = [
     "What is happening in this cooking step?",
@@ -82,32 +86,47 @@ EXPERT_TEMPLATES = [
 ]
 
 
-def generate_easy_qa(segments: list[dict], groq_key: str, limit: int = None) -> list[dict]:
-    """Generate easy QA from individual segments using Groq."""
-    try:
-        from groq import Groq
-        client = Groq(api_key=groq_key)
-    except ImportError:
-        logger.error("groq not installed")
-        return []
+def generate_easy_qa(
+    segments: list[dict],
+    host: str,
+    model: str,
+    limit: int = None,
+    qa_dir: Path | None = None,
+    resume_done: set | None = None,
+) -> list[dict]:
+    """Generate easy QA from individual segments using local Ollama.
 
+    If resume_done is given, segments whose (video_id, segment_start) key
+    is already present are skipped -- the caller merges the checkpointed
+    pairs back in separately.
+    """
     qa_pairs = []
     segs = segments[:limit] if limit else segments
+    resume_done = resume_done or set()
+    skipped_resumed = 0
 
     for i, seg in enumerate(segs):
+        key = (seg.get("video_id", ""), seg.get("start_time", 0))
+        if key in resume_done:
+            skipped_resumed += 1
+            continue
         template = random.choice(EASY_TEMPLATES)
         context = f"Action: {seg.get('action', '')}. Description: {seg.get('description', '')}"
 
         try:
-            resp = client.chat.completions.create(
-                model="llama-3.1-8b-instant",
-                messages=[
-                    {"role": "system", "content": "Generate a concise, accurate answer based on the cooking step context. 2-3 sentences max."},
-                    {"role": "user", "content": f"Context: {context}\n\nQuestion: {template}"},
-                ],
-                temperature=0.3, max_tokens=256,
+            answer = ollama_chat(
+                host=host,
+                model=model,
+                system="Generate a concise, accurate answer based on the cooking step context. 2-3 sentences max.",
+                user=f"Context: {context}\n\nQuestion: {template}",
+                num_predict=256,
+                temperature=0.3,
+                json_format=False,
             )
-            answer = resp.choices[0].message.content.strip()
+
+            if not answer:
+                logger.warning(f"  Empty answer for segment {i+1}")
+                continue
 
             qa_pairs.append({
                 # Existing keys — unchanged
@@ -128,13 +147,27 @@ def generate_easy_qa(segments: list[dict], groq_key: str, limit: int = None) -> 
 
             if (i + 1) % 20 == 0:
                 logger.info(f"  Easy: {i+1}/{len(segs)}")
-                time.sleep(1)
+
+            # Checkpoint
+            if qa_dir and (i + 1) % CHECKPOINT_EVERY == 0:
+                _save_checkpoint(qa_pairs, qa_dir, "easy")
 
         except Exception as e:
             logger.warning(f"  Easy QA error: {e}")
-            time.sleep(2)
+
+    if skipped_resumed:
+        logger.info(f"  Resume: skipped {skipped_resumed} already-completed segments")
 
     return qa_pairs
+
+
+def _save_checkpoint(qa_pairs: list[dict], qa_dir: Path, tier: str) -> None:
+    """Save a checkpoint of generated QA pairs."""
+    qa_dir.mkdir(parents=True, exist_ok=True)
+    cp_path = qa_dir / f"checkpoint_{tier}.json"
+    with open(cp_path, "w") as f:
+        json.dump({"tier": tier, "count": len(qa_pairs), "qa_pairs": qa_pairs}, f, indent=2)
+    logger.info(f"  Checkpoint saved: {cp_path.name} ({len(qa_pairs)} pairs)")
 
 
 def generate_medium_qa(videos: dict, categories: set) -> list[dict]:
@@ -262,6 +295,12 @@ def main() -> None:
     parser.add_argument("--tier", choices=["easy", "medium", "hard", "expert", "all"], default="all")
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--resume", action="store_true",
+                        help="Resume Easy tier from checkpoint_easy.json, skipping already-generated segments")
+    parser.add_argument("--host", default="http://localhost:11434",
+                        help="Ollama server URL (default: http://localhost:11434)")
+    parser.add_argument("--model", default="qwen2.5:32b-instruct",
+                        help="Ollama model name (default: qwen2.5:32b-instruct)")
     args = parser.parse_args()
 
     logger.info("╔══════════════════════════════════════════════════╗")
@@ -308,14 +347,31 @@ def main() -> None:
         logger.info(f"  Canonical recipes loaded: {len(recipes)}")
         return
 
-    all_qa = []
-    groq_key = os.environ.get("GROQ_API_KEY", "")
+    # Validate Ollama for easy tier
+    if args.tier in ("easy", "all") and segments:
+        check_ollama(args.host, args.model)
 
-    if args.tier in ("easy", "all") and segments and groq_key:
+    all_qa = []
+
+    if args.tier in ("easy", "all") and segments:
         logger.info("Generating EASY tier...")
-        easy = generate_easy_qa(segments, groq_key, args.limit)
+        checkpoint_pairs: list[dict] = []
+        resume_done: set = set()
+        if args.resume:
+            cp_path = qa_dir / "checkpoint_easy.json"
+            if cp_path.exists():
+                with open(cp_path) as f:
+                    cp_data = json.load(f)
+                checkpoint_pairs = cp_data.get("qa_pairs", [])
+                resume_done = {
+                    (p.get("video_id", ""), p.get("segment_start", 0))
+                    for p in checkpoint_pairs
+                }
+                logger.info(f"  Resume: loaded {len(checkpoint_pairs)} pairs from {cp_path.name}")
+        new_easy = generate_easy_qa(segments, args.host, args.model, args.limit, qa_dir, resume_done)
+        easy = checkpoint_pairs + new_easy
         all_qa.extend(easy)
-        logger.info(f"  Easy: {len(easy)} pairs")
+        logger.info(f"  Easy: {len(easy)} pairs ({len(checkpoint_pairs)} resumed + {len(new_easy)} new)")
 
     if args.tier in ("medium", "all"):
         logger.info("Generating MEDIUM tier...")
@@ -345,7 +401,11 @@ def main() -> None:
         json.dump({"schema_version": "2.0", "total": len(test), "qa_pairs": test}, f, indent=2)
 
     logger.info(f"\n{'═'*50}\nQA GENERATION: {len(all_qa)} total → {len(train)} train / {len(test)} test\n{'═'*50}")
-    logger.info("✓ Stage 9 complete! NEXT: Stage 10 — training/finetune_qlora.py (GPU cluster)")
+    logger.info("✓ Stage 9 complete!")
+    logger.info("  NEXT: Fill answers for medium/hard/expert tiers:")
+    logger.info("    python pipeline/09b_fill_qa_answers.py --tier medium")
+    logger.info("    python pipeline/09b_fill_qa_answers.py --tier hard")
+    logger.info("    python pipeline/09b_fill_qa_answers.py --tier expert")
 
 
 if __name__ == "__main__":

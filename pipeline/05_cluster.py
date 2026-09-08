@@ -116,6 +116,16 @@ def cluster_segments(
     return labels
 
 
+def _normalize_to_str(value: Any) -> str:
+    """Coerce a field that should be a string but might be a list (VLM
+    sometimes returns multiple values) into a single string."""
+    if isinstance(value, list):
+        return ", ".join(str(v) for v in value if v)
+    if isinstance(value, dict):
+        return ", ".join(f"{k}: {v}" for k, v in value.items())
+    return str(value) if value else ""
+
+
 def build_cluster_summaries(
     segments: list[dict],
     labels: np.ndarray,
@@ -144,11 +154,21 @@ def build_cluster_summaries(
         }
 
         # v2.0 additive distributions — only if present in input segments
-        techniques = [s.get("cooking_technique", "") for s in members if s.get("cooking_technique")]
+        # Normalize to string: some VLM outputs return a list instead of a
+        # string for these fields, which crashes Counter() (unhashable type).
+        techniques = [
+            _normalize_to_str(s.get("cooking_technique", ""))
+            for s in members if s.get("cooking_technique")
+        ]
+        techniques = [t for t in techniques if t]
         if techniques:
             summary["technique_distribution"] = dict(Counter(techniques).most_common(5))
 
-        stages = [s.get("cooking_stage", "") for s in members if s.get("cooking_stage")]
+        stages = [
+            _normalize_to_str(s.get("cooking_stage", ""))
+            for s in members if s.get("cooking_stage")
+        ]
+        stages = [t for t in stages if t]
         if stages:
             summary["cooking_stage_distribution"] = dict(Counter(stages).most_common(5))
 

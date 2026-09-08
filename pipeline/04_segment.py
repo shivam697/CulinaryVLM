@@ -171,6 +171,14 @@ def load_config(config_path: str) -> dict[str, Any]:
 
 def extract_frames(video_path: Path, fps: float = 0.5) -> list:
     """Extract frames from video at given FPS rate."""
+    frames = _extract_frames_cv2(video_path, fps)
+    if not frames:
+        logger.warning(f"  cv2 extracted 0 frames, falling back to ffmpeg (system decoder)")
+        frames = _extract_frames_ffmpeg(video_path, fps)
+    return frames
+
+
+def _extract_frames_cv2(video_path: Path, fps: float) -> list:
     try:
         import cv2
     except ImportError:
@@ -179,11 +187,10 @@ def extract_frames(video_path: Path, fps: float = 0.5) -> list:
 
     cap = cv2.VideoCapture(str(video_path))
     if not cap.isOpened():
-        logger.error(f"Cannot open video: {video_path}")
         return []
 
     video_fps = cap.get(cv2.CAP_PROP_FPS) or 30
-    frame_interval = int(video_fps / fps)
+    frame_interval = max(int(video_fps / fps), 1)
     frames = []
     frame_idx = 0
 
@@ -192,7 +199,6 @@ def extract_frames(video_path: Path, fps: float = 0.5) -> list:
         if not ret:
             break
         if frame_idx % frame_interval == 0:
-            # Resize for VLM input (448x448)
             frame_resized = cv2.resize(frame, (448, 448))
             frames.append({
                 "frame_idx": frame_idx,
@@ -202,8 +208,57 @@ def extract_frames(video_path: Path, fps: float = 0.5) -> list:
         frame_idx += 1
 
     cap.release()
-    total_duration = frame_idx / video_fps
-    logger.info(f"  Extracted {len(frames)} frames from {total_duration:.0f}s video")
+    total_duration = frame_idx / video_fps if frame_idx else 0
+    logger.info(f"  Extracted {len(frames)} frames from {total_duration:.0f}s video (cv2)")
+    return frames
+
+
+def _extract_frames_ffmpeg(video_path: Path, fps: float) -> list:
+    """Fallback frame extraction via system ffmpeg (has libdav1d for AV1)."""
+    import subprocess
+    import numpy as np
+    import cv2
+
+    # Get duration first
+    probe = subprocess.run(
+        ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+         "-of", "default=noprint_wrappers=1:nokey=1", str(video_path)],
+        capture_output=True, text=True,
+    )
+    try:
+        duration = float(probe.stdout.strip())
+    except (ValueError, TypeError):
+        logger.error(f"  ffprobe failed to read duration for {video_path}")
+        return []
+
+    width, height = 448, 448
+    cmd = [
+        "ffmpeg", "-v", "error",
+        "-c:v", "libdav1d",          # force software AV1 decode
+        "-i", str(video_path),
+        "-vf", f"fps={fps},scale={width}:{height}",
+        "-pix_fmt", "bgr24",
+        "-f", "rawvideo", "-",
+    ]
+    proc = subprocess.run(cmd, capture_output=True)
+    if proc.returncode != 0 or not proc.stdout:
+        logger.error(f"  ffmpeg fallback also failed: {proc.stderr.decode(errors='ignore')[:300]}")
+        return []
+
+    frame_size = width * height * 3
+    raw = proc.stdout
+    num_frames = len(raw) // frame_size
+    frames = []
+    for idx in range(num_frames):
+        buf = raw[idx * frame_size:(idx + 1) * frame_size]
+        img = np.frombuffer(buf, dtype=np.uint8).reshape((height, width, 3))
+        frames.append({
+            "frame_idx": idx,
+            "timestamp": idx / fps,
+            "image": img,
+        })
+
+    logger.info(f"  Extracted {len(frames)} frames from {duration:.0f}s video (ffmpeg fallback)")
     return frames
 
 
@@ -229,8 +284,13 @@ def segment_with_vlm(
     stride = 4
     generation_config = dict(max_new_tokens=1024, temperature=0.1, do_sample=False)
     _first_error_logged = False
+    consecutive_failures = 0
+    max_consecutive_failures = 3
 
     for i in range(0, len(frames), stride):
+        if consecutive_failures >= max_consecutive_failures:
+            logger.warning(f"  Bailing after {consecutive_failures} consecutive OOM/errors — skipping rest of video")
+            break
         window = frames[i:i + window_size]
         if len(window) < 2:
             break
@@ -326,11 +386,14 @@ def segment_with_vlm(
                 })
 
         except Exception as e:
+            consecutive_failures += 1
             logger.warning(f"  VLM error at {start_time:.1f}s: {e}")
             if not _first_error_logged:
                 import traceback
                 logger.warning(f"  FULL TRACEBACK:\n{traceback.format_exc()}")
                 _first_error_logged = True
+        else:
+            consecutive_failures = 0
 
         # Free GPU memory between windows
         if pixel_values_list is not None:

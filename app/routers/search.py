@@ -56,3 +56,4 @@ async def search_segments(request: Request, body: SearchRequest):
         total_results=len(results),
         results=results,
     )
+

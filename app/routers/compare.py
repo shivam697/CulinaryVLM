@@ -39,3 +39,4 @@ async def compare_styles(request: Request, body: CompareRequest):
         ],
         summary=result.get("summary", ""),
     )
+

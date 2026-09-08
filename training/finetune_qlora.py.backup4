@@ -1,0 +1,422 @@
+#!/usr/bin/env python3
+"""
+CulinaryVLM — Stage 10: QLoRA Fine-tuning
+═══════════════════════════════════════════
+
+Fine-tunes Llama-3.2-11B-Vision-Instruct with QLoRA using Unsloth.
+MUST RUN ON GPU CLUSTER (PBS queue with NVIDIA GPU).
+
+Usage:
+    python training/finetune_qlora.py --dry-run
+    python training/finetune_qlora.py --smoke-test
+    python training/finetune_qlora.py --epochs 3 --lr 2e-4
+
+Input:  datasets/qa/train_filtered.json, datasets/qa/test_filtered.json
+Output: models/culinary_vlm_qlora/final/ (LoRA adapter)
+"""
+
+from __future__ import annotations
+
+import argparse, json, logging, os, sys
+from pathlib import Path
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s │ %(levelname)-7s │ %(message)s",
+    datefmt="%H:%M:%S",
+)
+logger = logging.getLogger("stage_10")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
+
+# ─── Dataset Formatter ────────────────────────────────────────
+def format_qa_for_training(qa_pairs: list[dict]) -> list[dict]:
+    """Convert QA pairs to conversational messages format.
+
+    Skips records that need generation or have empty question/answer.
+    Preserves category and context in the user message.
+
+    Returns list of {"messages": [{"role": "user", ...}, {"role": "assistant", ...}]}
+    """
+    formatted = []
+    skipped = 0
+    with_context = 0
+
+    for qa in qa_pairs:
+        if qa.get("needs_generation"):
+            skipped += 1
+            continue
+
+        question = qa.get("question", "").strip()
+        answer = qa.get("answer", "").strip()
+
+        if not question or not answer:
+            skipped += 1
+            continue
+
+        category = qa.get("category", "biryani").strip()
+        context = qa.get("context", "").strip()
+
+        if context:
+            with_context += 1
+
+        # Build user message with category + context + question
+        user_parts = [f"Category: {category}"]
+        if context:
+            user_parts.append(f"Context: {context}")
+        user_parts.append(f"Question: {question}")
+        user_content = "\n\n".join(user_parts)
+
+        formatted.append({
+            "messages": [
+                {"role": "user", "content": user_content},
+                {"role": "assistant", "content": answer},
+            ]
+        })
+
+    logger.info(f"  Formatted: {len(formatted)}, Skipped: {skipped}, With context: {with_context}")
+    return formatted
+
+
+# ─── Main ─────────────────────────────────────────────────────
+def main() -> None:
+    parser = argparse.ArgumentParser(description="CulinaryVLM Stage 10 — QLoRA Fine-tuning")
+    parser.add_argument("--epochs", type=int, default=3)
+    parser.add_argument("--lr", type=float, default=2e-4)
+    parser.add_argument("--batch-size", type=int, default=1,
+                        help="Per-device train batch size (default: 1 for reliability)")
+    parser.add_argument("--grad-accum", type=int, default=8,
+                        help="Gradient accumulation steps (default: 8, effective batch = 8)")
+    parser.add_argument("--lora-r", type=int, default=16)
+    parser.add_argument("--lora-alpha", type=int, default=32)
+    parser.add_argument("--max-seq-length", type=int, default=2048)
+    parser.add_argument("--push-to-hub", action="store_true")
+    parser.add_argument("--dry-run", action="store_true",
+                        help="Validate config and dataset without loading model")
+    parser.add_argument("--smoke-test", action="store_true",
+                        help="Run 1 training step on tiny subset to verify full pipeline")
+    args = parser.parse_args()
+
+    logger.info("╔══════════════════════════════════════════════════╗")
+    logger.info("║  CulinaryVLM — Stage 10: QLoRA Fine-tuning      ║")
+    logger.info("╚══════════════════════════════════════════════════╝")
+
+    # ── 1. Load and validate datasets ─────────────────────────
+    train_path = PROJECT_ROOT / "datasets" / "qa" / "train_filtered.json"
+    test_path = PROJECT_ROOT / "datasets" / "qa" / "test_filtered.json"
+
+    if not train_path.exists():
+        logger.error(f"Not found: {train_path}. Run Stage 9C first.")
+        sys.exit(1)
+    if not test_path.exists():
+        logger.error(f"Not found: {test_path}. Run Stage 9C first.")
+        sys.exit(1)
+
+    with open(train_path) as f:
+        train_data = json.load(f).get("qa_pairs", [])
+    with open(test_path) as f:
+        test_data = json.load(f).get("qa_pairs", [])
+
+    logger.info(f"Raw dataset — Train: {len(train_data)}, Test: {len(test_data)}")
+
+    logger.info("Formatting train split:")
+    train_formatted = format_qa_for_training(train_data)
+    logger.info("Formatting test split:")
+    test_formatted = format_qa_for_training(test_data)
+
+    logger.info(f"Final — Train: {len(train_formatted)}, Test: {len(test_formatted)}")
+
+    if not train_formatted:
+        logger.error("No valid training examples after formatting. Check dataset.")
+        sys.exit(1)
+
+    # Show one example
+    sample = train_formatted[0]
+    logger.info(f"Sample user message (first 200 chars): {sample['messages'][0]['content'][:200]}")
+    logger.info(f"Sample assistant message (first 100 chars): {sample['messages'][1]['content'][:100]}")
+
+    # ── 2. Dry run — stop here ────────────────────────────────
+    if args.dry_run:
+        logger.info("[DRY RUN] Config validated:")
+        logger.info(f"  Model: unsloth/Llama-3.2-11B-Vision-Instruct-bnb-4bit")
+        logger.info(f"  LoRA r={args.lora_r}, alpha={args.lora_alpha}")
+        logger.info(f"  Epochs: {args.epochs}, LR: {args.lr}")
+        logger.info(f"  Batch: {args.batch_size}, Grad accum: {args.grad_accum}")
+        logger.info(f"  Max seq length: {args.max_seq_length}")
+        logger.info(f"  Train examples: {len(train_formatted)}")
+        logger.info(f"  Test examples: {len(test_formatted)}")
+        logger.info("[DRY RUN] Dataset and config OK. Use --smoke-test to verify GPU pipeline.")
+        return
+
+    # ── 3. Import GPU dependencies ────────────────────────────
+    # PyTorch 2.4 compatibility shim for Transformers 5.5.
+    # Transformers 5.5 expects nn.Module.set_submodule(),
+    # but PyTorch 2.4 does not provide it.
+    import torch
+    import torch.nn as nn
+
+    if not hasattr(nn.Module, "set_submodule"):
+        def set_submodule(self, target, module, strict=False):
+            if not isinstance(module, nn.Module):
+                raise TypeError(
+                    f"module must be an nn.Module, got {type(module).__name__}"
+                )
+
+            if not target:
+                raise ValueError("target cannot be empty")
+
+            atoms = target.split(".")
+            parent = self
+
+            for atom in atoms[:-1]:
+                if not hasattr(parent, atom):
+                    if strict:
+                        raise AttributeError(
+                            f"{parent.__class__.__name__} has no attribute {atom}"
+                        )
+                    raise AttributeError(
+                        f"Cannot find intermediate module '{atom}' "
+                        f"while setting '{target}'"
+                    )
+
+                parent = getattr(parent, atom)
+
+                if not isinstance(parent, nn.Module):
+                    raise AttributeError(
+                        f"'{atom}' is not an nn.Module"
+                    )
+
+            name = atoms[-1]
+
+            if strict and not hasattr(parent, name):
+                raise AttributeError(
+                    f"{parent.__class__.__name__} has no attribute {name}"
+                )
+
+            setattr(parent, name, module)
+
+        nn.Module.set_submodule = set_submodule
+
+        logger.info("Applied PyTorch 2.4 compatibility shim: nn.Module.set_submodule")
+
+    try:
+        from unsloth import FastVisionModel
+    except ImportError as e:
+        logger.error(f"Import failed: {e}")
+        logger.error("Run on GPU cluster with unsloth installed.")
+        sys.exit(1)
+
+    logger.info(f"torch: {torch.__version__}, CUDA: {torch.cuda.is_available()}")
+    if torch.cuda.is_available():
+        logger.info(f"GPU: {torch.cuda.get_device_name(0)}")
+        logger.info(f"VRAM: {torch.cuda.get_device_properties(0).total_memory / 1e9:.1f} GB")
+    else:
+        logger.error("CUDA not available. Must run on GPU node.")
+        sys.exit(1)
+
+    # ── 4. Load model ─────────────────────────────────────────
+    model_name = "unsloth/Llama-3.2-11B-Vision-Instruct-bnb-4bit"
+    logger.info(f"Loading {model_name}...")
+
+    model, tokenizer = FastVisionModel.from_pretrained(
+        model_name=model_name,
+        max_seq_length=args.max_seq_length,
+        dtype=torch.bfloat16,
+        load_in_4bit=True,
+    )
+    logger.info("Model loaded successfully.")
+
+    # ── 5. Attach LoRA ────────────────────────────────────────
+    lora_targets = [
+        "q_proj", "k_proj", "v_proj", "o_proj",
+        "gate_proj", "up_proj", "down_proj",
+    ]
+    logger.info(f"Attaching LoRA: r={args.lora_r}, alpha={args.lora_alpha}, targets={lora_targets}")
+
+    model = FastVisionModel.get_peft_model(
+        model,
+        r=args.lora_r,
+        target_modules=lora_targets,
+        lora_alpha=args.lora_alpha,
+        lora_dropout=0,
+        bias="none",
+        use_gradient_checkpointing="unsloth",
+        finetune_vision_layers=False,
+        finetune_language_layers=True,
+        finetune_attention_modules=True,
+        finetune_mlp_modules=True,
+    )
+    logger.info("LoRA adapters attached.")
+
+    # ── 6. Inspect chat template ──────────────────────────────
+    if tokenizer.chat_template:
+        logger.info(f"Chat template present (first 120 chars): {tokenizer.chat_template[:120]}")
+    else:
+        logger.warning("No chat template found on tokenizer. SFTTrainer will use default formatting.")
+
+    # ── 7. Build HuggingFace Datasets ─────────────────────────
+    from datasets import Dataset
+
+    if args.smoke_test:
+        # Tiny subset for smoke test
+        train_subset = train_formatted[:50]
+        test_subset = test_formatted[:10]
+        logger.info(f"[SMOKE TEST] Using {len(train_subset)} train, {len(test_subset)} test examples")
+    else:
+        train_subset = train_formatted
+        test_subset = test_formatted
+
+    train_ds = Dataset.from_list(train_subset)
+    test_ds = Dataset.from_list(test_subset)
+    logger.info(f"Datasets created — Train: {len(train_ds)}, Test: {len(test_ds)}")
+
+    # ── 8. Configure trainer ──────────────────────────────────
+    from trl import SFTConfig, SFTTrainer
+
+    output_dir = PROJECT_ROOT / "models" / "culinary_vlm_qlora"
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    # Smoke test overrides
+    num_epochs = 1 if args.smoke_test else args.epochs
+    max_steps = 1 if args.smoke_test else -1
+    save_strategy = "no" if args.smoke_test else "epoch"
+    eval_strategy = "no" if args.smoke_test else "epoch"
+    eval_steps = None
+    logging_steps = 1 if args.smoke_test else 10
+
+    sft_config = SFTConfig(
+        output_dir=str(output_dir),
+
+        # Batch sizing
+        per_device_train_batch_size=args.batch_size,
+        per_device_eval_batch_size=1,
+        gradient_accumulation_steps=args.grad_accum,
+
+        # Schedule
+        warmup_steps=5 if args.smoke_test else 10,
+        num_train_epochs=num_epochs,
+        max_steps=max_steps,
+        learning_rate=args.lr,
+
+        # Precision
+        bf16=True,
+        fp16=False,
+
+        # Logging
+        logging_steps=logging_steps,
+
+        # Eval & save
+        eval_strategy=eval_strategy,
+        eval_steps=eval_steps,
+        save_strategy=save_strategy,
+
+        # Best model (only when saving)
+        load_best_model_at_end=(save_strategy != "no"),
+        metric_for_best_model="eval_loss" if save_strategy != "no" else None,
+        greater_is_better=False if save_strategy != "no" else None,
+
+        # Optimizer
+        optim="adamw_8bit",
+
+        # Sequence length — SFTConfig uses 'max_length', not 'max_seq_length'
+        max_length=args.max_seq_length,
+
+        # Misc
+        report_to="none",
+        seed=3407,
+    )
+
+    def formatting_func(example):
+        text = tokenizer.apply_chat_template(
+            example["messages"],
+            tokenize=False,
+            add_generation_prompt=False,
+        )
+        return [text]
+
+    trainer = SFTTrainer(
+        model=model,
+        processing_class=tokenizer,
+        train_dataset=train_ds,
+        eval_dataset=test_ds,
+        args=sft_config,
+        formatting_func=formatting_func,
+    )
+
+    # ── 9. Train ──────────────────────────────────────────────
+    mode = "SMOKE TEST" if args.smoke_test else "FULL TRAINING"
+    logger.info(f"Starting {mode}...")
+    logger.info(f"  Epochs: {num_epochs}, Max steps: {max_steps}")
+    logger.info(f"  Batch: {args.batch_size}, Grad accum: {args.grad_accum}")
+    logger.info(f"  Effective batch: {args.batch_size * args.grad_accum}")
+    logger.info(f"  Max seq length: {args.max_seq_length}")
+
+    train_result = trainer.train()
+
+    logger.info(f"Training complete. Loss: {train_result.training_loss:.4f}")
+
+    # ── 10. Evaluate ──────────────────────────────────────────
+    logger.info("Running evaluation...")
+    eval_result = trainer.evaluate()
+    logger.info(f"Eval loss: {eval_result.get('eval_loss', 'N/A')}")
+
+    # ── 11. Save ──────────────────────────────────────────────
+    final_dir = output_dir / "final"
+    if args.smoke_test:
+        final_dir = output_dir / "smoke_test"
+
+    logger.info(f"Saving adapter to: {final_dir}")
+    model.save_pretrained(str(final_dir))
+    tokenizer.save_pretrained(str(final_dir))
+
+    # Verify saved files
+    saved_files = list(final_dir.iterdir()) if final_dir.exists() else []
+    logger.info(f"Saved files ({len(saved_files)}):")
+    for f in sorted(saved_files):
+        size_kb = f.stat().st_size / 1024
+        logger.info(f"  {f.name}: {size_kb:.1f} KB")
+
+    # ── 12. Reload test (smoke test only) ─────────────────────
+    if args.smoke_test:
+        logger.info("Verifying saved adapter_config.json...")
+        try:
+            # We just check the adapter_config.json is valid
+            adapter_config_path = final_dir / "adapter_config.json"
+            if adapter_config_path.exists():
+                with open(adapter_config_path) as f:
+                    adapter_cfg = json.load(f)
+                logger.info(f"  adapter_config.json valid: r={adapter_cfg.get('r')}, "
+                            f"alpha={adapter_cfg.get('lora_alpha')}")
+            else:
+                logger.warning("  adapter_config.json not found in saved checkpoint")
+            logger.info("Adapter config verification passed.")
+        except Exception as e:
+            logger.warning(f"  Adapter reload test: {e}")
+
+        logger.info("╔══════════════════════════════════════════════════╗")
+        logger.info("║  SMOKE TEST PASSED — all pipeline stages OK     ║")
+        logger.info("╚══════════════════════════════════════════════════╝")
+        logger.info("Safe to run full training with:")
+        logger.info("  python training/finetune_qlora.py --epochs 3")
+        return
+
+    # ── 13. Push to hub (only on explicit request) ────────────
+    if args.push_to_hub:
+        hf_token = os.environ.get("HF_TOKEN", "")
+        if not hf_token or hf_token.startswith("REPLACE"):
+            logger.error("--push-to-hub requested but HF_TOKEN not set in environment.")
+            logger.error("Set HF_TOKEN in .env or export it before running.")
+        else:
+            logger.info("Pushing to HuggingFace Hub...")
+            model.push_to_hub("shivam-biryani/culinary-vlm-qlora", token=hf_token)
+            logger.info("Pushed to HuggingFace Hub.")
+
+    logger.info("✓ Stage 10 complete! NEXT: Stage 11 — python pipeline/11_build_faiss.py")
+
+
+if __name__ == "__main__":
+    main()

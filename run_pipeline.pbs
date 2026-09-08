@@ -1,0 +1,73 @@
+#!/bin/bash
+#PBS -N culinary_pipe
+#PBS -q Gpu7-80g
+#PBS -l walltime=48:00:00
+#PBS -j oe
+#PBS -o /storage/home/bagler/Shivam_Minde/CulinaryVLM/pipeline_live.log
+
+cd /storage/home/bagler/Shivam_Minde/CulinaryVLM
+
+# Force unbuffered Python output so logs appear instantly
+export PYTHONUNBUFFERED=1
+export PYTHONIOENCODING=utf-8
+
+source /storage/home/bagler/anaconda3/etc/profile.d/conda.sh
+conda activate biryani_hv
+
+export PYTHONPATH=$PWD
+export OLLAMA_KEEP_ALIVE=48h
+export CUDA_VISIBLE_DEVICES=GPU-bfacee82-0a55-9ccf-245d-7ff819619515
+
+# Clean up stale Ollama instances & start server
+pkill -9 ollama || true
+CUDA_VISIBLE_DEVICES=GPU-bfacee82-0a55-9ccf-245d-7ff819619515 /storage/home/bagler/bin/ollama serve > /storage/home/bagler/Shivam_Minde/CulinaryVLM/ollama_daemon.log 2>&1 &
+sleep 6
+
+echo "=========================================================="
+echo "▶ [$(date)] STARTING CULINARY VLM MASTER PIPELINE"
+echo "=========================================================="
+
+# 1. Stage 2: ASR & Translation
+echo "▶ [1/8] Stage 2: ASR & Translation (WhisperX)"
+python -u pipeline/02_asr.py --resume
+
+# 2. Stage 4: Segmentation
+echo "▶ [2/8] Stage 4: Visual Segmentation"
+python -u pipeline/04_segment.py
+
+# 3. Stage 5: Clustering
+echo "▶ [3/8] Stage 5: Action Clustering"
+python -u pipeline/05_cluster.py
+
+# 4. Stage 6: Verification
+echo "▶ [4/8] Stage 6: Segment Logic Verification"
+python -u pipeline/06_verify.py --resume
+
+# 5. Stage 7: DTW Alignment
+echo "▶ [5/8] Stage 7: Multimodal DTW Frame Alignment"
+python -u pipeline/07_align.py
+
+# 6. Stage 8: VidDiff
+echo "▶ [6/8] Stage 8: Cross-Regional Aspect Comparison"
+python -u pipeline/08_viddiff.py
+
+# 7. Stage 9 & 9B: QA Dataset Generation
+echo "▶ [7/8] Stage 9: Multi-Tier QA Dataset Generation"
+python -u pipeline/09_generate_qa.py --model qwen2.5:32b-instruct
+python -u pipeline/09b_fill_qa_answers.py --tier medium --model qwen2.5:32b-instruct
+python -u pipeline/09b_fill_qa_answers.py --tier hard   --model qwen2.5:32b-instruct
+python -u pipeline/09b_fill_qa_answers.py --tier expert --model qwen2.5:32b-instruct
+
+# 8. Stage 9C: Quality Filter
+echo "▶ [8/8] Stage 9C: Automated Quality Filtering"
+python -u pipeline/09c_filter_qa.py
+mv datasets/qa/train_filtered.json datasets/qa/train.json
+mv datasets/qa/test_filtered.json datasets/qa/test.json
+
+# 9. Stage 11: FAISS Vector DB
+echo "▶ Stage 11: Building FAISS Knowledge Base"
+python -u pipeline/11_build_faiss.py
+
+echo "=========================================================="
+echo "✓ [$(date)] PIPELINE COMPLETED SUCCESSFULLY"
+echo "=========================================================="

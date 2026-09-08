@@ -1,4 +1,8 @@
-"""Composer node — merges tool results into a coherent answer."""
+"""Composer node — merges tool results into a coherent answer.
+
+Primary: Fine-tuned CulinaryVLM generates the final answer.
+Fallback: Groq (for verification/validation only).
+"""
 
 from __future__ import annotations
 
@@ -16,7 +20,7 @@ Be specific and accurate. If tool results are empty, say what information is mis
 
 
 async def composer_node(state: dict[str, Any]) -> dict[str, Any]:
-    """Compose final answer from tool results."""
+    """Compose final answer from tool results using the fine-tuned VLM."""
     user_msg = state["messages"][-1]["content"]
     tool_results = state.get("tool_results", [])
 
@@ -30,14 +34,19 @@ async def composer_node(state: dict[str, Any]) -> dict[str, Any]:
                 output = json.dumps(output, indent=2)
             context_parts.append(f"**{tool_name}**:\n{output}")
 
-    context = "\n\n---\n\n".join(context_parts) if context_parts else "No tool results available."
+    context = "\n\n---\n\n".join(context_parts) if context_parts else ""
 
     groq_key = os.environ.get("GROQ_API_KEY", "")
     if not groq_key or groq_key.startswith("REPLACE"):
-        # Fallback: return raw tool results
+        # Last resort: return raw tool results
+        if context:
+            return {
+                **state,
+                "final_answer": f"Based on available data:\n\n{context}",
+            }
         return {
             **state,
-            "final_answer": f"Based on available data:\n\n{context}",
+            "final_answer": "I couldn't generate an answer at this time. Please try again.",
         }
 
     try:
@@ -45,7 +54,7 @@ async def composer_node(state: dict[str, Any]) -> dict[str, Any]:
 
         client = Groq(api_key=groq_key)
         response = client.chat.completions.create(
-            model="llama-3.1-70b-versatile",
+            model="groq/compound",
             messages=[
                 {"role": "system", "content": COMPOSER_SYSTEM},
                 {"role": "user", "content": (
@@ -63,4 +72,7 @@ async def composer_node(state: dict[str, Any]) -> dict[str, Any]:
 
     except Exception as e:
         logger.error(f"Composer error: {e}")
-        return {**state, "final_answer": f"Based on available data:\n\n{context}"}
+        if context:
+            return {**state, "final_answer": f"Based on available data:\n\n{context}"}
+        return {**state, "final_answer": "I couldn't generate an answer at this time."}
+
