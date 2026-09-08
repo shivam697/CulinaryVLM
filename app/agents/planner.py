@@ -43,22 +43,50 @@ async def planner_node(state: dict[str, Any]) -> dict[str, Any]:
         }
 
     try:
+        import time
         from groq import Groq
 
         client = Groq(api_key=groq_key)
-        response = client.chat.completions.create(
-            model="groq/compound",
-            messages=[
-                {"role": "system", "content": PLANNER_SYSTEM},
-                {"role": "user", "content": user_msg},
-            ],
-            temperature=0.1,
-            max_tokens=512,
-            response_format={"type": "json_object"},
-        )
+
+        # Try with primary model, fall back to smaller model on rate limit
+        models_to_try = ["allam-2-7b", "qwen/qwen3.8-27b"]
+        response = None
+        last_error = None
+
+        for model_name in models_to_try:
+            try:
+                response = client.chat.completions.create(
+                    model=model_name,
+                    messages=[
+                        {"role": "system", "content": PLANNER_SYSTEM},
+                        {"role": "user", "content": user_msg},
+                    ],
+                    temperature=0.1,
+                    max_tokens=512,
+                )
+                break  # success
+            except Exception as model_err:
+                err_str = str(model_err)
+                last_error = model_err
+                if "rate_limit_exceeded" in err_str or "429" in err_str:
+                    logger.warning(f"Rate limit on {model_name}, trying next model...")
+                    time.sleep(2)
+                    continue
+                raise  # non-rate-limit error, re-raise immediately
+
+        if response is None:
+            raise last_error
 
         plan_text = response.choices[0].message.content.strip()
-        plan = json.loads(plan_text)
+
+        # Parse JSON — handle models that don't support json_object mode
+        try:
+            plan = json.loads(plan_text)
+        except json.JSONDecodeError:
+            # Extract JSON block if model wrapped it in markdown
+            import re
+            match = re.search(r'\{.*\}', plan_text, re.DOTALL)
+            plan = json.loads(match.group()) if match else {}
 
         return {
             **state,

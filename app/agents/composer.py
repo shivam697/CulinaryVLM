@@ -50,22 +50,42 @@ async def composer_node(state: dict[str, Any]) -> dict[str, Any]:
         }
 
     try:
+        import time
         from groq import Groq
 
         client = Groq(api_key=groq_key)
-        response = client.chat.completions.create(
-            model="groq/compound",
-            messages=[
-                {"role": "system", "content": COMPOSER_SYSTEM},
-                {"role": "user", "content": (
-                    f"User question: {user_msg}\n\n"
-                    f"Tool results:\n{context}\n\n"
-                    f"Compose a clear, helpful answer."
-                )},
-            ],
-            temperature=0.3,
-            max_tokens=1024,
-        )
+
+        models_to_try = ["allam-2-7b", "qwen/qwen3.8-27b"]
+        response = None
+        last_error = None
+
+        for model_name in models_to_try:
+            try:
+                response = client.chat.completions.create(
+                    model=model_name,
+                    messages=[
+                        {"role": "system", "content": COMPOSER_SYSTEM},
+                        {"role": "user", "content": (
+                            f"User question: {user_msg}\n\n"
+                            f"Tool results:\n{context}\n\n"
+                            f"Compose a clear, helpful answer."
+                        )},
+                    ],
+                    temperature=0.3,
+                    max_tokens=1024,
+                )
+                break
+            except Exception as model_err:
+                err_str = str(model_err)
+                last_error = model_err
+                if "rate_limit_exceeded" in err_str or "429" in err_str:
+                    logger.warning(f"Rate limit on {model_name}, trying next model...")
+                    time.sleep(2)
+                    continue
+                raise
+
+        if response is None:
+            raise last_error
 
         answer = response.choices[0].message.content.strip()
         return {**state, "final_answer": answer}
